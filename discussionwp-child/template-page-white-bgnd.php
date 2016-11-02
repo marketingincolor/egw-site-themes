@@ -24,6 +24,7 @@ $story_form = is_page('storytellers') ? 'width:67%; margin:auto;' : '';
  *  ---1.0.1 HOW TO GET INVOLVED
  *  ---1.0.2 REGISTER
  *  ---1.0.3 LOGIN
+ *  ---1.0.4 BUTTONS
  *  2.0 SMALL MEDIA QUERY
  *  3.0 LARGE MEDIA QUERY
  * 
@@ -31,8 +32,9 @@ $story_form = is_page('storytellers') ? 'width:67%; margin:auto;' : '';
  * 1.0.0 NORMALIZE PAGE STYLE
  * -----------------------------------------------------------------------------
  */
-.xmas-image::::-webkit-scrollbar:display:none;
 .page-template-template-page-white-bgnd p { font-family: 'Roboto', sans-serif; font-weight: normal; color: #6c6b6b; font-size: 1em; }
+.page-template-template-page-white-bgnd h1 { font-family: 'Roboto', sans-serif; font-weight:bold; color:#6c6b6b; padding-top:1em; }
+.page-template-template-page-white-bgnd h2 { font-family: 'Roboto', sans-serif; font-weight:bold; color:#6c6b6b; font-size:1.733em; padding-top:1em; }
 .page-template-template-page-white-bgnd h3 { font-family: 'Roboto', sans-serif; font-weight:bold; color:#6c6b6b; font-size:1.733em; padding-top:1em; }
 .page-template-template-page-white-bgnd h4 { font-family: 'Roboto', sans-serif; font-weight:bold; color:#6c6b6b; font-size:1.4em; padding-top:1em; }
 .page-template-template-page-white-bgnd { background-color: #ffffff; }
@@ -51,10 +53,29 @@ $story_form = is_page('storytellers') ? 'width:67%; margin:auto;' : '';
 	font-weight:bold;
 	padding: 15% 10% 0%; 
 }
+.page-template-template-page-white-bgnd .large-orange-header-survey { 
+	text-align: center; 
+	color: #f79c49; 
+	font-size:3.200em; 
+	font-family: 'Roboto', sans-serif; 
+	font-weight:bold;
+}
 .page-template-template-page-white-bgnd .mkd-content .mkd-container .page-feature-image img { 
 	border-top-right-radius: 60px; 
 	border-bottom-left-radius: 60px;  
 }
+.page-template-template-page-white-bgnd .smcx-embed { width: 100% !important; }
+.page-template-template-page-white-bgnd .smcx-embed>.smcx-iframe-container { max-width: 100% !important; }
+.smcx-embed>.smcx-embed-footer { display:none !important; }
+.page-template-template-page-white-bgnd .smcx-embed { height: 100% !important; max-width:none !important; }
+.smcx-embed { border: none !important; }
+.smcx-embed > .smcx-iframe-container { height: 2950px !important; }
+.survey-page .survey-page-button.done-button { background-color: #f99d3e !important; }
+
+.survey-page 
+.survey-page-button:hover { box-shadow:none !important; }
+
+
 /**
  * -----------------------------------------------------------------------------
  * 1.0.1 HOW TO GET INVOLVED
@@ -84,6 +105,47 @@ $story_form = is_page('storytellers') ? 'width:67%; margin:auto;' : '';
  * -----------------------------------------------------------------------------
  */
 .page-template-template-page-white-bgnd .mkd-content .mkd-container .login-container { background-color: #edebeb; }
+
+/**
+ * -----------------------------------------------------------------------------
+ * 1.0.4 Buttons
+ * -----------------------------------------------------------------------------
+ */
+
+.orange_buttons {
+    /* border: 1px solid #f79d49; */
+    border: 1px solid;
+    border-color: #de8d41 #f79d49 #f79d49;
+    background-color: #f79d49;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f79d49), to(#f79d49));
+    background-image: -moz-linear-gradient(top, #f79d49, #f79d49);
+    background-image: linear-gradient(top, #f79d49, #f79d49);
+    padding: 8px 5px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+    vertical-align: middle;
+    text-align: center;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    display: inline-block;
+    width: 357px !important;
+}
+.orange_buttons:hover {
+    background-color: #f79d49;
+    background-image: none;
+    color: white;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    -o-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+}
+
 /**
  * -----------------------------------------------------------------------------
  * 2.0 SMALL MEDIA QUERY
@@ -91,6 +153,9 @@ $story_form = is_page('storytellers') ? 'width:67%; margin:auto;' : '';
  */
 @media only screen 
 and (min-device-width : 320px) { 
+
+/*Normalize*/
+.page-id-3702 h1 { text-align:center; font-size: 1.5em;}
 
 /*Pretty Featured Images For Small Devices */
 .page-template-template-page-white-bgnd .mkd-content .mkd-container .page-feature-image img {
@@ -105,6 +170,9 @@ and (min-device-width : 320px) {
 #refer-friend-text { text-align: center; }
 .welcome-survey-p-padding { padding: 0% 0% !important; }
 
+.page-template-template-page-white-bgnd .large-orange-header-survey { font-size: 1.5em; }
+.modern-browser .question-matrix-table.reflow .matrix-row-label { padding-top:1em !important; }
+
 }
 /*
  * -----------------------------------------------------------------------------
@@ -113,11 +181,11 @@ and (min-device-width : 320px) {
  */
 @media only screen 
 and (min-device-width : 1000px) { 
-
+.page-id-3702 h1 { font-size:2em; text-align:center; font-size:2em; }
 .join-page-mobile { display: initial !important; }
 .hide-for-large { display:none; }
 .page-template-template-page-white-bgnd .mkd-content .mkd-container .hide-for-small { display:initial !important; }
-
+.page-template-template-page-white-bgnd .large-orange-header-survey { font-size: 2em; }
 .page-template-template-page-white-bgnd .mkd-content .mkd-container .page-feature-image img {
     border-top-right-radius: 60px;
     border-bottom-left-radius: 60px;
@@ -155,31 +223,6 @@ and (min-device-width : 1000px) {
 #label45573915 > div > label { padding: 7px 0px; }
 #label45574099 > div > label { padding: 7px 0px; }
 #label45574563 > div > label { padding: 7px 0px; }
-}
-
-/*Storytellers Button*/
-.storyButton {
-	-moz-box-shadow: 0px 0px 4px -2px #90948f;
-	-webkit-box-shadow: 0px 0px 4px -2px #90948f;
-	box-shadow: 0px 0px 4px -2px #90948f;
-	background-color:#f89d38;
-	-moz-border-radius:15px;
-	border:2px solid #f58610;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:16px;
-	padding:7px 33px;
-	text-decoration:none;
-	text-shadow:1px 1px 5px #2f6627;
-}
-.storyButton:hover {
-	background-color:#f58510;
-}
-.storyButton:active {
-	position:relative;
-	top:1px;
 }
 
 /**
