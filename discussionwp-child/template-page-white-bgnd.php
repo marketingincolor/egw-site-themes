@@ -133,6 +133,7 @@ $story_form = is_page('storytellers') ? 'width:67%; margin:auto;' : '';
     text-align: center;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     display: inline-block;
+    width: 357px !important;
 }
 .orange_buttons:hover {
     background-color: #f79d49;
@@ -189,6 +190,9 @@ and (orientation : landscape) {
 
 @media only screen 
 and (min-device-width : 320px) { 
+/*Normalize*/
+.page-id-3702 h1 { text-align:center; font-size: 1.5em;}
+
 /*Normalize*/
 .page-id-3702 h1 { text-align:center; font-size: 1.5em;}
 
@@ -269,8 +273,6 @@ and (min-device-width : 1000px) {
 #label45574099 > div > label { padding: 7px 0px; }
 #label45574563 > div > label { padding: 7px 0px; }
 }
-
-
 
 /**
  * -----------------------------------------------------------------------------
