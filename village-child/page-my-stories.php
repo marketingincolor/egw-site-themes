@@ -38,7 +38,7 @@ $merged_new_ar = array();
                         <?php get_template_part('block/follow-and-unfollow-pack'); ?>
                         <div class="mkd-two-columns-75-25  mkd-content-has-sidebar clearfix">
                             <div class="mkd-column1 mkd-content-left-from-sidebar">
-                                <div class="mkd-column-inner" id="articlefeedupdate">
+                                <div class="mkd-column-inner">
                                     <?php
                                     /**
                                      * Fetching category if user follows subcategory and displaying article based on that categories
@@ -177,24 +177,10 @@ $merged_new_ar = array();
                 success: function (successvalue) {
                     if (jQuery('#followedSubcat').html(successvalue)) {
                         document.getElementById("selectbox-msg").innerHTML = '<div class="follow-vad-tick"><i class="fa fa-check" aria-hidden="true"></i>You have subscribed successfully</div>';
-                        //Ajax - Article feed loading...
-                        jQuery.ajax({
-                            type: "POST",
-                            url: "<?php echo bloginfo('wpurl'); ?>/wp-admin/admin-ajax.php",
-                            data: {
-                                action: 'followed_articles_feed',
-                            },
-                            success: function (reldata) {
-                                jQuery("#articlefeedupdate").append(reldata);
-                            }
-                        });
-
                     }
 
                     jQuery('select').children('option[value="' + datasubcatslectbox + '"]').attr('disabled', true);
-                    //location.reload();
-
-
+                    location.reload(true);
                 }
             });
             return false;
@@ -224,7 +210,7 @@ $merged_new_ar = array();
                 success: function (deletedvalue) {
                     if (jQuery('#followedSubcat').html(deletedvalue)) {
                         document.getElementById("unfollowed-msg").innerHTML = '<div class="follow-vad-tick"><i class="fa fa-check" aria-hidden="true"></i> You have unfollowed successfully</div>';
-                        location.reload();
+                        location.reload(true);
                     }
                 }
             });
