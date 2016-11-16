@@ -18,7 +18,8 @@ list($post_per_section, $post_type) = scroll_loadpost_settings();
                     <div class="mkd-bnl-inner">
 
                         <?php
-                        $total_unfollowed_posts = 0;
+                       
+                        $total_unfollowed_posts=0;
                         if ($total_followed_posts != 0 && !empty($subcat_id_ar)) {
                             $i = 0;
                             $total_post = 0;
@@ -47,14 +48,14 @@ list($post_per_section, $post_type) = scroll_loadpost_settings();
                                 }
                                 $title_cls = 0;
                             }
-
+                       
                             /*
                              * Show remaining article belongs to following subcategories
                              */
                             $j = 0;
                             if ($i < $post_per_section) {
-                                $remaining = $post_per_section - $i;
-                                $posts = remainfollow_categorypost_detail($post_type, $subcat_id_ar, $display_postid_ar, $remaining);
+                              $remaining = $post_per_section - $i;
+                                $posts = remainfollow_categorypost_detail($post_type, $subcat_id_ar, $display_postid_ar,$remaining);
                                 if (!empty($posts)) {
                                     foreach ($posts as $post): setup_postdata($post);
                                         if ($j == $remaining)
@@ -67,7 +68,7 @@ list($post_per_section, $post_type) = scroll_loadpost_settings();
                                 }
                             }
                             $k = 0;
-
+                            
                             // echo "Article Total-".$total_followed_posts = count(get_posts(array('post_type' => $post_type, 'post__not_in' => $display_postid_ar, 'category' => $subcat_id_ar, 'nopaging' => true)));
                             /**
                              * displaying remaining unfollow article if we have less followed articles
@@ -86,15 +87,14 @@ list($post_per_section, $post_type) = scroll_loadpost_settings();
 //                                endif;
 //                                wp_reset_postdata();
 //                            }
-
+                            
                             $_SESSION["display_postid_ar"] = $display_postid_ar;
                             $_SESSION["displayed_sub_cat_ar"] = $displayed_sub_cat_ar;
-
+                            
                             /**
                              * collected post id and display detail
                              */
                             if (!empty($display_postid_ar)) {
-
                                 $followed_posts = query_posts(array('post_type' => $post_type, 'post__in' => $display_postid_ar, 'nopaging' => true, 'orderby' => 'post__in'));
                                 global $wp_query;
                                 get_template_part('block/home-article-detail');
@@ -107,7 +107,7 @@ list($post_per_section, $post_type) = scroll_loadpost_settings();
                     </div>
                 </div>
                 <?php
-                //        $total_followed_posts=count($displayed_sub_cat_ar);
+        //        $total_followed_posts=count($displayed_sub_cat_ar);
                 $total_followed_posts = count(get_posts(array('post_type' => $post_type, 'post__not_in' => $display_postid_ar, 'category' => $subcat_id_ar, 'nopaging' => true)));
                 $total_unfollowed_posts = 0;
                 ?>
