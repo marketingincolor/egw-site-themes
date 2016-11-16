@@ -105,7 +105,7 @@ if (have_posts()) {
                 if ($display_excerpt == 'yes') {
                     ?>
                     <div class="mkd-pt-one-excerpt">
-                        <?php custom_discussion_excerpt(60);?>
+                        <?php custom_discussion_excerpt(60); ?>
                     </div>
                     <?php
                 }
@@ -127,8 +127,6 @@ if (have_posts()) {
                 </div>
             <?php } ?> 
         </div>                      
-
-
 
         <?php
         $i++;
