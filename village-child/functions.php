@@ -141,6 +141,17 @@ if (!function_exists('follow_categorypost_detail')) {
 
 }
 
+function remainfollow_categorypost_detail($post_type, $subcat_id_sgl, $display_postid_ar, $limit) {
+    $posts = get_posts(array(
+        'post_type' => $post_type,
+        'cat' => $subcat_id_sgl,
+        'order' => 'DESC',
+        'posts_per_page' => $limit,
+        'post__not_in' => $display_postid_ar
+    ));
+    return $posts;
+}
+
 /**
  * Author - Rajasingh
  * Date - 26-08-2016
@@ -633,7 +644,7 @@ function discussion_author_recommended_posts() {
     //Remove default short code
     remove_shortcode('AuthorRecommendedPosts');
     global $AuthorRecommendedPosts;
-    remove_action('add_meta_boxes', array($AuthorRecommendedPosts,'add_recommended_meta_box'));
+    remove_action('add_meta_boxes', array($AuthorRecommendedPosts, 'add_recommended_meta_box'));
 
     //Create class and extend author recommended post class to override author recommended section design
     class DiscussionAuthorRecommendPosts extends AuthorRecommendedPosts {
@@ -648,33 +659,27 @@ function discussion_author_recommended_posts() {
          * [get_recommended_id_from_parent description]
          * @return [type] [description]
          */
-
-
-
         private function _add_hooks() {
-                        add_shortcode( 'AuthorRecommendedPosts', array(&$this, 'shortcode' ) );
+            add_shortcode('AuthorRecommendedPosts', array(&$this, 'shortcode'));
 
-            add_action( 'add_meta_boxes', array( &$this, 'add_recommended_meta_box' ) );
-            add_action( 'save_post', array( &$this, 'saving_recommended_posts_ids' ), 10, 2 );
-
+            add_action('add_meta_boxes', array(&$this, 'add_recommended_meta_box'));
+            add_action('save_post', array(&$this, 'saving_recommended_posts_ids'), 10, 2);
         }
 
         function shortcode($atts) {
 
             global $post;
             $namespace = $this->namespace;
-            if ( ! function_exists( 'ThreeWP_Broadcast' ) )
-            {
+            if (!function_exists('ThreeWP_Broadcast')) {
                 return;
             }
-            $broadcast_data = ThreeWP_Broadcast()->get_post_broadcast_data( get_current_blog_id(), $post->ID );
+            $broadcast_data = ThreeWP_Broadcast()->get_post_broadcast_data(get_current_blog_id(), $post->ID);
             $parent = $broadcast_data->get_linked_parent();
-            if ( ! $parent )
-            {
+            if (!$parent) {
                 return;
             }
-            switch_to_blog( $parent[ 'blog_id' ] );
-            
+            switch_to_blog($parent['blog_id']);
+
             if (isset($atts['post_id']) && !empty($atts['post_id'])) {
                 $shortcode_post_id = $atts['post_id'];
             } else {
@@ -691,7 +696,7 @@ function discussion_author_recommended_posts() {
             // echo "<br/>Namespace: " . $namespace . "<br/>";
             // echo "<br/>Recommended Ids: " . implode(",",$recommended_ids) ."<br/>";
 
-            if ( isset($recommended_ids) ) {
+            if (isset($recommended_ids)) {
                 $html_title = $this->get_option("{$namespace}_title");
                 $show_title = $this->get_option("{$namespace}_show_title");
                 $show_featured_image = $this->get_option("{$namespace}_show_featured_image");
@@ -710,168 +715,158 @@ function discussion_author_recommended_posts() {
 
         function add_recommended_meta_box() {
             // set post_types that this meta box shows up on.
-            $author_recommended_posts_post_types = $this->get_option( "{$this->namespace}_post_types" );
+            $author_recommended_posts_post_types = $this->get_option("{$this->namespace}_post_types");
 
-            foreach( $author_recommended_posts_post_types as $author_recommended_posts_post_type ) {
+            foreach ($author_recommended_posts_post_types as $author_recommended_posts_post_type) {
                 // adds to posts $post_type
                 add_meta_box(
-                    $this->namespace . '-recommended_meta_box',
-                    __( 'Author Recommended Posts', $this->namespace ),
-                    array( &$this, 'recommended_meta_box' ),
-                    $author_recommended_posts_post_type,
-                    'side',
-                    'high'
+                        $this->namespace . '-recommended_meta_box', __('Author Recommended Posts', $this->namespace), array(&$this, 'recommended_meta_box'), $author_recommended_posts_post_type, 'side', 'high'
                 );
             }
-
         }
 
-            function saving_recommended_posts_ids( $post_id, $post ) {
-        
-        if( isset( $_REQUEST['_post_ids_nonce'] ) && !empty( $_REQUEST['_post_ids_nonce'] ) ){
-            
-            // Verfiy the nonce before proceeding
-            if( !wp_verify_nonce( $_REQUEST['_post_ids_nonce'], "{$this->namespace}_post_ids_nonce" ) ) {
-                return $post_id;
+        function saving_recommended_posts_ids($post_id, $post) {
+
+            if (isset($_REQUEST['_post_ids_nonce']) && !empty($_REQUEST['_post_ids_nonce'])) {
+
+                // Verfiy the nonce before proceeding
+                if (!wp_verify_nonce($_REQUEST['_post_ids_nonce'], "{$this->namespace}_post_ids_nonce")) {
+                    return $post_id;
+                }
+
+                // Get the post type object.
+                $post_type = get_post_type_object($post->post_type);
+
+                // Check if the current user has permissions to edit the post.
+                if (!current_user_can($post_type->cap->edit_post, $post_id)) {
+                    return $post_id;
+                }
+
+                // Get the posted data and sanitize
+                $new_meta_value = ( isset($_POST['author-recommended-posts']) ? $this->_sanitize($_POST['author-recommended-posts']) : '' );
+
+                // Get the meta key
+                $meta_key = $this->namespace;
+
+                // Get the meta value of the custom field key
+                $meta_value = get_post_meta($post_id, $meta_key, true);
+
+                // If the new meta value was added and there was no previous value, add it.
+                if ($new_meta_value && ( '' == $meta_value )) {
+                    add_post_meta($post_id, $meta_key, $new_meta_value, true);
+
+                    // If the new meta value does not match the old value, update it.
+                } elseif ($new_meta_value && $new_meta_value != $meta_value) {
+                    update_post_meta($post_id, $meta_key, $new_meta_value);
+
+                    // If there is no new meta value but an old value exists, delete it.
+                } elseif (( '' == $new_meta_value ) && $meta_value) {
+                    delete_post_meta($post_id, $meta_key, $meta_value);
+                }
             }
-            
-            // Get the post type object.
-            $post_type = get_post_type_object( $post->post_type );
-            
-            // Check if the current user has permissions to edit the post.
-            if( !current_user_can( $post_type->cap->edit_post, $post_id ) ) {
-                return $post_id;
-            }
-            
-            // Get the posted data and sanitize
-            $new_meta_value = ( isset( $_POST['author-recommended-posts'] ) ? $this->_sanitize( $_POST['author-recommended-posts'] ) : '' );
-            
-            // Get the meta key
-            $meta_key = $this->namespace;
-            
-            // Get the meta value of the custom field key
-            $meta_value = get_post_meta( $post_id, $meta_key, true );
-            
-            // If the new meta value was added and there was no previous value, add it.
-            if ( $new_meta_value && ( '' == $meta_value ) ) {
-                add_post_meta( $post_id, $meta_key, $new_meta_value, true );
-            
-            // If the new meta value does not match the old value, update it.
-            } elseif ( $new_meta_value && $new_meta_value != $meta_value ) {
-                update_post_meta( $post_id, $meta_key, $new_meta_value );
-            
-            // If there is no new meta value but an old value exists, delete it.
-            } elseif ( ( '' == $new_meta_value ) && $meta_value ) {
-                delete_post_meta( $post_id, $meta_key, $meta_value );
-            }
-            
         }
-    }
 
         /**
-     * Sanitize data
-     * 
-     * @param mixed $str The data to be sanitized
-     * 
-     * @uses wp_kses()
-     * 
-     * @return mixed The sanitized version of the data
-     */
-    private function _sanitize( $str ) {
-        if ( !function_exists( 'wp_kses' ) ) {
-            require_once( ABSPATH . 'wp-includes/kses.php' );
-        }
-        global $allowedposttags;
-        global $allowedprotocols;
-        
-        if ( is_string( $str ) ) {
-            $str = wp_kses( $str, $allowedposttags, $allowedprotocols );
-        } elseif( is_array( $str ) ) {
-            $arr = array();
-            foreach( (array) $str as $key => $val ) {
-                $arr[$key] = $this->_sanitize( $val );
+         * Sanitize data
+         * 
+         * @param mixed $str The data to be sanitized
+         * 
+         * @uses wp_kses()
+         * 
+         * @return mixed The sanitized version of the data
+         */
+        private function _sanitize($str) {
+            if (!function_exists('wp_kses')) {
+                require_once( ABSPATH . 'wp-includes/kses.php' );
             }
-            $str = $arr;
-        }
-        
-        return $str;
-    }
+            global $allowedposttags;
+            global $allowedprotocols;
 
+            if (is_string($str)) {
+                $str = wp_kses($str, $allowedposttags, $allowedprotocols);
+            } elseif (is_array($str)) {
+                $arr = array();
+                foreach ((array) $str as $key => $val) {
+                    $arr[$key] = $this->_sanitize($val);
+                }
+                $str = $arr;
+            }
 
-        function recommended_meta_box( $object, $box ) {
-
-        $author_recommended_posts = get_post_meta( $object->ID, $this->namespace, true );
-        $author_recommended_posts_post_types = $this->get_option( "{$this->namespace}_post_types" );
-        $author_recommended_posts_search_results = $this->author_recommended_posts_search();
-        $author_recommended_posts_options_url = admin_url() . '/options-general.php?page=' . $this->namespace;
-
-        include( AUTHOR_RECOMMENDED_POSTS_DIRNAME . '/views/_recommended-meta-box.php' );
-    }
-
-    function author_recommended_posts_search(){
-        global $post;
-        $post_id = $post->ID;
-        $html = '';
-
-        // set post_types that get filtered in the search box.
-        $author_recommended_posts_post_types = $this->get_option( "{$this->namespace}_post_types" );
-
-        // set default query options
-        $options = array(
-            'post_type' =>  $author_recommended_posts_post_types,
-            'posts_per_page' => '-1',
-            'paged' => 0,
-            'order' => 'DESC',
-            'post_status' => array('publish'),
-            'suppress_filters' => false,
-            'post__not_in' => array($post_id),
-            's' => ''
-        );
-
-        // check if ajax
-        $ajax = isset( $_POST['action'] ) ? true : false;
-
-        // if ajax merge $_POST
-        if( $ajax ) {
-            $options = array_merge($options, $_POST);
+            return $str;
         }
 
-        // search
-        if( $options['s'] ) {
-            // set temp title to search query
-            $options['like_title'] = $options['s'];
-            // filter query by title
-            add_filter( 'posts_where', array($this, 'posts_where'), 10, 2 );
+        function recommended_meta_box($object, $box) {
+
+            $author_recommended_posts = get_post_meta($object->ID, $this->namespace, true);
+            $author_recommended_posts_post_types = $this->get_option("{$this->namespace}_post_types");
+            $author_recommended_posts_search_results = $this->author_recommended_posts_search();
+            $author_recommended_posts_options_url = admin_url() . '/options-general.php?page=' . $this->namespace;
+
+            include( AUTHOR_RECOMMENDED_POSTS_DIRNAME . '/views/_recommended-meta-box.php' );
         }
 
-        // unset search so results are accurate and not muddled
-        unset( $options['s'] );
+        function author_recommended_posts_search() {
+            global $post;
+            $post_id = $post->ID;
+            $html = '';
 
-        $searchable_posts = get_posts( $options );
+            // set post_types that get filtered in the search box.
+            $author_recommended_posts_post_types = $this->get_option("{$this->namespace}_post_types");
 
-        if( $searchable_posts ) {
-            foreach( $searchable_posts as $searchable_post ) {
-                // right aligned info
-                $title = '<span class="recommended-posts-post-type">';
-                $title .= $searchable_post->post_type;
-                $title .= '</span>';
-                $title .= '<span class="recommended-posts-title">';
-                $title .= apply_filters( 'the_title', $searchable_post->post_title, $searchable_post->ID );
-                $title .= '</span>';
+            // set default query options
+            $options = array(
+                'post_type' => $author_recommended_posts_post_types,
+                'posts_per_page' => '-1',
+                'paged' => 0,
+                'order' => 'DESC',
+                'post_status' => array('publish'),
+                'suppress_filters' => false,
+                'post__not_in' => array($post_id),
+                's' => ''
+            );
 
-                $html .= '<li><a href="' . get_permalink($searchable_post->ID) . '" data-post_id="' . $searchable_post->ID . '">' . $title .  '</a></li>' . "\n";
+            // check if ajax
+            $ajax = isset($_POST['action']) ? true : false;
+
+            // if ajax merge $_POST
+            if ($ajax) {
+                $options = array_merge($options, $_POST);
+            }
+
+            // search
+            if ($options['s']) {
+                // set temp title to search query
+                $options['like_title'] = $options['s'];
+                // filter query by title
+                add_filter('posts_where', array($this, 'posts_where'), 10, 2);
+            }
+
+            // unset search so results are accurate and not muddled
+            unset($options['s']);
+
+            $searchable_posts = get_posts($options);
+
+            if ($searchable_posts) {
+                foreach ($searchable_posts as $searchable_post) {
+                    // right aligned info
+                    $title = '<span class="recommended-posts-post-type">';
+                    $title .= $searchable_post->post_type;
+                    $title .= '</span>';
+                    $title .= '<span class="recommended-posts-title">';
+                    $title .= apply_filters('the_title', $searchable_post->post_title, $searchable_post->ID);
+                    $title .= '</span>';
+
+                    $html .= '<li><a href="' . get_permalink($searchable_post->ID) . '" data-post_id="' . $searchable_post->ID . '">' . $title . '</a></li>' . "\n";
+                }
+            }
+
+            // if ajax, die and echo $html otherwise just return
+            if ($ajax) {
+                die($html);
+            } else {
+                return $html;
             }
         }
-
-        // if ajax, die and echo $html otherwise just return
-        if( $ajax ) {
-            die( $html );
-        } else {
-            return $html;
-        }
-    }
-
-
 
     }
 
@@ -1058,77 +1053,66 @@ function custom_comment($comment, $args, $depth) {
     if ($is_pingback_comment) {
         $comment_class .= ' mkd-pingback-comment';
     }
-    ?>
-    <li>
-        <div class="<?php echo esc_attr($comment_class); ?>">
-    <?php if (!$is_pingback_comment) { ?>
-                <div class="mkd-comment-image"> 
-        <?php
+    echo '<li>';
+    echo '<div class="' . esc_attr($comment_class) . '">';
+    if (!$is_pingback_comment) {
+        echo '<div class="mkd-comment-image">';
         $user = $comment->user_id;
         $custom_avatar_meta_data = get_user_meta($user, 'custom_avatar');
         if (isset($custom_avatar_meta_data) && !empty($custom_avatar_meta_data[0])):
             $attachment = wp_get_attachment_image_src($custom_avatar_meta_data[0]);
-            ?>
-                        <img src="<?php echo $attachment[0]; ?>" width="85px" height="85px"/>
-                    <?php else : ?>                                                    
-                        <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/aavathar.jpg' ?>" width="85px" height="85px" />
-                    <?php endif; ?>
-                </div>
-                <?php } ?>
-            <div class="mkd-comment-text-and-info">
-                <div class="mkd-comment-info-and-links">
-                    <h6 class="mkd-comment-name">
-            <?php
-            if ($is_pingback_comment) {
-                esc_html_e('Pingback:', 'discussionwp');
-            }
-            $user_name = get_user_meta($user);
-            ?><span class="mkd-comment-author"><?php
-                        if (!empty($user_name['first_name'][0])) {
-                            echo $user_name['first_name'][0];
-                        } else {
-                            echo wp_kses_post(get_comment_author_link());
-                        }
-                        ?></span>
-                        <?php if ($is_author_comment) { ?>
-                            <span class="mkd-comment-mark"><?php esc_html_e('/', 'discussionwp'); ?></span>
-                            <span class="mkd-comment-author-label"><?php esc_html_e('Author', 'discussionwp'); ?></span>
-    <?php } ?>
-                    </h6>
-                    <h6 class="mkd-comment-links">
-    <?php if (!is_user_logged_in()) : ?>
-                            <a href="<?php echo home_url('/login') ?>"><?php _e('Login To Reply', 'discussionwp'); ?></a>
-                            <?php
-                        else :
-                            $userid = get_current_user_id();
-                            $user_blog_id = get_user_meta($userid, 'primary_blog', true);
-                            $blog_id = get_current_blog_id();
-                            if ($blog_id != $user_blog_id):
-                                ?>
-                                <a href="<?php echo home_url('/login') ?>"><?php _e('Login To Reply', 'discussionwp'); ?></a>                                                                   
-                                <?php
-                            else :
-                                comment_reply_link(array_merge($args, array('reply_text' => esc_html__('Reply', 'discussionwp'), 'depth' => $depth, 'max_depth' => $args['max_depth'])));
-                            endif;
-                        endif;
-                        ?>
-                        <span class="mkd-comment-mark"><?php esc_html_e('/', 'discussionwp'); ?></span>
-                        <?php
-                        edit_comment_link(esc_html__('Edit', 'discussionwp'));
-                        ?>
-                    </h6>
-                </div>
-    <?php if (!$is_pingback_comment) { ?>
-                    <div class="mkd-comment-text">
-                        <div class="mkd-text-holder" id="comment-<?php echo comment_ID(); ?>">
-        <?php comment_text(); ?>
-                            <span class="mkd-comment-date"><?php comment_time(get_option('date_format')); ?></span>
-                        </div>
-                    </div>
-    <?php } ?>
-            </div>
-        </div>
-    <?php
+            echo '<img src="' . $attachment[0] . '" width="85px" height="85px"/>';
+        else :
+            echo '<img src="' . get_stylesheet_directory_uri() . "/assets/img/aavathar.jpg" . '" width="85px" height="85px" />';
+        endif;
+        echo '</div>';
+    }
+    echo '<div class="mkd-comment-text-and-info">';
+    echo '<div class="mkd-comment-info-and-links">';
+    echo '<h6 class="mkd-comment-name">';
+    if ($is_pingback_comment) {
+        esc_html_e('Pingback:', 'discussionwp');
+    }
+    $user_name = get_user_meta($user);
+    echo '<span class="mkd-comment-author">';
+    if (!empty($user_name['first_name'][0])) {
+        echo $user_name['first_name'][0];
+    } else {
+        echo wp_kses_post(get_comment_author_link());
+    }
+    echo '</span>';
+    if ($is_author_comment) {
+        echo '<span class="mkd-comment-mark">' . esc_html_e('/', 'discussionwp') . '</span>';
+        echo '<span class="mkd-comment-author-label">' . esc_html_e('Author', 'discussionwp') . '</span>';
+    }
+    echo '</h6>';
+    echo '<h6 class="mkd-comment-links">';
+    if (!is_user_logged_in()) :
+        echo '<a href="' . home_url('/login') . '">' . _e('Login To Reply', 'discussionwp') . '</a>';
+    else :
+        $userid = get_current_user_id();
+        $user_blog_id = get_user_meta($userid, 'primary_blog', true);
+        $blog_id = get_current_blog_id();
+        if ($blog_id != $user_blog_id):
+            echo '<a href="' . home_url('/login') . '">' . _e('Login To Reply', 'discussionwp') . '</a>';
+        else :
+            comment_reply_link(array_merge($args, array('reply_text' => esc_html__('Reply', 'discussionwp'), 'depth' => $depth, 'max_depth' => $args['max_depth'])));
+        endif;
+    endif;
+    echo '<span class="mkd-comment-mark">' . esc_html_e('/', 'discussionwp') . '</span>';
+    edit_comment_link(esc_html__('Edit', 'discussionwp'));
+    echo '</h6>';
+    echo '</div>';
+    if (!$is_pingback_comment) {
+        echo '<div class="mkd-comment-text">';
+        echo '<div class="mkd-text-holder" id="comment-' . comment_ID . '">';
+        comment_text();
+        echo '<span class="mkd-comment-date">' . comment_time(get_option('date_format')) . '</span>';
+        echo '</div>';
+        echo '</div>';
+    }
+    echo '</div>';
+    echo '</div>';
 }
 
 function SocialNetworkShareLink($net, $image) {
@@ -1288,7 +1272,6 @@ function village_article_title_class() {
     $next_post = $wp_query->posts[$wp_query->current_post + 1];
     $data = array(get_the_title(), $next_post->post_title);
     return get_title_class($data);
-    
 }
 
 /**
@@ -1422,6 +1405,8 @@ function add_login_logout_to_menu($items, $args) {
 
     $redirect = ( is_home() ) ? home_url('/') : home_url('/');
     $homeurl = home_url('/');
+    if (is_user_logged_in() && get_current_blog_id() != 1)
+        $link = '<a class="current" href="' . $homeurl . 'my-stories/"><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon blank fa"></i></span><span class="item_text">My Stories</span></span></span></a>';
     if (!is_user_logged_in() && get_current_blog_id() == 1)
         $link = '<a class="" href="' . $homeurl . 'register"><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon blank fa"></i></span><span class="item_text">Join</span></span></span></a>';
     // else  
@@ -2057,111 +2042,91 @@ class DiscussionCategoryLayoutTabs extends DiscussionWidget {
 
 
             $i = 1;
-            ?>
-                <div class="mkd-plw-tabs-content">
-                <?php foreach ($sub_categories as $category) { ?>
+            echo '<div class="mkd-plw-tabs-content">';
+            foreach ($sub_categories as $category) {
 
-                    <?php if ($i == 1 || $i % 3 == 1): ?>
-                            <div class="mkd-bnl-holder mkd-pl-five-holder  mkd-post-columns-3">
-                                <div class="mkd-bnl-outer">
-                                    <div class="mkd-bnl-inner">
-                            <?php
-                        endif;
-                        ?>
+                if ($i == 1 || $i % 3 == 1):
+                    echo '<div class="mkd-bnl-holder mkd-pl-five-holder  mkd-post-columns-3">';
+                    echo '<div class="mkd-bnl-outer">';
+                    echo '<div class="mkd-bnl-inner">';
+                endif;
 
-                                    <div class="mkd-pt-five-item mkd-post-item">
-                                        <div class="mkd-pt-five-item-inner">
-                                            <div class="mkd-pt-five-top-content">
+                echo '<div class="mkd-pt-five-item mkd-post-item">';
+                echo '<div class="mkd-pt-five-item-inner">';
+                echo '<div class="mkd-pt-five-top-content">';
 
-                                                <!-- image section -->
-                                                <div class="mkd-pt-five-image">
-                                                    <a itemprop="url" class="mkd-pt-five-link mkd-image-link" href="<?php echo esc_url(get_category_link($category->term_id)) ?>" target="_self">
-                <?php
+                //<!-- image section -->
+                echo '<div class="mkd-pt-five-image">';
+                echo '<a itemprop="url" class="mkd-pt-five-link mkd-image-link" href="' . esc_url(get_category_link($category->term_id)) . '" target="_self">';
+
                 $attr = array(
                     'class' => '',
                     'alt' => $category->name,
-                    //                        'height' =>198,
-                    //                        'width' => 302,
+                    // 'height' =>198,
+                    // 'width' => 302,
                     'title' => $category->name,
                 );
                 z_taxonomy_image($category->term_id, 'full', $attr);
-
-                //echo '<img src="'.z_taxonomy_image_url($category->term_id).'" alt="'.$category->name.'" width="'.$instance['thumb_image_width'].'" height="'.$instance['thumb_image_height'].'" />';
-                // echo discussion_generate_thumbnail(z_taxonomy_image_url($category->term_id),null,$thumb_image_width,$thumb_image_height);
-                ?>	
-                                                    </a></div>	
-
-
-                                                <div class="mkd-pt-five-content">
-                                                    <div class="mkd-pt-five-content-inner">
-                                                        <h6 class="mkd-pt-five-title">
-                                                            <a itemprop="url" class="mkd-pt-link" href="<?php echo esc_url(get_category_link($category->term_id)) ?>" target="_self">
-                <?php
+                echo '</a></div>';
+                echo '<div class="mkd-pt-five-content">';
+                echo '<div class="mkd-pt-five-content-inner">';
+                echo '<h6 class="mkd-pt-five-title">';
+                echo '<a itemprop="url" class="mkd-pt-link" href="' . esc_url(get_category_link($category->term_id)) . '"target="_self">';
                 echo $category->name;
-                ?>
-                                                            </a> 
-                                                        </h6>   
-                                                        <div class="mkd-pt-one-excerpt">                                                    
-                                                        </div>
-                                                    </div>			
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                <?php if ($i % 3 == 0 || $i == count($sub_categories)): ?>
-                                    </div>
-                                </div>
-                            </div>
-                                        <?php
-                                    endif;
-                                    $i++;
-                                    //echo do_shortcode('[mkd_post_layout_'.$layout.' '.${$params_label.$key}.']'); // XSS OK
+                echo '</a>';
+                echo '</h6>';
+                echo '<div class="mkd-pt-one-excerpt">';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                if ($i % 3 == 0 || $i == count($sub_categories)):
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                endif;
+                $i++;
+                //echo do_shortcode('[mkd_post_layout_'.$layout.' '.${$params_label.$key}.']'); // XSS OK
 //                        echo'</div>';
-                                }
-                                ?>
-                </div>
-                    <?php
-                }
-                echo '</div>'; //close div.mkd-plw-tabs-content-holder
-                echo '</div>'; //close div.mkd-plw-tabs-inner
-                echo '</div>'; //close div.mkd-plw-tabs
             }
 
+            echo '</div>';
         }
+        echo '</div>'; //close div.mkd-plw-tabs-content-holder
+        echo '</div>'; //close div.mkd-plw-tabs-inner
+        echo '</div>'; //close div.mkd-plw-tabs
+    }
 
-        add_action('widgets_init', create_function('', 'return register_widget("DiscussionCategoryLayoutTabs");'));
+}
+
+add_action('widgets_init', create_function('', 'return register_widget("DiscussionCategoryLayoutTabs");'));
 
 /**
  * Author - Doe
  * Date - 09-22-2016
  * Purpose - Last Updated Time Stamp on Blogs
  */
-function add_last_updated()
-{
+function add_last_updated() {
     $post_date_number = strtotime(get_the_date());
     $mod_date_number = strtotime(get_the_modified_date());
     $modified_date = get_the_modified_date('m.d.Y');
     $post_date = get_the_date('m.d.Y');
     $display_date = ($post_date_number > $mod_date_number ? $post_date : $modified_date);
 
-    /* Get both time variables for post*/
-    if (($mod_date_number != null && $post_date_number) != null && ($post_date_number != $mod_date_number))
-    {
+    /* Get both time variables for post */
+    if (($mod_date_number != null && $post_date_number) != null && ($post_date_number != $mod_date_number)) {
         echo 'Last updated: ' . $display_date;
     }
-    /*If post time is missing use modified time*/
-    elseif($modified_date)
-    {
+    /* If post time is missing use modified time */ elseif ($modified_date) {
         echo '<div class="posted-on">Last updated : ' . $modified_date . '</div>';
-    }
-    else
-    {
+    } else {
         return;
     }
 }
-add_action( 'last_updated', 'add_last_updated' );
+
+add_action('last_updated', 'add_last_updated');
 
 /**
  * Author - Doe
@@ -2169,8 +2134,7 @@ add_action( 'last_updated', 'add_last_updated' );
  * @param  array $atts Used for manually settings shortcode attributes within posts.
  * @return string For adding learn more snippets to bottom of posts
  */
-function egw_category_shortcode($atts)
-{ 
+function egw_category_shortcode($atts) {
     $yoast_cat = new WPSEO_Primary_Term('category', get_the_ID());
     $yoast_cat = $yoast_cat->get_primary_term();
     $yoast_catName = get_cat_name($yoast_cat);
@@ -2178,52 +2142,79 @@ function egw_category_shortcode($atts)
 
     //No atts passed. Defaults to use yoast primary category.
     //Also allows for shortcode to be used without Yoast.
-    if ( $atts == null || $atts == '' )
-    {
-        if ( $yoast_catName && $yoast_catLink )
-        {   
+    if ($atts == null || $atts == '') {
+        if ($yoast_catName && $yoast_catLink) {
 
             $build_shortcode = '<div class="egw-learn-more"><p>';
-            $build_shortcode .= '<a href='. $yoast_catLink. '>Learn more about ' . strtolower($yoast_catName) . ' >></a>';
+            $build_shortcode .= '<a href=' . $yoast_catLink . '>Learn more about ' . strtolower($yoast_catName) . ' >></a>';
             $build_shortcode .= "</p></div>";
             return $build_shortcode;
-        }
-
-        elseif ( $yoast_cat == null || $yoast_cat == '')
-        {
+        } elseif ($yoast_cat == null || $yoast_cat == '') {
             $category = get_the_category();
             $first_category_name = $category[0]->cat_name;
-            $category_id = get_cat_ID( $first_category_name );
-            $category_link  = get_category_link($category_id); 
+            $category_id = get_cat_ID($first_category_name);
+            $category_link = get_category_link($category_id);
             $build_shortcode = '<div class="egw-learn-more"><p>';
-            $build_shortcode .= '<a href='. $category_link. '>Learn more about ' . strtolower($first_category_name) . ' >></a>';
+            $build_shortcode .= '<a href=' . $category_link . '>Learn more about ' . strtolower($first_category_name) . ' >></a>';
             $build_shortcode .= "</p></div>";
             return $build_shortcode;
         }
     }
     //Attributes are set. Use them.
-    elseif( isset($atts)) 
-    {
+    elseif (isset($atts)) {
         extract(shortcode_atts(array('cat' => $atts,), $atts));
         $category_id = get_cat_ID($cat);
         $category_link = get_category_link($category_id);
         $build_shortcode = '<div class="egw-learn-more"><p>';
-        $build_shortcode .= '<a href="'. $category_link .'">Learn more about '. strtolower($cat) . '>></a>';
+        $build_shortcode .= '<a href="' . $category_link . '">Learn more about ' . strtolower($cat) . '>></a>';
         $build_shortcode .= '</p></div>';
-        return $build_shortcode;   
-    }
-    else {
+        return $build_shortcode;
+    } else {
         return;
     }
 }
+
 add_shortcode('egw-learn-more', 'egw_category_shortcode');
 
 /**
  * Remove CDATA from post save
  */
-function my_filter_cdata( $content ) {
-  $content = str_replace( '// <![CDATA[', '', $content );
-  $content = str_replace( '// ]]>', '', $content );
-  return $content;
+function my_filter_cdata($content) {
+    $content = str_replace('// <![CDATA[', '', $content);
+    $content = str_replace('// ]]>', '', $content);
+    return $content;
 }
-add_filter( 'content_save_pre', 'my_filter_cdata', 9, 1 );
+
+add_filter('content_save_pre', 'my_filter_cdata', 9, 1);
+
+/**
+ * Email popup
+ */
+function saved_articles_load_popup() {
+    get_template_part('saved-article-email-trigger');
+    exit;
+}
+
+add_action('wp_ajax_saved_articles_load_popup', 'saved_articles_load_popup');
+add_action('wp_ajax_nopriv_saved_articles_load_popup', 'saved_articles_load_popup');
+
+/**
+ * Email functionality process
+ */
+function saved_articles_popup_email() {
+    get_template_part('article_share_via_email');
+    exit;
+}
+
+add_action('wp_ajax_saved_articles_popup_email', 'saved_articles_popup_email');
+add_action('wp_ajax_nopriv_saved_articles_popup_email', 'saved_articles_popup_email');
+
+//Load Article Feed on the my stories page
+
+function followed_articles_feed() {
+    get_template_part('follow_unfollow_articlefeed');
+    exit;
+}
+
+add_action('wp_ajax_followed_articles_feed', 'followed_articles_feed');
+add_action('wp_ajax_nopriv_followed_articles_feed', 'followed_articles_feed');
