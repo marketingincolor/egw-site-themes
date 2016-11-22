@@ -90,7 +90,89 @@
                                                     ?>
                                                           </div>
                                                       </div> -->
+                                                    <div class="mkd-follow-category">
+                                                        <!-- Category follow functionality Start-->
+                                                        <?php
+                                                        if (is_user_logged_in()) {
+                                                            ?>
+                                                            <script type = "text/javascript">
+                                                                // subcategory followed functionality from sub-category banner part
+                                                                jQuery(function () {
+                                                                    jQuery(".comment_button").click(function () {
 
+                                                                        var user_primary_site = jQuery.trim(jQuery('#user_primary_site').val());
+                                                                        if (user_primary_site && user_primary_site !== '0') {
+                                                                            jQuery('#site_user_validation_popup_message').text('Only members of this branch can follow or unfollow the category.');
+                                                                            jQuery.magnificPopup.open({
+                                                                                items: {
+                                                                                    src: '#site_user_validation_popup',
+                                                                                },
+                                                                                type: 'inline'
+                                                                            });
+                                                                            return false;
+                                                                        }
+                                                                        var dataString = jQuery('form').serialize();
+                                                                        //alert(dataString);
+                                                                        jQuery.ajax({
+                                                                            type: "POST",
+                                                                            url: "<?php echo get_stylesheet_directory_uri(); ?>/followajax.php",
+                                                                            data: jQuery('form').serialize(),
+                                                                            cache: false,
+                                                                            success: function (successvalue) {
+                                                                                document.getElementById("followed-msg").innerHTML = '<div class="follow-vad-tick followed-msg"><i class="fa fa-check" aria-hidden="true"></i>You have subscribed successfully</div>';
+                                                                                location.reload(true);
+                                                                            }
+                                                                        });
+                                                                        return false;
+                                                                    });
+                                                                });
+                                                            </script>
+                                                            <div id="followContainer" class="followbannercat">
+                                                                <form method="post" name="form" id="unfollowsubcatfrombanner" action="">
+                                                                    <?php
+                                                                    $categoryid = $category_id;
+                                                                    $userid = get_current_user_id();
+                                                                    //echo $categoryid =  $wp_query->get_queried_object();
+                                                                    //echo "SELECT *from wp_follow_category where userid=" . $userid . " and categoryid=" . $categoryid . "";
+                                                                    $fetchresult = $wpdb->get_results("SELECT *from wp_follow_category where userid=" . $userid . " and categoryid=" . $categoryid . "");
+                                                                    $rowresult = $wpdb->num_rows;
+                                                                    foreach ($fetchresult as $results) {
+                                                                        $currentFlag = $results->flag;
+                                                                    }
+                                                                    if ($rowresult > 0) {
+                                                                        $processDo = "deletebannercat";
+                                                                        if ($currentFlag == 0) {
+                                                                            $setValue = 1;
+                                                                            $label = "Follow in My Stories";
+                                                                        } else {
+                                                                            $setValue = 0;
+                                                                            $label = "Unollow in My Stories";
+                                                                        }
+                                                                    } else {
+                                                                        $label = "Follow in My Stories";
+                                                                        $processDo = "insert";
+                                                                        $setValue = 1;
+                                                                    }
+                                                                    if ($parent_category_id != $category_id) {
+                                                                        ?>
+                                                                        <div id="followed-msg"></div>
+                                                                        <div id="unfollowed-msg"></div>
+                                                                        <button type="button" value="<?php echo $label; ?>" name="follow" <?php if ($currentFlag == 1) { ?>id="unfollow_button" class="unfollow_button" <?php } if ($currentFlag == 0) { ?> class="comment_button"<?php } ?>><?php echo $label; ?></button>
+
+                                                                    <?php } ?>
+                                                                    <input type="hidden" name="updateflag" id="flagvalue" value="<?php echo $setValue; ?>">
+                                                                    <input type="hidden" name="submit" id="submitvalue" value="<?php echo $processDo; ?>">
+                                                                    <input type="hidden" name="userid" value="<?php echo $userid; ?>">
+                                                                    <input type="hidden" name="categoryid" value="<?php echo $categoryid; ?>">
+                                                                    <!-- For unfollow categories-->
+                                                                    <input type="hidden" name="followedcategories" value="<?php echo $categoryid; ?>"> 
+                                                                </form>
+                                                            </div>
+
+
+                                                        <?php } ?>
+                                                        <!-- Category follow functionality end -->
+                                                    </div>
                                                 <?php } ?>
                                             </div>
                                         </div>
@@ -113,3 +195,22 @@
         </div>    
     </div>
 </div>
+<script type="text/javascript">
+    //Delete followed subcategories from sub-category banner part
+    jQuery(document).on('click', '#unfollow_button', function () {
+        var dataString = jQuery('#unfollowsubcatfrombanner').serialize();
+        jQuery.ajax({
+            type: "POST",
+            url: "<?php echo get_stylesheet_directory_uri(); ?>/followajax.php",
+            data: dataString,
+            cache: false,
+            success: function (deletedvalue) {
+                alert(deletedvalue);
+                document.getElementById("unfollowed-msg").innerHTML = '<div class="follow-vad-tick unfollowed-msg"><i class="fa fa-check" aria-hidden="true"></i> You have unfollowed successfully</div>';
+                location.reload(true);
+            }
+        });
+        return false;
+        //}
+    });
+</script>

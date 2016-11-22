@@ -1524,18 +1524,18 @@ table.ai1ec-month-view {
 }
 @media only screen and (max-width: 767px) {
     .coach-profile-image{
-    float: none;
-    width: 100%;
-    padding-right: 0%;
-    padding-bottom: 20px;
-}
-.coach-profile-text{
-    float: none;
-    width: 100%;
-}
-.article-cr-cont{
-    padding-top: 20px;
-}
+        float: none;
+        width: 100%;
+        padding-right: 0%;
+        padding-bottom: 20px;
+    }
+    .coach-profile-text{
+        float: none;
+        width: 100%;
+    }
+    .article-cr-cont{
+        padding-top: 20px;
+    }
 }
 /*article created section ends here*/
 
@@ -1710,7 +1710,7 @@ table.ai1ec-month-view {
     border: 1px solid #a4bb6a;
     margin-right: 15px;
     z-index: 99999;
-    
+
 }
 .saved_art_cont-pop h4{
     font-size:14px;
@@ -1719,7 +1719,7 @@ table.ai1ec-month-view {
     .sv-art-popup-nw-cont {
         padding: 0;
     }
-   
+
     .saved-articles-popup-nw h2 {
         padding: 15px 35px;
         line-height: 20px;
@@ -1746,8 +1746,8 @@ table.ai1ec-month-view {
         width: 30%;
     }
     .saved_art_cont-pop{
-         width: 61%;
-         min-height: inherit;
+        width: 61%;
+        min-height: inherit;
     }
 }
 #errorBox-email, #errorBox-comments{
@@ -1804,26 +1804,26 @@ table.ai1ec-month-view {
 
 /* Custom Checkbox */
 input[type="checkbox"], input[type="radio"] {
-	display: none;
+    display: none;
 }
 input[type="checkbox"] + label span, input[type="radio"] + label span {
-	float: left;
-	width: 24px;
-	height: 24px;
-	margin: 0px 6px 0 0;
-	vertical-align: middle;
-	background: url(../img/check-box.jpg) left top no-repeat;
-	cursor: pointer;
+    float: left;
+    width: 24px;
+    height: 24px;
+    margin: 0px 6px 0 0;
+    vertical-align: middle;
+    background: url(../img/check-box.jpg) left top no-repeat;
+    cursor: pointer;
 }
 input[type="checkbox"] + label span {
-	background: url(../img/check-box.jpg) left top no-repeat;
+    background: url(../img/check-box.jpg) left top no-repeat;
 }
 input[type="checkbox"]:checked + label span {
-	background: url(../img/check-box.jpg) -24px top no-repeat;
+    background: url(../img/check-box.jpg) -24px top no-repeat;
 }
 input[type="checkbox"]:disabled + label span {
-	background: url(../img/check-box.jpg) -25px top no-repeat;
-	opacity: 0.5;
+    background: url(../img/check-box.jpg) -25px top no-repeat;
+    opacity: 0.5;
 }
 .checkbox + .checkbox, .radio + .radio {
     margin-top: -2px;
@@ -1847,13 +1847,13 @@ input[type="checkbox"]:disabled + label span {
     width: 60%;
 }
 .select-inn-cnt{
-        width: 70%;
+    width: 70%;
     float: left;
     margin-right: 15px;
 }
 /*Custom select starts here*/
 .select-inn-cnt select {
-     background: #fff url("../img/select-arrow.png")  no-repeat scroll 97% 50%;
+    background: #fff url("../img/select-arrow.png")  no-repeat scroll 97% 50%;
     color: #3f3f3f !important;
     cursor: pointer;
     display: block;
@@ -1890,17 +1890,24 @@ input[type="checkbox"]:disabled + label span {
 .follow-vad-cross i{
     padding-right: 4px;
 }
+.followbannercat{
+    float: right;
+}
+.unfollowed-msg, .followed-msg {
+    color: greenyellow;
+    font-weight: bold;
+}
 @media (min-width: 769px) and (max-width: 1200px) {
     .follow-innercont ul li{
         width: 50%;
     }
-   
+
 }
 @media only screen and (max-width: 1200px) {
-     .unfollow-container-nw h2{
+    .unfollow-container-nw h2{
         float: none;
-       width: 100%;
-       padding:7px 0 20px;
+        width: 100%;
+        padding:7px 0 20px;
     }
     .selectcat-container{
         width: 100%;
