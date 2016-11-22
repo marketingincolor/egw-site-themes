@@ -1897,6 +1897,27 @@ input[type="checkbox"]:disabled + label span {
     color: greenyellow;
     font-weight: bold;
 }
+.announcementcontainer{
+    width: 100%;
+    height: auto;
+    border: 2px solid red;
+    background-color: #FF0000;
+}
+.announcementcontainer .content{
+    color:#ffffff;
+    font-weight: bold;
+    font-size: 15px;
+}
+.announcementcontainer > a{
+    color:#ffffff;
+    font-weight: bold;
+    font-size: 15px;
+}
+.announcementcontainer > a:hover{
+    color:#e9e9e8;
+    font-weight: bold;
+    font-size: 15px;
+}
 @media (min-width: 769px) and (max-width: 1200px) {
     .follow-innercont ul li{
         width: 50%;

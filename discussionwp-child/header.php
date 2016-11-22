@@ -63,4 +63,113 @@
 
                 <div class="mkd-content" <?php discussion_content_elem_style_attr(); ?>>
                     <div class="mkd-content-inner">
+                        <!-- Announcement Notifications -->
+                        <?php
+
+                        function wpsefsp_loop() {
+                            global $wp_query;
+                            $loop = 'notfound';
+
+                            if ($wp_query->is_page) {
+                                $loop = is_front_page() ? 'front' : 'page';
+                            } elseif ($wp_query->is_home) {
+                                $loop = 'home';
+                            } elseif ($wp_query->is_single) {
+                                $loop = ( $wp_query->is_attachment ) ? 'attachment' : 'single';
+                            } elseif ($wp_query->is_category) {
+                                $loop = 'category';
+                            } elseif ($wp_query->is_tag) {
+                                $loop = 'tag';
+                            } elseif ($wp_query->is_tax) {
+                                $loop = 'tax';
+                            } elseif ($wp_query->is_archive) {
+                                if ($wp_query->is_day) {
+                                    $loop = 'day';
+                                } elseif ($wp_query->is_month) {
+                                    $loop = 'month';
+                                } elseif ($wp_query->is_year) {
+                                    $loop = 'year';
+                                } elseif ($wp_query->is_author) {
+                                    $loop = 'author';
+                                } else {
+                                    $loop = 'archive';
+                                }
+                            } elseif ($wp_query->is_search) {
+                                $loop = 'search';
+                            } elseif ($wp_query->is_404) {
+                                $loop = 'notfound';
+                            }
+
+                            return $loop;
+                        }
+                        ?>
+                        <div class="announcementcontainer">
+                            <?php
+                            //Find out current page is what? e.g. page, category or post etc..
+                            $getInstantoutput = wpsefsp_loop();
+
+                            //Get current sub-category name
+                            global $current_category;
+                            $current_category = strtolower(single_cat_title("", false));
+
+                            //Get current page url
+                            global $wp;
+                            $current_url = home_url(add_query_arg(array(), $wp->request));
+                            $current_page = explode('/', $current_url);
+                            $getSlug = $current_page[sizeof($current_page) - 1];
+
+                            query_posts(array(
+                                'post_type' => 'announcement',
+                                'showposts' => 100
+                            ));
+                            while (have_posts()) : the_post();
+                                $value = get_field("display_pages");
+                                $announceLink = get_field("announcements_link");
+                                //print_r($value);
+                                foreach ($value as $key => $valuerel) {
+                                    //echo $valuerel;
+                                    //echo '<br>';
+                                    if ($valuerel == "all") {
+                                        if ($announceLink != "") {
+                                            echo "<a href=" . $announceLink . "><div>" . get_the_content() . "</div></a>";
+                                        } else {
+                                            echo "<div>" . get_the_content() . "</div>";
+                                        }
+                                    } else {
+                                        if ($getInstantoutput == "front") {
+                                            //echo $valuerel;
+                                            if ($valuerel == "home") {
+                                                if ($announceLink != "") {
+                                                    echo "<a href=" . $announceLink . "><div>" . get_the_content() . "</div></a>";
+                                                } else {
+                                                    echo "<div class='content'>" . get_the_content() . "</div>";
+                                                }
+                                            }
+                                        } elseif ($getInstantoutput == "page") {
+                                            if ($valuerel == $getSlug) {
+                                                if ($announceLink != "") {
+                                                    echo "<a href=" . $announceLink . "><div>" . get_the_content() . "</div></a>";
+                                                } else {
+                                                    echo "<div class='content'>" . get_the_content() . "</div>";
+                                                }
+                                            }
+                                        } elseif ($getInstantoutput == "category") {
+                                            if ($valuerel == $current_category) {
+                                                if ($announceLink != "") {
+                                                    echo "<a href=" . $announceLink . "><div>" . get_the_content() . "</div></a>";
+                                                } else {
+                                                    echo "<div class='content'>" . get_the_content() . "</div>";
+                                                }
+                                            }
+                                        } else {
+                                            echo "No Announcement Record";
+                                        }
+                                    }
+                                }
+                            endwhile;
+                            ?>
+<?php wp_reset_postdata(); ?>
+                        <?php wp_reset_query(); ?>
+                        </div>
+                        <!-- Announcement Notifications End -->
 <?php discussion_get_content_top(); ?>
