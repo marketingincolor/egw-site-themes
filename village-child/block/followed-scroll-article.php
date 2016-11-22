@@ -12,18 +12,22 @@ list($post_per_section, $post_type) = scroll_loadpost_settings();
     <div class="mkd-bnl-outer">
         <div class="mkd-bnl-inner">
             <?php
+            echo "<pre>";
+            echo "Start";
+            print_r($display_postid_ar);
+            echo "</pre>";
             $display_postid_ar = $_SESSION["display_postid_ar"];
             $displayed_sub_cat_ar = $_SESSION["displayed_sub_cat_ar"];
-            $missed_sub_cat_ar=array();
-            $q=0;
+            $missed_sub_cat_ar = array();
+            $q = 0;
             if ($_POST['query_type1'] == 'followed') {
-       
+
                 $sub_catid_ar = explode(",", $_POST['sub_catid_ar']);
                 if (count($displayed_sub_cat_ar) < count($sub_catid_ar)) {
-                    $missed_sub_cat_ar = array_diff($sub_catid_ar, $displayed_sub_cat_ar);                       
-                    foreach ($missed_sub_cat_ar as $subcat_id_sgl) {                        
-                        $posts_retrived = follow_categorypost_detail_set($post_type, array($subcat_id_sgl), $display_postid_ar); 
-                        $posts=get_posts($posts_retrived);                        
+                    $missed_sub_cat_ar = array_diff($sub_catid_ar, $displayed_sub_cat_ar);
+                    foreach ($missed_sub_cat_ar as $subcat_id_sgl) {
+                        $posts_retrived = follow_categorypost_detail_set($post_type, array($subcat_id_sgl), $display_postid_ar);
+                        $posts = get_posts($posts_retrived);
                         if (!empty($posts)) {
                             foreach ($posts as $post): setup_postdata($post);
                                 if ($q == $_POST['per_page1'])
@@ -34,17 +38,22 @@ list($post_per_section, $post_type) = scroll_loadpost_settings();
                             endforeach;
                             wp_reset_postdata();
                         }
-                        
+
                         array_push($displayed_sub_cat_ar, $subcat_id_sgl);
                     }
                 } else {
                     
                 }
-             
+
                 //echo "q value -".$q;
                 $_SESSION["display_postid_ar"] = $display_postid_ar;
                 $_SESSION["displayed_sub_cat_ar"] = $displayed_sub_cat_ar;
-                $remaining=$_POST['per_page1'] - $q;
+
+                echo "<pre>";
+                echo "End";
+                print_r($display_postid_ar);
+                echo "</pre>";
+                $remaining = $_POST['per_page1'] - $q;
                 $args[] = array(
                     'category' => explode(",", $_POST['sub_catid_ar']),
                     'post_status' => 'publish',
@@ -55,7 +64,6 @@ list($post_per_section, $post_type) = scroll_loadpost_settings();
                     'offset' => $_POST['offset1'],
                     'numberposts' => $remaining
                 );
-               
             }
             //commented by Rajasingh
 //            if ($_POST['query_type2'] == 'unfollowed') {
