@@ -205,7 +205,6 @@
             data: dataString,
             cache: false,
             success: function (deletedvalue) {
-                alert(deletedvalue);
                 document.getElementById("unfollowed-msg").innerHTML = '<div class="follow-vad-tick unfollowed-msg"><i class="fa fa-check" aria-hidden="true"></i> You have unfollowed successfully</div>';
                 location.reload(true);
             }
