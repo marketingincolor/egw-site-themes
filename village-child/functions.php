@@ -2218,3 +2218,10 @@ function followed_articles_feed() {
 
 add_action('wp_ajax_followed_articles_feed', 'followed_articles_feed');
 add_action('wp_ajax_nopriv_followed_articles_feed', 'followed_articles_feed');
+
+
+function sess_start() {
+    if (!session_id())
+    session_start();
+}
+add_action('init','sess_start');
