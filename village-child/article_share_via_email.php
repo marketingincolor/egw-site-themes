@@ -131,7 +131,7 @@ if (isset($_POST)) {
         $emailsend = 0;
     }
 
-    $sender = 'From: Admin <rajasingh@farshore.com>' . "\r\n";
+    $sender = 'From: No reply <no-reply@myevergreenwellness.com>' . "\r\n";
     $headers[] = 'MIME-Version: 1.0' . "\r\n";
     $headers[] = 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
     $headers[] = "X-Mailer: PHP \r\n";

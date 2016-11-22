@@ -1,4 +1,5 @@
 <?php
+
 require('../../../wp-load.php');
 
 global $wpdb;
@@ -107,117 +108,29 @@ if ($_POST['submit'] == 'delete') {
     );
     echo $followedCatappend;
 }
+
+//unfollow functionality from sub-category banner part
+
+if ($_POST['submit'] == 'deletebannercat') {
+    $userid = $_POST['userid'];
+    $categoryid = $_POST['followedcategories'];
+    $categoryidList = implode(",", $categoryid);
+    //Fetching primary id to delete the record
+    $getQuery = "SELECT id FROM wp_follow_category where userid=" . $userid . " AND categoryid=" . $categoryid . " ORDER BY date DESC";
+    $fetchQuery = $wpdb->get_results("SELECT id FROM wp_follow_category where userid=" . $userid . " AND categoryid=" . $categoryid . " ORDER BY date DESC");
+    foreach ($fetchQuery as $fetchQueryval) {
+        $fetchedID = $fetchQueryval->id;
+    }
+
+    $getoutput = $wpdb->query("DELETE FROM wp_follow_category WHERE id=" . $fetchedID . "");
+    if ($getoutput == 1) {
+        $msg = "You have unfollowed successfully";
+        $sucess = 1;
+    } else {
+        $msg = "There was an error.";
+        $sucess = 0;
+    }
+
+    echo $sucess;
+}
 ?>
-<script type = "text/javascript">
-//    jQuery(function () {
-//        //unchecked all checkbox in page load;
-//        jQuery('input[type=checkbox]').each(function ()
-//        {
-//            this.checked = false;
-//        });
-//        jQuery(".comment_button").unbind('click').click(function () {
-//            var datasubcatslectbox = jQuery('#subcatslectbox').val();
-//            var dataString = jQuery('#followsubcat').serialize();
-//            if (datasubcatslectbox != "") {
-//                jQuery.ajax({
-//                    type: "POST",
-//                    url: "<?php echo get_stylesheet_directory_uri(); ?>/followajax.php",
-//                    data: dataString,
-//                    cache: false,
-//                    success: function (successvalue) {
-//                        if (jQuery('#followedSubcat').html(successvalue)) {
-//                            document.getElementById("selectbox-msg").innerHTML = '<div class="follow-vad-tick"><i class="fa fa-check" aria-hidden="true"></i>You have subscribed successfully</div>';
-//                        }
-//                        jQuery('select').children('option[value="' + datasubcatslectbox + '"]').attr('disabled', true);
-//                        location.reload();
-//                    }
-//                });
-//                return false;
-//            } else {
-//                document.getElementById("selectbox-msg").innerHTML = '<div class="follow-vad-cross"><i class="fa fa-times" aria-hidden="true"></i> Please select sub category</div>';
-//                return false;
-//            }
-//
-//        });
-//
-//        //Delete ajax
-//        jQuery("#unfollow_button").unbind('click').click(function () {
-//            var dataString = jQuery('#unfollowsubcat').serialize();
-//
-//            var values = jQuery('input:checkbox:checked.followedsubcates').map(function () {
-//                return this.value;
-//            }).get(); // ["18", "55", "10"]
-//            if (values.length == 0) {
-//                document.getElementById("unfollowed-msg").innerHTML = '<div class="follow-vad-cross"><i class="fa fa-times" aria-hidden="true"></i> You must check at least one box!</div>';
-//                return false; // The form will *not* submit
-//            } else {
-//                jQuery.ajax({
-//                    type: "POST",
-//                    url: "<?php echo get_stylesheet_directory_uri(); ?>/followajax.php",
-//                    data: dataString,
-//                    cache: false,
-//                    success: function (deletedvalue) {
-//                        if (jQuery('#followedSubcat').html(deletedvalue)) {
-//                            document.getElementById("unfollowed-msg").innerHTML = '<div class="follow-vad-tick"><i class="fa fa-check" aria-hidden="true"></i> You have unfollowed successfully</div>';
-//                            location.reload();
-//                        }
-//                    }
-//                });
-//                return false;
-//            }
-//        });
-//
-//
-//    });
-
-</script>
-
-<!--<script type = "text/javascript">
-    jQuery(function () {
-        jQuery(".comment_button").unbind('click').click(function () {
-            var dataString = jQuery('#followsubcat').serialize();
-            var datasubcatslectbox = jQuery('#subcatslectbox').val();
-            jQuery.ajax({
-                type: "POST",
-                url: "<?php echo get_stylesheet_directory_uri(); ?>/followajax.php",
-                data: dataString,
-                cache: false,
-                success: function (successvalue) {
-                    if (jQuery('#followedSubcat').html(successvalue)) {
-                        alert("You have followed selected sub category successfully");
-                    }
-                    jQuery('select').children('option[value="' + datasubcatslectbox + '"]').attr('disabled', true);
-                }
-            });
-            return false;
-        });
-
-        //Delete ajax
-//Delete ajax
-        jQuery("#unfollow_button").unbind('click').click(function () {
-            var dataString = jQuery('#unfollowsubcat').serialize();
-
-            var values = jQuery('input:checkbox:checked.followedsubcates').map(function () {
-                return this.value;
-            }).get(); // ["18", "55", "10"]
-            if (values.length == 0) {
-                alert('You must check at least one box!');
-                return false; // The form will *not* submit
-            } else {
-                jQuery.ajax({
-                    type: "POST",
-                    url: "<?php //echo get_stylesheet_directory_uri();    ?>/followajax.php",
-                    data: dataString,
-                    cache: false,
-                    success: function (deletedvalue) {
-                        if (jQuery('#followedSubcat').html(deletedvalue)) {
-                            alert("You have unfollowed successfully");
-                        }
-                    }
-                });
-                return false;
-            }
-        });
-    });
-</script>-->
-
