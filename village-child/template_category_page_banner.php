@@ -146,7 +146,7 @@
                                                                             $label = "Follow in My Stories";
                                                                         } else {
                                                                             $setValue = 0;
-                                                                            $label = "Unollow in My Stories";
+                                                                            $label = "Unfollow in My Stories";
                                                                         }
                                                                     } else {
                                                                         $label = "Follow in My Stories";
