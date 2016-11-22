@@ -14,7 +14,7 @@ list($post_per_section, $post_type) = scroll_loadpost_settings();
             <?php
             echo "<pre>";
             echo "Start";
-            print_r($display_postid_ar);
+            print_r( $_SESSION["display_postid_ar"]);
             echo "</pre>";
             $display_postid_ar = $_SESSION["display_postid_ar"];
             $displayed_sub_cat_ar = $_SESSION["displayed_sub_cat_ar"];
@@ -51,7 +51,7 @@ list($post_per_section, $post_type) = scroll_loadpost_settings();
 
                 echo "<pre>";
                 echo "End";
-                print_r($display_postid_ar);
+                print_r($_SESSION["display_postid_ar"]);
                 echo "</pre>";
                 $remaining = $_POST['per_page1'] - $q;
                 $args[] = array(
@@ -115,6 +115,7 @@ list($post_per_section, $post_type) = scroll_loadpost_settings();
 
                         <?php
                         $id = get_the_ID();
+                        array_push($display_postid_ar, get_the_ID());
                         $background_image_style = discussion_custom_getImageBackground($id);
                         $params['background_image_style'] = $background_image_style;
                         $post_no_class = 'mkd-post-number-' . $post_no;
@@ -205,6 +206,7 @@ list($post_per_section, $post_type) = scroll_loadpost_settings();
                 }
                 wp_reset_postdata();  // reset query
             }
+             $_SESSION["display_postid_ar"] = $display_postid_ar;
             ?><!--/div-->
 
         </div>
