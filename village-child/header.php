@@ -10,35 +10,37 @@
         <?php do_action('discussion_header_meta'); ?>
 
         <?php wp_head(); ?>
-          <?php if(ENVIRONMENT_MODE==1){ ?>
-        <script type="text/javascript">
-            var _ss = _ss || [];
-            _ss.push(['_setDomain', 'https://koi-3QMYANU21K.marketingautomation.services/net']);
-            _ss.push(['_setAccount', 'KOI-3R4GIH0NK8']);
-            _ss.push(['_trackPageView']);
-            (function () {
-                var ss = document.createElement('script');
-                ss.type = 'text/javascript';
-                ss.async = true;
-                ss.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'koi-3QMYANU21K.marketingautomation.services/client/ss.js?ver=1.1.1';
-                var scr = document.getElementsByTagName('script')[0];
-                scr.parentNode.insertBefore(ss, scr);
-            })();
-        </script>
-          <?php } ?>
+        <?php if (ENVIRONMENT_MODE == 1) { ?>
+            <script type="text/javascript">
+                var _ss = _ss || [];
+                _ss.push(['_setDomain', 'https://koi-3QMYANU21K.marketingautomation.services/net']);
+                _ss.push(['_setAccount', 'KOI-3R4GIH0NK8']);
+                _ss.push(['_trackPageView']);
+                (function () {
+                    var ss = document.createElement('script');
+                    ss.type = 'text/javascript';
+                    ss.async = true;
+                    ss.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'koi-3QMYANU21K.marketingautomation.services/client/ss.js?ver=1.1.1';
+                    var scr = document.getElementsByTagName('script')[0];
+                    scr.parentNode.insertBefore(ss, scr);
+                })();
+            </script>
+        <?php } ?>
     </head>
-    <body <?php if (is_single()) {
-            body_class('mkd-apsc-custom-style-enabled');
-        } else {
-            body_class();
-        } ?> itemscope itemtype="http://schema.org/WebPage">
-        		<?php include ('gtm.php'); ?>
-                <?php discussion_get_side_area(); ?>
+    <body <?php
+    if (is_single()) {
+        body_class('mkd-apsc-custom-style-enabled');
+    } else {
+        body_class();
+    }
+    ?> itemscope itemtype="http://schema.org/WebPage">
+            <?php include ('gtm.php'); ?>
+            <?php discussion_get_side_area(); ?>
         <div class="mkd-wrapper">
             <div class="mkd-wrapper-inner">
-                        <?php discussion_get_header(); ?>
+                <?php discussion_get_header(); ?>
 
-                        <?php if (discussion_options()->getOptionValue('show_back_button') == "yes") { ?>
+                <?php if (discussion_options()->getOptionValue('show_back_button') == "yes") { ?>
                     <a id='mkd-back-to-top'  href='#'>
                         <span class="mkd-icon-stack">
                             <?php
@@ -46,12 +48,12 @@
                             ?>
                         </span>
                         <span class="mkd-icon-stack-flip">
-                    <?php
-                    discussion_icon_collections()->getBackToTopIcon('font_elegant');
-                    ?>
+                            <?php
+                            discussion_icon_collections()->getBackToTopIcon('font_elegant');
+                            ?>
                         </span>
                     </a>
-                        <?php } ?>
+                <?php } ?>
 
                 <div class="mkd-content" <?php discussion_content_elem_style_attr(); ?>>
                     <div class="mkd-content-inner">
@@ -123,45 +125,45 @@
                                     //echo '<br>';
                                     if ($valuerel == "all") {
                                         if ($announceLink != "") {
-                                            echo "<a href=" . $announceLink . "><div>" . get_the_content() . "</div></a>";
+                                            echo "<div class='annonuce_set'><div class='mkd-grid'><div class='annonuce_set'><a href=" . $announceLink . "><div class='annonuce_description'>" . get_the_content() . "</div></div></div></div></a>";
                                         } else {
-                                            echo "<div>" . get_the_content() . "</div>";
+                                            echo "<div class='annonuce_set'><div class='mkd-grid'><div class='annonuce_description'>" . get_the_content() . "</div></div></div>";
                                         }
                                     } else {
                                         if ($getInstantoutput == "front") {
                                             //echo $valuerel;
                                             if ($valuerel == "home") {
                                                 if ($announceLink != "") {
-                                                    echo "<a href=" . $announceLink . "><div>" . get_the_content() . "</div></a>";
+                                                    echo "<div class='annonuce_set'><div class='mkd-grid'><a href=" . $announceLink . "><div class='annonuce_description'>" . get_the_content() . "</div></div></div></a>";
                                                 } else {
-                                                    echo "<div class='content'>" . get_the_content() . "</div>";
+                                                    echo "<div class='annonuce_set'><div class='mkd-grid'><div class='annonuce_description'>" . get_the_content() . "</div></div></div>";
                                                 }
                                             }
                                         } elseif ($getInstantoutput == "page") {
                                             if ($valuerel == $getSlug) {
                                                 if ($announceLink != "") {
-                                                    echo "<a href=" . $announceLink . "><div>" . get_the_content() . "</div></a>";
+                                                    echo "<div class='annonuce_set'><div class='mkd-grid'><a href=" . $announceLink . "><div class='annonuce_description'>" . get_the_content() . "</div></div></div></a>";
                                                 } else {
-                                                    echo "<div class='content'>" . get_the_content() . "</div>";
+                                                    echo "<div class='annonuce_set'><div class='mkd-grid'><div class='annonuce_description'>" . get_the_content() . "</div></div></div>";
                                                 }
                                             }
                                         } elseif ($getInstantoutput == "category") {
                                             if ($valuerel == $current_category) {
                                                 if ($announceLink != "") {
-                                                    echo "<a href=" . $announceLink . "><div>" . get_the_content() . "</div></a>";
+                                                    echo "<div class='annonuce_set'><div class='mkd-grid'><a href=" . $announceLink . "><div class='annonuce_description'>" . get_the_content() . "</div></div></div></a>";
                                                 } else {
-                                                    echo "<div class='content'>" . get_the_content() . "</div>";
+                                                    echo "<div class='annonuce_set'><div class='mkd-grid'><div class='annonuce_description'>" . get_the_content() . "</div></div></div>";
                                                 }
                                             }
                                         } else {
-                                            echo "No Announcement Record";
+                                            //echo "No Announcement Record";
                                         }
                                     }
                                 }
                             endwhile;
                             ?>
-<?php wp_reset_postdata(); ?>
-                        <?php wp_reset_query(); ?>
+                            <?php wp_reset_postdata(); ?>
+                            <?php wp_reset_query(); ?>
                         </div>
                         <!-- Announcement Notifications End -->
-<?php discussion_get_content_top(); ?>
+                        <?php discussion_get_content_top(); ?>
