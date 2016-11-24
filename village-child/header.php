@@ -119,19 +119,15 @@
                             while (have_posts()) : the_post();
                                 $value = get_field("display_pages");
                                 $announceLink = get_field("announcements_link");
-                                //print_r($value);
                                 foreach ($value as $key => $valuerel) {
-                                    //echo $valuerel;
-                                    //echo '<br>';
                                     if ($valuerel == "all") {
                                         if ($announceLink != "") {
                                             echo "<div class='annonuce_set'><div class='mkd-grid'><div class='annonuce_set'><a href=" . $announceLink . "><div class='annonuce_description'>" . get_the_content() . "</div></div></div></div></a>";
                                         } else {
                                             echo "<div class='annonuce_set'><div class='mkd-grid'><div class='annonuce_description'>" . get_the_content() . "</div></div></div>";
-                                        }
+                                        } break;
                                     } else {
                                         if ($getInstantoutput == "front") {
-                                            //echo $valuerel;
                                             if ($valuerel == "home") {
                                                 if ($announceLink != "") {
                                                     echo "<div class='annonuce_set'><div class='mkd-grid'><a href=" . $announceLink . "><div class='annonuce_description'>" . get_the_content() . "</div></div></div></a>";
