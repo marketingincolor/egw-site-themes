@@ -2224,6 +2224,7 @@ function sess_start() {
     if (!session_id())
     session_start();
 }
+
 add_action('init','sess_start');
 
 /**
@@ -2234,3 +2235,4 @@ function fspcustom_admin_js() {
     echo '"<script type="text/javascript" src="'. $url . '"></script>"';
 }
 add_action('admin_footer', 'fspcustom_admin_js');
+
