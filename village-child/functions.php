@@ -2224,4 +2224,15 @@ function sess_start() {
     if (!session_id())
     session_start();
 }
+
 add_action('init','sess_start');
+
+/**
+ * Adding custom js for announcement feature in admin side
+ */
+function fspcustom_admin_js() {
+    $url = get_stylesheet_directory_uri() . '/assets/js/wpfsp-admin.js';
+    echo '"<script type="text/javascript" src="'. $url . '"></script>"';
+}
+add_action('admin_footer', 'fspcustom_admin_js');
+

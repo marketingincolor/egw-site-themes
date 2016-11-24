@@ -2079,3 +2079,12 @@ function my_filter_cdata($content) {
 }
 
 add_filter('content_save_pre', 'my_filter_cdata', 9, 1);
+
+/**
+ * Adding custom js for announcement feature in admin side
+ */
+function fspcustom_admin_js() {
+    $url = get_stylesheet_directory_uri() . '/assets/js/wpfsp-admin.js';
+    echo '"<script type="text/javascript" src="'. $url . '"></script>"';
+}
+add_action('admin_footer', 'fspcustom_admin_js');

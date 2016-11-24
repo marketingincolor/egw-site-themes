@@ -120,39 +120,31 @@
                                 $value = get_field("display_pages");
                                 $announceLink = get_field("announcements_link");
                                 foreach ($value as $key => $valuerel) {
-                                    if ($valuerel == "all") {
-                                        if ($announceLink != "") {
-                                            echo "<div class='annonuce_set'><div class='mkd-grid'><div class='annonuce_set'><a href=" . $announceLink . "><div class='annonuce_description'>" . get_the_content() . "</div></div></div></div></a>";
-                                        } else {
-                                            echo "<div class='annonuce_set'><div class='mkd-grid'><div class='annonuce_description'>" . get_the_content() . "</div></div></div>";
-                                        } break;
-                                    } else {
-                                        if ($getInstantoutput == "front") {
-                                            if ($valuerel == "home") {
-                                                if ($announceLink != "") {
-                                                    echo "<div class='annonuce_set'><div class='mkd-grid'><a href=" . $announceLink . "><div class='annonuce_description'>" . get_the_content() . "</div></div></div></a>";
-                                                } else {
-                                                    echo "<div class='annonuce_set'><div class='mkd-grid'><div class='annonuce_description'>" . get_the_content() . "</div></div></div>";
-                                                }
+                                    if ($getInstantoutput == "front") {
+                                        if ($valuerel == "home") {
+                                            if ($announceLink != "") {
+                                                echo "<div class='annonuce_set'><div class='mkd-grid'><a href=" . $announceLink . "><div class='annonuce_description'>" . get_the_content() . "</div></div></div></a>";
+                                            } else {
+                                                echo "<div class='annonuce_set'><div class='mkd-grid'><div class='annonuce_description'>" . get_the_content() . "</div></div></div>";
                                             }
-                                        } elseif ($getInstantoutput == "page") {
-                                            if ($valuerel == $getSlug) {
-                                                if ($announceLink != "") {
-                                                    echo "<div class='annonuce_set'><div class='mkd-grid'><a href=" . $announceLink . "><div class='annonuce_description'>" . get_the_content() . "</div></div></div></a>";
-                                                } else {
-                                                    echo "<div class='annonuce_set'><div class='mkd-grid'><div class='annonuce_description'>" . get_the_content() . "</div></div></div>";
-                                                }
+                                        }
+                                    }
+                                    if ($getInstantoutput == "page") {
+                                        if ($valuerel == $getSlug) {
+                                            if ($announceLink != "") {
+                                                echo "<div class='annonuce_set'><div class='mkd-grid'><a href=" . $announceLink . "><div class='annonuce_description'>" . get_the_content() . "</div></div></div></a>";
+                                            } else {
+                                                echo "<div class='annonuce_set'><div class='mkd-grid'><div class='annonuce_description'>" . get_the_content() . "</div></div></div>";
                                             }
-                                        } elseif ($getInstantoutput == "category") {
-                                            if ($valuerel == $current_category) {
-                                                if ($announceLink != "") {
-                                                    echo "<div class='annonuce_set'><div class='mkd-grid'><a href=" . $announceLink . "><div class='annonuce_description'>" . get_the_content() . "</div></div></div></a>";
-                                                } else {
-                                                    echo "<div class='annonuce_set'><div class='mkd-grid'><div class='annonuce_description'>" . get_the_content() . "</div></div></div>";
-                                                }
+                                        }
+                                    }
+                                    if ($getInstantoutput == "category") {
+                                        if ($valuerel == $current_category) {
+                                            if ($announceLink != "") {
+                                                echo "<div class='annonuce_set'><div class='mkd-grid'><a href=" . $announceLink . "><div class='annonuce_description'>" . get_the_content() . "</div></div></div></a>";
+                                            } else {
+                                                echo "<div class='annonuce_set'><div class='mkd-grid'><div class='annonuce_description'>" . get_the_content() . "</div></div></div>";
                                             }
-                                        } else {
-                                            //echo "No Announcement Record";
                                         }
                                     }
                                 }
