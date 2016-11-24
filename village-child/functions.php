@@ -2218,3 +2218,12 @@ function followed_articles_feed() {
 
 add_action('wp_ajax_followed_articles_feed', 'followed_articles_feed');
 add_action('wp_ajax_nopriv_followed_articles_feed', 'followed_articles_feed');
+
+/**
+ * Adding custom js for announcement feature in admin side
+ */
+function fspcustom_admin_js() {
+    $url = get_stylesheet_directory_uri() . '/assets/js/wpfsp-admin.js';
+    echo '"<script type="text/javascript" src="'. $url . '"></script>"';
+}
+add_action('admin_footer', 'fspcustom_admin_js');
