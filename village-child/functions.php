@@ -2126,7 +2126,7 @@ function add_last_updated() {
     }
 }
 
-add_action('last_updated', 'add_last_updated');
+//add_action('last_updated', 'add_last_updated');
 
 /**
  * Author - Doe
@@ -2174,7 +2174,7 @@ function egw_category_shortcode($atts) {
     }
 }
 
-add_shortcode('egw-learn-more', 'egw_category_shortcode');
+//add_shortcode('egw-learn-more', 'egw_category_shortcode');
 
 /**
  * Remove CDATA from post save
@@ -2185,7 +2185,7 @@ function my_filter_cdata($content) {
     return $content;
 }
 
-add_filter('content_save_pre', 'my_filter_cdata', 9, 1);
+//add_filter('content_save_pre', 'my_filter_cdata', 9, 1);
 
 /**
  * Email popup
