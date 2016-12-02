@@ -1988,7 +1988,7 @@ function custom_sponsor_contact_form() {
     }
 }
 
-//add_action('wp_footer', 'custom_sponsor_contact_form');
+add_action('wp_footer', 'custom_sponsor_contact_form');
 
 function add_last_updated() {
     $post_date_number = strtotime(get_the_date());
@@ -2008,7 +2008,7 @@ function add_last_updated() {
     }
 }
 
-//add_action('last_updated', 'add_last_updated');
+add_action('last_updated', 'add_last_updated');
 
 /**
  * Description: Adds sponsor post bar to posts
@@ -2067,7 +2067,7 @@ function egw_category_shortcode($atts) {
     }
 }
 
-//add_shortcode('egw-learn-more', 'egw_category_shortcode');
+add_shortcode('egw-learn-more', 'egw_category_shortcode');
 
 /**
  * Remove CDATA from post save
@@ -2078,7 +2078,7 @@ function my_filter_cdata($content) {
     return $content;
 }
 
-//add_filter('content_save_pre', 'my_filter_cdata', 9, 1);
+add_filter('content_save_pre', 'my_filter_cdata', 9, 1);
 
 /**
  * Adding custom js for announcement feature in admin side
