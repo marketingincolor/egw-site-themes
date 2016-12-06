@@ -393,14 +393,15 @@ if (!function_exists('discussion_custom_categoryImageParams')) {
  */
 if (!function_exists('discussion_custom_category_query')) {
 
-    function discussion_custom_category_query($post_type, $category, $post_per_section) {
+    function discussion_custom_category_query($post_type, $category, $post_per_section, $tag_not_in ) {
         $args = array(
-            'category_name' => $category,
-            'post_status' => 'publish',
-            'order' => 'DESC',
-            'post_type' => $post_type,
+            'category_name'  => $category,
+            'post_status'    => 'publish',
+            'order'          => 'DESC',
+            'post_type'      => $post_type,
             'posts_per_page' => $post_per_section,
-            'paged' => 1
+            'paged'          => 1,
+            'tag__not_in'    => $tag_not_in
         );
         return $my_query = query_posts($args);
     }
@@ -414,14 +415,15 @@ if (!function_exists('discussion_custom_category_query')) {
  */
 if (!function_exists('discussion_custom_categorylist_query')) {
 
-    function discussion_custom_categorylist_query($post_type, $category, $post_per_section) {
+    function discussion_custom_categorylist_query($post_type, $category, $post_per_section, $tag_not_in ) {
         $args = array(
             'cat' => $category,
             'post_status' => 'publish',
             'order' => 'DESC',
             'post_type' => $post_type,
             'posts_per_page' => $post_per_section,
-            'paged' => 1
+            'paged' => 1,
+            'tag__not_in' => $tag_not_in
         );
         return $my_query = query_posts($args);
     }
@@ -442,8 +444,8 @@ add_filter('wp_postratings_image_extension', 'custom_rating_image_extension');
 /**
  * Returns ID of top-level parent category, or current category if you are viewing a top-level
  *
- * @param	string		$catid 		Category ID to be checked
- * @return 	string		$catParent	ID of top-level parent category
+ * @param   string      $catid      Category ID to be checked
+ * @return  string      $catParent  ID of top-level parent category
  */
 if (!function_exists('category_top_parent_id')) {
 
@@ -2088,3 +2090,69 @@ function fspcustom_admin_js() {
     echo '"<script type="text/javascript" src="'. $url . '"></script>"';
 }
 add_action('admin_footer', 'fspcustom_admin_js');
+
+
+if (!function_exists('get_egw_branches')) {
+    /**
+     * Add EGW Branches Here
+     * @return array EGW Branches
+     */
+    function get_egw_branches()
+    {
+        $branches = array( 'Villages', 'Baltimore', 'Phoenix' );
+        return $branches;
+    }
+}
+
+/**
+ * Change Member Role To Match Tagged Location.
+ * @return string Village/s location
+ */
+function get_egw_member_location()
+{
+    $user = wp_get_current_user();
+    if ( in_array( 'villages_member', (array) $user->roles ) )
+    {
+        $location = 'Villages';
+    }
+    elseif ( in_array( 'baltimore_member', (array) $user->roles ) )
+    {
+        $location = "Baltimore";
+    }
+    else {
+        $location = 'none';
+    }
+
+    return $location;
+
+}
+
+if (!function_exists('egw_tag_not_in')) {
+    /**
+     * Purpose - Match users member location to tags for filtering content.
+     * @return array Tag IDs != members location
+     */
+    function egw_tag_not_in($member_location)
+    {
+        /*List of Tags on AD local
+        
+        *218->Villages
+        *312->Baltimore
+
+        */
+        if( $member_location == 'Villages' )
+        {
+            //Tags != 'Villages'
+            $tag_not_in = array(312);
+        }
+        elseif( $member_location == 'Baltimore' )
+        {
+            //Tags != 'Baltimore'
+            $tag_not_in = array(218);
+        }
+        return $tag_not_in;
+    }
+}
+
+
+
