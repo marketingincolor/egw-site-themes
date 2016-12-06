@@ -12,7 +12,7 @@ if ( $location == 'Baltimore') { $display_location = $location; }
 if ( ($location == 'Villages') || ($location == 'Baltimore') ) {
 	$current_site = get_current_site();?>
 <div class="sub-site-logo">
-    <a href=""><h2><?php echo echo $display_location; ?></h2></a>
+    <a href=""><h2><?php echo $display_location; ?></h2></a>
 </div>
 <?php
 } 
