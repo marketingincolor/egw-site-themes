@@ -6,13 +6,11 @@
     </a>
 </div>
 <?php
-$location = get_egw_member_location();
-if ( $location == 'Villages') { $display_location = 'The Villages<sup>&reg;</sup>'; }
-if ( $location == 'Baltimore') { $display_location = $location; }
-if ( ($location == 'Villages') || ($location == 'Baltimore') ) {
-	$current_site = get_current_site();?>
-<div class="sub-site-logo">
-    <a href=""><h2><?php echo echo $display_location; ?></h2></a>
+global $blog_id;
+if ($blog_id != 1) {
+   $current_site = get_current_site();?>
+   <div class="sub-site-logo">
+    <a href=""><h2><?php echo get_bloginfo('name'); ?></h2></a>
 </div>
 <?php
 } 
