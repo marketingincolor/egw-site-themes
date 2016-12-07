@@ -2155,4 +2155,19 @@ if (!function_exists('egw_tag_not_in')) {
 }
 
 
-
+if ( !function_exists('get_num_columns')) 
+{
+    function get_num_columns()
+    {
+        if ( current_user_can( 'access_village_content' ) )
+        {
+            $home_columns = 2;
+            return $home_columns;
+        }
+        else
+        {
+            $home_columns = 3;
+            return $home_columns;
+        }
+    }
+}
