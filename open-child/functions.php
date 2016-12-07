@@ -1,19 +1,13 @@
 <?php
 
 if (!function_exists('discussion_styles')) {
-
-    /**
-     * Function that includes theme's core styles
-     */
     function my_theme_enqueue_styles() {
-
         //include theme's core styles
         wp_enqueue_style('discussion_default_style', get_stylesheet_directory_uri() . '/style.css');
         wp_enqueue_style('discussion_modules', get_stylesheet_directory_uri() . '/assets/css/modules.css');
         wp_enqueue_style('fsp_custom_css', get_stylesheet_directory_uri() . '/assets/css/fspstyles.css');
         wp_enqueue_style('fsp_custom_popup', get_stylesheet_directory_uri() . '/assets/css/magnific-popup.css');
     }
-
     add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
 }
 
@@ -30,7 +24,6 @@ if (!function_exists('discussion_scripts')) {
         wp_enqueue_script('jquery-ui-tabs');
         wp_enqueue_script('wp-mediaelement');
 
-
         wp_enqueue_script('discussion_third_party', MIKADO_ASSETS_ROOT . '/js/third-party.min.js', array('jquery'), false, true);
 
         if (discussion_is_smoth_scroll_enabled()) {
@@ -42,10 +35,7 @@ if (!function_exists('discussion_scripts')) {
 
         wp_enqueue_script('discussion_modules', MIKADO_ASSETS_ROOT . '/js/modules.min.js', array('jquery'), false, true);
         wp_enqueue_script('fsp-custom-popupjs', get_stylesheet_directory_uri() . '/assets/js/jquery.magnific-popup.js', array('jquery'), false, true);
-
         wp_enqueue_script('common script', get_stylesheet_directory_uri() . '/assets/js/common.js', array('jquery'), false, true);
-
-
 
         //include comment reply script
         $wp_scripts->add_data('comment-reply', 'group', 1);
@@ -59,9 +49,9 @@ if (!function_exists('discussion_scripts')) {
         }
 
         //Remove article from the user profile page
-        if (is_page('user-profile')) {
+        /*if (is_page('user-profile')) {
             wp_enqueue_script('custom-remove-save-article', MIKADO_ASSETS_ROOT . '/js/fsp-remove-save-article.js');
-        }
+        }*/
 
         //Remove article from the user profile page
         if (is_page('login')) {
@@ -70,6 +60,18 @@ if (!function_exists('discussion_scripts')) {
     }
 
     add_action('wp_enqueue_scripts', 'discussion_scripts');
+}
+
+/**
+ * Author - Akilan
+ * Date - 18-07-2016 - Added 12-06-2016
+ * Purpose - Fetch next and next most article for scroll based article load
+ */
+function village_next_post_scrollarticle($blog_title_ar, $i) {
+    $current = isset($blog_title_ar[$i]) ? $blog_title_ar[$i] : "";
+    $next_title = isset($blog_title_ar[$i + 1]) ? $blog_title_ar[$i + 1] : "";
+    $data = array($current, $next_title);
+    return get_title_class($data);
 }
 
 /**
@@ -144,6 +146,22 @@ if (!function_exists('follow_categorypost_detail')) {
 
 }
 
+function remainfollow_categorypost_detail($post_type, $subcat_id_sgl, $display_postid_ar, $limit) {
+    $posts = get_posts(array(
+        'post_type' => $post_type,
+        'cat' => $subcat_id_sgl,
+        'order' => 'DESC',
+        'posts_per_page' => $limit,
+        'post__not_in' => $display_postid_ar
+    ));
+    return $posts;
+}
+
+/**
+ * Author - Rajasingh
+ * Date - 26-08-2016
+ * Purpose - For getting category based post except from followed categories
+ */
 function follow_categorypost_detail_set($post_type, $subcat_id_sgl, $display_postid_ar) {
     $posts = array(
         'post_type' => $post_type,
@@ -385,6 +403,51 @@ if (!function_exists('discussion_custom_categoryImageParams')) {
 /**
  * Author -Akilan
  * Date  - 20-06-2016
+ * Purpose -  For custom template featured query
+ */
+if (!function_exists('discussion_custom_featured_query')) {
+
+    function discussion_custom_featured_query($category) {
+        $args1 = array(
+            'category_name' => $category,
+            'post_status' => 'publish',
+            'order' => 'DESC',
+            'posts_per_page' => 1
+        );
+        return $result = query_posts($args1);
+    }
+
+}
+
+/**
+ * Author -Akilan
+ * Date  - 20-06-2016
+ * get data of attributes
+ * @param type $params
+ * @param type $atts
+ * @return string
+ */
+if (!function_exists('discussion_custom_getData')) {
+
+    function discussion_custom_getData($params, $atts) {
+        $data = '';
+
+        if ($params['slider_height'] !== '') {
+            $data .= 'data-image-height=' . esc_attr($params['slider_height']) . ' ';
+        }
+
+        if ($atts['number_of_posts'] !== '') {
+            $data .= 'data-posts-no=' . esc_attr($atts['number_of_posts']) . ' ';
+        }
+
+        return $data;
+    }
+
+}
+
+/**
+ * Author -Akilan
+ * Date  - 20-06-2016
  * Purpose - For custom template for category query
  * paramater
  * $post_type => type of post
@@ -494,8 +557,6 @@ function execute_php($html) {
 function modify_contact_methods($profile_fields) {
 
     // Add new fields
-
-
     $profile_fields['twitter'] = 'Twitter Username';
     $profile_fields['facebook'] = 'Facebook URL';
     $profile_fields['dob'] = 'Date of Birth';
@@ -548,7 +609,6 @@ function userpage_rewrite_catch() {
 }
 
 add_action('template_redirect', 'userpage_rewrite_catch');
-
 
 /**
  * Author- Vinoth Raja
@@ -797,7 +857,6 @@ if (!function_exists('discussion_home_custom_category_query')) {
     }
 
 }
-
 
 
 /**
@@ -1270,6 +1329,8 @@ function add_login_logout_to_menu($items, $args) {
 
     $redirect = ( is_home() ) ? home_url('/') : home_url('/');
     $homeurl = home_url('/');
+    if (is_user_logged_in())
+        $link = '<a class="current" href="' . $homeurl . 'my-stories/"><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon blank fa"></i></span><span class="item_text">My Stories</span></span></span></a>';
     if (!is_user_logged_in() && get_current_blog_id() == 1)
         $link = '<a class="" href="' . $homeurl . 'register"><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon blank fa"></i></span><span class="item_text">Join</span></span></span></a>';
     // else
@@ -1279,8 +1340,6 @@ function add_login_logout_to_menu($items, $args) {
 }
 
 add_filter('wp_nav_menu_items', 'add_login_logout_to_menu', 50, 2);
-
-
 
 /**
  * Author - Vinoth Raja
@@ -1312,7 +1371,6 @@ if (!function_exists('custom_update_post_count_views')) {
 
     add_action('wp', 'custom_update_post_count_views');
 }
-
 
 if (!function_exists('custom_discussion_excerpt')) {
 
@@ -1816,7 +1874,6 @@ class DiscussionCategoryLayoutTabs extends DiscussionWidget {
      */
     public function widget($args, $instance) {
 
-
         extract($args);
 
         //prepare variables
@@ -1918,6 +1975,7 @@ class DiscussionCategoryLayoutTabs extends DiscussionWidget {
                     echo '<div class="mkd-bnl-outer">';
                     echo '<div class="mkd-bnl-inner">';
                 endif;
+
                 echo '<div class="mkd-pt-five-item mkd-post-item">';
                 echo '<div class="mkd-pt-five-item-inner">';
                 echo '<div class="mkd-pt-five-top-content">';
@@ -1939,13 +1997,10 @@ class DiscussionCategoryLayoutTabs extends DiscussionWidget {
                 // echo discussion_generate_thumbnail(z_taxonomy_image_url($category->term_id),null,$thumb_image_width,$thumb_image_height);
 
                 echo '</a></div>';
-
-
                 echo '<div class="mkd-pt-five-content">';
                 echo '<div class="mkd-pt-five-content-inner">';
                 echo '<h6 class="mkd-pt-five-title">';
                 echo '<a itemprop="url" class="mkd-pt-link" href="' . esc_url(get_category_link($category->term_id)) . '" target="_self">';
-
                 echo $category->name;
                 echo '</a>';
                 echo '</h6>';
@@ -1965,6 +2020,7 @@ class DiscussionCategoryLayoutTabs extends DiscussionWidget {
                 //echo do_shortcode('[mkd_post_layout_'.$layout.' '.${$params_label.$key}.']'); // XSS OK
 //                        echo'</div>';
             }
+
             echo '</div>';
         }
         echo '</div>'; //close div.mkd-plw-tabs-content-holder
@@ -2081,6 +2137,46 @@ function my_filter_cdata($content) {
 }
 
 add_filter('content_save_pre', 'my_filter_cdata', 9, 1);
+
+/**
+ * Email popup
+ */
+function saved_articles_load_popup() {
+    get_template_part('saved-article-email-trigger');
+    exit;
+}
+
+add_action('wp_ajax_saved_articles_load_popup', 'saved_articles_load_popup');
+add_action('wp_ajax_nopriv_saved_articles_load_popup', 'saved_articles_load_popup');
+
+/**
+ * Email functionality process
+ */
+function saved_articles_popup_email() {
+    get_template_part('article_share_via_email');
+    exit;
+}
+
+add_action('wp_ajax_saved_articles_popup_email', 'saved_articles_popup_email');
+add_action('wp_ajax_nopriv_saved_articles_popup_email', 'saved_articles_popup_email');
+
+//Load Article Feed on the my stories page
+
+function followed_articles_feed() {
+    get_template_part('follow_unfollow_articlefeed');
+    exit;
+}
+
+add_action('wp_ajax_followed_articles_feed', 'followed_articles_feed');
+add_action('wp_ajax_nopriv_followed_articles_feed', 'followed_articles_feed');
+
+
+function sess_start() {
+    if (!session_id())
+    session_start();
+}
+
+add_action('init','sess_start');
 
 /**
  * Adding custom js for announcement feature in admin side
