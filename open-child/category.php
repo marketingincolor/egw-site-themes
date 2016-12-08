@@ -36,7 +36,7 @@ list($post_per_section,$post_type)=scroll_loadpost_settings();
                                   <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div> 
                                <?php
                                 $my_query = null;
-                                $my_query = discussion_custom_categorylist_query($post_type,$category_id,$post_per_section);   
+                                $my_query = discussion_custom_categorylist_query($post_type,$category_id,$post_per_section,$tag_not_in);   
     //                            $my_query = discussion_custom_categorylist_query($category_id);
                                 global $wp_query;
                                 get_template_part('block/category-blog-list');

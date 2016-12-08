@@ -4,6 +4,7 @@ if (!function_exists('discussion_styles')) {
     function my_theme_enqueue_styles() {
         //include theme's core styles
         wp_enqueue_style('discussion_default_style', get_stylesheet_directory_uri() . '/style.css');
+        wp_enqueue_style('fsp_custom_css_child', get_stylesheet_directory_uri() . '/assets/css/fspstyles_child.css');
         wp_enqueue_style('discussion_modules', get_stylesheet_directory_uri() . '/assets/css/modules.css');
         wp_enqueue_style('fsp_custom_css', get_stylesheet_directory_uri() . '/assets/css/fspstyles.css');
         wp_enqueue_style('fsp_custom_popup', get_stylesheet_directory_uri() . '/assets/css/magnific-popup.css');
@@ -1607,8 +1608,8 @@ add_action('init', 'remove_discussion_get_header_top');
 
 function remove_discussion_get_header_top() {
     //mobile header
-    remove_action('discussion_after_page_header', 'discussion_get_header_top');
-    add_action('discussion_after_page_header', 'add_custom_discussion_get_header_top');
+    //remove_action('discussion_after_page_header', 'discussion_get_header_top');
+    //add_action('discussion_after_page_header', 'add_custom_discussion_get_header_top');
 }
 
 if (!function_exists('add_custom_discussion_get_header_top')) {
