@@ -1,4 +1,3 @@
-
 <div class="mkd-section-title-holder clearfix"><span class="mkd-st-title">Live Events</span></div>
 
 <div id="mkd-widget-tab-4" class="mkd-ptw-holder mkd-tabs" aria-labelledby="ui-id-5" role="tabpanel" aria-hidden="false">
