@@ -1247,7 +1247,7 @@ function check_cat_subcat($getPostcat) {
  * Purpose - For customizing wp_favorite_posts plugin for remove star from remove favorites section
  *
  */
-function customized_saved_stories() {
+function customized_saved_stories( $return = 0, $action = "", $show_span = 1, $args = array() ) {
     global $post;
     $post_id = &$post->ID;
     extract($args);

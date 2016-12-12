@@ -90,7 +90,7 @@
                                                     ?>
                                                           </div>
                                                       </div> -->
-                                                    <?php if(get_current_blog_id()!=1){ ?>
+                                                    <?php //if(get_current_blog_id()!=1){ ?>
                                                         <div class="mkd-follow-category">
                                                             <!-- Category follow functionality Start-->
                                                             <?php
@@ -147,13 +147,13 @@
                                                                             $processDo = "update";
                                                                             if ($currentFlag == 0) {
                                                                                 $setValue = 1;
-                                                                                $label = "Follow";
+                                                                                $label = "Follow in My Stories";
                                                                             } else {
                                                                                 $setValue = 0;
-                                                                                $label = "unfollow";
+                                                                                $label = "Unfollow in My Stories";
                                                                             }
                                                                         } else {
-                                                                            $label = "Follow";
+                                                                            $label = "Follow in My Stories";
                                                                             $processDo = "insert";
                                                                             $setValue = 1;
                                                                         }
@@ -172,7 +172,7 @@
                                                             <?php } ?>
                                                             <!-- Category follow functionality end -->
                                                         </div>
-                                                    <?php } ?>
+                                                    <?php //} ?>
                                                 <?php } ?>
                                             </div>
                                         </div>
