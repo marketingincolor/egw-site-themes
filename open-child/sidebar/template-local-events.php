@@ -13,19 +13,23 @@
 
                     //Limit is set via ai1ec tag under organize tab
                     //Limit to Villages Events
-                    if (current_user_can('access_villages_content' )
-                    {
+                    if (current_user_can('access_village_content' )) {
                         $limit = array(
                             'tag_ids' => array (314) 
                         );
                     }
+
                     // Limit to Baltimore Events
-                    elseif (current_user_can('access_baltimore_content')
-                    {
+                    elseif (current_user_can('access_baltimore_content')) {
                         $limit = array(
                             'tag_ids' => array (313) 
                         );
                     }
+
+                    else {
+                        $limit = array();
+                    }
+
                     // gets localized time
                     $local_date = $ai1ec_registry->get('date.time', $date_system->current_time(), 'sys.default');
 
