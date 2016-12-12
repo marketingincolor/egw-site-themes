@@ -10,6 +10,22 @@
                     $date_system = $ai1ec_registry->get('date.system');
                     $search = $ai1ec_registry->get('model.search');
 
+
+                    //Limit is set via ai1ec tag under organize tab
+                    //Limit to Villages Events
+                    if (current_user_can('access_villages_content' )
+                    {
+                        $limit = array(
+                            'tag_ids' => array (314) 
+                        );
+                    }
+                    // Limit to Baltimore Events
+                    elseif (current_user_can('access_baltimore_content')
+                    {
+                        $limit = array(
+                            'tag_ids' => array (313) 
+                        );
+                    }
                     // gets localized time
                     $local_date = $ai1ec_registry->get('date.time', $date_system->current_time(), 'sys.default');
 
@@ -21,7 +37,7 @@
                     $end_time = clone $start_time;
                     $end_time->adjust_month(12);
 
-                    $events_result = $search->get_events_between($start_time, $end_time, array(), true);
+                    $events_result = $search->get_events_between($start_time, $end_time, $limit, true);
 
                     if (!empty($events_result)) {
                         $event_count = '0';
