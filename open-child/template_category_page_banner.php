@@ -14,11 +14,10 @@
                     <div data-max_pages="1" data-paged="1" data-sort="featured_first" data-post_in="205, 215, 218, 225, 232" data-category_id="4" data-number_of_posts="5" data-slider_height="735" data-base="mkd_post_slider_interactive" class="mkd-bnl-holder mkd-psi-holder  mkd-psi-number-5" style="opacity: 1;">
                         <div class="mkd-bnl-outer">
                             <?php
-                            if(!isset($category_id))
-                            $category_id = get_cat_id(single_cat_title("", false));
+                            if (!isset($category_id))
+                                $category_id = get_cat_id(single_cat_title("", false));
                             $cat = get_category($category_id);
                             $parent_category_id = category_top_parent_id($category_id);
-                            
 
                             $args = array(
                                 'title_tag' => 'h2',
@@ -47,8 +46,6 @@
                                     $params = array_merge($params, $image_params);
                                 }
 
-
-
                                 $redirect_url = esc_url(get_permalink());
                                 ?>
                                 <div class="mkd-psi-slider">      
@@ -56,7 +53,6 @@
                                     <div class="mkd-psi-slide" data-image-proportion="<?php echo esc_attr($params['proportion']) ?>" <?php discussion_inline_style($params['background_image']); ?>>
                                         <div class="mkd-psi-content">
                                             <div class="mkd-grid">
-
 
                                                 <?php
                                                 discussion_post_info_category(array(
@@ -90,89 +86,88 @@
                                                     ?>
                                                           </div>
                                                       </div> -->
-                                                    <?php //if(get_current_blog_id()!=1){ ?>
-                                                        <div class="mkd-follow-category">
-                                                            <!-- Category follow functionality Start-->
-                                                            <?php
-                                                            if (is_user_logged_in()) {
-                                                                ?>
-                                                                <script type = "text/javascript">
-                                                                    jQuery(function () {
-                                                                        jQuery(".comment_button").click(function () {
+                                                    <div class="mkd-follow-category">
+                                                        <!-- Category follow functionality Start-->
+                                                        <?php
+                                                        if (is_user_logged_in()) {
+                                                            ?>
+                                                            <script type = "text/javascript">
+                                                                // subcategory followed functionality from sub-category banner part
+                                                                jQuery(function () {
+                                                                    jQuery(".comment_button").click(function () {
 
-                                                                            var user_primary_site=jQuery.trim(jQuery('#user_primary_site').val());
-                                                                            if(user_primary_site && user_primary_site!== '0'){                                                                                                                                                        
-                                                                                jQuery('#site_user_validation_popup_message').text('Only members of this branch can follow or unfollow the category.');
-                                                                                jQuery.magnificPopup.open({
-                                                                                    items: {
-                                                                                        src: '#site_user_validation_popup',
-                                                                                    },
-                                                                                    type: 'inline'
-                                                                                });
-                                                                                return false;
-                                                                            }
-                                                                            var dataString = jQuery('form').serialize();
-                                                                            //alert(dataString);
-                                                                            jQuery.ajax({
-                                                                                type: "POST",
-                                                                                url: "wp-content/themes/discussionwp/followajax.php",
-                                                                                data: jQuery('form').serialize(),
-                                                                                cache: false,
-                                                                                success: function (successvalue) {
-
-                                                                                    obj = JSON.parse(successvalue);
-                                                                                    alert(obj.msg);
-                                                                                    jQuery(".comment_button").html(obj.label);
-                                                                                    jQuery("#flagvalue").val(obj.setflag);
-                                                                                    jQuery("#submitvalue").val(obj.submitvalue);
-                                                                                }
+                                                                        var user_primary_site = jQuery.trim(jQuery('#user_primary_site').val());
+                                                                        if (user_primary_site && user_primary_site !== '0') {
+                                                                            jQuery('#site_user_validation_popup_message').text('Only members of this branch can follow or unfollow the category.');
+                                                                            jQuery.magnificPopup.open({
+                                                                                items: {
+                                                                                    src: '#site_user_validation_popup',
+                                                                                },
+                                                                                type: 'inline'
                                                                             });
                                                                             return false;
-                                                                        });
-                                                                    });
-                                                                </script>
-                                                                <div id="followContainer">
-                                                                    <form method="post" name="form" action="">
-                                                                        <?php
-                                                                        $categoryid = $category_id;
-                                                                        $userid = get_current_user_id();
-                                                                        //echo $categoryid =  $wp_query->get_queried_object();
-                                                                        //echo "SELECT *from wp_follow_category where userid=" . $userid . " and categoryid=" . $categoryid . "";
-                                                                        $fetchresult = $wpdb->get_results("SELECT *from wp_follow_category where userid=" . $userid . " and categoryid=" . $categoryid . "");
-                                                                        $rowresult = $wpdb->num_rows;
-                                                                        foreach ($fetchresult as $results) {
-                                                                            $currentFlag = $results->flag;
                                                                         }
-                                                                        if ($rowresult > 0) {
-                                                                            $processDo = "update";
-                                                                            if ($currentFlag == 0) {
-                                                                                $setValue = 1;
-                                                                                $label = "Follow in My Stories";
-                                                                            } else {
-                                                                                $setValue = 0;
-                                                                                $label = "Unfollow in My Stories";
+                                                                        var dataString = jQuery('form').serialize();
+                                                                        //alert(dataString);
+                                                                        jQuery.ajax({
+                                                                            type: "POST",
+                                                                            url: "<?php echo get_stylesheet_directory_uri(); ?>/followajax.php",
+                                                                            data: jQuery('form').serialize(),
+                                                                            cache: false,
+                                                                            success: function (successvalue) {
+                                                                                document.getElementById("followed-msg").innerHTML = '<div class="follow-vad-tick followed-msg"><i class="fa fa-check" aria-hidden="true"></i>You have subscribed successfully</div>';
+                                                                                location.reload(true);
                                                                             }
-                                                                        } else {
-                                                                            $label = "Follow in My Stories";
-                                                                            $processDo = "insert";
+                                                                        });
+                                                                        return false;
+                                                                    });
+                                                                });
+                                                            </script>
+                                                            <div id="followContainer" class="followbannercat">
+                                                                <form method="post" name="form" id="unfollowsubcatfrombanner" action="">
+                                                                    <?php
+                                                                    $categoryid = $category_id;
+                                                                    $userid = get_current_user_id();
+                                                                    //echo $categoryid =  $wp_query->get_queried_object();
+                                                                    //echo "SELECT *from wp_follow_category where userid=" . $userid . " and categoryid=" . $categoryid . "";
+                                                                    $fetchresult = $wpdb->get_results("SELECT *from wp_follow_category where userid=" . $userid . " and categoryid=" . $categoryid . "");
+                                                                    $rowresult = $wpdb->num_rows;
+                                                                    foreach ($fetchresult as $results) {
+                                                                        $currentFlag = $results->flag;
+                                                                    }
+                                                                    if ($rowresult > 0) {
+                                                                        $processDo = "deletebannercat";
+                                                                        if ($currentFlag == 0) {
                                                                             $setValue = 1;
+                                                                            $label = "Follow in My Stories";
+                                                                        } else {
+                                                                            $setValue = 0;
+                                                                            $label = "Unfollow in My Stories";
                                                                         }
-                                                                        if($parent_category_id!=$category_id) {
+                                                                    } else {
+                                                                        $label = "Follow in My Stories";
+                                                                        $processDo = "insert";
+                                                                        $setValue = 1;
+                                                                    }
+                                                                    if ($parent_category_id != $category_id) {
                                                                         ?>
-                                                                        <button type="button" value="<?php echo $label; ?>" name="follow" class="comment_button"><?php echo $label; ?></button>
-                                                                        <?php } ?>
-                                                                        <input type="hidden" name="updateflag" id="flagvalue" value="<?php echo $setValue; ?>">
-                                                                        <input type="hidden" name="submit" id="submitvalue" value="<?php echo $processDo; ?>">
-                                                                        <input type="hidden" name="userid" value="<?php echo $userid; ?>">
-                                                                        <input type="hidden" name="categoryid" value="<?php echo $categoryid; ?>">                                                                    
-                                                                    </form>
-                                                                </div>
+                                                                        <div id="followed-msg"></div>
+                                                                        <div id="unfollowed-msg"></div>
+                                                                        <button type="button" value="<?php echo $label; ?>" name="follow" <?php if ($currentFlag == 1) { ?>id="unfollow_button" class="unfollow_button" <?php } if ($currentFlag == 0) { ?> class="comment_button"<?php } ?>><?php echo $label; ?></button>
 
+                                                                    <?php } ?>
+                                                                    <input type="hidden" name="updateflag" id="flagvalue" value="<?php echo $setValue; ?>">
+                                                                    <input type="hidden" name="submit" id="submitvalue" value="<?php echo $processDo; ?>">
+                                                                    <input type="hidden" name="userid" value="<?php echo $userid; ?>">
+                                                                    <input type="hidden" name="categoryid" value="<?php echo $categoryid; ?>">
+                                                                    <!-- For unfollow categories-->
+                                                                    <input type="hidden" name="followedcategories" value="<?php echo $categoryid; ?>"> 
+                                                                </form>
+                                                            </div>
 
-                                                            <?php } ?>
-                                                            <!-- Category follow functionality end -->
-                                                        </div>
-                                                    <?php //} ?>
+                                                        <?php } ?>
+                                                        <!-- Category follow functionality end -->
+                                                    </div>
                                                 <?php } ?>
                                             </div>
                                         </div>
@@ -187,7 +182,6 @@
                             echo $html;
                             ?>
 
-
                         </div>
                     </div>
                 </div>
@@ -195,8 +189,21 @@
         </div>    
     </div>
 </div>
-
-
-
- 
-
+<script type="text/javascript">
+    //Delete followed subcategories from sub-category banner part
+    jQuery(document).on('click', '#unfollow_button', function () {
+        var dataString = jQuery('#unfollowsubcatfrombanner').serialize();
+        jQuery.ajax({
+            type: "POST",
+            url: "<?php echo get_stylesheet_directory_uri(); ?>/followajax.php",
+            data: dataString,
+            cache: false,
+            success: function (deletedvalue) {
+                document.getElementById("unfollowed-msg").innerHTML = '<div class="follow-vad-tick unfollowed-msg"><i class="fa fa-check" aria-hidden="true"></i> You have unfollowed successfully</div>';
+                location.reload(true);
+            }
+        });
+        return false;
+        //}
+    });
+</script>
