@@ -1910,8 +1910,8 @@ input[type="checkbox"]:disabled + label span {
 .annonuce_set{
     width: 100%;
     height: auto;
-    border: 1px solid red;
-    background-color: #FF0000;
+    border: 1px solid #8b54a2;
+    background-color: #8b54a2;
 }
 @media (min-width: 769px) and (max-width: 1200px) {
     .follow-innercont ul li{
