@@ -1,7 +1,11 @@
+<?php      
+ $member_location = get_egw_member_location();     
+ $tag_not_in = egw_tag_not_in($member_location);       
+ ?>
 <div class="widget mkd-rpc-holder">
     <div class="mkd-section-title-holder clearfix"><span class="mkd-st-title">Local News Stories</span></div>
     <div class="mkd-rpc-inner village-sidebar-news-stories">
-        <?php $posts = new WP_Query(array('post_type' => 'post', 'post_status' => 'publish', 'posts_per_page' => -1, 'showposts' => 3, 'orderby' => 'most_recent', 'category_name' => 'news'));
+        <?php $posts = new WP_Query(array('post_type' => 'post', 'post_status' => 'publish', 'posts_per_page' => -1, 'showposts' => 3, 'orderby' => 'most_recent', 'category_name' => 'news', 'tag__not_in' => $tag_not_in));
         ?>
         <ul>            
            <?php while ($posts->have_posts()) : $posts->the_post(); ?>                      
