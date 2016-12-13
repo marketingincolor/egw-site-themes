@@ -21,7 +21,7 @@ get_header();
                 get_template_part('block/home-page-banner'); 
 
                 // Show Membership Layout if user has access
-                if (current_user_can( 'access_village_content')) { 
+                if (current_user_can( ACCESS_VILLAGE_CONTENT )) { 
                     get_template_part('branch', 'member-sidebar-layout' ); 
                 }
                 else {

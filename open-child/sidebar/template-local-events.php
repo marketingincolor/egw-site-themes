@@ -13,14 +13,14 @@
 
                     //Limit is set via ai1ec tag under organize tab
                     //Limit to Villages Events
-                    if (current_user_can('access_village_content' )) {
+                    if (current_user_can(ACCESS_VILLAGE_CONTENT)) {
                         $limit = array(
                             'tag_ids' => array (314) 
                         );
                     }
 
                     // Limit to Baltimore Events
-                    elseif (current_user_can('access_baltimore_content')) {
+                    elseif (current_user_can(ACCESS_BALTIMORE_CONTENT)) {
                         $limit = array(
                             'tag_ids' => array (313) 
                         );

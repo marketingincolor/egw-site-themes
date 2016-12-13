@@ -1,5 +1,13 @@
 <?php
 
+// Branch Names
+define("THE_VILLAGES_NAME", "The Villages");
+define("BALTIMORE_NAME", "Baltimore");
+
+//Access Titles
+define("ACCESS_VILLAGE_CONTENT", "access_village_content");
+define("ACCESS_BALTIMORE_CONTENT", "access_baltimore_content");
+
 if (!function_exists('discussion_styles')) {
     function my_theme_enqueue_styles() {
         //include theme's core styles
@@ -2196,7 +2204,7 @@ if (!function_exists('get_egw_branches')) {
      */
     function get_egw_branches()
     {
-        $branches = array( 'Villages', 'Baltimore', 'Phoenix' );
+        $branches = array( THE_VILLAGES_NAME, BALTIMORE_NAME );
         return $branches;
     }
 }
@@ -2210,11 +2218,11 @@ function get_egw_member_location()
     $user = wp_get_current_user();
     if ( in_array( 'villages_member', (array) $user->roles ) )
     {
-        $location = 'Villages';
+        $location = THE_VILLAGES_NAME;
     }
     elseif ( in_array( 'baltimore_member', (array) $user->roles ) )
     {
-        $location = "Baltimore";
+        $location = BALTIMORE_NAME;
     }
     else {
         $location = 'none';
@@ -2233,19 +2241,22 @@ if (!function_exists('egw_tag_not_in')) {
     {
         /*List of Tags on AD local
         
-        *218->Villages
+        *218->The Villages
         *312->Baltimore
 
         */
-        if( $member_location == 'Villages' )
+        if( $member_location == THE_VILLAGES_NAME )
         {
             //Tags != 'Villages'
             $tag_not_in = array(312);
         }
-        elseif( $member_location == 'Baltimore' )
+        elseif( $member_location == BALTIMORE_NAME )
         {
             //Tags != 'Baltimore'
             $tag_not_in = array(218);
+        }
+        else {
+            $tag_not_in = array();
         }
         return $tag_not_in;
     }
@@ -2256,7 +2267,7 @@ if ( !function_exists('get_num_columns'))
 {
     function get_num_columns()
     {
-        if ( current_user_can( 'access_village_content' ) )
+        if ( current_user_can( ACCESS_VILLAGE_CONTENT ) )
         {
             $home_columns = 2;
             return $home_columns;

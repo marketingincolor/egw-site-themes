@@ -9,9 +9,9 @@
 </div>
 <?php
 $location = get_egw_member_location();
-if ( $location == 'Villages') { $display_location = 'The Villages<sup>&reg;</sup>'; }
-if ( $location == 'Baltimore') { $display_location = $location; }
-if ( ($location == 'Villages') || ($location == 'Baltimore') ) {
+if ( $location == THE_VILLAGES_NAME ) { $display_location = 'The Villages<sup>&reg;</sup>'; }
+if ( $location == BALTIMORE_NAME ) { $display_location = $location; }
+if ( ($location == THE_VILLAGES_NAME) || ($location == BALTIMORE_NAME) ) {
 	$current_site = get_current_site();?>
 <div class="sub-site-logo">
     <a href=""><h2><?php echo $display_location; ?></h2></a>
