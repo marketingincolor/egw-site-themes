@@ -178,6 +178,7 @@ li{
     width: 100%;
     text-align: right;
 }
+.mkd-search-opener { background-color: white; color: #b3cc36; }
 .mkd-main-menu > ul > li:hover > a, .mkd-main-menu > ul > li.mkd-active-item > a, .mkd-main-menu ul li .mkd-plw-tabs .mkd-plw-tabs-tab:hover, .mkd-search-opener:hover, .mkd-search-opener.mkd-active, .mkd-search-widget-holder .mkd-search-submit{
     background-color: #3a7d3b;
 }
@@ -1535,8 +1536,8 @@ table.ai1ec-month-view {
 .annonuce_set{
     width: 100%;
     height: auto;
-    border: 1px solid red;
-    background-color: #FF0000;
+    border: 1px solid #8b54a2;
+    background-color: #8b54a2;
 }
 @media only screen and (max-width: 767px) {
     .coach-profile-image{
