@@ -36,3 +36,51 @@ For setting main blog style adjustment
 .slideshowlink {
     display: none;
 }
+
+/*Visibility Classes*/
+
+.egw-show-for-small-only { display:none; }
+.egw-show-for-small-up { display:inline-block; }
+.egw-show-for-medium-only { display:none; }
+.egw-show-for-medium-up { display:none; }
+.egw-show-for-large-only { display:none; }
+.egw-show-for-large-up { display:none; }
+
+.egw-hide-for-small-only { display: inline-block; }
+.egw-hide-for-small-up { display: inline-block; }
+.egw-hide-for-medium-only { display: inline-block; }
+.egw-hide-for-medium-up { display: inline-block; }
+.egw-hide-for-large-only { display: inline-block; }
+.egw-hide-for-large-up { display: inline-block; }
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	.egw-show-for-small-only { display:inline-block; }
+	.egw-hide-for-small-only { display:none; }
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	.egw-show-for-small-only { display:none; }
+	.egw-show-for-medium-up { display: inline-block; }
+	.egw-hide-for-small-only { display: initial; }
+	.egw-hide-for-medium-up { display:none; }
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	.egw-show-for-medium-only { display: inline-block; }
+}
+
+/* Large and up */
+@media screen and (min-width: 64.25em) {
+	.egw-show-for-medium-up { }
+	.egw-show-for-large-up { display: inline-block; }
+	.egw-hide-for-large-up { display:none; }
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {
+	.egw-hide-for-large-only { display:none; }
+	.egw-show-for-large-only { display: inline-block; }
+}
