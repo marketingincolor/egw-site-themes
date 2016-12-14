@@ -1,13 +1,13 @@
 <?php get_header(); ?>
 <div class="mkd-container-inner">
      <?php
-    $title_tag = 'h3';
-    $title_length = '20';
-    $display_date = 'yes';
-    $date_format = 'd. F Y';
+    $title_tag        = 'h3';
+    $title_length     = '20';
+    $display_date     = 'yes';
+    $date_format      = 'd. F Y';
     $display_category = 'no';
-    $display_share = 'no';
-    $display_count = 'yes';
+    $display_share    = 'no';
+    $display_count    = 'yes';
     $display_comments = 'yes';
     ?>
 
@@ -28,8 +28,8 @@
                         <div class="mkd-post-info">
                                 <?php
                                 discussion_post_info(array(
-                                    'date' => $display_date,
-                                    'count' => $display_count,
+                                    'date'     => $display_date,
+                                    'count'    => $display_count,
                                     'comments' => $display_comments,
                                 ))
                                 ?>
@@ -44,7 +44,7 @@
             </div>
         </div>
 
-        <div class="mkd-column2 egw-show-for-medium-up">
+        <div class="mkd-column2 egw-show-for-large-up">
             <div class="mkd-column-inner">
                 <aside class="mkd-sidebar" style="transform: translateY(0px);">
                     <?php get_template_part('sidebar/template-sidebar-single'); ?>
@@ -119,11 +119,11 @@
                 }
 
                 $params['display_category'] = $display_category;
-                $params['display_date'] = $display_date;
-                $params['display_author'] = $display_author;
+                $params['display_date']     = $display_date;
+                $params['display_author']   = $display_author;
                 $params['display_comments'] = $display_comments;
-                $params['display_like'] = $display_like;
-                $params['display_count'] = $display_count;
+                $params['display_like']     = $display_like;
+                $params['display_count']    = $display_count;
 
                 discussion_get_module_template_part('templates/single/post-formats/' . $post_format, 'blog', '', $params);
 
@@ -139,7 +139,7 @@
                 ?>
             </div>
         </div>
-        <div class="mkd-column2 egw-show-for-large-up">
+        <div class="mkd-column2 egw-hide-for-large-up">
             <div class="mkd-column-inner">
                 <aside class="mkd-sidebar" style="transform: translateY(0px);">
                     <?php get_template_part('sidebar/template-sidebar-single'); ?>

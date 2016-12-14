@@ -17,8 +17,8 @@
     $thumb_image_size = '150';
     $excerpt_length = '12';
     ?>
+<div class="mkd-two-columns-75-25  mkd-content-has-sidebar clearfix">
     <?php if (has_post_thumbnail()) { ?>
-        <div class="mkd-two-columns-75-25  mkd-content-has-sidebar clearfix">
             <div class="mkd-blog-holder mkd-column1 mkd-blog-single mkd-fsp-blog-holder">
                 <div class="mkd-column-inner">
                     <?php ?>
@@ -52,16 +52,15 @@
                     </div>
                 </div>
             </div>
-            <div class="mkd-column2 egw-show-for-medium-up">
+    <?php } ?>
+            <div class="mkd-column2 egw-show-for-large-up">
                 <div class="mkd-column-inner">
                     <aside class="mkd-sidebar" style="transform: translateY(0px);">
                         <?php get_template_part('sidebar/template-sidebar-single'); ?>
                     </aside>
                 </div>
             </div>
-    <?php } ?>
-    <div class="mkd-two-columns-75-25  mkd-content-has-sidebar clearfix">
-        <div class="mkd-column1 mkd-content-left-from-sidebar">
+            <div class="mkd-column1 mkd-content-left-from-sidebar">
             <div class="mkd-column-inner">
                 <div class="mkd-blog-holder mkd-blog-single">
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -143,11 +142,11 @@
                     }
 
                     $params['display_category'] = $display_category;
-                    $params['display_date'] = $display_date;
-                    $params['display_author'] = $display_author;
+                    $params['display_date']     = $display_date;
+                    $params['display_author']   = $display_author;
                     $params['display_comments'] = $display_comments;
-                    $params['display_like'] = $display_like;
-                    $params['display_count'] = $display_count;
+                    $params['display_like']     = $display_like;
+                    $params['display_count']    = $display_count;
 
                     discussion_get_module_template_part('templates/single/post-formats/' . $post_format, 'blog', '', $params);
 
@@ -177,7 +176,7 @@
                 </div>
             </div>
         </div>
-        <div class="mkd-column2">
+        <div class="mkd-column2 egw-hide-for-large-up">
             <div class="mkd-column-inner">
                 <aside class="mkd-sidebar" style="transform: translateY(0px);">
                     <?php get_template_part('sidebar/template-sidebar-single'); ?>
@@ -185,7 +184,5 @@
             </div>
         </div>
     </div>
-</div>
-
-
+</div> <!-- mkd-two-columns-75-25  mkd-content-has-sidebar clearfix -->
 <?php get_footer(); ?>
