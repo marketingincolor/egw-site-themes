@@ -178,13 +178,20 @@ li{
     width: 100%;
     text-align: right;
 }
-.mkd-search-opener { background-color: white; color: #b3cc36; }
-.mkd-main-menu > ul > li:hover > a, .mkd-main-menu > ul > li.mkd-active-item > a, .mkd-main-menu ul li .mkd-plw-tabs .mkd-plw-tabs-tab:hover, .mkd-search-opener:hover, .mkd-search-opener.mkd-active, .mkd-search-widget-holder .mkd-search-submit{
-    background-color: #3a7d3b;
-}
+ion-ios-search:before { font-weight: bold !important; }
+.mkd-search-opener { background-color: #3a7d3b; color: #fff; }
+.mkd-search-opener:hover { background-color: #f99d3e; }
+.mkd-main-menu > ul > li:hover > a, .mkd-main-menu > ul > li.mkd-active-item > a, .mkd-main-menu ul li .mkd-plw-tabs .mkd-plw-tabs-tab:hover, .mkd-search-opener.mkd-active, .mkd-search-widget-holder .mkd-search-submit{
+      background-color: #3a7d3b;
+  }
 .mkd-search-widget-holder .mkd-search-field:focus, .mkd-search-page-holder .mkd-search-page-form .mkd-form-holder .mkd-search-field:focus{
     border-color: #3a7d3b;
 }
+
+#mkd-back-to-top > span.mkd-icon-stack-flip { background-color: #3a7d3b !important; }
+
+.mkd-search-widget-holder .mkd-search-submit:hover { background-color: #f99d3e; }
+
 .signup_newsletter{
     float: left;
     padding-right: 25px;
