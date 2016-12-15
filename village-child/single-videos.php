@@ -35,7 +35,7 @@
                                 ?>
                             <div class="mkd-post-fsp-savestories">
                             <?php
-                               //customized_saved_stories();
+                               customized_saved_stories();
                             ?>
                             </div>
                         </div>
