@@ -178,7 +178,8 @@ li{
     width: 100%;
     text-align: right;
 }
-ion-ios-search:before { font-weight: bold !important; }
+
+.ion-ios-search:before { font-weight: bold !important; }
 .mkd-search-opener { background-color: #3a7d3b; color: #fff; }
 .mkd-search-opener:hover { background-color: #f99d3e; }
 .mkd-main-menu > ul > li:hover > a, .mkd-main-menu > ul > li.mkd-active-item > a, .mkd-main-menu ul li .mkd-plw-tabs .mkd-plw-tabs-tab:hover, .mkd-search-opener.mkd-active, .mkd-search-widget-holder .mkd-search-submit{
