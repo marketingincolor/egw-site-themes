@@ -24,13 +24,18 @@
                     <!-- Post Info -->
                     <article>
                         <div class="mkd-post-info">
-                                <?php
-                                discussion_post_info(array(
-                                    'date'     => $display_date,
-                                    'count'    => $display_count,
-                                    'comments' => $display_comments,
-                                ))
-                                ?>
+                            <?php
+                            discussion_post_info(array(
+                                'date'     => $display_date,
+                                'count'    => $display_count,
+                                'comments' => $display_comments,
+                            ))
+                            ?>
+                            <div class="mkd-post-fsp-savestories">
+                            <?php
+                                customized_saved_stories();
+                            ?>
+                            </div>
                         </div>
                     </article>
                 </div>

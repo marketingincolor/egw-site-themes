@@ -42,6 +42,11 @@
                                 'category_singlepost' => $display_category_singlepost
                             ))
                             ?>
+                            <div class="mkd-post-fsp-savestories">
+                            <?php
+                               customized_saved_stories();
+                            ?>
+                            </div>
                         </div>
                     </article>
                 </div>
