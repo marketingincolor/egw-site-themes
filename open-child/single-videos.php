@@ -11,8 +11,8 @@
     $display_comments = 'yes';
     ?>
 
-    <div class="mkd-two-columns-75-25  mkd-content-has-sidebar clearfix">
-        <div class="mkd-blog-holder mkd-column1 mkd-blog-single mkd-fsp-blog-holder">
+    <div class="mkd-two-columns-75-25 mkd-content-has-sidebar clearfix">
+        <div class="mkd-blog-holder mkd-column1 mkd-content-left-from-sidebar mkd-blog-single mkd-fsp-blog-holder">
             <div class="mkd-column-inner">
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                     <div class="mkd-post-content">
@@ -40,18 +40,6 @@
                     </article>
                 </div>
             </div>
-        </div>
-        
-        <!-- Sidebar -->
-        <div class="mkd-column2 egw-show-for-large-up">
-            <div class="mkd-column-inner">
-                <aside class="mkd-sidebar" style="transform: translateY(0px);">
-                    <?php get_template_part('sidebar/template-sidebar-single'); ?>
-                </aside>
-            </div>
-        </div>
-
-        <div class="mkd-column1 mkd-content-left-from-sidebar">
             <div class="mkd-column-inner">
                 <div class="mkd-blog-holder mkd-blog-single">
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -139,9 +127,7 @@
                 ?>
             </div>
         </div>
-
-        <!-- Sidebar -->
-        <div class="mkd-column2 egw-hide-for-large-up">
+        <div class="mkd-column2">
             <div class="mkd-column-inner">
                 <aside class="mkd-sidebar" style="transform: translateY(0px);">
                     <?php get_template_part('sidebar/template-sidebar-single'); ?>
