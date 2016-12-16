@@ -17,50 +17,39 @@
     $thumb_image_size = '150';
     $excerpt_length = '12';
     ?>
-<div class="mkd-two-columns-75-25  mkd-content-has-sidebar clearfix">
-    <?php if (has_post_thumbnail()) { ?>
-            <div class="mkd-blog-holder mkd-column1 mkd-blog-single mkd-fsp-blog-holder">
-                <div class="mkd-column-inner">
-                    <?php ?>
-                    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                        <div class="mkd-post-content">
-                            <?php if (has_post_thumbnail()) { ?>
-                                <div class="mkd-post-image-area">
-                                    <?php discussion_post_info_category(array('category' => 'no')) ?>
-                                    <?php discussion_get_module_template_part('templates/single/parts/image', 'blog'); ?>
-                                </div>
-                            <?php } ?>
-                        </div>
-                        <?php do_action('discussion_before_blog_article_closed_tag'); ?>
-                    </article>
-                    <div class="single-article-fsp-info">
-                        <article>
-                            <div class="mkd-post-info">
-                                <?php
-                                discussion_post_info(array(
-                                    'date' => $display_date,
-                                    'category_singlepost' => $display_category_singlepost
-                                ))
-                                ?>
-                                <div class="mkd-post-fsp-savestories">
-                                <?php
-                                   customized_saved_stories();
-                                ?>
-                                </div>
+    <div class="mkd-two-columns-75-25 mkd-content-has-sidebar clearfix">
+        <div class="mkd-blog-holder mkd-column1 mkd-content-left-from-sidebar mkd-blog-single mkd-fsp-blog-holder">
+            <div class="mkd-column-inner">
+                <?php ?>
+                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                    <div class="mkd-post-content">
+                        <?php if (has_post_thumbnail()) { ?>
+                            <div class="mkd-post-image-area">
+                                <?php discussion_post_info_category(array('category' => 'no')) ?>
+                                <?php discussion_get_module_template_part('templates/single/parts/image', 'blog'); ?>
                             </div>
-                        </article>
+                        <?php } ?>
                     </div>
+                    <?php do_action('discussion_before_blog_article_closed_tag'); ?>
+                </article>
+                <div class="single-article-fsp-info">
+                    <article>
+                        <div class="mkd-post-info">
+                            <?php
+                            discussion_post_info(array(
+                                'date' => $display_date,
+                                'category_singlepost' => $display_category_singlepost
+                            ))
+                            ?>
+                            <div class="mkd-post-fsp-savestories">
+                            <?php
+                               customized_saved_stories();
+                            ?>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
-    <?php } ?>
-            <div class="mkd-column2 egw-show-for-large-up">
-                <div class="mkd-column-inner">
-                    <aside class="mkd-sidebar" style="transform: translateY(0px);">
-                        <?php get_template_part('sidebar/template-sidebar-single'); ?>
-                    </aside>
-                </div>
-            </div>
-            <div class="mkd-column1 mkd-content-left-from-sidebar">
             <div class="mkd-column-inner">
                 <div class="mkd-blog-holder mkd-blog-single">
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -176,7 +165,7 @@
                 </div>
             </div>
         </div>
-        <div class="mkd-column2 egw-hide-for-large-up">
+        <div class="mkd-column2">
             <div class="mkd-column-inner">
                 <aside class="mkd-sidebar" style="transform: translateY(0px);">
                     <?php get_template_part('sidebar/template-sidebar-single'); ?>
