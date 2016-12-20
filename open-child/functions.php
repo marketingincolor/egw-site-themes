@@ -4,9 +4,10 @@
 define("THE_VILLAGES_NAME", "The Villages");
 define("BALTIMORE_NAME", "Baltimore");
 
-//Access Titles
+// Access Titles
 define("ACCESS_VILLAGE_CONTENT", "access_village_content");
 define("ACCESS_BALTIMORE_CONTENT", "access_baltimore_content");
+define("ACCESS_SIDEBAR_CONTENT", "access_sidebar_content");
 
 if (!function_exists('discussion_styles')) {
     function my_theme_enqueue_styles() {
@@ -2267,7 +2268,7 @@ if ( !function_exists('get_num_columns'))
 {
     function get_num_columns()
     {
-        if ( current_user_can( ACCESS_VILLAGE_CONTENT ) )
+        if ( current_user_can( ACCESS_SIDEBAR_CONTENT ) )
         {
             $home_columns = 2;
             return $home_columns;

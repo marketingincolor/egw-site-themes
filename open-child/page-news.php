@@ -19,7 +19,7 @@ list($post_per_section,$post_type)=scroll_loadpost_settings();
             <div class="mkd-full-width-inner">               
                <?php
                 get_template_part('template-page-featured-content');?>
-                <?php if (current_user_can('access_village_content' )): ?>
+                <?php if (current_user_can(ACCESS_SIDEBAR_CONTENT)): ?>
                 <div class="mkd-container">
                     <div class="mkd-container-inner clearfix">
                         <div class="mkd-two-columns-75-25  mkd-content-has-sidebar clearfix">

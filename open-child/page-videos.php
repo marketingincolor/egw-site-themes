@@ -26,7 +26,7 @@ $post_type=array('videos');
              */
             ?>
 
-            <?php if (current_user_can('access_village_content' )): ?>
+            <?php if (current_user_can(ACCESS_SIDEBAR_CONTENT)): ?>
 
             <div class="vc_empty_space" style="height: 0px"><span class="vc_empty_space_inner"></span></div>
             <div class="mkd-container">
