@@ -1,5 +1,9 @@
 <div class="fsp-welcome-branch">
+<?php if (current_user_can(ACCESS_VILLAGE_CONTENT)): ?>
     <div class="fsp-branch-title"><h4>Welcome to The Villages!</h4></div>
+<?php else: ?>
+    <div class="fsp-branch-title"><h4>Welcome to Evergreen Wellness!</h4></div>
+<?php endif; ?>
     <div class="fsp-branch-content">        
         <ul>
             <?php if(ENVIRONMENT_MODE!=1){ ?>
