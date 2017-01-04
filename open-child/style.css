@@ -37,10 +37,28 @@ For setting main blog style adjustment
     display: none;
 }
 
+/*Register Page*/
 .join-field-row { margin-bottom:20px; }
-.join-field-row input { width:100%; font-size:16px; line-height:16px; padding:7px; }
-.join-field-label { float:left; display:block; font-size:16px; text-align:right; margin-right:10px; width: calc(25% - 10px); }
-.join-field-horiz { float:right; width:75%; }
+.join-field-row input { width:100%; font-size:16px; line-height:16px; padding:7px 0px; }
+.join-field-label { float:left; display:block; font-size:16px; text-align:right; margin-right:10px; /*width: calc(25% - 10px);*/ }
+.join-field-horiz { /*float:right; width:75%; */}
+.register-submit-button { 
+    background-color: #f79c49 !important;
+    width: 30%;
+    font-family: 'Lato', 'Helvetica Neue', Arial, 'Lucida Grande', Tahoma, Verdana, sans-serif;
+    color:#fff;
+    cursor: pointer;
+    border-radius: 0 !important;
+    font-size: 14px !important;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 14px;
+    padding: 10px 10px;
+    border: 0 solid transparent;
+    display:block;
+    margin:0 auto;
+}
+.agree-box { width: auto !important; }
 
 /*Visibility Classes*/
 
