@@ -2280,3 +2280,5 @@ if ( !function_exists('get_num_columns'))
         }
     }
 }
+
+add_filter( 'send_password_change_email', '__return_false' );

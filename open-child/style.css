@@ -39,9 +39,9 @@ For setting main blog style adjustment
 
 /*Register Page*/
 .join-field-row { margin-bottom:20px; }
-.join-field-row input { width:100%; font-size:16px; line-height:16px; padding:7px 0px; }
+.join-field-row input { width:100%; font-size:16px; line-height:24px; padding:7px; }
 .join-field-label { float:left; display:block; font-size:16px; text-align:right; margin-right:10px; /*width: calc(25% - 10px);*/ }
-.join-field-horiz { /*float:right; width:75%; */}
+.join-field-horiz { /*float:right; width:75%; */ width:calc(100% - 20px); }
 .register-submit-button { 
     background-color: #f79c49 !important;
     width: 30%;
