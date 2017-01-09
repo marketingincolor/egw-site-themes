@@ -120,10 +120,11 @@ get_header();
                                                 </div>
                                             </div>
                                         </div>
+                                            <p>Information on this page can only be seen by you. Your photo, first name, and city of residence may appear publicly in any comments you post.</p>
+
                                     </div>
                                     <!-- info left ends here -->
-
-                                    <!-- info right starts here -->
+                                                                        <!-- info right starts here -->
                                     <div class="vc_column_container vc_col-md-7">
                                         <div class="user-profile-rgtinfo">
                                             <h2>Info</h2>
