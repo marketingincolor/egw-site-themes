@@ -157,10 +157,10 @@
                     <?php echo do_shortcode('[AuthorRecommendedPosts]'); ?>
                 </div>
                 <?php
-//                    get_template_part('block/comments-guidelines');
-//                    if (discussion_show_comments()) {
-//                        comments_template('', true);
-//                    }
+                   get_template_part('block/comments-guidelines');
+                   if (discussion_show_comments()) {
+                       comments_template('', true);
+                   }
                 ?>
                 </div>
             </div>
