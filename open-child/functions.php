@@ -983,7 +983,7 @@ function custom_comment($comment, $args, $depth) {
             $attachment = wp_get_attachment_image_src($custom_avatar_meta_data[0]);
             echo '<img src="' . $attachment[0] . '" width="85px" height="85px"/>';
         else :
-            echo '<img src="' . get_stylesheet_directory_uri() . "/img/aavathar.jpg" . '" width="85px" height="85px" />';
+            echo '<img src="' . get_stylesheet_directory_uri() . "/assets/img/aavathar.jpg" . '" width="85px" height="85px" />';
         endif;
         echo '</div>';
     }
@@ -1002,30 +1002,31 @@ function custom_comment($comment, $args, $depth) {
     }
     echo '</span>';
     if ($is_author_comment) {
-        echo '<span class="mkd-comment-mark">' . esc_html_e('/', 'discussionwp') . '</span>';
-        echo '<span class="mkd-comment-author-label">' . esc_html_e('Author', 'discussionwp') . '</span>';
+        echo '<span class="mkd-comment-mark">' . esc_html__('/', 'discussionwp') . '</span>';
+        echo '<span class="mkd-comment-author-label">' . esc_html__('Author', 'discussionwp') . '</span>';
     }
     echo '</h6>';
     echo '<h6 class="mkd-comment-links">';
     if (!is_user_logged_in()) :
-        echo '<a href="' . home_url('/login') . '">' . _e('Login To Reply', 'discussionwp') . '</a>';
+        echo '<a href="' . home_url('/login') . '">' . __('Login To Reply', 'discussionwp') . '</a>';
     else :
         $userid = get_current_user_id();
         $user_blog_id = get_user_meta($userid, 'primary_blog', true);
         $blog_id = get_current_blog_id();
         if ($blog_id != $user_blog_id):
-            echo '<a href="' . home_url('/login') . '">' . _e('Login To Reply', 'discussionwp') . '</a>';
+            echo '<a href="' . home_url('/login') . '">' . __('Login To Reply', 'discussionwp') . '</a>';
         else :
             comment_reply_link(array_merge($args, array('reply_text' => esc_html__('Reply', 'discussionwp'), 'depth' => $depth, 'max_depth' => $args['max_depth'])));
         endif;
     endif;
-    echo '<span class="mkd-comment-mark">' . esc_html_e('/', 'discussionwp') . '</span>';
+    echo '<span class="mkd-comment-mark">' . esc_html__('/', 'discussionwp') . '</span>';
     edit_comment_link(esc_html__('Edit', 'discussionwp'));
     echo '</h6>';
     echo '</div>';
     if (!$is_pingback_comment) {
+        $comment_id = get_comment_ID();
         echo '<div class="mkd-comment-text">';
-        echo '<div class="mkd-text-holder" id="comment-' . comment_ID() . '">';
+        echo '<div class="mkd-text-holder" id="comment-' . $comment_id . '">';
         comment_text();
         echo '<span class="mkd-comment-date">' . comment_time(get_option('date_format')) . '</span>';
         echo '</div>';
