@@ -2241,26 +2241,48 @@ if (!function_exists('egw_tag_not_in')) {
      */
     function egw_tag_not_in($member_location)
     {
-        /*List of Tags on AD local
-        
-        *218->The Villages
-        *312->Baltimore
 
-        */
-        if( $member_location == THE_VILLAGES_NAME )
-        {
-            //Tags != 'Villages'
-            $tag_not_in = array(312);
+        if(ENVIRONMENT_MODE == 0){
+            /*List of Tags on AD local
+            *218->The Villages
+            *312->Baltimore
+            */
+            if( $member_location == THE_VILLAGES_NAME )
+            {
+                //Tags != 'Villages'
+                $tag_not_in = array(312);
+            }
+            elseif( $member_location == BALTIMORE_NAME )
+            {
+                //Tags != 'Baltimore'
+                $tag_not_in = array(218);
+            }
+            else {
+                $tag_not_in = array(218, 312);
+            }
+            return $tag_not_in;
         }
-        elseif( $member_location == BALTIMORE_NAME )
-        {
-            //Tags != 'Baltimore'
-            $tag_not_in = array(218);
+        
+        if(ENVIRONMENT_MODE == 1){
+            /*List of Tags on AD local
+            *434->The Villages
+            *312->Baltimore
+            */
+            if( $member_location == THE_VILLAGES_NAME )
+            {
+                //Tags != 'Villages'
+                $tag_not_in = array(312);
+            }
+            elseif( $member_location == BALTIMORE_NAME )
+            {
+                //Tags != 'Baltimore'
+                $tag_not_in = array(434);
+            }
+            else {
+                $tag_not_in = array(434, 312);
+            }
+            return $tag_not_in;
         }
-        else {
-            $tag_not_in = array(218, 312);
-        }
-        return $tag_not_in;
     }
 }
 
