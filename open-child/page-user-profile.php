@@ -120,6 +120,8 @@ get_header();
                                                 </div>
                                             </div>
                                         </div>
+                                            <p>Information on this page can only be seen by you. Your photo, first name, and city of residence may appear publicly in any comments you post.</p>
+
                                     </div>
                                     <!-- info left ends here -->
 
