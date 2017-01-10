@@ -2258,7 +2258,7 @@ if (!function_exists('egw_tag_not_in')) {
             $tag_not_in = array(218);
         }
         else {
-            $tag_not_in = array();
+            $tag_not_in = array(218, 312);
         }
         return $tag_not_in;
     }
