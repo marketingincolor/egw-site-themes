@@ -97,7 +97,7 @@ if (!function_exists('get_videoid_from_url')) {
         if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match)) {
             $url_string = parse_url($url, PHP_URL_QUERY);
             parse_str($url_string, $args);
-            $arg['video_url'] = 'http://www.youtube.com/embed/';
+            $arg['video_url'] = 'https://www.youtube.com/embed/';
             $arg['video_src'] = 'youtube';
             $url = isset($args['v']) ? $arg['video_url'] . $args['v'] : false;
         } else if (preg_match("/(https?:\/\/)?(www\.)?(player\.)?vimeo\.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/", $url, $output_array)) {
