@@ -1,43 +1,51 @@
 <?php get_header(); ?>
+
 <div class="mkd-container-inner">
-     <?php
-    $title_tag        = 'h3';
-    $title_length     = '20';
-    $display_date     = 'yes';
-    $date_format      = 'd. F Y';
-    $display_category = 'no';
-    $display_share    = 'no';
-    $display_count    = 'yes';
+    <?php
+    $title_tag = 'h3';
+    $title_length = '20';
+    $display_date = 'yes';
+    $date_format = 'd. F Y';
+    $display_category = 'yes';
+    $display_category_singlepost = 'yes';
     $display_comments = 'yes';
+    $display_share = 'yes';
+    $display_count = 'yes';
+    $display_excerpt = 'yes';
+    $thumb_image_width = '';
+    $thumb_image_height = '';
+    $thumb_image_size = '150';
+    $excerpt_length = '12';
     ?>
-
-
     <div class="mkd-two-columns-75-25 mkd-content-has-sidebar clearfix">
         <div class="mkd-blog-holder mkd-column1 mkd-content-left-from-sidebar mkd-blog-single mkd-fsp-blog-holder">
             <div class="mkd-column-inner">
                 <?php ?>
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                     <div class="mkd-post-content">
-                        <?php get_template_part('block/template-single-video-block'); ?>
+                        <?php if (has_post_thumbnail()) { ?>
+                            <div class="mkd-post-image-area">
+                                <?php discussion_post_info_category(array('category' => 'no')) ?>
+                                <?php discussion_get_module_template_part('templates/single/parts/image', 'blog'); ?>
+                            </div>
+                        <?php } ?>
                     </div>
                     <?php do_action('discussion_before_blog_article_closed_tag'); ?>
                 </article>
-                <div class="single-article-video-fsp-info">
-                    <!-- Post Info -->
+                <div class="single-article-fsp-info">
                     <article>
                         <div class="mkd-post-info">
-                                <?php
-                                discussion_post_info(array(
-                                    'date'     => $display_date,
-                                    'count'    => $display_count,
-                                    'comments' => $display_comments,
-                                ))
-                                ?>
-                <!--                         <div class="mkd-post-fsp-savestories">
                             <?php
-                               //customized_saved_stories();
+                            discussion_post_info(array(
+                                'date' => $display_date,
+                                'category_singlepost' => $display_category_singlepost
+                            ))
                             ?>
-                            </div>-->
+                            <div class="mkd-post-fsp-savestories">
+                            <?php
+                               customized_saved_stories();
+                            ?>
+                            </div>
                         </div>
                     </article>
                 </div>
@@ -48,7 +56,21 @@
                         <div class="mkd-post-content">
                             <div class="mkd-post-text">
                                 <div class="mkd-post-text-inner clearfix">
-                                    <?php discussion_get_module_template_part('templates/single/parts/title', 'blog'); ?>
+                                <?php if (!has_post_thumbnail()) { ?>
+                                    <div class="mkd-post-info">
+                                        <?php
+                                        discussion_post_info(array(
+                                            'comments' => $display_comments,
+                                            'count' => $display_count,
+                                            'date' => $display_date,
+                                            'author' => $display_author,
+                                            'like' => $display_like,
+                                            'category' => $display_category
+                                        ));
+                                        ?>
+                                    </div>
+                                <?php } ?>
+                                <?php discussion_get_module_template_part('templates/single/parts/title', 'blog'); ?>
                                     <div class="mdk-sng-pst">
                                     <?php the_content(); ?>
                                     <?php echo do_shortcode('[egw-learn-more]' ); ?>
@@ -57,28 +79,28 @@
                                 </div>
                             </div>
                         </div>
-                        <?php do_action('discussion_before_blog_article_closed_tag'); ?>
                     </article>
-                    <?php include(locate_template('block/get-post-author.php')); ?>
+                <?php include(locate_template('block/get-post-author.php')); ?>
 
-                    <?php
-                    $tm_disclaim = get_field('trademark_disclaimer'); //set via Custom Fields Plugin
-                    if ($tm_disclaim) {
-                        include(locate_template('block/show-trademark-disclaimer.php'));
-                    } ?>
+                <?php
+                $tm_disclaim = get_field('trademark_disclaimer'); //set via Custom Fields Plugin
+                if ($tm_disclaim) {
+                    include(locate_template('block/show-trademark-disclaimer.php'));
+                } ?>
 
-                    <div class="disclamier">
-                        <p><span>Disclaimer:</span> This content is for entertainment purposes only and it is not meant to be relied on as medical advice, diagnosis, or treatment. Consult your physician before starting any exercise or dietary program or taking any other action respecting your health. In case of a medical emergency, call 911.</p>
-                    </div>
+                <div class="disclamier">
+                    <p><span>Disclaimer:</span> This content is for entertainment purposes only and it is not meant to be relied on as medical advice, diagnosis, or treatment. Consult your physician before starting any exercise or dietary program or taking any other action respecting your health. In case of a medical emergency, call 911. </p>
                 </div>
                 <?php
+                //$post_format = get_post_format();
+
                 if ($post_format === false) {
                     $post_format = 'standard';
                 }
 
                 $params = array();
 
-                $display_category = 'no';
+                $display_category = 'yes';
                 if (discussion_options()->getOptionValue('blog_single_category') !== '') {
                     $display_category = discussion_options()->getOptionValue('blog_single_category');
                 }
@@ -117,16 +139,30 @@
 
                 discussion_get_module_template_part('templates/single/post-formats/' . $post_format, 'blog', '', $params);
 
-                discussion_get_module_template_part('templates/single/parts/tags', 'blog');
+                //discussion_get_module_template_part('templates/single/parts/tags', 'blog');
+                //discussion_get_module_template_part('templates/single/parts/single-navigation', 'blog');
+                // discussion_get_module_template_part('templates/single/parts/author-info', 'blog');
+                //discussion_get_single_related_posts();
                 ?>
+                <?php if (function_exists('the_tags')) { ?>
+                    <div class="mkd-single-tags-holder">
+                        <span class="mkd-single-tags-title"><strong>Tags: </strong></span>
+                        <div class="mkd-tags">
+                            <?php the_tags('', ' ', ''); ?><br />
+                        </div>
+                    </div>
+                <?php } ?>
                 <?php get_template_part('sidebar/template-ads-mobile'); ?>
                 <div class="fsp-recommended-stories-cont">
                     <?php echo do_shortcode('[AuthorRecommendedPosts]'); ?>
                 </div>
                 <?php
-                  get_template_part('block/comments-guidelines');
-                  comments_template('', true);
+                   get_template_part('block/comments-guidelines');
+                   if (discussion_show_comments()) {
+                       comments_template('', true);
+                   }
                 ?>
+                </div>
             </div>
         </div>
         <div class="mkd-column2">

@@ -124,7 +124,8 @@ get_header();
 
                                     </div>
                                     <!-- info left ends here -->
-                                                                        <!-- info right starts here -->
+
+                                    <!-- info right starts here -->
                                     <div class="vc_column_container vc_col-md-7">
                                         <div class="user-profile-rgtinfo">
                                             <h2>Info</h2>

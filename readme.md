@@ -28,3 +28,4 @@ Maintenance: `Ongoing`
 * Parent theme - DiscussionWP
 * Primary Child theme - discussionwp-child
 * Subsite Child theme - village-child
+* NEW Primary Child theme - open-child

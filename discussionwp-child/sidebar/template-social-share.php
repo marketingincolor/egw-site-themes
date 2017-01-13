@@ -8,11 +8,11 @@
                 <ul>            
                 <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full'); ?>
                 
-                <li class="wd-fb"><a onclick="<?php echo SocialNetworkShareLink('facebook',$image); ?>" href="javascript: void(0)"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                <li class="wd-twitter"><a onclick="<?php echo SocialNetworkShareLink('twitter',$image); ?>" href="javascript: void(0)"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                <li class="wd-googleplus"><a onclick="<?php echo SocialNetworkShareLink('google_plus',$image); ?>" href="javascript: void(0)"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                <li class="wd-pinterest"><a onclick="<?php echo SocialNetworkShareLink('pinterest',$image); ?>" href="javascript: void(0)"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-                <li class="wd-linkedin"><a onclick="<?php echo SocialNetworkShareLink('linkedin',$image); ?>" href="javascript: void(0)"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                <li class="wd-fb"><a onclick="<?php echo SocialNetworkShareLink('facebook',$image); ?>" href="javascript: void(0)" class="facebook-share"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li class="wd-twitter"><a onclick="<?php echo SocialNetworkShareLink('twitter',$image); ?>" href="javascript: void(0)" class="twitter-share"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li class="wd-googleplus"><a onclick="<?php echo SocialNetworkShareLink('google_plus',$image); ?>" href="javascript: void(0)" class="google-share"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                <li class="wd-pinterest"><a onclick="<?php echo SocialNetworkShareLink('pinterest',$image); ?>" href="javascript: void(0)" class="pinterest-share"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                <li class="wd-linkedin"><a onclick="<?php echo SocialNetworkShareLink('linkedin',$image); ?>" href="javascript: void(0)" class="linkedin-share"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
             </ul>
             </ul>
         </div>

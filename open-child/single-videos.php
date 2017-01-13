@@ -11,11 +11,9 @@
     $display_comments = 'yes';
     ?>
 
-
     <div class="mkd-two-columns-75-25 mkd-content-has-sidebar clearfix">
         <div class="mkd-blog-holder mkd-column1 mkd-content-left-from-sidebar mkd-blog-single mkd-fsp-blog-holder">
             <div class="mkd-column-inner">
-                <?php ?>
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                     <div class="mkd-post-content">
                         <?php get_template_part('block/template-single-video-block'); ?>
@@ -26,18 +24,18 @@
                     <!-- Post Info -->
                     <article>
                         <div class="mkd-post-info">
-                                <?php
-                                discussion_post_info(array(
-                                    'date'     => $display_date,
-                                    'count'    => $display_count,
-                                    'comments' => $display_comments,
-                                ))
-                                ?>
-                <!--                         <div class="mkd-post-fsp-savestories">
                             <?php
-                               //customized_saved_stories();
+                            discussion_post_info(array(
+                                'date'     => $display_date,
+                                'count'    => $display_count,
+                                'comments' => $display_comments,
+                            ))
                             ?>
-                            </div>-->
+                            <div class="mkd-post-fsp-savestories">
+                            <?php
+                                customized_saved_stories();
+                            ?>
+                            </div>
                         </div>
                     </article>
                 </div>

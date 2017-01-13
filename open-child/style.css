@@ -1,0 +1,109 @@
+/*
+ Theme Name:   Open Child
+ Description:  DiscussionWP OPEN Child Theme
+ Author:       MIC DEV Team
+ Template:     discussionwp
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  open-child
+*/
+
+/**
+For setting main blog style adjustment
+*/
+
+.home .mkd-reveal-nonf-active{
+
+    display:none;
+}
+
+.home .mkd-pb-two-holder.three_fourths_one_fourth .mkd-pb-two-featured{
+    width:100%
+}
+
+.ngg-fancybox > img {
+    height: 123px;
+    margin-bottom: 5px;
+    width: 184px;
+}
+
+.ngg-galleryoverview.ngg-ajax-pagination-none {
+    margin-bottom: 30px;
+}
+
+.slideshowlink {
+    display: none;
+}
+
+/*Register Page*/
+.join-field-row { margin-bottom:20px; }
+.join-field-row input { width:100%; font-size:16px; line-height:24px; padding:7px; }
+.join-field-label { float:left; display:block; font-size:16px; text-align:right; margin-right:10px; /*width: calc(25% - 10px);*/ }
+.join-field-horiz { /*float:right; width:75%; */ width:calc(100% - 20px); }
+.register-submit-button { 
+    background-color: #f79c49 !important;
+    width: 30%;
+    font-family: 'Lato', 'Helvetica Neue', Arial, 'Lucida Grande', Tahoma, Verdana, sans-serif;
+    color:#fff;
+    cursor: pointer;
+    border-radius: 0 !important;
+    font-size: 14px !important;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 14px;
+    padding: 10px 10px;
+    border: 0 solid transparent;
+    display:block;
+    margin:0 auto;
+}
+.agree-box { width: auto !important; }
+
+/*Visibility Classes*/
+
+.egw-show-for-small-only { display:none; }
+.egw-show-for-small-up { display:inline-block; }
+.egw-show-for-medium-only { display:none; }
+.egw-show-for-medium-up { display:none; }
+.egw-show-for-large-only { display:none; }
+.egw-show-for-large-up { display:none; }
+
+.egw-hide-for-small-only { display: inline-block; }
+.egw-hide-for-small-up { display: inline-block; }
+.egw-hide-for-medium-only { display: inline-block; }
+.egw-hide-for-medium-up { display: inline-block; }
+.egw-hide-for-large-only { display: inline-block; }
+.egw-hide-for-large-up { display: inline-block; }
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	.egw-show-for-small-only { display:inline-block; }
+	.egw-hide-for-small-only { display:none; }
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	.egw-show-for-small-only { display:none; }
+	.egw-show-for-medium-up { display: inline-block; }
+	.egw-hide-for-small-only { display: initial; }
+	.egw-hide-for-medium-up { display:none; }
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	.egw-show-for-medium-only { display: inline-block; }
+}
+
+/* Large and up */
+@media screen and (min-width: 64.25em) {
+	.egw-show-for-medium-up { }
+	.egw-show-for-large-up { display: inline-block; }
+	.egw-hide-for-large-up { display:none; }
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {
+	.egw-hide-for-large-only { display:none; }
+	.egw-show-for-large-only { display: inline-block; }
+}
