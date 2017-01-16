@@ -1002,30 +1002,31 @@ function custom_comment($comment, $args, $depth) {
     }
     echo '</span>';
     if ($is_author_comment) {
-        echo '<span class="mkd-comment-mark">' . esc_html_e('/', 'discussionwp') . '</span>';
-        echo '<span class="mkd-comment-author-label">' . esc_html_e('Author', 'discussionwp') . '</span>';
+        echo '<span class="mkd-comment-mark">' . esc_html__('/', 'discussionwp') . '</span>';
+        echo '<span class="mkd-comment-author-label">' . esc_html__('Author', 'discussionwp') . '</span>';
     }
     echo '</h6>';
     echo '<h6 class="mkd-comment-links">';
     if (!is_user_logged_in()) :
-        echo '<a href="' . home_url('/login') . '">' . _e('Login To Reply', 'discussionwp') . '</a>';
+        echo '<a href="' . home_url('/login') . '">' . __('Login To Reply', 'discussionwp') . '</a>';
     else :
         $userid = get_current_user_id();
         $user_blog_id = get_user_meta($userid, 'primary_blog', true);
         $blog_id = get_current_blog_id();
         if ($blog_id != $user_blog_id):
-            echo '<a href="' . home_url('/login') . '">' . _e('Login To Reply', 'discussionwp') . '</a>';
+            echo '<a href="' . home_url('/login') . '">' . __('Login To Reply', 'discussionwp') . '</a>';
         else :
             comment_reply_link(array_merge($args, array('reply_text' => esc_html__('Reply', 'discussionwp'), 'depth' => $depth, 'max_depth' => $args['max_depth'])));
         endif;
     endif;
-    echo '<span class="mkd-comment-mark">' . esc_html_e('/', 'discussionwp') . '</span>';
+    echo '<span class="mkd-comment-mark">' . esc_html__('/', 'discussionwp') . '</span>';
     edit_comment_link(esc_html__('Edit', 'discussionwp'));
     echo '</h6>';
     echo '</div>';
     if (!$is_pingback_comment) {
+        $comment_id = get_comment_ID();
         echo '<div class="mkd-comment-text">';
-        echo '<div class="mkd-text-holder" id="comment-' . get_comment_ID() . '">';
+        echo '<div class="mkd-text-holder" id="comment-' . $comment_id . '">';
         comment_text();
         echo '<span class="mkd-comment-date">' . comment_time(get_option('date_format')) . '</span>';
         echo '</div>';
@@ -2240,26 +2241,48 @@ if (!function_exists('egw_tag_not_in')) {
      */
     function egw_tag_not_in($member_location)
     {
-        /*List of Tags on AD local
-        
-        *218->The Villages
-        *312->Baltimore
 
-        */
-        if( $member_location == THE_VILLAGES_NAME )
-        {
-            //Tags != 'Villages'
-            $tag_not_in = array(312);
+        if(ENVIRONMENT_MODE == 0){
+            /*List of Tags on AD local
+            *218->The Villages
+            *312->Baltimore
+            */
+            if( $member_location == THE_VILLAGES_NAME )
+            {
+                //Tags != 'Villages'
+                $tag_not_in = array(312);
+            }
+            elseif( $member_location == BALTIMORE_NAME )
+            {
+                //Tags != 'Baltimore'
+                $tag_not_in = array(218);
+            }
+            else {
+                $tag_not_in = array(218, 312);
+            }
+            return $tag_not_in;
         }
-        elseif( $member_location == BALTIMORE_NAME )
-        {
-            //Tags != 'Baltimore'
-            $tag_not_in = array(218);
+        
+        if(ENVIRONMENT_MODE == 1){
+            /*List of Tags on AD local
+            *434->The Villages
+            *312->Baltimore
+            */
+            if( $member_location == THE_VILLAGES_NAME )
+            {
+                //Tags != 'Villages'
+                $tag_not_in = array(312);
+            }
+            elseif( $member_location == BALTIMORE_NAME )
+            {
+                //Tags != 'Baltimore'
+                $tag_not_in = array(434);
+            }
+            else {
+                $tag_not_in = array(434, 312);
+            }
+            return $tag_not_in;
         }
-        else {
-            $tag_not_in = array();
-        }
-        return $tag_not_in;
     }
 }
 

@@ -34,7 +34,7 @@
         body_class();
     }
     ?> itemscope itemtype="http://schema.org/WebPage">
-        <!-- Google Tag Manager -->
+        <?php if (ENVIRONMENT_MODE == 1) { ?><!-- Google Tag Manager -->
         <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-556TBH"
                           height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <script>(function (w, d, s, l, i) {
@@ -48,7 +48,7 @@
                         '//www.googletagmanager.com/gtm.js?id=' + i + dl;
                 f.parentNode.insertBefore(j, f);
             })(window, document, 'script', 'dataLayer', 'GTM-556TBH');</script>
-        <!-- End Google Tag Manager -->
+        <?php } ?><!-- End Google Tag Manager -->
         <?php discussion_get_side_area(); ?>
         <div class="mkd-wrapper">
             <div class="mkd-wrapper-inner">
