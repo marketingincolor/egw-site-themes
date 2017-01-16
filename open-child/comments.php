@@ -38,18 +38,18 @@
 </div></div>
 
     
-<?php 
+<?php
 if ( is_user_logged_in() ) :
-    $userid=get_current_user_id();
-    $user_blog_id=get_user_meta($userid,'primary_blog',true);
-    $blog_id = get_current_blog_id();    
-    if($user_blog_id!=1)
-        $meta_data=get_user_meta($userid,'wp_'.$user_blog_id.'_capabilities',true);
-    else 
-        $meta_data=get_user_meta($userid,'wp_capabilities',true);
-    $user_profile_url=admin_url( 'profile.php' );
-    if(isset($meta_data['subscriber'])){
-        $user_profile_url=home_url( '/user-profile' );
+    $userid = get_current_user_id();
+    $user_blog_id = 1;//get_user_meta($userid,'primary_blog',true);
+    $blog_id = get_current_blog_id();
+    if($user_blog_id != 1)
+        $meta_data = get_user_meta($userid,'wp_'.$user_blog_id.'_capabilities',true);
+    else
+        $meta_data = get_user_meta($userid,'wp_capabilities',true);
+    $user_profile_url = admin_url( 'profile.php' );
+    if( isset($meta_data['subscriber']) ){
+        $user_profile_url = home_url( '/user-profile' );
     }
 endif;
 ?>
