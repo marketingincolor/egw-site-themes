@@ -983,7 +983,7 @@ function custom_comment($comment, $args, $depth) {
             $attachment = wp_get_attachment_image_src($custom_avatar_meta_data[0]);
             echo '<img src="' . $attachment[0] . '" width="85px" height="85px"/>';
         else :
-            echo '<img src="' . get_stylesheet_directory_uri() . "/img/aavathar.jpg" . '" width="85px" height="85px" />';
+            echo '<img src="' . get_stylesheet_directory_uri() . "/assets/img/aavathar.jpg" . '" width="85px" height="85px" />';
         endif;
         echo '</div>';
     }
@@ -1025,7 +1025,7 @@ function custom_comment($comment, $args, $depth) {
     echo '</div>';
     if (!$is_pingback_comment) {
         echo '<div class="mkd-comment-text">';
-        echo '<div class="mkd-text-holder" id="comment-' . comment_ID() . '">';
+        echo '<div class="mkd-text-holder" id="comment-' . get_comment_ID() . '">';
         comment_text();
         echo '<span class="mkd-comment-date">' . comment_time(get_option('date_format')) . '</span>';
         echo '</div>';
