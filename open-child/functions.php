@@ -2305,3 +2305,11 @@ if ( !function_exists('get_num_columns'))
 }
 
 add_filter( 'send_password_change_email', '__return_false' );
+
+function namespace_add_custom_types( $query ) {
+  if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
+    $query->set( 'post_type', array( 'post', 'nav_menu_item', 'videos' ));
+        return $query;
+    }
+}
+add_filter( 'pre_get_posts', 'namespace_add_custom_types' );

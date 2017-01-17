@@ -37,6 +37,8 @@ For setting main blog style adjustment
     display: none;
 }
 
+.static-image img { width:100% !important; }
+
 /*Register Page*/
 .join-field-row { margin-bottom:20px; }
 .join-field-row input { width:100%; font-size:16px; line-height:24px; padding:7px; }

@@ -1318,6 +1318,7 @@ table.ai1ec-month-view {
     padding: 0 50px;
     font-size: 16px;
     margin-top: 10px;
+    cursor:pointer;
 }
 
 /*Title length */
