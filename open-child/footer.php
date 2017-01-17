@@ -59,7 +59,7 @@
         </div>        
     </div>
 </div>
-
+<?php if (ENVIRONMENT_MODE == 1) { ?>
 <script type="text/javascript">
 adroll_adv_id = "ZYDTNLNKUFFZ5LUNLQPX6K";
 adroll_pix_id = "EDOUBMWD4FAZLDGFKPAZIA";
@@ -81,7 +81,7 @@ if (window.addEventListener) {window.addEventListener('load', _onload, false);}
 else {window.attachEvent('onload', _onload)}
 }());
 </script>
-
+<?php } ?>
 <?php
 discussion_get_footer();
 ?>

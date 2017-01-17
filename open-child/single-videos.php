@@ -130,8 +130,8 @@
                     <?php echo do_shortcode('[AuthorRecommendedPosts]'); ?>
                 </div>
                 <?php
-//                   get_template_part('block/comments-guidelines');
-//                   comments_template('', true);
+                  get_template_part('block/comments-guidelines');
+                  comments_template('', true);
                 ?>
             </div>
         </div>
