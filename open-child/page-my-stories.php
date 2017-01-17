@@ -1,9 +1,4 @@
 <?php
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
  * Template Name: My Stories
  *
@@ -29,14 +24,22 @@ $merged_new_ar = array();
 <div class="mkd-content">
     <div class="mkd-content-inner"> 
         <div class="mkd-full-width">
-            <div class="mkd-full-width-inner">               
-                <?php get_template_part('block/home-page-banner'); ?>
+            <div class="mkd-full-width-inner">
+                <?php if ( has_post_thumbnail() ) : ?>
+                <div class="mkd-container">
+                    <div class="mkd-container-inner static-image clearfix">
+                    <?php the_post_thumbnail('full'); ?>
+                    </div>
+                </div>
+                <?php else : ?>
+                    <?php get_template_part('block/home-page-banner'); ?>
+                <?php endif; ?>           
                 <!-- Articles display block -->
 
                 <div class="mkd-container">
                     <div class="mkd-container-inner clearfix">
                         <?php get_template_part('block/follow-and-unfollow-pack'); ?>
-                        <div class="mkd-two-columns-75-25  mkd-content-has-sidebar clearfix">
+                        <div class="mkd-two-columns-75-25 mkd-content-has-sidebar clearfix">
                             <div class="mkd-column1 mkd-content-left-from-sidebar">
                                 <div class="mkd-column-inner">
                                     <?php

@@ -115,8 +115,16 @@
 
                 discussion_get_module_template_part('templates/single/post-formats/' . $post_format, 'blog', '', $params);
 
-                discussion_get_module_template_part('templates/single/parts/tags', 'blog');
+                //discussion_get_module_template_part('templates/single/parts/tags', 'blog');
                 ?>
+                                <?php if (function_exists('the_tags')) { ?>
+                    <div class="mkd-single-tags-holder">
+                        <span class="mkd-single-tags-title"><strong>Tags: </strong></span>
+                        <div class="mkd-tags">
+                            <?php the_tags('', ' ', ''); ?><br />
+                        </div>
+                    </div>
+                <?php } ?>
                 <?php get_template_part('sidebar/template-ads-mobile'); ?>
                 <div class="fsp-recommended-stories-cont">
                     <?php echo do_shortcode('[AuthorRecommendedPosts]'); ?>
