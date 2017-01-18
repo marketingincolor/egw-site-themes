@@ -1303,9 +1303,22 @@ function custom_scroll_saved_articles_load() {
     get_template_part('block/saved-articles');
     exit;
 }
-
 add_action('wp_ajax_custom_scroll_saved_articles_load', 'custom_scroll_saved_articles_load');
 add_action('wp_ajax_nopriv_custom_scroll_saved_articles_load', 'custom_scroll_saved_articles_load');
+
+/**
+ * Created By   - Doe
+ * Created Date - 01-18-2017
+ * Purpose      - For implementing append saved articles while click 'load more' button on my profile page
+ */
+function load_more_profile() {
+    get_template_part('block/user-profile-articles');
+    exit;
+}
+add_action('wp_ajax_load_more_profile', 'load_more_profile');
+add_action('wp_ajax_nopriv_load_more_profile', 'load_more_profile');
+
+
 
 /**
  * Created By   - Rajasingh
