@@ -100,8 +100,7 @@ $slug_page=basename(get_permalink()); //For retrieving current page slug and cha
 
         });
     }
-    
-    
+
     function load_saved_articles(event){
                         
         var displayed_article_count=parseInt(jQuery('#displayed_article_count').text());
@@ -131,5 +130,36 @@ $slug_page=basename(get_permalink()); //For retrieving current page slug and cha
         event.preventDefault();
         
     }    
+
+        function load_profile_articles(event){
+                        
+        var displayed_article_count=parseInt(jQuery('#displayed_article_count').text());
+        var total_article_count=parseInt(jQuery('#total_saved_article_count').text());
+        jQuery('#load-save-article-button').css('display','none');
+        jQuery('.loader_img').css('display','block');
+        jQuery.ajax({
+            type: "POST",
+            url: "<?php echo bloginfo('wpurl'); ?>/wp-admin/admin-ajax.php",
+            data: {
+                action: 'load_more_profile',
+                offset: displayed_article_count,                                                
+            },
+            success: function(data)
+            {
+                jQuery('#saved-artiles-list').append(data);
+                current_displayed_article_count=displayed_article_count+3;
+                jQuery('#displayed_article_count').text(current_displayed_article_count);
+                jQuery('.loader_img').css('display','none');
+                if(current_displayed_article_count >= total_article_count){
+                    jQuery('#load-save-article-button').css('display','none');
+                }else {
+                    jQuery('#load-save-article-button').css('display','block');
+                }                                    
+            }
+        });
+        event.preventDefault();
+        
+    }    
+
 </script>
 <?php ?>

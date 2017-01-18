@@ -251,7 +251,7 @@ get_header();
                                         <div id="total_saved_article_count" style="display:none"><?php echo $total_count; ?></div>
                                         <?php if($total_count>3): ?>
                                             <div class="fsporange_btn" id="load-save-article-button">
-                                                <input onclick="load_saved_articles(event)" type="submit" value="Load More" name="Load More">
+                                                <input onclick="load_profile_articles(event)" type="submit" value="Load More" name="Load More">
                                             </div>                                          
                                         <?php endif; ?>
                                         <div class="fsp-ads-homepage loader_img" style="display: none;">
