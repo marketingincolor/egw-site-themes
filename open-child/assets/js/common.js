@@ -331,7 +331,7 @@ function saveArticleSessionValidation(){
 
          var user_primary_site=jQuery.trim(jQuery('#user_primary_site').val());
          if(user_primary_site && user_primary_site!== '0'){
-             jQuery('#site_user_validation_popup_message').text('Only members of this branch can save or remove articles');
+             jQuery('#site_user_validation_popup_message').text('Only signed-in members of this site can save or remove articles.');
              jQuery.magnificPopup.open({
                 items: {
                     src: '#site_user_validation_popup',
