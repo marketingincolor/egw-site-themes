@@ -44,7 +44,7 @@ $merged_new_ar = array();
                                 <div class="mkd-column-inner">
                                     <?php
                                     /**
-                                     * Fetching category if user follows subcategory and displaying article based on that categories
+                                     * Fetching category if user follows subcategory and displaying article based on that category
                                      */
                                     if (is_user_logged_in()) {
                                         $userid = get_current_user_id();
