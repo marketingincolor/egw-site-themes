@@ -62,7 +62,7 @@ if (isset($_POST)) {
                                                                 <tr>
                                                                     <td style="background:#ffffff; padding-top:20px; padding-bottom:25px; padding-left:20px; padding-right:20px;">
                                                                         <h2 style="font-size:18px; font-weight:normal; margin-top: 0; margin-bottom: 12px;">' . $current_user->user_firstname .' has shared some information with you:</h2>
-                                                                        <p style="font-size:14px; color:#6c6b6b; margin-top: 0; line-height: 19px;">' . $original_arraylist['comments'] . ' </p> 
+                                                                        <p style="font-size:14px; color:#6c6b6b; margin-top: 0; line-height: 19px;">' . stripslashes($original_arraylist['comments']) . ' </p> 
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -119,7 +119,7 @@ if (isset($_POST)) {
                                 </tr>
                                 <tr>
                                     <td style="text-align:center; background:#ffffff;">
-                                        <p style="color:#787b80; font-size:12px;padding-top:10px;padding-bottom:10px;">Evergreen Wellness © Copyright 2016-2017</p>
+                                        <p style="color:#787b80; font-size:12px;padding-top:10px;padding-bottom:10px;">Evergreen Wellness &copy; ' . date('Y') . '</p>
                                     </td>
                                 </tr>
                             </tbody>
