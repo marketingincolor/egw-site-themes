@@ -3,7 +3,6 @@ global $current_user;
 get_currentuserinfo();
 
 
-
 if (isset($_POST)) {
     $errors = array();
     //Fetching user email address
@@ -62,7 +61,7 @@ if (isset($_POST)) {
                                                             <tbody>
                                                                 <tr>
                                                                     <td style="background:#ffffff; padding-top:20px; padding-bottom:25px; padding-left:20px; padding-right:20px;">
-                                                                        <h2 style="font-size:18px; font-weight:normal; margin-top: 0; margin-bottom: 12px;">Hello,</h2>
+                                                                        <h2 style="font-size:18px; font-weight:normal; margin-top: 0; margin-bottom: 12px;">' . $current_user->user_firstname .' has shared some information with you:</h2>
                                                                         <p style="font-size:14px; color:#6c6b6b; margin-top: 0; line-height: 19px;">' . $original_arraylist['comments'] . ' </p> 
                                                                 </tr>
                                                             </tbody>
