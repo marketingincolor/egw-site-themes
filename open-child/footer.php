@@ -51,7 +51,7 @@ discussion_get_footer();
         if (comments == "")
         {
             document.selectedArticleform.emailaddress.focus();
-            document.getElementById("errorBox-comments").innerHTML = "Required Value";
+            document.getElementById("errorBox-comments").innerHTML = "A personal message from you is required.";
             return false;
         }
         return true;
