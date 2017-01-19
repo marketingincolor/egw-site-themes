@@ -62,7 +62,7 @@ if (isset($_POST)) {
                                                                 <tr>
                                                                     <td style="background:#ffffff; padding-top:20px; padding-bottom:25px; padding-left:20px; padding-right:20px;">
                                                                         <h2 style="font-size:18px; font-weight:normal; margin-top: 0; margin-bottom: 12px;">' . $current_user->user_firstname .' has shared some information with you:</h2>
-                                                                        <p style="font-size:14px; color:#6c6b6b; margin-top: 0; line-height: 19px;">' . htmlentities($original_arraylist['comments'], ENT_QUOTES) . ' </p> 
+                                                                        <p style="font-size:14px; color:#6c6b6b; margin-top: 0; line-height: 19px;">' . stripslashes($original_arraylist['comments']) . ' </p> 
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -93,7 +93,7 @@ if (isset($_POST)) {
                                                                     <tr>
                                                                         <td align="top">' . get_the_post_thumbnail($post->ID, array(126, 126)) . ' </td>
                                                                         <td style="padding-left:20px; padding-right:20px;">
-                                                                            <p style="font-size:13px; color:#787b80; margin-top: 0; line-height: 17px;min-height: 80px;">' . htmlentities(substr(get_the_content($post->ID), 0, 125), ENT_QUOTES) . '... </p> 
+                                                                            <p style="font-size:13px; color:#787b80; margin-top: 0; line-height: 17px;min-height: 80px;">' . substr(get_the_content($post->ID), 0, 125) . '... </p> 
                                                                             <a href="' . get_permalink($post->ID) . '" target="_blank" style="background: #f39e46;color: #ffffff; float: left; font-size: 12px; font-weight: bold; padding-top:10px; padding-bottom:10px; padding-left:25px; padding-right:25px; text-decoration: none;">Read Article</a> 
                                                                         </td>
                                                                     </tr>
@@ -119,7 +119,7 @@ if (isset($_POST)) {
                                 </tr>
                                 <tr>
                                     <td style="text-align:center; background:#ffffff;">
-                                        <p style="color:#787b80; font-size:12px;padding-top:10px;padding-bottom:10px;">Evergreen Wellness © Copyright 2016-2017</p>
+                                        <p style="color:#787b80; font-size:12px;padding-top:10px;padding-bottom:10px;">Evergreen Wellness &copy; ' . date('Y') . '</p>
                                     </td>
                                 </tr>
                             </tbody>
