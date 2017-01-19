@@ -111,6 +111,8 @@ $merged_new_ar = array();
                 jQuery('.loader_img').css('display', 'none');
                 if (current_displayed_article_count >= total_article_count) {
                     jQuery('.load-save-article-button-section').css('display', 'none');
+                    jQuery('#no-more-articles').css('display','block');
+                
                 } else {
                     jQuery('.load-save-article-button-section').css('display', 'block');
                 }

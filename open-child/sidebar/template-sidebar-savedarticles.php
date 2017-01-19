@@ -28,13 +28,17 @@
                             <a id="enable_story_playlist" class="open" href="javascript:void(0)">Send stories to friends <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                             <div id="story-send" style="display:none">
                                 <div class="send-str-blk">
-                                    Select Stories you would <br/>
-                                    like to send to your friends
+                                    Check the boxes next to stories<br />
+                                    you would like to send to your friends.<br />
+                                    Then click the "Send" button.
                                 </div>
                                 <a class="fsp_readart_btn send-button" href="javascript:void(0)" id="openEnquiryForm" title="Read Article" rel="">Send</a>
                             </div>
                         </div>  
                         <form action="" name="savedStories" id="savedArticles" method="post">
+                            <?php if (!have_posts()) : ?> 
+                                <span id="no-articles-found" class="mkd-pt-seven-item mkd-post-item mkd-active-post-page">No articles found</span>
+                            <?php endif; ?>   
                             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                                     <?php if (($sidebar == 'default') || ($sidebar == '')) : ?>
                                         <div class="sv-art-inside-container">
@@ -83,10 +87,12 @@
 
                                         <div class="fsp-ads-homepage loader_img" style="display: none;">
                                             <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/loading.svg'; ?>" width="75">
-                                        </div>  
+                                        </div>
                                     </div>
                                 </div>
-                            </div>                                      
+                            </div> 
+                            <span id="no-more-articles" class="mkd-pt-seven-item mkd-post-item mkd-active-post-page">No more stories to send</span>   
+                                     
                         <?php endif; ?>                                                                            
                     <?php else: ?>
                         <span>No articles found</span> 

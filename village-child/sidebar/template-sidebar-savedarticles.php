@@ -9,7 +9,7 @@
                     $require_post = $post;
                     $user_data = get_user_meta(get_current_user_id(), 'wpfp_favorites');
                     $post_id_ar = array();
-
+                
 
                     if (isset($user_data) && !empty($user_data[0])):
                         $post_id_ar = array_reverse($user_data[0]);

@@ -10,6 +10,28 @@
  Text Domain:  open-child
 */
 
+
+/*For centering load more button on my stories*/
+.fsporange_btn { text-align:center; }
+
+/*For no more articles text on my stories*/
+#no-more-articles {
+    color: #6c6b6b; 
+    background-color:#fff; 
+    width: 100%; 
+    text-align:center; 
+    display:none; 
+    padding: 12px 0; 
+}
+
+#no-articles-found {
+    color: #6c6b6b; 
+    background-color:#fff; 
+    width: 100%; 
+    text-align:center; 
+    padding: 12px 0; 
+}
+
 /**
 For setting main blog style adjustment
 */
