@@ -42,7 +42,7 @@ discussion_get_footer();
                 if (checkEmail(emailArray[i])) {
                     //Do what ever with the email.
                 } else {
-                    document.getElementById("errorBox-email").innerHTML = "invalid email: " + emailArray[i];
+                    document.getElementById("errorBox-email").innerHTML = "Send to one email at a time.";
                     return false;
                 }
             }
