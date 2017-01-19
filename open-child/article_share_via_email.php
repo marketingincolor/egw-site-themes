@@ -1,4 +1,7 @@
 <?php
+global $current_user;
+get_currentuserinfo();
+
 
 if (isset($_POST)) {
     $errors = array();
@@ -58,7 +61,7 @@ if (isset($_POST)) {
                                                             <tbody>
                                                                 <tr>
                                                                     <td style="background:#ffffff; padding-top:20px; padding-bottom:25px; padding-left:20px; padding-right:20px;">
-                                                                        <h2 style="font-size:18px; font-weight:normal; margin-top: 0; margin-bottom: 12px;">Hello,</h2>
+                                                                        <h2 style="font-size:18px; font-weight:normal; margin-top: 0; margin-bottom: 12px;">' . $current_user->user_firstname .' has shared some information with you:</h2>
                                                                         <p style="font-size:14px; color:#6c6b6b; margin-top: 0; line-height: 19px;">' . $original_arraylist['comments'] . ' </p> 
                                                                 </tr>
                                                             </tbody>
@@ -116,7 +119,7 @@ if (isset($_POST)) {
                                 </tr>
                                 <tr>
                                     <td style="text-align:center; background:#ffffff;">
-                                        <p style="color:#787b80; font-size:12px;padding-top:10px;padding-bottom:10px;">Evergreen Wellness © copyright 2016</p>
+                                        <p style="color:#787b80; font-size:12px;padding-top:10px;padding-bottom:10px;">Evergreen Wellness © Copyright 2016-2017</p>
                                     </td>
                                 </tr>
                             </tbody>
@@ -131,13 +134,13 @@ if (isset($_POST)) {
         $emailsend = 0;
     }
 
-    $sender = 'From: No reply <no-reply@myevergreenwellness.com>' . "\r\n";
+    $sender = 'From: Evergreen Wellness <no-reply@myevergreenwellness.com>' . "\r\n";
     $headers[] = 'MIME-Version: 1.0' . "\r\n";
     $headers[] = 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
     $headers[] = "X-Mailer: PHP \r\n";
     $headers[] = $sender;
 
-    $subject = "Share a list of your saved article stories with your friends";
+    $subject = "Your friend " . $current_user->user_firstname . " has shared something with you.";
 
     if ($emailsend) {
         foreach ($fetchedEmailrel as $key => $sharingemail) {

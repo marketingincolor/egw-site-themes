@@ -1,6 +1,6 @@
 <div class="saved-articles-popup-nw">
     <div id="enquiry-form" class="popup-inline-content">
-        <h2>Share a list of your saved article stories with your friends:</h2>
+        <h2>Share articles with your friend!</h2>
         <div class="sv-art-popup-nw-cont">
             <form id="enquiryForm" name="selectedArticleform" action="" method="POST">
                 <div class="row">
