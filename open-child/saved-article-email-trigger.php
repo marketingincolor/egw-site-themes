@@ -9,7 +9,7 @@
                             <?php $selectedArticles = $_POST['offset']; ?>
                             <input type="text" value="" maxlength="100" class="form-control" name="emailaddress" id="email_address" placeholder="Email">
                             <div id="errorBox-email"></div>
-                            <textarea  name="comments" placeholder="Type Message here..."  rows="4" cols="50"></textarea>
+                            <textarea  name="comments" placeholder="Type a personal message to your friend here..."  rows="4" cols="50"></textarea>
                             <div id="errorBox-comments"></div>
                         </div>
                         <div class="vc_col-lg-12">
@@ -43,7 +43,7 @@
                                                             <div class="saved_art_img"><?php the_post_thumbnail([117, 117]) ?></div>
                                                             <div class="saved_art_cont-pop">
                                                                 <h4 id="<?php the_ID(); ?>"><?php the_title(); ?></h4>
-                                                                <p><?php custom_discussion_excerpt(15); ?></p>
+                                                                <p><?php custom_discussion_excerpt(150); ?></p>
                                                             </div>
                                                         </div>
                                                         <div class="saved_art_cont_btns-close">
