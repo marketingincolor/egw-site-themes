@@ -1,5 +1,8 @@
 <?php
 discussion_get_footer();
+$member_location = get_egw_member_location();
+$tag_not_in = egw_tag_not_in($member_location);
+list($post_per_section,$post_type)=scroll_loadpost_settings();
 ?>
 <script>
     jQuery('li.welcome-my-pop a').magnificPopup({
@@ -141,6 +144,8 @@ discussion_get_footer();
 <input type="hidden" id="accountvalid" value="test"/>
 <input type="hidden" name="user_primary_site" id="user_primary_site" value="<?php echo (is_user_logged_in() ? '0' : '1');//echo other_user_profile_redirection(); ?>">
 <input type="hidden" name="is_user_login" id="is_user_login" value="<?php echo is_user_logged_in(); ?>" >
+<input type="hidden" name="member_location" id="member_location" value="<?php echo $member_location; ?>" >
+<input type="hidden" name="tag_not_in" id="tag_not_in" value="<?php var_dump($tag_not_in); ?>" >
 
 <div class="white-popup-block user-session-block mfp-hide" id="site_user_validation_popup">
     <div class="find-a-branch-container">        
