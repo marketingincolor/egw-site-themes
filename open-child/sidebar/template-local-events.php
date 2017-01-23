@@ -1,3 +1,4 @@
+
 <div class="mkd-section-title-holder clearfix"><span class="mkd-st-title">Live Events</span></div>
 
 <div id="mkd-widget-tab-4" class="mkd-ptw-holder mkd-tabs" aria-labelledby="ui-id-5" role="tabpanel" aria-hidden="false">
@@ -15,14 +16,14 @@
                     //Limit to Villages Events
                     if (current_user_can(ACCESS_VILLAGE_CONTENT)) {
                         $limit = array(
-                            'tag_ids' => array (314) 
+                            //'tag_ids' => array (314) 
                         );
                     }
 
                     // Limit to Baltimore Events
                     elseif (current_user_can(ACCESS_BALTIMORE_CONTENT)) {
                         $limit = array(
-                            'tag_ids' => array (313) 
+                            //'tag_ids' => array (313) 
                         );
                     }
 
