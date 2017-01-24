@@ -18,7 +18,7 @@ $tag_not_in = egw_tag_not_in($member_location);
                 'order' => 'DESC',
                 'post_type' => explode(",", $_POST['post_type']),
                 'offset' => $_POST['offset'],
-                'numberposts' => $_POST['perpage'],
+                'posts_per_page' => $_POST['perpage'],
                 'tag__not_in' => $tag_not_in
             );
             $posts_array = query_posts($args);
