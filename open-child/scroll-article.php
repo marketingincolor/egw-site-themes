@@ -5,6 +5,8 @@
  * Purpose - For list out the blogs based on category
  */
 $num_columns = get_num_columns();
+$member_location = get_egw_member_location();
+$tag_not_in = egw_tag_not_in($member_location);
 ?>
 <div class="mkd-bnl-holder mkd-pl-five-holder  mkd-post-columns-<?php echo $num_columns; ?>"  data-base="mkd_post_layout_five"  data-number_of_posts="3" data-column_number="3" data-category_id="7"         data-thumb_image_size="custom_size" data-thumb_image_width="302" data-thumb_image_height="198" data-title_tag="h6" data-title_length="27" data-display_date="no"  data-display_category="no" data-display_comments="no" data-display_share="no" data-display_count="no" data-display_excerpt="yes" data-excerpt_length="7" data-display_read_more="no"     data-paged="1" data-max_pages="8">
     <div class="mkd-bnl-outer">
@@ -16,10 +18,11 @@ $num_columns = get_num_columns();
                 'order' => 'DESC',
                 'post_type' => explode(",", $_POST['post_type']),
                 'offset' => $_POST['offset'],
-                'numberposts' => $_POST['perpage']
+                'numberposts' => $_POST['perpage'],
+                'tag__not_in' => $tag_not_in
             );
-            $posts_array = get_posts($args);
-            $main_cat_det = get_category($_POST['main_cat_id']);            
+            $posts_array = query_posts($args);
+            $main_cat_det = get_category($_POST['main_cat_id']);
             $i = 1;
             $title_cls = "";
             if ($posts_array) {
@@ -58,7 +61,7 @@ $num_columns = get_num_columns();
                     $id = get_the_ID();
                     $background_image_style = discussion_custom_getImageBackground($id);
                     $params['background_image_style'] = $background_image_style;
-                    $post_no_class = 'mkd-post-number-' . $post_no;                   
+                    $post_no_class = 'mkd-post-number-' . $post_no;
 
                     if (strstr($_SERVER['HTTP_USER_AGENT'], 'iPad')) {
                         if ($i % 2 == 1):
@@ -79,7 +82,7 @@ $num_columns = get_num_columns();
                     $getPostcat = wp_get_post_categories($id);
                     $slug_page=$_POST['slug_page'];
                     $main_cat_id=$_POST['main_cat_id'];
-                    $post_link=post_category_link($id,$getPostcat,$main_cat_det,$main_cat_id,$slug_page); 
+                    $post_link=post_category_link($id,$getPostcat,$main_cat_det,$main_cat_id,$slug_page);
 
                     /**
                      * For implement there coloumn based post in one row
