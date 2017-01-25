@@ -93,7 +93,7 @@ if (isset($_POST)) {
                                                                     <tr>
                                                                         <td align="top">' . get_the_post_thumbnail($post->ID, array(126, 126)) . ' </td>
                                                                         <td style="padding-left:20px; padding-right:20px;">
-                                                                            <p style="font-size:13px; color:#787b80; margin-top: 0; line-height: 17px;min-height: 80px;">' . substr(get_the_content($post->ID), 0, 125) . '... </p> 
+                                                                            <p style="font-size:13px; color:#787b80; margin-top: 0; line-height: 17px;min-height: 80px;">' . addslashes(substr(get_the_content($post->ID), 0, 125)) . '... </p> 
                                                                             <a href="' . get_permalink($post->ID) . '" target="_blank" style="background: #f39e46;color: #ffffff; float: left; font-size: 12px; font-weight: bold; padding-top:10px; padding-bottom:10px; padding-left:25px; padding-right:25px; text-decoration: none;">Read Article</a> 
                                                                         </td>
                                                                     </tr>
