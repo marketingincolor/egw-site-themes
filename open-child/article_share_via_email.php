@@ -77,13 +77,18 @@ if (isset($_POST)) {
         if ($saved_posts_values) {
             foreach ($saved_posts_values as $post) {
                 setup_postdata($post);
+                $title_setup = substr(get_the_title($post->ID), 0, 125);
+                $paragraph_setup = substr(get_the_content($post->ID), 0, 125);
+                $paragraph = str_replace("®", "&#174;", $paragraph_setup);
+                $paragraph = str_replace("’", "&#39;", $paragraph);
+                $title = str_replace("®", "&#174;", $title_setup);
                 $articlefetched.='<tr>
                                         <td>
                                             <table align="center" width="509" style="box-shadow: 1px 4px 12px #eeeeee;" cellspacing="0" cellpadding="0">
                                                 <tbody>
                                                     <tr>
                                                         <td colspan="2" style="background: #3d7f3c; padding-top:10px; padding-bottom:10px;padding-left:15px;" > 
-                                                            <h2 id = "' . $post->ID . '" style="color:#ffffff;font-size: 16px;margin-bottom: 0px;margin-top: 0px;">' . get_the_title($post->ID) . '</h2>
+                                                            <h2 id = "' . $post->ID . '" style="color:#ffffff;font-size: 16px;margin-bottom: 0px;margin-top: 0px;">' . $title . '</h2>
                                                         </td>
                                                     </tr>
                                                     <tr>                                            
@@ -93,7 +98,7 @@ if (isset($_POST)) {
                                                                     <tr>
                                                                         <td align="top">' . get_the_post_thumbnail($post->ID, array(126, 126)) . ' </td>
                                                                         <td style="padding-left:20px; padding-right:20px;">
-                                                                            <p style="font-size:13px; color:#787b80; margin-top: 0; line-height: 17px;min-height: 80px;">' . addslashes(substr(get_the_content($post->ID), 0, 125)) . '... </p> 
+                                                                            <p style="font-size:13px; color:#787b80; margin-top: 0; line-height: 17px;min-height: 80px;">' . $paragraph . '... </p> 
                                                                             <a href="' . get_permalink($post->ID) . '" target="_blank" style="background: #f39e46;color: #ffffff; float: left; font-size: 12px; font-weight: bold; padding-top:10px; padding-bottom:10px; padding-left:25px; padding-right:25px; text-decoration: none;">Read Article</a> 
                                                                         </td>
                                                                     </tr>
