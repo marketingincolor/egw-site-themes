@@ -13,7 +13,7 @@ $tag_not_in = egw_tag_not_in($member_location);
         <div class="mkd-bnl-inner">
             <?php
             $args = array(
-                'category' => $_POST['cat_id'],
+                'cat' => $_POST['cat_id'],
                 'post_status' => 'publish',
                 'order' => 'DESC',
                 'post_type' => explode(",", $_POST['post_type']),
