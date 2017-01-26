@@ -72,19 +72,19 @@ list($post_per_section, $post_type) = scroll_loadpost_settings();
                              * displaying remaining unfollow article if we have less followed articles
                              */
                             $remaining=0;
-                            if (($i + $j) < $post_per_section) {
-                                $remaining = $post_per_section - ($i + $j);
-                                unfollow_categorypost_detail($post_type, $cat_id_ar, $display_postid_ar, $remaining);
-                                global $wp_query;
-                                $found_posts = $wp_query->found_posts;
-                                if (have_posts()):
-                                    while (have_posts()) :the_post();
-                                        array_push($display_postid_ar, get_the_ID());
-                                        $display_post_title_ar[] = get_the_title();
-                                    endwhile;
-                                endif;
-                                wp_reset_postdata();
-                            }
+                            //if (($i + $j) < $post_per_section) {
+                            //    $remaining = $post_per_section - ($i + $j);
+                            //    unfollow_categorypost_detail($post_type, $cat_id_ar, $display_postid_ar, $remaining);
+                            //    global $wp_query;
+                            //    $found_posts = $wp_query->found_posts;
+                            //    if (have_posts()):
+                            //        while (have_posts()) :the_post();
+                            //            array_push($display_postid_ar, get_the_ID());
+                            //            $display_post_title_ar[] = get_the_title();
+                            //        endwhile;
+                            //    endif;
+                            //    wp_reset_postdata();
+                            //}
                             
                             $_SESSION["display_postid_ar"] = $display_postid_ar;
                             $_SESSION["displayed_sub_cat_ar"] = $displayed_sub_cat_ar;
