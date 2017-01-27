@@ -25,7 +25,7 @@
                         ?>
 
                         <div class="saved-articles-sidelist-nw saved-articles-border-btm">
-                            <a id="enable_story_playlist" class="open" href="javascript:void(0)">Send stories to friends <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                            <a id="enable_story_playlist" class="open" href="javascript:void(0)">Click here to send stories to friends <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                             <div id="story-send" style="display:none">
                                 <div class="send-str-blk">
                                     Check the boxes next to stories<br />
