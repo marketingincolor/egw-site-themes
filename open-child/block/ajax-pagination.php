@@ -9,8 +9,10 @@
 <?php
 $cat_name = "";
 $cat_id = "";
-$find_category_id = get_term_by( 'slug', $category, 'category' );
-$category_id = $find_category_id->term_id;
+if ( !is_front_page() ) {
+    $find_category_id = get_term_by( 'slug', $category, 'category' );
+    $category_id = $find_category_id->term_id;
+}
 /**
  * cat_id_ar => For fetching follow category based post
  * cat_id => if category id array empty we will follow with category id
