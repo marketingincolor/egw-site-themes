@@ -94,12 +94,16 @@ if (!function_exists('get_videoid_from_url')) {
     function get_videoid_from_url($url) {
         $arg = array();
         $videoId = "";
-        if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match)) {
+        //$main_pattern = '%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i';
+        $main_pattern = '%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ].*)%i';
+        if (preg_match($main_pattern, $url, $match)) {
             $url_string = parse_url($url, PHP_URL_QUERY);
             parse_str($url_string, $args);
             $arg['video_url'] = 'https://www.youtube.com/embed/';
             $arg['video_src'] = 'youtube';
-            $url = isset($args['v']) ? $arg['video_url'] . $args['v'] : false;
+            $list = isset($args['list']) ? 'videoseries?list=' . $args['list'] : false;
+            //$url = isset($args['v']) ? $arg['video_url'] . $args['v'] . $list : false;
+            $url = isset($args['v']) ? $arg['video_url'] . ( isset($args['list']) ? false : $args['v']) . $list : false;
         } else if (preg_match("/(https?:\/\/)?(www\.)?(player\.)?vimeo\.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/", $url, $output_array)) {
             $urlParts = explode("/", parse_url($url, PHP_URL_PATH));
             $arg['video_url'] = 'http://player.vimeo.com/video/';

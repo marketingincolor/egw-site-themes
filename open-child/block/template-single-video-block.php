@@ -23,7 +23,7 @@ if ($video_url != "") {
             <?php
         } else {
             ?>
-            <iframe  width="600" height="338"  src="<?php echo $val; ?>" frameborder="0"  allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+            <iframe  width="600" height="338" src="<?php echo $val; ?>" frameborder="0" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
             <?php
         }
@@ -37,5 +37,7 @@ if ($video_url != "") {
     ?>
 </div>
 
+<?php if (strpos($val, 'youtube') > 0) { ?> <!--youtube video--> <?php } else { ?>
 <!--added script for loading videos wistia url-->
-<script src="//fast.wistia.com/assets/external/E-v1.js" async></script>
+<script src="//fast.wistia.com/assets/external/E-v1.js" async></script>    
+<?php } ?>
