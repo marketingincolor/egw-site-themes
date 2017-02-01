@@ -41,7 +41,7 @@ if (!function_exists('discussion_scripts')) {
         }
 
         //include google map api script
-        wp_enqueue_script('google_map_api', '//maps.googleapis.com/maps/api/js?sensor=false', array(), false, true);
+        wp_enqueue_script('google_map_api', '//maps.googleapis.com/maps/api/js', array(), false, true);
 
         wp_enqueue_script('discussion_modules', MIKADO_ASSETS_ROOT . '/js/modules.min.js', array('jquery'), false, true);
         wp_enqueue_script('fsp-custom-popupjs', get_stylesheet_directory_uri() . '/assets/js/jquery.magnific-popup.js', array('jquery'), false, true);
@@ -94,12 +94,18 @@ if (!function_exists('get_videoid_from_url')) {
     function get_videoid_from_url($url) {
         $arg = array();
         $videoId = "";
-        if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match)) {
+        //$main_pattern = '%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i';
+        $main_pattern = '%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ].*)%i';
+        if (preg_match($main_pattern, $url, $match)) {
             $url_string = parse_url($url, PHP_URL_QUERY);
             parse_str($url_string, $args);
             $arg['video_url'] = 'https://www.youtube.com/embed/';
             $arg['video_src'] = 'youtube';
-            $url = isset($args['v']) ? $arg['video_url'] . $args['v'] : false;
+            $related = isset($args['rel']) ? '&rel=' . $args['rel'] : false;
+            $index = isset($args['index']) ? '&index=' . $args['index'] : false;
+            $list = isset($args['list']) ? 'videoseries?list=' . $args['list'] . $index . $related : false;
+            //$url = isset($args['v']) ? $arg['video_url'] . $args['v'] . $list : false;
+            $url = isset($args['v']) ? $arg['video_url'] . ( isset($args['list']) ? false : $args['v']) . $list : false;
         } else if (preg_match("/(https?:\/\/)?(www\.)?(player\.)?vimeo\.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/", $url, $output_array)) {
             $urlParts = explode("/", parse_url($url, PHP_URL_PATH));
             $arg['video_url'] = 'http://player.vimeo.com/video/';
