@@ -41,7 +41,7 @@ if (!function_exists('discussion_scripts')) {
         }
 
         //include google map api script
-        wp_enqueue_script('google_map_api', '//maps.googleapis.com/maps/api/js?sensor=false', array(), false, true);
+        wp_enqueue_script('google_map_api', '//maps.googleapis.com/maps/api/js', array(), false, true);
 
         wp_enqueue_script('discussion_modules', MIKADO_ASSETS_ROOT . '/js/modules.min.js', array('jquery'), false, true);
         wp_enqueue_script('fsp-custom-popupjs', get_stylesheet_directory_uri() . '/assets/js/jquery.magnific-popup.js', array('jquery'), false, true);
@@ -101,7 +101,9 @@ if (!function_exists('get_videoid_from_url')) {
             parse_str($url_string, $args);
             $arg['video_url'] = 'https://www.youtube.com/embed/';
             $arg['video_src'] = 'youtube';
-            $list = isset($args['list']) ? 'videoseries?list=' . $args['list'] : false;
+            $related = isset($args['rel']) ? '&rel=' . $args['rel'] : false;
+            $index = isset($args['index']) ? '&index=' . $args['index'] : false;
+            $list = isset($args['list']) ? 'videoseries?list=' . $args['list'] . $index . $related : false;
             //$url = isset($args['v']) ? $arg['video_url'] . $args['v'] . $list : false;
             $url = isset($args['v']) ? $arg['video_url'] . ( isset($args['list']) ? false : $args['v']) . $list : false;
         } else if (preg_match("/(https?:\/\/)?(www\.)?(player\.)?vimeo\.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/", $url, $output_array)) {
