@@ -954,7 +954,7 @@ function ajax_forgotPassword() {
  * second parameter => post type
  */
 function scroll_loadpost_settings() {
-    return array(6, array('post', 'videos'));
+    return array(6, array('post', 'videos', 'sponsored_posts'));
 }
 
 /**
@@ -2327,7 +2327,7 @@ add_filter( 'send_password_change_email', '__return_false' );
 
 function namespace_add_custom_types( $query ) {
   if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
-    $query->set( 'post_type', array( 'post', 'nav_menu_item', 'videos' ));
+    $query->set( 'post_type', array( 'post', 'nav_menu_item', 'videos', 'sponsored_posts' ));
         return $query;
     }
 }
