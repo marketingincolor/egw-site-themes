@@ -17,6 +17,7 @@ if (!function_exists('discussion_styles')) {
         wp_enqueue_style('discussion_modules', get_stylesheet_directory_uri() . '/assets/css/modules.css');
         wp_enqueue_style('fsp_custom_css', get_stylesheet_directory_uri() . '/assets/css/fspstyles.css');
         wp_enqueue_style('fsp_custom_popup', get_stylesheet_directory_uri() . '/assets/css/magnific-popup.css');
+        wp_enqueue_style('balloon_css', get_stylesheet_directory_uri() . '/assets/css/balloon.css' );
     }
     add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
 }
@@ -46,6 +47,7 @@ if (!function_exists('discussion_scripts')) {
         wp_enqueue_script('discussion_modules', MIKADO_ASSETS_ROOT . '/js/modules.min.js', array('jquery'), false, true);
         wp_enqueue_script('fsp-custom-popupjs', get_stylesheet_directory_uri() . '/assets/js/jquery.magnific-popup.js', array('jquery'), false, true);
         wp_enqueue_script('common script', get_stylesheet_directory_uri() . '/assets/js/common.js', array('jquery'), false, true);
+        wp_enqueue_script('tooltip-animations', get_stylesheet_directory_uri() . '/assets/js/tooltip-animations.js', array('jquery'), false, true );
 
         //include comment reply script
         $wp_scripts->add_data('comment-reply', 'group', 1);
@@ -2103,7 +2105,7 @@ add_action('last_updated', 'add_last_updated');
  */
 function add_sponsored_post_bar() {
     if (get_field('sponsored_content') == 'Yes') {
-        echo '<div class="sponsored-post-bar">Sponsored Post</div>';
+        echo '<div class="sponsored-post-bar">Sponsored Content <i class="fa fa-info-circle icon-2x" aria-hidden="true"></i></span><span class="tooltip-text" style="display:none; padding:1em; text-align:center;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>';
     }
 }
 
