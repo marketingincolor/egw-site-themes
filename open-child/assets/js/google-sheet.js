@@ -5,7 +5,7 @@
  */
 
 // Bind to the submit event of our form
-jQuery("#egw-registeration").submit(function(event){
+jQuery("#egw-registration").submit(function(event){
 
     // setup some local variables
     var form = jQuery(this);
