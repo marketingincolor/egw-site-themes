@@ -9,10 +9,6 @@
 <?php
 $cat_name = "";
 $cat_id = "";
-if ( !is_front_page() ) {
-    $find_category_id = get_term_by( 'slug', $category, 'category' );
-    $category_id = $find_category_id->term_id;
-}
 /**
  * cat_id_ar => For fetching follow category based post
  * cat_id => if category id array empty we will follow with category id
@@ -51,12 +47,11 @@ $slug_page=basename(get_permalink()); //For retrieving current page slug and cha
                 }
             }
         });
-
     });
     /**
     * For triggering post load based on clicking show more
-
-     * @returns {undefined}     */
+    * @returns {undefined}
+    */
     jQuery('#showmore').on("click", function() {
         jQuery('#loading').show();
         jQuery('#showmore').hide();
@@ -101,12 +96,9 @@ $slug_page=basename(get_permalink()); //For retrieving current page slug and cha
                 }
                 jQuery('#current_post').val(current_total);
             }
-
         });
     }
-
     function load_saved_articles(event){
-                        
         var displayed_article_count=parseInt(jQuery('#displayed_article_count').text());
         var total_article_count=parseInt(jQuery('#total_saved_article_count').text());
         jQuery('#load-save-article-button').css('display','none');
@@ -128,15 +120,12 @@ $slug_page=basename(get_permalink()); //For retrieving current page slug and cha
                     jQuery('#load-save-article-button').css('display','none');
                 }else {
                     jQuery('#load-save-article-button').css('display','block');
-                }                                    
+                }
             }
         });
         event.preventDefault();
-        
-    }    
-
-        function load_profile_articles(event){
-                        
+    }
+    function load_profile_articles(event){
         var displayed_article_count=parseInt(jQuery('#displayed_article_count').text());
         var total_article_count=parseInt(jQuery('#total_saved_article_count').text());
         jQuery('#load-save-article-button').css('display','none');
@@ -146,7 +135,7 @@ $slug_page=basename(get_permalink()); //For retrieving current page slug and cha
             url: "<?php echo bloginfo('wpurl'); ?>/wp-admin/admin-ajax.php",
             data: {
                 action: 'load_more_profile',
-                offset: displayed_article_count,                                                
+                offset: displayed_article_count,
             },
             success: function(data)
             {
@@ -158,12 +147,10 @@ $slug_page=basename(get_permalink()); //For retrieving current page slug and cha
                     jQuery('#load-save-article-button').css('display','none');
                 }else {
                     jQuery('#load-save-article-button').css('display','block');
-                }                                    
+                }
             }
         });
         event.preventDefault();
-        
-    }    
-
+    }
 </script>
 <?php ?>
