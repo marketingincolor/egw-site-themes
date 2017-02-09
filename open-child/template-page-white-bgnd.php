@@ -258,8 +258,6 @@ and (min-device-width : 1000px) {
 
 						the_content();
 						//do_action('discussion_page_after_content');
-						$url = get_stylesheet_directory_uri() . '/assets/js/google-sheet.js';
-						echo '"<script type="text/javascript" src="'. $url . '"></script>"';
 						?>
 
 
