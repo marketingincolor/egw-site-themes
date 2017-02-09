@@ -6,7 +6,7 @@
 ?>
 
 <?php get_header(); 
-$category='mind-spirit';
+$category='mind &amp; spirit';
 $member_location = get_egw_member_location();
 $tag_not_in = egw_tag_not_in($member_location);
 list($post_per_section,$post_type)=scroll_loadpost_settings();

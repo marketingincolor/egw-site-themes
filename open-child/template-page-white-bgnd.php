@@ -258,7 +258,6 @@ and (min-device-width : 1000px) {
 
 						the_content();
 						//do_action('discussion_page_after_content');
-
 						?>
 
 
