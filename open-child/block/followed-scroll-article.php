@@ -54,11 +54,12 @@
             }
             if ($_POST['query_type2'] == 'unfollowed') {
                 $args[] = array(
-                    'category' => $_POST['cat_id'],
+                    //'category' => $_POST['cat_id'],
+                    'category' => explode(",", $_POST['sub_catid_ar']),
                     'post_status' => 'publish',
                     'post_type' => explode(",", $_POST['post_type']),
                     'posts_per_page' => $_POST['per_page2'],
-//                    'category__not_in' => explode(",", $_POST['sub_catid_ar']),
+                    //'category__not_in' => explode(",", $_POST['sub_catid_ar']),
                     'post__not_in' => $_SESSION["display_postid_ar"],
                     'offset' => $_POST['offset2'],
                     'numberposts' => $_POST['per_page2']- $q
