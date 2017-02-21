@@ -17,7 +17,6 @@ if (!function_exists('discussion_styles')) {
         wp_enqueue_style('discussion_modules', get_stylesheet_directory_uri() . '/assets/css/modules.css');
         wp_enqueue_style('fsp_custom_css', get_stylesheet_directory_uri() . '/assets/css/fspstyles.css');
         wp_enqueue_style('fsp_custom_popup', get_stylesheet_directory_uri() . '/assets/css/magnific-popup.css');
-        wp_enqueue_style('balloon_css', get_stylesheet_directory_uri() . '/assets/css/balloon.css' );
     }
     add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
 }
@@ -2101,11 +2100,13 @@ function add_last_updated() {
 add_action('last_updated', 'add_last_updated');
 
 /**
- * Description: Adds sponsor post bar to posts
+ * Author - Doe
+ * Date - 02/14/2017
+ * Description - Adds sponsor post bar to posts
  */
 function add_sponsored_post_bar() {
-    if (get_field('sponsored_content') == 'Yes') {
-        echo '<div class="sponsored-post-bar">Sponsored Content <i class="fa fa-info-circle icon-2x" aria-hidden="true"></i></span><span class="tooltip-text" style="display:none; padding:1em; text-align:center;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>';
+    if ( 'sponsored_posts' == get_post_type() ) {
+        echo '<div class="sponsored-post-bar">Sponsored Content <i class="fa fa-info-circle icon-2x" aria-hidden="true"></i></span><span class="tooltip-text" style="display:none; padding:1em; text-align:center;">' . get_field('sponsored_content_message') . '</div>';
     }
 }
 

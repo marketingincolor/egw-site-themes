@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-
 <div class="mkd-container-inner">
     <?php
     $title_tag = 'h3';
@@ -16,6 +15,15 @@
     $thumb_image_height = '';
     $thumb_image_size = '150';
     $excerpt_length = '12';
+    $post_author_id = get_post_field( 'post_author', $post_id );
+    $company_name = get_the_author_meta( 'egwsp_company_name', $post_author_id );
+    $company_website = get_the_author_meta( 'egwsp_company_website', $post_author_id );
+    $custom_avatar_meta_data = get_user_meta($post_author_id, 'custom_avatar');
+
+    if (isset($custom_avatar_meta_data) && !empty($custom_avatar_meta_data[0])) {
+        $attachment = wp_get_attachment_image_src($custom_avatar_meta_data[0]);
+    }
+
     ?>
     <div class="mkd-two-columns-75-25 mkd-content-has-sidebar clearfix">
         <div class="mkd-blog-holder mkd-column1 mkd-content-left-from-sidebar mkd-blog-single mkd-fsp-blog-holder">
@@ -40,7 +48,6 @@
                                         } else {
                                             the_post_thumbnail('discussion_post_feature_image');
                                         } ?>
-                                        <span class="sponsored-posts-orange-tooltip"><span class="tooltip-text tooltip-heading" style="display:none;">Sponsored Content <i class="fa fa-info-circle icon-2x" aria-hidden="true"></i></span><span class="tooltip-paragraph" style="display:none;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an </span></span>
                                     </div>
                                 <?php } ?>
                             </div>
@@ -51,7 +58,6 @@
                 <div class="single-article-fsp-info">
                     <article>
                         <div class="mkd-post-info">
-                        <div class="sponsored-by"><a itemprop="author" class="mkd-post-info-author-link" href="/sponsored-content"><i class="fa fa-info-circle icon-2x" aria-hidden="true"></i> Sponsor Content By: Testing</a></div>
                             <?php
                             discussion_post_info(array(
                                 'date' => $display_date,
@@ -67,20 +73,6 @@
                     </article>
                 </div>
             </div>
-
-            <!-- SPONSORED CONTENT BLOCK -->
-            <article>
-                <div class="mkd-post-content">
-                    <div class="mkd-post-text">
-                        <p>SPONSORED</p>
-                        <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/aavathar.jpg'; ?>" style="width:40px; vertical-align: middle;"/>
-                        <p style="display:inline-block;">This post sponsored by: Evergreen Wellness</p>
-
-                    </div>
-                </div>
-            </article>
-
-            <!-- /SPONSORED CONTENT BLOCK -->
 
             <div class="mkd-column-inner">
                 <div class="mkd-blog-holder mkd-blog-single">
@@ -103,10 +95,20 @@
                                     </div>
                                 <?php } ?>
                                 <?php discussion_get_module_template_part('templates/single/parts/title', 'blog'); ?>
+
+                                <!-- SPONSORED CONTENT BLOCK -->
+                                <div class="post-top">
+                                    <img id="sponsored-img-top" src="<?php echo $attachment[0]; ?>" width="50" height="50" style="vertical-align: middle;"/>
+                                    <p style="display:inline-block;">Sponsored Content By <a href="<?php echo $company_website; ?>"><?php echo $company_name ?></a></p>
+                                </div>
+                                <!-- /SPONSORED CONTENT BLOCK -->
+
                                     <div class="mdk-sng-pst">
                                     <?php the_content(); ?>
                                     <?php echo do_shortcode('[egw-learn-more]' ); ?>
                                     <?php do_action('last_updated'); ?>
+                                    <span class="egw-sponsored-bottom text-center"><hr class="product-separator" /><img id="sponsored-img-bottom" src="<?php echo $attachment[0]; ?>" width="100" height="100"/><br/>Content for this post is provided by <?php echo $company_name; ?></span>
+                                    <span class="text-center block">Find out more about our <a href="#">Sponsor Content</a></span>
                                     </div>
                                 </div>
                             </div>

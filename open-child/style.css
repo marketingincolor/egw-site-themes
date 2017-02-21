@@ -10,6 +10,10 @@
  Text Domain:  open-child
 */
 
+.egw-sponsored-bottom { display:block; }
+.text-center { text-align:center; }
+.product-separator { margin: 40px 0; }
+.block { display:block; }
 
 /*For centering load more button on my stories*/
 .fsporange_btn { text-align:center; }
