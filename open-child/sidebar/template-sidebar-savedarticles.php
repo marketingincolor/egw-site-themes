@@ -86,7 +86,7 @@
                                         </div>      
 
                                         <div class="fsp-ads-homepage loader_img" style="display: none;">
-                                            <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/loading.svg'; ?>" width="75">
+                                            <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/loading.svg'; ?>" width="75" alt="loading">
                                         </div>
                                     </div>
                                 </div>
