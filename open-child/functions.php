@@ -46,6 +46,7 @@ if (!function_exists('discussion_scripts')) {
         wp_enqueue_script('discussion_modules', MIKADO_ASSETS_ROOT . '/js/modules.min.js', array('jquery'), false, true);
         wp_enqueue_script('fsp-custom-popupjs', get_stylesheet_directory_uri() . '/assets/js/jquery.magnific-popup.js', array('jquery'), false, true);
         wp_enqueue_script('common script', get_stylesheet_directory_uri() . '/assets/js/common.js', array('jquery'), false, true);
+        wp_enqueue_script('tooltip-animations', get_stylesheet_directory_uri() . '/assets/js/tooltip-animations.js', array('jquery'), false, true );
 
         //include comment reply script
         $wp_scripts->add_data('comment-reply', 'group', 1);
@@ -954,7 +955,7 @@ function ajax_forgotPassword() {
  * second parameter => post type
  */
 function scroll_loadpost_settings() {
-    return array(6, array('post', 'videos'));
+    return array(6, array('post', 'videos', 'sponsored_posts'));
 }
 
 /**
@@ -2099,11 +2100,13 @@ function add_last_updated() {
 add_action('last_updated', 'add_last_updated');
 
 /**
- * Description: Adds sponsor post bar to posts
+ * Author - Doe
+ * Date - 02/14/2017
+ * Description - Adds sponsor post bar to posts
  */
 function add_sponsored_post_bar() {
-    if (get_field('sponsored_content') == 'Yes') {
-        echo '<div class="sponsored-post-bar">Sponsored Post</div>';
+    if ( 'sponsored_posts' == get_post_type() ) {
+        echo '<div class="sponsored-post-bar">Sponsored Content <i class="fa fa-info-circle icon-2x" aria-hidden="true"></i></span><span class="tooltip-text" style="display:none; padding:1em; text-align:center;">' . get_field('sponsored_content_message') . '</div>';
     }
 }
 
@@ -2327,7 +2330,7 @@ add_filter( 'send_password_change_email', '__return_false' );
 
 function namespace_add_custom_types( $query ) {
   if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
-    $query->set( 'post_type', array( 'post', 'nav_menu_item', 'videos' ));
+    $query->set( 'post_type', array( 'post', 'nav_menu_item', 'videos', 'sponsored_posts' ));
         return $query;
     }
 }

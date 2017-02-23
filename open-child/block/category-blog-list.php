@@ -109,7 +109,6 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
                                                 <div  style="background: <?php echo $rl_category_color; ?>;" class="mkd-post-info-category">                                                 
                                                     <?php  echo organize_catgory($id); ?>
                                                 </div>
-                                                 <?php do_action('sponsored-post'); ?> 
                                                 <?php
                                             }
                                             ?>
@@ -127,6 +126,8 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
                                                     ));
                                                 }
                                                 ?>
+                                             <?php do_action('sponsored-post'); ?> 
+
                                             </a>
                                         </div>
                                     <?php } ?>
