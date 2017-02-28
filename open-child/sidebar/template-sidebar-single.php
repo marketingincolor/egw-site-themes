@@ -17,5 +17,5 @@
           get_template_part( 'sidebar/template-related-stories', 'page' );
       }
        
-      
+      get_template_part( 'sidebar/template-newsletter-form', 'page' );
 ?>

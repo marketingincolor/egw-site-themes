@@ -234,3 +234,42 @@ jQuery(document).ready(function($){
     });
 });
 </script>
+
+<?php
+/** Newesletter CTA 
+* Cookie data set via PHP and manipulated with both PHP and JS as needed
+*/
+
+//$cnt = (!isset($_COOKIE['ew-cta-cnt'])) ? setcookie('ew-cta-cnt', '0', 2147483647) : $_COOKIE['ew-cta-cnt'] ;
+//$viewed = (!isset($_COOKIE['ew-cta-viewed'])) ? setcookie('ew-cta-viewed', 'no', 2147483647) : $_COOKIE['ew-cta-viewed'];
+//$cta = (!isset($_COOKIE['ew-cta'])) ? setcookie('ew-cta', '0', 2147483647) : $_COOKIE['ew-cta'];
+$cnt = (!isset($_COOKIE['ew-cta-cnt'])) ? setcookie('ew-cta-cnt', '0') : $_COOKIE['ew-cta-cnt'] ;
+$viewed = (!isset($_COOKIE['ew-cta-viewed'])) ? setcookie('ew-cta-viewed', 'no') : $_COOKIE['ew-cta-viewed'];
+$cta = (!isset($_COOKIE['ew-cta'])) ? setcookie('ew-cta', '0') : $_COOKIE['ew-cta'];
+
+if ( is_singular() ) {
+    // increments value of ew-cta-cnt cookie by 1 every time an is_singular page is viewed
+    setcookie('ew-cta-cnt', isset($_COOKIE['ew-cta-cnt']) ? ++$_COOKIE['ew-cta-cnt'] : 1);
+}
+?>
+<script>
+    //document.cookie = "ew-cta-cnt=0; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+    //document.cookie = "ew-cta-viewed=no; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+    //document.cookie = "ew-cta=0; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+    jQuery(document).ready(function ($) {
+        var pop = <?php echo $cnt; ?>;
+        var seen = "<?php echo $viewed; ?>";
+
+        // display modal dialog when cnt cookie value > 3, then set viewed cookie value to yes
+        // 
+        if (( pop >= 3 ) && ( seen == "no") ) {
+            $.magnificPopup.open({
+                items: {
+                    src: '<div class="white-popup-block"><div class="news-field-row clearfix"><div class="news-field-cta-title">Get FREE Wellness Tips Delivered!</div><div class="news-field-cta-form"><?php //echo do_shortcode('[contact-form-7 id="2971" title="Newsletter CTA"]'); ?></div></div></div>', 
+                    type: 'inline'
+                }
+            });
+            document.cookie = "ew-cta-viewed=yes";
+        }
+    });
+</script>

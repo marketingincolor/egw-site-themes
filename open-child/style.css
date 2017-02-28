@@ -88,6 +88,11 @@ For setting main blog style adjustment
 }
 .agree-box { width: auto !important; }
 
+/*Newsletter CTA*/
+.news-field-row { border:1.5em solid #8b54a2; background-color:#fff;}
+.news-field-cta-title { padding:5px; }
+.news-field-cta-form { padding:10px; }
+.news-field-cta-form input { border:1px solid #666 !important; }
 /*Visibility Classes*/
 
 .egw-show-for-small-only { display:none; }

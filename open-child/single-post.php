@@ -164,6 +164,7 @@
                 ?>
                 </div>
             </div>
+            <?php egw_pre_footer(); ?>
         </div>
         <div class="mkd-column2">
             <div class="mkd-column-inner">
