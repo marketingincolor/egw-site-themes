@@ -164,7 +164,7 @@
                 ?>
                 </div>
             </div>
-            <?php egw_pre_footer(); ?>
+            <?php egw_pre_footer(); ?><?php do_shortcode('[cfdb-save-form-post]'); ?>
         </div>
         <div class="mkd-column2">
             <div class="mkd-column-inner">

@@ -240,16 +240,16 @@ jQuery(document).ready(function($){
 * Cookie data set via PHP and manipulated with both PHP and JS as needed
 */
 
-//$cnt = (!isset($_COOKIE['ew-cta-cnt'])) ? setcookie('ew-cta-cnt', '0', 2147483647) : $_COOKIE['ew-cta-cnt'] ;
-//$viewed = (!isset($_COOKIE['ew-cta-viewed'])) ? setcookie('ew-cta-viewed', 'no', 2147483647) : $_COOKIE['ew-cta-viewed'];
-//$cta = (!isset($_COOKIE['ew-cta'])) ? setcookie('ew-cta', '0', 2147483647) : $_COOKIE['ew-cta'];
-$cnt = (!isset($_COOKIE['ew-cta-cnt'])) ? setcookie('ew-cta-cnt', '0') : $_COOKIE['ew-cta-cnt'] ;
-$viewed = (!isset($_COOKIE['ew-cta-viewed'])) ? setcookie('ew-cta-viewed', 'no') : $_COOKIE['ew-cta-viewed'];
-$cta = (!isset($_COOKIE['ew-cta'])) ? setcookie('ew-cta', '0') : $_COOKIE['ew-cta'];
+$cta = (!isset($_COOKIE['ew-cta'])) ? setcookie('ew-cta', '0', time() * 20, '/') : $_COOKIE['ew-cta'];
+$cnt = (!isset($_COOKIE['ew-cta-cnt'])) ? setcookie('ew-cta-cnt', '0', time() * 20, '/') : $_COOKIE['ew-cta-cnt'] ;
+$viewed = (!isset($_COOKIE['ew-cta-viewed'])) ? setcookie('ew-cta-viewed', 'no', time() * 20, '/') : $_COOKIE['ew-cta-viewed'];
+//$cnt = (!isset($_COOKIE['ew-cta-cnt'])) ? setcookie('ew-cta-cnt', '0') : $_COOKIE['ew-cta-cnt'] ;
+//$viewed = (!isset($_COOKIE['ew-cta-viewed'])) ? setcookie('ew-cta-viewed', 'no') : $_COOKIE['ew-cta-viewed'];
+//$cta = (!isset($_COOKIE['ew-cta'])) ? setcookie('ew-cta', '0') : $_COOKIE['ew-cta'];
 
-if ( is_singular() ) {
+if ( is_singular( array( 'post', 'videos' ) ) ) {
     // increments value of ew-cta-cnt cookie by 1 every time an is_singular page is viewed
-    setcookie('ew-cta-cnt', isset($_COOKIE['ew-cta-cnt']) ? ++$_COOKIE['ew-cta-cnt'] : 1);
+    setcookie('ew-cta-cnt', isset($_COOKIE['ew-cta-cnt']) ? ++$_COOKIE['ew-cta-cnt'] : 1, time() * 20, '/');
 }
 ?>
 <script>
@@ -265,11 +265,20 @@ if ( is_singular() ) {
         if (( pop >= 3 ) && ( seen == "no") ) {
             $.magnificPopup.open({
                 items: {
-                    src: '<div class="white-popup-block"><div class="news-field-row clearfix"><div class="news-field-cta-title">Get FREE Wellness Tips Delivered!</div><div class="news-field-cta-form"><?php //echo do_shortcode('[contact-form-7 id="2971" title="Newsletter CTA"]'); ?></div></div></div>', 
+                    src: '<div class="white-popup-block"><div class="news-field-row clearfix"><div class="news-field-cta-title">Get FREE Wellness Tips Delivered!</div><div class="news-field-cta-form"><div role="form" class="not-wpcf7"><div class="screen-reader-response"></div><form action="" method="post" class="not-wpcf7-form"><input type="hidden" name="form_title" value="Newsletter CTA"/><p><label> Your Email (required)<br /><span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" /></span> </label></p><p><label> ZIP Code<br /><span class="wpcf7-form-control-wrap your-zip"><input type="text" name="your-zip" value="" size="40" /></span> </label></p><p><input type="submit" value="Sign Me Up!" class="wpcf7-form-control wpcf7-submit" /></p><div class="wpcf7-response-output wpcf7-display-none"></div></form></div></div></div></div>', 
                     type: 'inline'
                 }
             });
-            document.cookie = "ew-cta-viewed=yes";
+            var a = new Date(<?php echo time() * 20; ?>000);
+            var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            var year = a.getFullYear();
+            var month = months[a.getMonth()];
+            var date = a.getDate();
+            var hour = a.getHours();
+            var min = a.getMinutes();
+            var sec = a.getSeconds();
+            var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+            document.cookie = "ew-cta-viewed=yes; path=/; expires="+time+";" ;
         }
     });
 </script>
