@@ -10,15 +10,63 @@
     <div class="news-field-row clearfix">
         <div class="news-field-cta-title">Get FREE Wellness Tips Delivered!</div>
         <div class="news-field-cta-form">
-            <div class="not-wpcf7">
-                <form action="" method="post" class="not-wpcf7-form" enctype="multipart/form-data">
+            <div class="not-wpcf7" id="form-container">
+                <form action="" id="news-side" method="post" class="not-wpcf7-form" enctype="multipart/form-data">
                     <input type="hidden" name="form_title" value="Newsletter CTA"/>
-                    <p><label> Your Email (required)<br /><span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" /></span> </label></p>
-                    <p><label> ZIP Code<br /><span class="wpcf7-form-control-wrap your-zip"><input type="text" name="your-zip" value="" size="40" /></span> </label></p>
-                    <p><input type="submit" value="Sign Me Up!" class="wpcf7-form-control wpcf7-submit" /></p>
+                    <label> Your Email (required)</label><br /><span class="wpcf7-form-control-wrap your-email"><input type="email" id="your-email" name="your-email" value="" size="40" /></span>
+                    <label> ZIP Code</label><br /><span class="wpcf7-form-control-wrap your-zip"><input type="text" id="your-zip" name="your-zip" value="" size="40" /></span>
+                    <input type="submit" id="news-side-submit" value="Sign Me Up!" class="wpcf7-form-control wpcf7-submit" />
                 </form>
             </div>
         </div>
     </div>
 </div>
+<script type='text/javascript'>
+    jQuery(document).ready(function($) {
+        //$('form#news-side').submit(function(e) {
+        //    $('#form-container').html('tttt');
+        //});
+        var message = '<h3>Welcome!</h3><h4>Please check your email* for more information. We hope you enjoy Evergreen Wellness.</h4><h5>*If you don\'t see an email from us, please check your spam folder.</h5>';
+
+        //$('#news-side-submit').click(function() {
+        //    $('form#news-side').submit();
+        //    $('#form-container').html(message);
+        //});
+
+        //$( "#news-side" ).submit(function( event ) {
+        //    event.preventDefault();
+        //    var $form = $( this ),
+        //    email = $form.find( "input[name='youremail']" ).val(),
+        //    zip = $form.find( "input[name='yourzip']" ).val(),
+        //    url = $form.attr( "action" );
+        //    var posting = $.post( url, { nlemail: email, nlzip: zip } );
+        //    posting.done(function( data ) {
+        //        $( "#form-container" ).html( message );
+        //    });
+        //});
+        
+
+        //var email = $("input#your-email").val();
+        //var zip = $("input#your-zip").val();
+
+
+        //var datastring = 'your-email='+ email + '&your-zip=' + zip;
+        $('#news-side-submit').click(function(e) {
+            e.preventDefault();
+            var email = $("input#your-email").val();
+            var zip = $("input#your-zip").val();
+            $.ajax({
+                type: "POST",
+                url: "",
+                data: { form_title : 'Newsletter CTA', your_email : email, your_zip : zip },
+                complete: function() {
+                    $('#form-container').html( message );
+                }
+            })
+            ;
+            //return false;
+        });
+        
+    });
+</script>
 <?php endif; ?>

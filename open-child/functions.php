@@ -2343,6 +2343,6 @@ add_filter( 'pre_get_posts', 'namespace_add_custom_types' );
  */
 function egw_pre_footer() {
     if ( 'sponsored_posts' != get_post_type() ) {
-        get_template_part( 'sidebar/template-newsletter-form', 'page' );
+        get_template_part( 'block/template-foot-newsletter-form', 'page' );
     }
 }

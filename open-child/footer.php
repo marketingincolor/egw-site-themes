@@ -239,33 +239,25 @@ jQuery(document).ready(function($){
 /** Newesletter CTA 
 * Cookie data set via PHP and manipulated with both PHP and JS as needed
 */
-
 $cta = (!isset($_COOKIE['ew-cta'])) ? setcookie('ew-cta', '0', time() * 20, '/') : $_COOKIE['ew-cta'];
 $cnt = (!isset($_COOKIE['ew-cta-cnt'])) ? setcookie('ew-cta-cnt', '0', time() * 20, '/') : $_COOKIE['ew-cta-cnt'] ;
 $viewed = (!isset($_COOKIE['ew-cta-viewed'])) ? setcookie('ew-cta-viewed', 'no', time() * 20, '/') : $_COOKIE['ew-cta-viewed'];
-//$cnt = (!isset($_COOKIE['ew-cta-cnt'])) ? setcookie('ew-cta-cnt', '0') : $_COOKIE['ew-cta-cnt'] ;
-//$viewed = (!isset($_COOKIE['ew-cta-viewed'])) ? setcookie('ew-cta-viewed', 'no') : $_COOKIE['ew-cta-viewed'];
-//$cta = (!isset($_COOKIE['ew-cta'])) ? setcookie('ew-cta', '0') : $_COOKIE['ew-cta'];
-
 if ( is_singular( array( 'post', 'videos' ) ) ) {
-    // increments value of ew-cta-cnt cookie by 1 every time an is_singular page is viewed
     setcookie('ew-cta-cnt', isset($_COOKIE['ew-cta-cnt']) ? ++$_COOKIE['ew-cta-cnt'] : 1, time() * 20, '/');
+}
+if ($_COOKIE['ew-cta-cnt'] >= 4) {
+    setcookie('ew-cta-cnt', '4', time() * 20, '/');
 }
 ?>
 <script>
-    //document.cookie = "ew-cta-cnt=0; expires=Fri, 31 Dec 9999 23:59:59 GMT";
-    //document.cookie = "ew-cta-viewed=no; expires=Fri, 31 Dec 9999 23:59:59 GMT";
-    //document.cookie = "ew-cta=0; expires=Fri, 31 Dec 9999 23:59:59 GMT";
     jQuery(document).ready(function ($) {
         var pop = <?php echo $cnt; ?>;
         var seen = "<?php echo $viewed; ?>";
-
         // display modal dialog when cnt cookie value > 3, then set viewed cookie value to yes
-        // 
-        if (( pop >= 3 ) && ( seen == "no") ) {
+        if (( pop == 3 ) && ( seen == "no") ) {
             $.magnificPopup.open({
                 items: {
-                    src: '<div class="white-popup-block"><div class="news-field-row clearfix"><div class="news-field-cta-title">Get FREE Wellness Tips Delivered!</div><div class="news-field-cta-form"><div role="form" class="not-wpcf7"><div class="screen-reader-response"></div><form action="" method="post" class="not-wpcf7-form"><input type="hidden" name="form_title" value="Newsletter CTA"/><p><label> Your Email (required)<br /><span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" /></span> </label></p><p><label> ZIP Code<br /><span class="wpcf7-form-control-wrap your-zip"><input type="text" name="your-zip" value="" size="40" /></span> </label></p><p><input type="submit" value="Sign Me Up!" class="wpcf7-form-control wpcf7-submit" /></p><div class="wpcf7-response-output wpcf7-display-none"></div></form></div></div></div></div>', 
+                    src: '<div class="white-popup-block"><div class="news-field-row clearfix"><div class="news-field-cta-title">Get FREE Wellness Tips Delivered!</div><div class="news-field-cta-form"><div role="form" class="not-wpcf7"><div class="screen-reader-response"></div><form action="" id="news-pop" method="post" class="not-wpcf7-form"><input type="hidden" name="form_title" value="Newsletter CTA"/><p><label> Your Email (required)<br /><span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" /></span> </label></p><p><label> ZIP Code<br /><span class="wpcf7-form-control-wrap your-zip"><input type="text" name="your-zip" value="" size="40" /></span> </label></p><p><input type="submit" id="news-pop-submit" value="Sign Me Up!" class="wpcf7-form-control wpcf7-submit" /></p><div class="wpcf7-response-output wpcf7-display-none"></div></form></div></div></div></div>', 
                     type: 'inline'
                 }
             });
