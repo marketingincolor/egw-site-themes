@@ -26,6 +26,9 @@
                 })();
             </script>
         <?php } ?>
+        <?php if (ENVIRONMENT_MODE == 2) { ?>
+            <!-- SharpSpring code for DEV server -->
+        <?php } ?>
     </head>
     <body <?php
     if (is_single()) {

@@ -2320,7 +2320,7 @@ if ( !function_exists('get_num_columns'))
         }
         else
         {
-            $home_columns = 3;
+            $home_columns = 2;
             return $home_columns;
         }
     }
@@ -2335,3 +2335,14 @@ function namespace_add_custom_types( $query ) {
     }
 }
 add_filter( 'pre_get_posts', 'namespace_add_custom_types' );
+
+/**
+ * Author - eddt
+ * Date - 02/27/2017
+ * Description - Adds newsletter CTA to footer of posts
+ */
+function egw_pre_footer() {
+    if ( 'sponsored_posts' != get_post_type() ) {
+        get_template_part( 'block/template-foot-newsletter-form', 'page' );
+    }
+}
