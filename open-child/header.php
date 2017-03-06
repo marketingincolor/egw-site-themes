@@ -26,7 +26,21 @@
                 })();
             </script>
         <?php } ?>
-        <?php if (ENVIRONMENT_MODE == 2) { ?>
+        <?php if (ENVIRONMENT_MODE == 0) { ?>
+            <script type="text/javascript">
+                var _ss = _ss || [];
+                _ss.push(['_setDomain', 'https://koi-3QMYANU21K.marketingautomation.services/net']);
+                _ss.push(['_setAccount', 'KOI-3SG4E4V9ZC']);
+                _ss.push(['_trackPageView']);
+                (function() {
+                    var ss = document.createElement('script');
+                    ss.type = 'text/javascript'; ss.async = true;
+
+                    ss.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'koi-3QMYANU21K.marketingautomation.services/client/ss.js?ver=1.1.1';
+                    var scr = document.getElementsByTagName('script')[0];
+                    scr.parentNode.insertBefore(ss, scr);
+                })();
+            </script>
             <!-- SharpSpring code for DEV server -->
         <?php } ?>
     </head>
