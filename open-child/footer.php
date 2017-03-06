@@ -257,7 +257,7 @@ if ($_COOKIE['ew-cta-cnt'] >= 4) {
         if (( pop == 3 ) && ( seen == "no") ) {
             $.magnificPopup.open({
                 items: {
-                    src: '<div class="white-popup-block"><div class="news-field-row clearfix" id="form-container-pop"><div class="news-field-cta-title">Get FREE Wellness Tips Delivered!</div><div class="news-field-cta-form"><div role="form" class="not-wpcf7"><form action="" id="news-pop" method="post" class="not-wpcf7-form"><input type="hidden" name="form_title" value="Newsletter CTA"/><label>Your Email (required)</label><br /><span class="wpcf7-form-control-wrap your-email"><input type="email" id="pop-your-email" name="your-email" value="" size="40" /></span><label>ZIP Code</label><br /><span class="wpcf7-form-control-wrap your-zip"><input type="text" id="pop-your-zip" name="your-zip" value="" size="40" /></span><input type="submit" id="news-pop-submit" value="Sign Me Up!" class="wpcf7-form-control wpcf7-submit" /></form></div></div></div></div>', 
+                    src: '<div class="white-popup-block"><div class="news-field-row clearfix" id="form-container-pop"><h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3><div class="news-field-cta-form"><form action="" id="news-pop" method="post" class="not-wpcf7-form"><div class="form-control-wrap pop-alert"> </div><div class="form-control-wrap your-email"><input type="email" id="pop-your-email" name="your-email"placeholder=" EMAIL ADDRESS" value="" size="40" /></div><div class="form-control-wrap your-zip"><input type="text" id="pop-your-zip" name="your-zip" placeholder=" ZIP CODE" value="" size="40" /></div><div class="form-control-wrap your-terms"><input type="checkbox" value="terms" id="news-pop-terms" class="form-control terms" />I accept your <a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div><input type="submit" id="news-pop-submit" value="Sign Me Up!" class="wpcf7-form-control wpcf7-submit" /></form></div></div></div>',
                     type: 'inline'
                 }
             });
@@ -272,5 +272,25 @@ if ($_COOKIE['ew-cta-cnt'] >= 4) {
             var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
             document.cookie = "ew-cta-viewed=yes; path=/; expires="+time+";" ;
         }
-    });
+
+
+        var message = '<h3>Welcome!</h3><h4>Please check your email* for more information. We hope you enjoy Evergreen Wellness.</h4><h5>*If you don\'t see an email from us, please check your spam folder.</h5>';
+        $('#news-pop-submit').click(function(e) {
+            e.preventDefault();
+            var email = $("input#pop-your-email").val();
+            var zip = $("input#pop-your-zip").val();
+            var terms = $("input#news-pop-terms").prop("checked");
+            if ( (email == "") || (zip == "") || (terms == false) ) {
+                $('.pop-alert').html( '<span style="color:#f00;">All fields are required</span>' );
+                return false;
+            }
+            $.ajax({
+                type: "POST",
+                url: "",
+                data: { form_title : 'Newsletter CTA', your_email : email, your_zip : zip },
+                complete: function() {
+                    $('#form-container-pop').html( message );
+                }
+            });
+        });pop   });
 </script>

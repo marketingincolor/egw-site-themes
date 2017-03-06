@@ -90,12 +90,42 @@ For setting main blog style adjustment
 
 /*Newsletter CTA*/
 .news-field-row { border:1.5em solid #8b54a2; background-color:#fff;}
+#form-container-side { border:18px solid #8b54a2; background-color:#fff;}
+#form-container-pop { border:2em solid #8b54a2; background-color:#fff;}
 .news-field-row h3 { text-align:center; padding:10px; font-size:24px; font-weight:600; }
 .news-field-row h4 { text-align:center; padding:10px; font-size:16px; }
 .news-field-row h5 { text-align:center; padding:10px 5px; font-size:14px; color:#666; }
-.news-field-cta-title { padding:5px; }
-.news-field-cta-form { padding:10px; }
-.news-field-cta-form input { border:1px solid #666 !important; }
+#form-container-side h3.news-field-cta-title { font-size:21px; font-weight:500; text-align:center; padding:10px 10px 0px 10px; }
+#form-container-foot h3.news-field-cta-title { font-size:24px; font-weight:600; text-align:center; padding:0; }
+#form-container-foot h3.news-field-cta-title { font-size:26px; font-weight:600; text-align:center; padding:20px; }
+.news-field-cta-form { padding:10px 10px 0px 10px; }
+.news-field-cta-form a { color:#f79c49; }
+.news-field-cta-form input { border:1px solid #666 !important; box-sizing:border-box; }
+.news-field-cta-form #news-side input { font-size:1em; line-height:2em; width:100%; }
+.news-field-cta-form #news-side input[type="submit"] { background-color:#f79c49; color:#fff; border:none !important; font-size:18px; padding:5px 20px; width:75%; cursor:pointer; }
+#news-side { text-align:center; }
+.news-field-cta-form #news-side input[type="checkbox"] { display:block; width:auto; float:left !important; margin-top:5px; }
+.form-control-wrap { margin:5px 0px; }
+#news-side .your-zip { width:40%; float:left; }
+#news-side .your-terms { width:60%; float:left; font-size:12px; line-height:12px; text-align:left; padding-top:3px; }
+#news-foot { text-align:center; }
+.news-field-cta-form #news-foot input { font-size:1em; line-height:2em; width:100%; }
+.news-field-cta-form #news-foot input[type="submit"] { background-color:#f79c49; color:#fff; border:none !important; font-size:18px; padding:5px 20px; width:75%; cursor:pointer; }
+.news-field-cta-form #news-foot input[type="checkbox"] { display:block; width:auto; float:left !important; margin-top:5px; }
+#news-foot .your-email, 
+#news-foot .your-zip, 
+#news-foot .foot-submit { width:23%; float:left; padding:1%; }
+#news-foot .your-terms { width:25%; float:left; font-size:12px; line-height:12px; text-align:left; padding-top:2%; }
+.news-field-cta-form #news-pop input { font-size:1em; line-height:2em; width:100%; }
+.news-field-cta-form #news-pop input[type="submit"] { background-color:#f79c49; color:#fff; border:none !important; font-size:18px; padding:5px 20px; width:55%; cursor:pointer; }
+#news-pop { margin:10px; text-align:center; }
+.news-field-cta-form #news-pop input[type="checkbox"] { display:block; width:auto; float:left !important; margin-top:5px; }
+#news-pop .your-email { width:100%; float:left; padding:1%; }
+#news-pop .your-zip, 
+#news-pop .foot-submit { width:49%; float:left; padding:1%; }
+#news-pop .your-terms { width:49%; float:left; font-size:12px; line-height:12px; text-align:left; padding-top:2%; }
+.white-popup-block .mfp-close { color:#f79c49 !important; margin:20px; }
+
 /*Visibility Classes*/
 
 .egw-show-for-small-only { display:none; }

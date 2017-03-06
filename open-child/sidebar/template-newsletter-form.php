@@ -1,17 +1,17 @@
 <?php if (current_user_can(ACCESS_VILLAGE_CONTENT)): ?>
 <?php else: ?>
 <div class="widget mkd-rpc-holder">
-    <div class="news-field-row clearfix" id="form-container-side">
-        <div class="news-field-cta-title">Get FREE Wellness Tips Delivered!</div>
+    <div class="news-field-row" id="form-container-side">
+        <h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3>
         <div class="news-field-cta-form">
-            <div class="not-wpcf7">
-                <form action="" id="news-side" method="post" class="not-wpcf7-form" enctype="multipart/form-data">
-                    <input type="hidden" name="form_title" value="Newsletter CTA"/>
-                    <label> Your Email (required)</label><br /><span class="wpcf7-form-control-wrap your-email"><input type="email" id="your-email" name="your-email" value="" size="40" /></span>
-                    <label> ZIP Code</label><br /><span class="wpcf7-form-control-wrap your-zip"><input type="text" id="your-zip" name="your-zip" value="" size="40" /></span>
-                    <input type="submit" id="news-side-submit" value="Sign Me Up!" class="wpcf7-form-control wpcf7-submit" />
-                </form>
-            </div>
+            <form action="" id="news-side" method="post" class="not-wpcf7-form" enctype="multipart/form-data">
+                <div class="form-control-wrap side-alert"> </div>
+                <input type="hidden" name="form_title" value="Newsletter CTA"/>
+                <div class="form-control-wrap your-email"><input type="email" id="your-email" name="your-email" placeholder=" EMAIL ADDRESS" value="" size="40" /></div>
+                <div class="form-control-wrap your-zip"><input type="text" id="your-zip" name="your-zip" value="" placeholder=" ZIP CODE" size="40" /></div>
+                <div class="form-control-wrap your-terms"><input type="checkbox" value="" id="news-side-terms" class="form-control terms" />I accept your<br/><a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div>
+                <div class="form-control-wrap side-submit"><input type="submit" id="news-side-submit" value="Sign Me Up!" class="form-control submit" /></div>
+            </form>
         </div>
     </div>
 </div>
@@ -22,6 +22,11 @@
             e.preventDefault();
             var email = $("input#your-email").val();
             var zip = $("input#your-zip").val();
+            var terms = $("input#news-side-terms").prop("checked");
+            if ( (email == "") || (zip == "") || (terms == false) ) {
+                $('.side-alert').html( '<span style="color:#f00;">All fields are required</span>' );
+                return false;
+            }
             $.ajax({
                 type: "POST",
                 url: "",
