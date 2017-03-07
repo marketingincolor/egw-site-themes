@@ -256,7 +256,7 @@ if ($_COOKIE['ew-cta-cnt'] >= 4) {
         if (( pop == 3 ) && ( seen == "no") ) {
             $.magnificPopup.open({
                 items: {
-                    src: '<div class="white-popup-block"><div class="news-field-row clearfix" id="form-container-pop"><h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3><div class="news-field-cta-form"><form action="" id="news-pop" method="post" class="not-wpcf7-form"><div class="form-control-wrap pop-alert"> </div><div class="form-control-wrap your-email"><input type="email" id="pop-your-email" name="your-email"placeholder=" EMAIL ADDRESS" value="" size="40" /></div><div class="form-control-wrap your-zip"><input type="text" id="pop-your-zip" name="your-zip" placeholder=" ZIP CODE" value="" size="40" /></div><div class="form-control-wrap your-terms"><input type="checkbox" checked value="terms" id="news-pop-terms" class="form-control terms" />I accept your <a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div><input type="submit" id="news-pop-submit" value="Sign Me Up!" class="wpcf7-form-control wpcf7-submit" /></form></div></div></div>',
+                    src: '<div class="white-popup-block"><div class="news-field-row clearfix" id="form-container-pop"><h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3><div class="news-field-cta-form"><form action="" id="news-form" method="post" class="not-wpcf7-form"><div class="form-control-wrap pop-alert"> </div><div class="form-control-wrap your-email"><input type="email" id="pop-your-email" name="your-email"placeholder=" EMAIL ADDRESS" value="" size="40" /></div><div class="form-control-wrap your-zip"><input type="text" id="pop-your-zip" name="your-zip" placeholder=" ZIP CODE" value="" size="40" /></div><div class="form-control-wrap your-terms"><input type="checkbox" checked value="terms" id="news-pop-terms" class="form-control terms" />I accept your <a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div><input type="submit" id="news-pop-submit" value="Sign Me Up!" class="wpcf7-form-control wpcf7-submit" /></form></div></div></div>',
                     type: 'inline'
                 }
             });
@@ -290,6 +290,7 @@ if ($_COOKIE['ew-cta-cnt'] >= 4) {
                     $('#form-container-pop').html( message );
                 }
             });
+            __ss_noform.push(['submit', null, 'ba3745d9-b382-4197-b0f2-ed587005b1b7']);
             return false;
         });
     });
