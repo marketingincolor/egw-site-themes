@@ -282,12 +282,12 @@ if ($_COOKIE['ew-cta-cnt'] >= 4) {
                 $('.pop-alert').html( '<span style="color:#f00;">All fields are required</span>' );
                 return false;
             }
-            __ss_noform.push(['submit', null, 'ba3745d9-b382-4197-b0f2-ed587005b1b7']);
             $.ajax({
                 type: "POST",
                 url: "",
                 data: { form_title : 'Newsletter CTA', your_email : email, your_zip : zip },
                 complete: function() {
+                    __ss_noform.push(['submit', null, 'ba3745d9-b382-4197-b0f2-ed587005b1b7']);
                     $('#form-container-pop').html( message );
                 }
             });
