@@ -1,3 +1,8 @@
+<?php
+$member_location = get_egw_member_location();
+$tag_not_in = egw_tag_not_in($member_location);
+list($post_per_section,$post_type)=scroll_loadpost_settings();
+?>
 <script>
     jQuery('li.welcome-my-pop a').magnificPopup({
         callbacks: {
@@ -288,15 +293,6 @@ if ($_COOKIE['ew-cta-cnt'] >= 4) {
             });
         });pop   });
 </script>
-<script type="text/javascript">
-    var __ss_noform = __ss_noform || [];
-    __ss_noform.push(['baseURI', 'https://app-3QMYANU21K.marketingautomation.services/webforms/receivePostback/MzawMDG2NDQxAwA/']);
-    __ss_noform.push(['endpoint', 'ba3745d9-b382-4197-b0f2-ed587005b1b7']);
-</script>
-<script type="text/javascript" src="https://koi-3QMYANU21K.marketingautomation.services/client/noform.js?ver=1.24" ></script>
 <?php
 discussion_get_footer();
-$member_location = get_egw_member_location();
-$tag_not_in = egw_tag_not_in($member_location);
-list($post_per_section,$post_type)=scroll_loadpost_settings();
 ?>
