@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-
 <div class="mkd-container-inner">
     <?php
     $title_tag = 'h3';
@@ -16,6 +15,15 @@
     $thumb_image_height = '';
     $thumb_image_size = '150';
     $excerpt_length = '12';
+    $post_author_id = get_post_field( 'post_author', $post_id );
+    $company_name = get_the_author_meta( 'egwsp_company_name', $post_author_id );
+    $company_website = get_the_author_meta( 'egwsp_company_website', $post_author_id );
+    $custom_avatar_meta_data = get_user_meta($post_author_id, 'custom_avatar');
+
+    if (isset($custom_avatar_meta_data) && !empty($custom_avatar_meta_data[0])) {
+        $attachment = wp_get_attachment_image_src($custom_avatar_meta_data[0]);
+    }
+
     ?>
     <div class="mkd-two-columns-75-25 mkd-content-has-sidebar clearfix">
         <div class="mkd-blog-holder mkd-column1 mkd-content-left-from-sidebar mkd-blog-single mkd-fsp-blog-holder">
@@ -26,7 +34,22 @@
                         <?php if (has_post_thumbnail()) { ?>
                             <div class="mkd-post-image-area">
                                 <?php discussion_post_info_category(array('category' => 'no')) ?>
-                                <?php discussion_get_module_template_part('templates/single/parts/image', 'blog'); ?>
+                                <?php
+
+                                $display_custom_feature_image_width = '';
+                                if(discussion_options()->getOptionValue('blog_single_feature_image_max_width') !== ''){
+                                    $display_custom_feature_image_width = intval(discussion_options()->getOptionValue('blog_single_feature_image_max_width'));
+                                }
+                                ?>
+                                <?php if ( has_post_thumbnail() ) { ?>
+                                    <div class="mkd-post-image">
+                                        <?php if($display_custom_feature_image_width !== '') {
+                                            the_post_thumbnail(array($display_custom_feature_image_width, 0));
+                                        } else {
+                                            the_post_thumbnail('discussion_post_feature_image');
+                                        } ?>
+                                    </div>
+                                <?php } ?>
                             </div>
                         <?php } ?>
                     </div>
@@ -50,6 +73,7 @@
                     </article>
                 </div>
             </div>
+
             <div class="mkd-column-inner">
                 <div class="mkd-blog-holder mkd-blog-single">
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -71,10 +95,20 @@
                                     </div>
                                 <?php } ?>
                                 <?php discussion_get_module_template_part('templates/single/parts/title', 'blog'); ?>
+
+                                <!-- SPONSORED CONTENT BLOCK -->
+                                <div class="post-top">
+                                    <img id="sponsored-img-top" src="<?php echo $attachment[0]; ?>" width="50" height="50" style="vertical-align: middle;"/>
+                                    <p style="display:inline-block;">Sponsored Content By <a href="<?php echo $company_website; ?>"><?php echo $company_name ?></a></p>
+                                </div>
+                                <!-- /SPONSORED CONTENT BLOCK -->
+
                                     <div class="mdk-sng-pst">
                                     <?php the_content(); ?>
                                     <?php echo do_shortcode('[egw-learn-more]' ); ?>
                                     <?php do_action('last_updated'); ?>
+                                    <span class="egw-sponsored-bottom text-center"><hr class="product-separator" /><img id="sponsored-img-bottom" src="<?php echo $attachment[0]; ?>" width="100" height="100"/><br/>Content for this post is provided by <?php echo $company_name; ?></span>
+                                    <span class="text-center block">Find out more about our <a href="#">Sponsor Content</a></span>
                                     </div>
                                 </div>
                             </div>
@@ -164,7 +198,6 @@
                 ?>
                 </div>
             </div>
-            <?php egw_pre_footer(); ?><?php do_shortcode('[cfdb-save-form-post]'); ?>
         </div>
         <div class="mkd-column2">
             <div class="mkd-column-inner">

@@ -1,5 +1,4 @@
 <?php
-discussion_get_footer();
 $member_location = get_egw_member_location();
 $tag_not_in = egw_tag_not_in($member_location);
 list($post_per_section,$post_type)=scroll_loadpost_settings();
@@ -211,3 +210,91 @@ list($post_per_section,$post_type)=scroll_loadpost_settings();
         //cancel button 
     });
 </script>
+
+<script type="text/javascript">
+jQuery(document).ready(function($){
+    $('#upload-btn').click(function(e) {
+        e.preventDefault();
+        var image = wp.media({ 
+            title: 'Upload Image',
+            // mutiple: true if you want to upload multiple files at once
+            multiple: false
+        }).open()
+        .on('select', function(e){
+            // This will return the selected image from the Media Uploader, the result is an object
+            var uploaded_image = image.state().get('selection').first();
+            // We convert uploaded_image to a JSON object to make accessing it easier
+            // Output to the console uploaded_image
+            console.log(uploaded_image);
+            var image_url = uploaded_image.toJSON().url;
+            // Let's assign the url value to the input field
+            $('#image_url').val(image_url);
+        });
+    });
+});
+</script>
+
+<?php
+/** Newesletter CTA 
+* Cookie data set via PHP and manipulated with both PHP and JS as needed
+*/
+$cta = (!isset($_COOKIE['ew-cta'])) ? setcookie('ew-cta', '0', time() * 20, '/') : $_COOKIE['ew-cta'];
+$cnt = (!isset($_COOKIE['ew-cta-cnt'])) ? setcookie('ew-cta-cnt', '0', time() * 20, '/') : $_COOKIE['ew-cta-cnt'] ;
+$viewed = (!isset($_COOKIE['ew-cta-viewed'])) ? setcookie('ew-cta-viewed', 'no', time() * 20, '/') : $_COOKIE['ew-cta-viewed'];
+if ( is_singular( array( 'post', 'videos' ) ) ) {
+    setcookie('ew-cta-cnt', isset($_COOKIE['ew-cta-cnt']) ? ++$_COOKIE['ew-cta-cnt'] : 1, time() * 20, '/');
+}
+if ($_COOKIE['ew-cta-cnt'] >= 4) {
+    setcookie('ew-cta-cnt', '4', time() * 20, '/');
+}
+?>
+<script>
+    jQuery(document).ready(function ($) {
+        var pop = <?php echo $cnt; ?>;
+        var seen = "<?php echo $viewed; ?>";
+        // display modal dialog when cnt cookie value > 3, then set viewed cookie value to yes
+        if (( pop == 3 ) && ( seen == "no") ) {
+            $.magnificPopup.open({
+                items: {
+                    src: '<div class="white-popup-block"><div class="news-field-row clearfix" id="form-container-pop"><h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3><div class="news-field-cta-form"><form action="" id="news-form" method="post" class="not-wpcf7-form"><div class="form-control-wrap pop-alert"> </div><div class="form-control-wrap your-email"><input type="email" id="pop-your-email" name="your-email"placeholder=" EMAIL ADDRESS" value="" size="40" /></div><div class="form-control-wrap your-zip"><input type="text" id="pop-your-zip" name="your-zip" placeholder=" ZIP CODE" value="" size="40" /></div><div class="form-control-wrap your-terms"><input type="checkbox" checked value="terms" id="news-pop-terms" class="form-control terms" />I accept your <a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div><input type="submit" id="news-pop-submit" value="Sign Me Up!" class="wpcf7-form-control wpcf7-submit" /></form></div></div></div>',
+                    type: 'inline'
+                }
+            });
+            var a = new Date(<?php echo time() * 20; ?>000);
+            var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            var year = a.getFullYear();
+            var month = months[a.getMonth()];
+            var date = a.getDate();
+            var hour = a.getHours();
+            var min = a.getMinutes();
+            var sec = a.getSeconds();
+            var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+            document.cookie = "ew-cta-viewed=yes; path=/; expires="+time+";" ;
+        }
+
+
+        var message = '<h3>Welcome!</h3><h4>Please check your email* for more information. We hope you enjoy Evergreen Wellness.</h4><h5>*If you don\'t see an email from us, please check your spam folder.</h5>';
+        $('#news-pop-submit').click(function() {
+            var email = $("input#pop-your-email").val();
+            var zip = $("input#pop-your-zip").val();
+            var terms = $("input#news-pop-terms").prop("checked");
+            if ( (email == "") || (zip == "") || (terms == false) ) {
+                $('.pop-alert').html( '<span style="color:#f00;">All fields are required</span>' );
+                return false;
+            }
+            $.ajax({
+                type: "POST",
+                url: "",
+                data: { form_title : 'Newsletter CTA', your_email : email, your_zip : zip },
+                complete: function() {
+                    $('#form-container-pop').html( message );
+                }
+            });
+            __ss_noform.push(['submit', null, 'ba3745d9-b382-4197-b0f2-ed587005b1b7']);
+            return false;
+        });
+    });
+</script>
+<?php
+discussion_get_footer();
+?>
