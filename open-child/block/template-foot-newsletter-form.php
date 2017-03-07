@@ -4,7 +4,7 @@
     <div class="news-field-row clearfix egw-show-for-large-up" id="form-container-foot">
         <h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3>
         <div class="news-field-cta-form">
-            <form action="" id="news-foot" method="post" class="not-wpcf7-form" enctype="multipart/form-data">
+            <form action="" id="news-form" method="post" class="not-wpcf7-form" enctype="multipart/form-data">
                 <div class="form-control-wrap foot-alert"> </div>
                 <input type="hidden" name="form_title" value="Newsletter CTA"/>
                 <div class="form-control-wrap your-email"><input type="email" id="foot-your-email" name="your-email" placeholder=" EMAIL ADDRESS" value="" size="40" /></div>
@@ -34,6 +34,7 @@
                     $('#form-container-foot').html( message );
                 }
             });
+            __ss_noform.push(['submit', null, 'ba3745d9-b382-4197-b0f2-ed587005b1b7']);
             return false;
         });
     });
