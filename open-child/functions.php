@@ -2356,4 +2356,5 @@ function egw_footer_script_add() {
 </script>
 <script type="text/javascript" src="https://koi-3QMYANU21K.marketingautomation.services/client/noform.js?ver=1.24" ></script>';
 }
-add_action( 'wp_footer', 'egw_footer_script_add' );
+//add_action( 'wp_footer', 'egw_footer_script_add' );
+add_shortcode( 'sharpspring-noform', 'egw_footer_script_add' );
