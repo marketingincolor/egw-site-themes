@@ -1383,7 +1383,7 @@ if (!function_exists('custom_update_post_count_views')) {
 
     function custom_update_post_count_views() {
         $postID = discussion_get_page_id();
-        if (is_singular('post') || is_singular('videos')) {
+        if (is_singular('post') || is_singular('videos') || is_singular('sponsored_posts')) {
             if (isset($_COOKIE['mkd-post-views_' . $postID])) {
                 return;
             } else {
