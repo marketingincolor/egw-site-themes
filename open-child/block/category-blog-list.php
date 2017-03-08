@@ -171,12 +171,16 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
                                         <div class="mkd-pt-info-section clearfix">
                                             <div>
                                                 <?php
-                                                discussion_post_info_share(array(
-                                                    'share' => $display_share
-                                                ));
+                                                // discussion_post_info_share(array(
+                                                //     'share' => $display_share
+                                                // ));
                                                
-                                                discussion_post_info_comments(array(
-                                                    'comments' => $display_comments
+                                                // discussion_post_info_comments(array(
+                                                //     'comments' => $display_comments
+                                                // ));
+                                                discussion_post_info_count(
+                                                    $default_config = array(
+                                                        'count' => 'yes'
                                                 ));
                                                 ?>
                                             </div>
