@@ -146,13 +146,16 @@ $tag_not_in = egw_tag_not_in($member_location);
                             <div class="mkd-pt-info-section clearfix">
                                 <div>
                                     <?php
-                                    discussion_post_info_share(array(
-                                        'share' => $display_share
-                                    ));
-                                    discussion_post_info_comments(array(
-                                                    'comments' => $display_comments
-                                    ));
-                                    ?>
+                                    // discussion_post_info_share(array(
+                                    //     'share' => $display_share
+                                    // ));
+                                    // discussion_post_info_comments(array(
+                                    //                 'comments' => $display_comments
+                                    // ));
+                                    discussion_post_info_count(array(
+                                        'count' => $display_count
+                                    ), 'list');
+                                ?>
                                 </div>
                                 <div class="mkd-pt-info-section-background"></div>
                             </div>
