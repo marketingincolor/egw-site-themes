@@ -178,10 +178,9 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
                                                 // discussion_post_info_comments(array(
                                                 //     'comments' => $display_comments
                                                 // ));
-                                                discussion_post_info_count(
-                                                    $default_config = array(
-                                                        'count' => 'yes'
-                                                ));
+                                                discussion_post_info_count(array(
+                                                    'count' => $display_count
+                                                ), 'list');
                                                 ?>
                                             </div>
                                             <div class="mkd-pt-info-section-background"></div>
