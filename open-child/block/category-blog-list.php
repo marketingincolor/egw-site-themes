@@ -175,9 +175,9 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
                                                 //     'share' => $display_share
                                                 // ));
                                                
-                                                // discussion_post_info_comments(array(
-                                                //     'comments' => $display_comments
-                                                // ));
+                                                discussion_post_info_comments(array(
+                                                    'comments' => $display_comments
+                                                ));
                                                 discussion_post_info_count(array(
                                                     'count' => $display_count
                                                 ), 'list');
