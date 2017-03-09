@@ -4,13 +4,14 @@
     <div class="news-field-row" id="form-container-side">
         <h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3>
         <div class="news-field-cta-form">
-            <form action="" id="news-form" method="post" class="not-wpcf7-form" enctype="multipart/form-data">
+            <form action="" id="side-news-form" method="post" class="not-wpcf7-form" enctype="multipart/form-data">
                 <div class="form-control-wrap side-alert"> </div>
                 <input type="hidden" name="form_title" value="Newsletter CTA"/>
                 <div class="form-control-wrap your-email"><input type="email" id="your-email" name="your-email" placeholder=" EMAIL ADDRESS" value="" size="40" /></div>
                 <div class="form-control-wrap your-zip"><input type="text" id="your-zip" name="your-zip" value="" placeholder=" ZIP CODE" size="40" /></div>
                 <div class="form-control-wrap your-terms"><input type="checkbox" checked value="" id="news-side-terms" class="form-control terms" />I accept your<br/><a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div>
                 <div class="form-control-wrap side-submit"><input type="submit" id="news-side-submit" value="Sign Me Up!" class="form-control submit" /></div>
+                <?php do_shortcode('[ssnfinclude placement="side"]'); ?>
             </form>
         </div>
     </div>
