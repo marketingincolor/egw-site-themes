@@ -2347,14 +2347,19 @@ function egw_pre_footer() {
     }
 }
 
-function egw_footer_script_add() {
-    echo '<script type="text/javascript">
-    var __ss_noform = __ss_noform || [];
+// Custom shortcode to inlcude SharpSpring scripts for Newsletter forms, using [ssnfinclude placement='side/foot/pop']
+function egw_footer_script_add( $atts ) {
+    $val = shortcode_atts(array(
+        'placement' => '',
+    ), $atts, 'ssnfinclude');
+    $placement = $val['placement'];
+    $out = '';
+    $out .= '<script type="text/javascript">var __ss_noform = __ss_noform || [];
     __ss_noform.push([\'baseURI\', \'https://app-3QMYANU21K.marketingautomation.services/webforms/receivePostback/MzawMDG2NDQxAwA/\']);
-    __ss_noform.push([\'form\',\'news-form\', \'ba3745d9-b382-4197-b0f2-ed587005b1b7\']);
-    __ss_noform.push([\'submitType\', \'manual\']);
-</script>
-<script type="text/javascript" src="https://koi-3QMYANU21K.marketingautomation.services/client/noform.js?ver=1.24" ></script>';
+    __ss_noform.push([\'form\',\'';
+    $out .= $placement . '-news-form\', \'ba3745d9-b382-4197-b0f2-ed587005b1b7\']);
+    __ss_noform.push([\'submitType\', \'manual\']);</script><script type="text/javascript" src="https://koi-3QMYANU21K.marketingautomation.services/client/noform.js?ver=1.24" ></script>';
+    echo $out;
 }
 //add_action( 'wp_footer', 'egw_footer_script_add' );
-add_shortcode( 'sharpspring-noform', 'egw_footer_script_add' );
+add_shortcode( 'ssnfinclude', 'egw_footer_script_add' );

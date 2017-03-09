@@ -4,13 +4,14 @@
     <div class="news-field-row clearfix egw-show-for-large-up" id="form-container-foot">
         <h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3>
         <div class="news-field-cta-form">
-            <form action="" id="news-form" method="post" class="not-wpcf7-form" enctype="multipart/form-data">
+            <form action="" id="foot-news-form" method="post" class="not-wpcf7-form" enctype="multipart/form-data">
                 <div class="form-control-wrap foot-alert"> </div>
                 <input type="hidden" name="form_title" value="Newsletter CTA"/>
                 <div class="form-control-wrap your-email"><input type="email" id="foot-your-email" name="your-email" placeholder=" EMAIL ADDRESS" value="" size="40" /></div>
                 <div class="form-control-wrap your-zip"><input type="text" id="foot-your-zip" name="your-zip" placeholder=" ZIP CODE" value="" size="40" /></div>
                 <div class="form-control-wrap your-terms"><input type="checkbox" checked value="terms" id="news-foot-terms" class="form-control terms" />I accept your <a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div>
                 <div class="form-control-wrap foot-submit"><input type="submit" value="Sign Me Up!" id="news-foot-submit" class="form-control submit" /></div>
+                <?php do_shortcode('[ssnfinclude placement="foot"]'); ?>
             </form>
         </div>
     </div>

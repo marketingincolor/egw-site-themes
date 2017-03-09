@@ -124,7 +124,7 @@ For setting main blog style adjustment
 #form-container-foot .your-terms { width:25%; float:left; font-size:12px; line-height:12px; text-align:left; padding-top:2%; }
 #form-container-pop .news-field-cta-form input { font-size:1em; line-height:2em; width:100%; }
 #form-container-pop .news-field-cta-form input[type="submit"] { background-color:#f79c49; color:#fff; border:none !important; font-size:18px; padding:5px 20px; width:55%; cursor:pointer; }
-#form-container-pop { margin:10px; text-align:center; }
+#form-container-pop { padding:10px; text-align:center; }
 #form-container-pop .news-field-cta-form input[type="checkbox"] { display:block; width:auto; float:left !important; margin-top:5px; }
 #form-container-pop .your-email { width:100%; float:left; padding:1%; }
 #form-container-pop .your-zip, 
