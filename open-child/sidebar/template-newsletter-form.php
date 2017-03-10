@@ -32,6 +32,7 @@
                 url: "",
                 data: { form_title : 'Newsletter CTA', your_email : email, your_zip : zip },
                 complete: function() {
+                    __ss_noform.push(['form','side-news-form', 'ba3745d9-b382-4197-b0f2-ed587005b1b7']);
                     __ss_noform.push(['submit', null, 'ba3745d9-b382-4197-b0f2-ed587005b1b7']);
                     $('#form-container-side').html( message );
                 }
