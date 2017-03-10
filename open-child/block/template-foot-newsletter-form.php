@@ -11,7 +11,7 @@
                 <div class="form-control-wrap your-zip"><input type="text" id="foot-your-zip" name="your-zip" placeholder=" ZIP CODE" value="" size="40" /></div>
                 <div class="form-control-wrap your-terms"><input type="checkbox" checked value="terms" id="news-foot-terms" class="form-control terms" />I accept your <a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div>
                 <div class="form-control-wrap foot-submit"><input type="submit" value="Sign Me Up!" id="news-foot-submit" class="form-control submit" /></div>
-                <?php do_shortcode('[ssnfinclude placement="foot"]'); ?>
+                <?php //do_shortcode('[ssnfinclude placement="foot"]'); ?>
             </form>
         </div>
     </div>
