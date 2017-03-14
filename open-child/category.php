@@ -26,56 +26,37 @@ list($post_per_section,$post_type)=scroll_loadpost_settings();
                 $main_cat=get_main_category_detail();
                 get_template_part('template_category_page_banner');
                 ?>
-                <!-- User has Branch -->
-                <?php if (current_user_can(ACCESS_SIDEBAR_CONTENT)): ?>
-               <div class="mkd-container">
-                <div class="mkd-container-inner clearfix">
-                    <div class="mkd-two-columns-75-25  mkd-content-has-sidebar clearfix">
-                        <div class="mkd-column1 mkd-content-left-from-sidebar">
-                            <div class="mkd-column-inner">
-                                  <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div> 
-                               <?php
-                                $my_query = null;
-                                $my_query = discussion_custom_categorylist_query($post_type,$category_id,$post_per_section,$tag_not_in);   
-    //                            $my_query = discussion_custom_categorylist_query($category_id);
-                                global $wp_query;
-                                get_template_part('block/category-blog-list');
-                                ?>               
-                            
-                            </div>
-                        </div><!-- #content -->
-                            <div class="mkd-column2">
-                            <div class="mkd-column-inner">
-                                <aside class="mkd-sidebar" style="transform: translateY(0px);">
-                                  <div class="widget widget_apsc_widget">  
+
+                <div class="mkd-container">
+                    <div class="mkd-container-inner clearfix">
+                        <div class="mkd-two-columns-75-25  mkd-content-has-sidebar clearfix">
+                            <div class="mkd-column1 mkd-content-left-from-sidebar">
+                                <div class="mkd-column-inner">
                                     <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div> 
-                                   <?php get_template_part('sidebar/template-sidebar-home'); ?>
-                                  </div>    
-                                </aside>
+                                   <?php
+                                    $my_query = null;
+                                    $my_query = discussion_custom_categorylist_query($post_type,$category_id,$post_per_section,$tag_not_in);   
+        //                            $my_query = discussion_custom_categorylist_query($category_id);
+                                    global $wp_query;
+                                    get_template_part('block/category-blog-list');
+                                    ?>               
+                                
+                                </div>
+                            </div><!-- #content -->
+                                <div class="mkd-column2">
+                                <div class="mkd-column-inner">
+                                    <aside class="mkd-sidebar" style="transform: translateY(0px);">
+                                        <div class="widget widget_apsc_widget">  
+                                            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div> 
+                                           <?php get_template_part('sidebar/template-sidebar-home'); ?>
+                                        </div>    
+                                    </aside>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-                <!-- User Not Signed In -->
-                <?php else: ?>
-
-                <div style="" class="vc_row wpb_row vc_row-fluid mkd-section mkd-content-aligment-left mkd-grid-section">
-                    <div class="mkd-container-inner clearfix">
-                        <div class="mkd-section-inner-margin clearfix">
-                            <?php
-                            $my_query = null;
-                            $my_query = discussion_custom_categorylist_query($post_type,$category_id,$post_per_section,$tag_not_in);   
-//                            $my_query = discussion_custom_categorylist_query($category_id);
-                            global $wp_query;
-                            get_template_part('block/category-blog-list');   
-                            ?>      
-                        </div>
-                    </div><!-- #content -->
-
-                </div>
-            <?php endif; ?>
             </div>
         </div>
     </div>
