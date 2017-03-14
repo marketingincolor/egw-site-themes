@@ -250,13 +250,13 @@ if ($_COOKIE['ew-cta-cnt'] >= 4) {
 ?>
 <script>
     jQuery(document).ready(function ($) {
-        var pop = <?php echo $cnt; ?>;
-        var seen = "<?php echo $viewed; ?>";
+        var pop = 3<?php //echo $cnt; ?>;
+        var seen = "no<?php //echo $viewed; ?>";
         // display modal dialog when cnt cookie value > 3, then set viewed cookie value to yes
         if (( pop == 3 ) && ( seen == "no") ) {
             $.magnificPopup.open({
                 items: {
-                    src: '<div class="white-popup-block"><div class="news-field-row clearfix" id="form-container-pop"><h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3><div class="news-field-cta-form"><form action="" id="pop-news-form" method="post" class="not-wpcf7-form"><div class="form-control-wrap pop-alert"> </div><div class="form-control-wrap your-email"><input type="email" id="pop-your-email" name="your-email"placeholder=" EMAIL ADDRESS" value="" size="40" /></div><div class="form-control-wrap your-zip"><input type="text" id="pop-your-zip" name="your-zip" placeholder=" ZIP CODE" value="" size="40" /></div><div class="form-control-wrap your-terms"><input type="checkbox" checked value="terms" id="news-pop-terms" class="form-control terms" />I accept your <a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div><input type="submit" id="news-pop-submit" value="Sign Me Up!" class="wpcf7-form-control wpcf7-submit" /></form></div></div></div>',
+                    src: '<div class="white-popup-block"><div class="news-field-row clearfix" id="form-container-pop"><h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3><div class="news-field-cta-form"><form action="" id="pop-news-form" method="post" class="not-wpcf7-form"><div class="form-control-wrap pop-alert"> </div><div class="form-control-wrap your-email"><input type="email" id="pop-your-email" name="your-email"placeholder=" EMAIL ADDRESS" value="" size="40" /></div><div class="form-control-wrap your-zip"><input type="text" id="pop-your-zip" name="your-zip" placeholder=" ZIP CODE" value="" size="40" /></div><div class="form-control-wrap your-terms"><input type="checkbox" checked value="terms" id="news-pop-terms" class="form-control terms" />I accept your <br/><a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div><input type="submit" id="news-pop-submit" value="Sign Me Up!" class="form-control submit" /></form></div><span class="msg">I\'ll do it later. <a id="txt-close">I just want to browse your site for now.</a></span></div></div>',
                     type: 'inline'
                 }
             });
@@ -271,9 +271,8 @@ if ($_COOKIE['ew-cta-cnt'] >= 4) {
             var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
             document.cookie = "ew-cta-viewed=yes; path=/; expires="+time+";" ;
         }
-
-
-        var message = '<h3>Welcome!</h3><h4>Please check your email* for more information. We hope you enjoy Evergreen Wellness.</h4><h5>*If you don\'t see an email from us, please check your spam folder.</h5>';
+        $('#txt-close').click( function(e) {e.preventDefault(); $.magnificPopup.close(); } );
+        var message = '<h3>Welcome!</h3><h4>Please check your email for more information. We hope you enjoy Evergreen Wellness<sup>&reg;</sup>.</h4><h5>If you don\'t see an email from us, please check your spam folder.</h5>';
         $('#news-pop-submit').click(function() {
             var email = $("input#pop-your-email").val();
             var zip = $("input#pop-your-zip").val();

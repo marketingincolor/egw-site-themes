@@ -90,12 +90,12 @@ For setting main blog style adjustment
 
 /*Newsletter CTA*/
 .foot-cta { text-align:center; }
-.news-field-row { border:1.5em solid #8b54a2; background-color:#fff;}
+.news-field-row { border:1.5em solid #8b54a2; background-color:#fff; font-family:"Roboto"; }
 #form-container-side { border:18px solid #8b54a2; background-color:#fff;}
 #form-container-pop { border:2em solid #8b54a2; background-color:#fff;}
-.news-field-row h3 { text-align:center; padding:10px; font-size:24px; font-weight:600; }
-.news-field-row h4 { text-align:center; padding:10px; font-size:16px; }
-.news-field-row h5 { text-align:center; padding:10px 5px; font-size:14px; color:#666; }
+.news-field-row h3 { text-align:center; text-transform:none; padding:10px; font-size:24px; font-weight:600; }
+.news-field-row h4 { text-align:center; text-transform:none; padding:10px; font-size:16px; }
+.news-field-row h5 { text-align:center; text-transform:none; padding:10px 5px; font-size:14px; color:#666; }
 #form-container-side h3.news-field-cta-title { font-size:21px; font-weight:500; text-align:center; padding:10px 10px 0px 10px; }
 #form-container-foot h3.news-field-cta-title { font-size:24px; font-weight:600; text-align:center; padding:0; }
 #form-container-foot h3.news-field-cta-title { font-size:26px; font-weight:600; text-align:center; padding:20px 20px 0px 20px; }
@@ -105,28 +105,29 @@ For setting main blog style adjustment
 #form-container-side .news-field-cta-form input { font-size:1em; line-height:2em; width:100%; }
 #form-container-side .news-field-cta-form input[type="submit"] { background-color:#f79c49; color:#fff; border:none !important; font-size:18px; padding:5px 20px; width:75%; cursor:pointer; }
 #form-container-side { text-align:center; }
-#form-container-side .news-field-cta-form input[type="checkbox"] { display:block; width:auto; float:left !important; margin-top:5px; }
+#form-container-side .news-field-cta-form input[type="checkbox"] { display:block; width:auto; float:left !important; margin:5px 10px; }
 .form-control-wrap { margin:5px 0px; }
 #form-container-side .your-zip { width:40%; float:left; }
-#form-container-side .your-terms { width:60%; float:left; font-size:12px; line-height:12px; text-align:left; padding-top:3px; }
+#form-container-side .your-terms { width:60%; float:left; font-size:12px; line-height:14px; font-weight:bold; text-align:left; padding-top:3px; }
 #form-container-foot { text-align:center; width:80%;}
 #form-container-foot .news-field-cta-form input { font-size:1em; line-height:2em; width:100%; }
 #form-container-foot .news-field-cta-form input[type="submit"] { background-color:#f79c49; color:#fff; border:none !important; font-size:18px; padding:5px 20px; width:90%; cursor:pointer; }
-#form-container-foot .news-field-cta-form input[type="checkbox"] { display:block; width:auto; float:left !important; margin-top:5px; }
+#form-container-foot .news-field-cta-form input[type="checkbox"] { display:block; width:auto; float:left !important; margin:0px 5px 0px 0px; }
 #form-container-foot .your-email, 
 #form-container-foot .your-zip, 
 #form-container-foot .foot-submit { width:30%; display:inline-block; padding:1%; }
 #form-container-foot .your-terms { width:30%; font-size:12px; line-height:12px; text-align:left; display:inline-block; padding-left:69%; }
 #form-container-pop .news-field-cta-form input { font-size:1em; line-height:2em; width:100%; }
 #form-container-pop .news-field-cta-form input[type="submit"] { background-color:#f79c49; color:#fff; border:none !important; font-size:18px; padding:5px 20px; width:55%; cursor:pointer; }
-#form-container-pop { padding:10px; text-align:center; }
+#form-container-pop { padding:2em 1em; text-align:center; color:#000 !important; }
 #form-container-pop .news-field-cta-form input[type="checkbox"] { display:block; width:auto; float:left !important; margin-top:5px; }
 #form-container-pop .your-email { width:100%; float:left; padding:1%; }
 #form-container-pop .your-zip, 
 #form-container-pop .foot-submit { width:49%; float:left; padding:1%; }
-#form-container-pop .your-terms { width:49%; float:left; font-size:12px; line-height:12px; text-align:left; padding-top:2%; }
+#form-container-pop .your-terms { width:45%; float:left; font-size:12px; line-height:14px; font-weight:bold; text-align:left; padding-top:2%; padding-left:4%; }
 .white-popup-block .mfp-close { color:#f79c49 !important; margin:20px; }
-
+#form-container-pop #txt-close { color:#f79c49 !important; }
+#form-container-pop .msg { font-size:13px; font-weight:bold; }
 /*Visibility Classes*/
 
 .egw-show-for-small-only { display:none; }

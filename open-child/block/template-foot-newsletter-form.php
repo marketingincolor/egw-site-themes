@@ -18,7 +18,7 @@
 </div>
 <script type='text/javascript'>
     jQuery(document).ready(function($) {
-        var message = '<h3>Welcome!</h3><h4>Please check your email* for more information.<br />We hope you enjoy Evergreen Wellness.</h4><h5>*If you don\'t see an email from us, please check your spam folder.</h5>';
+        var message = '<h3>Welcome!</h3><h4>Please check your email for more information.<br />We hope you enjoy Evergreen Wellness<sup>&reg;</sup>.</h4><h5>If you don\'t see an email from us, please check your spam folder.</h5>';
         $('#news-foot-submit').click(function() {
             var email = $("input#foot-your-email").val();
             var zip = $("input#foot-your-zip").val();
