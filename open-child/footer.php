@@ -237,7 +237,12 @@ jQuery(document).ready(function($){
 <?php
 /** Newesletter CTA 
 * Cookie data set via PHP and manipulated with both PHP and JS as needed
+*
+* SharpSpring DEV code: ba3745d9-b382-4197-b0f2-ed587005b1b7
+* SharpSpring PROD code: 8c3dc976-1925-4b51-a875-ae8bf4d1e9b0
+* 
 */
+$ssform = ( ENVIRONMENT_MODE == 0 ) ? 'ba3745d9-b382-4197-b0f2-ed587005b1b7' : '8c3dc976-1925-4b51-a875-ae8bf4d1e9b0';
 $cta = (!isset($_COOKIE['ew-cta'])) ? setcookie('ew-cta', '0', time() * 20, '/') : $_COOKIE['ew-cta'];
 $cnt = (!isset($_COOKIE['ew-cta-cnt'])) ? setcookie('ew-cta-cnt', '0', time() * 20, '/') : $_COOKIE['ew-cta-cnt'] ;
 $viewed = (!isset($_COOKIE['ew-cta-viewed'])) ? setcookie('ew-cta-viewed', 'no', time() * 20, '/') : $_COOKIE['ew-cta-viewed'];
@@ -250,8 +255,8 @@ if ($_COOKIE['ew-cta-cnt'] >= 4) {
 ?>
 <script>
     jQuery(document).ready(function ($) {
-        var pop = 3<?php //echo $cnt; ?>;
-        var seen = "no<?php //echo $viewed; ?>";
+        var pop = <?php echo $cnt; ?>;
+        var seen = "<?php echo $viewed; ?>";
         // display modal dialog when cnt cookie value > 3, then set viewed cookie value to yes
         if (( pop == 3 ) && ( seen == "no") ) {
             $.magnificPopup.open({
@@ -286,8 +291,8 @@ if ($_COOKIE['ew-cta-cnt'] >= 4) {
                 url: "",
                 data: { form_title : 'Newsletter CTA', your_email : email, your_zip : zip },
                 complete: function() {
-                    __ss_noform.push(['form','pop-news-form', 'ba3745d9-b382-4197-b0f2-ed587005b1b7']);
-                    __ss_noform.push(['submit', null, 'ba3745d9-b382-4197-b0f2-ed587005b1b7']);
+                    __ss_noform.push(['form','pop-news-form', '<?php echo $ssform; ?>']);
+                    __ss_noform.push(['submit', null, '<?php echo $ssform; ?>']);
                     $('#form-container-pop').html( message );
                 }
             });
