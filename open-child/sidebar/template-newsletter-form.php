@@ -1,6 +1,9 @@
-<?php if (current_user_can(ACCESS_VILLAGE_CONTENT)): ?>
+<?php //if (current_user_can(ACCESS_VILLAGE_CONTENT)): ?>
+<?php if (isset($_COOKIE['sswp-contact'])): ?>
+<div class="widget mkd-rpc-holder slideshowlink">
 <?php else: ?>
 <div class="widget mkd-rpc-holder">
+<?php endif; ?>
     <div class="news-field-row" id="form-container-side">
         <h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3>
         <div class="news-field-cta-form">
@@ -42,4 +45,4 @@
         });
     });
 </script>
-<?php endif; ?>
+<?php //endif; ?>
