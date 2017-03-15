@@ -306,6 +306,7 @@ if ($_COOKIE['ew-cta-cnt'] >= 4) {
         do_shortcode('[ssnfinclude placement="pop"]'); 
     }
 ?>
+<?php do_shortcode('[cfdb-save-form-post]'); ?>
 <?php
 discussion_get_footer();
 ?>
