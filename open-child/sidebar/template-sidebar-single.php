@@ -13,9 +13,12 @@
       {
           get_template_part( 'sidebar/template-upcoming-events', 'page' );
       }
+      else if(is_single() && get_post_type() == 'sponsored_posts') {
+        get_template_part( 'sidebar/template-sponsored-posts', 'page' );
+      }
       else {
           get_template_part( 'sidebar/template-related-stories', 'page' );
       }
        
-      
+      get_template_part( 'sidebar/template-newsletter-form', 'page' );
 ?>

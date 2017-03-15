@@ -27,7 +27,7 @@ list($post_per_section, $post_type) = scroll_loadpost_settings();
                     get_template_part('block/register-success');
                 }
                 get_template_part('block/home-page-banner'); ?>
-                <?php if (current_user_can(ACCESS_SIDEBAR_CONTENT)) : ?> 
+
                 <div class="mkd-container">
                     <div class="mkd-container-inner clearfix">
                         <div class="mkd-two-columns-75-25 mkd-content-has-sidebar clearfix">
@@ -54,20 +54,7 @@ list($post_per_section, $post_type) = scroll_loadpost_settings();
                         </div>
                     </div>
                 </div>
-                <?php else : ?>
-                <div style="" class="vc_row wpb_row vc_row-fluid mkd-section mkd-content-aligment-left mkd-grid-section">
-                    <div class="mkd-container-inner clearfix">
-                        <div class="mkd-section-inner-margin clearfix">
-                        <?php $my_query = discussion_custom_categorylist_query($post_type, $cat_id_ar, $post_per_section, $tag_not_in);
-                        if (empty($subcat_id_ar)) {
-                            global $wp_query;
-                            get_template_part('block/category-blog-list');   
-                        }
-                        ?>
-                        </div>
-                    </div>
-                </div>
-                <?php endif; ?>
+
 
             </div>
         </div>

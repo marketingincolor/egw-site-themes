@@ -1,4 +1,7 @@
 <?php
+add_theme_support( 'post-thumbnails' );
+
+add_image_size( 'mic_subcat', 350 );
 
 // Branch Names
 define("THE_VILLAGES_NAME", "The Villages");
@@ -46,6 +49,7 @@ if (!function_exists('discussion_scripts')) {
         wp_enqueue_script('discussion_modules', MIKADO_ASSETS_ROOT . '/js/modules.min.js', array('jquery'), false, true);
         wp_enqueue_script('fsp-custom-popupjs', get_stylesheet_directory_uri() . '/assets/js/jquery.magnific-popup.js', array('jquery'), false, true);
         wp_enqueue_script('common script', get_stylesheet_directory_uri() . '/assets/js/common.js', array('jquery'), false, true);
+        wp_enqueue_script('tooltip-animations', get_stylesheet_directory_uri() . '/assets/js/tooltip-animations.js', array('jquery'), false, true );
 
         //include comment reply script
         $wp_scripts->add_data('comment-reply', 'group', 1);
@@ -954,7 +958,7 @@ function ajax_forgotPassword() {
  * second parameter => post type
  */
 function scroll_loadpost_settings() {
-    return array(6, array('post', 'videos'));
+    return array(6, array('post', 'videos', 'sponsored_posts'));
 }
 
 /**
@@ -1382,7 +1386,7 @@ if (!function_exists('custom_update_post_count_views')) {
 
     function custom_update_post_count_views() {
         $postID = discussion_get_page_id();
-        if (is_singular('post') || is_singular('videos')) {
+        if (is_singular('post') || is_singular('videos') || is_singular('sponsored_posts')) {
             if (isset($_COOKIE['mkd-post-views_' . $postID])) {
                 return;
             } else {
@@ -1902,6 +1906,7 @@ class DiscussionCategoryLayoutTabs extends DiscussionWidget {
      * @param array $args args from widget area
      * @param array $instance widget's options
      */
+
     public function widget($args, $instance) {
 
         extract($args);
@@ -2017,11 +2022,11 @@ class DiscussionCategoryLayoutTabs extends DiscussionWidget {
                 $attr = array(
                     'class' => '',
                     'alt' => $category->name,
-                    //                        'height' =>198,
-                    //                        'width' => 302,
+                                   //         'height' =>198,
+                                 //           'width' => 302,
                     'title' => $category->name,
                 );
-                z_taxonomy_image($category->term_id, 'full', $attr);
+                z_taxonomy_image($category->term_id,'mic_subcat',$attr);
 
                 //echo '<img src="'.z_taxonomy_image_url($category->term_id).'" alt="'.$category->name.'" width="'.$instance['thumb_image_width'].'" height="'.$instance['thumb_image_height'].'" />';
                 // echo discussion_generate_thumbnail(z_taxonomy_image_url($category->term_id),null,$thumb_image_width,$thumb_image_height);
@@ -2099,11 +2104,13 @@ function add_last_updated() {
 add_action('last_updated', 'add_last_updated');
 
 /**
- * Description: Adds sponsor post bar to posts
+ * Author - Doe
+ * Date - 02/14/2017
+ * Description - Adds sponsor post bar to posts
  */
 function add_sponsored_post_bar() {
-    if (get_field('sponsored_content') == 'Yes') {
-        echo '<div class="sponsored-post-bar">Sponsored Post</div>';
+    if ( 'sponsored_posts' == get_post_type() ) {
+        echo '<div class="sponsored-post-bar">Sponsored Content <i class="fa fa-info-circle icon-2x" aria-hidden="true"></i></span><span class="tooltip-text" style="display:none; padding:1em; text-align:center;">' . get_field('sponsored_content_message') . '</div>';
     }
 }
 
@@ -2317,7 +2324,7 @@ if ( !function_exists('get_num_columns'))
         }
         else
         {
-            $home_columns = 3;
+            $home_columns = 2;
             return $home_columns;
         }
     }
@@ -2327,8 +2334,34 @@ add_filter( 'send_password_change_email', '__return_false' );
 
 function namespace_add_custom_types( $query ) {
   if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
-    $query->set( 'post_type', array( 'post', 'nav_menu_item', 'videos' ));
+    $query->set( 'post_type', array( 'post', 'nav_menu_item', 'videos', 'sponsored_posts' ));
         return $query;
     }
 }
 add_filter( 'pre_get_posts', 'namespace_add_custom_types' );
+
+/**
+ * Author - eddt
+ * Date - 02/27/2017
+ * Description - Adds newsletter CTA to footer of posts
+ */
+function egw_pre_footer() {
+    if ( 'sponsored_posts' != get_post_type() ) {
+        get_template_part( 'block/template-foot-newsletter-form', 'page' );
+    }
+}
+
+// Custom shortcode to inlcude SharpSpring scripts for Newsletter forms, using [ssnfinclude placement='side/foot/pop']
+function egw_footer_script_add( $atts ) {
+    $val = shortcode_atts(array(
+        'placement' => '',
+    ), $atts, 'ssnfinclude');
+    $placement = $val['placement'];
+    $out = '';
+    $out .= '<script type="text/javascript">var __ss_noform = __ss_noform || [];
+    __ss_noform.push([\'baseURI\', \'https://app-3QMYANU21K.marketingautomation.services/webforms/receivePostback/MzawMDG2NDQxAwA/\']);
+    __ss_noform.push([\'submitType\', \'manual\']);</script><script type="text/javascript" src="https://koi-3QMYANU21K.marketingautomation.services/client/noform.js?ver=1.24" ></script>';
+    echo $out;
+}
+//add_action( 'wp_footer', 'egw_footer_script_add' );
+add_shortcode( 'ssnfinclude', 'egw_footer_script_add' );

@@ -10,6 +10,8 @@
 list($post_per_section, $post_type) = scroll_loadpost_settings();
 $main_cat_id="";
 $main_cat_det="";
+$company_name = get_the_author_meta( 'egwsp_company_name', $post_author_id );
+$company_website = get_the_author_meta( 'egwsp_company_website', $post_author_id );
 $num_columns = get_num_columns();
 global $wp;
 $current_url = add_query_arg( $wp->query_string, '', home_url( $wp->request ) );
@@ -40,7 +42,7 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
 	                </script>
 	                <script async src="//myevergreenwellness.net/www/delivery/asyncjs.php"></script>
 	            </div>
-            <div class="mkd-bnl-holder mkd-pl-five-holder  mkd-post-columns-<?php echo $num_columns; ?>"  data-base="mkd_post_layout_five"  data-number_of_posts="3" data-column_number="3" data-category_id="7"         data-thumb_image_size="custom_size" data-thumb_image_width="302" data-thumb_image_height="198" data-title_tag="h6" data-title_length="27" data-display_date="no"  data-display_category="no" data-display_comments="no" data-display_share="no" data-display_count="no" data-display_excerpt="yes" data-excerpt_length="7" data-display_read_more="no"     data-paged="1" data-max_pages="8">
+            <div class="mkd-bnl-holder mkd-pl-five-holder  mkd-post-columns-<?php echo $num_columns; ?>"  data-base="mkd_post_layout_five"  data-number_of_posts="2" data-column_number="2" data-category_id="7"         data-thumb_image_size="custom_size" data-thumb_image_width="302" data-thumb_image_height="198" data-title_tag="h6" data-title_length="27" data-display_date="no"  data-display_category="no" data-display_comments="no" data-display_share="no" data-display_count="no" data-display_excerpt="yes" data-excerpt_length="7" data-display_read_more="no"     data-paged="1" data-max_pages="8">
                 <div class="mkd-bnl-outer">
                     <div class="mkd-bnl-inner">
 
@@ -109,7 +111,6 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
                                                 <div  style="background: <?php echo $rl_category_color; ?>;" class="mkd-post-info-category">                                                 
                                                     <?php  echo organize_catgory($id); ?>
                                                 </div>
-                                                 <?php do_action('sponsored-post'); ?> 
                                                 <?php
                                             }
                                             ?>
@@ -127,6 +128,8 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
                                                     ));
                                                 }
                                                 ?>
+                                             <?php do_action('sponsored-post'); ?> 
+
                                             </a>
                                         </div>
                                     <?php } ?>
@@ -135,7 +138,19 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
                                             <<?php echo esc_html($title_tag) ?> class="mkd-pt-six-title">
                                             <a itemprop="url" class="mkd-pt-link" href="<?php echo $post_link; ?>" target="_self"><?php echo discussion_get_title_substring(get_the_title(), $title_length) ?></a>
                                             </<?php echo esc_html($title_tag) ?>>
+
+                                        <!-- Sponsored Content Blurb -->
+                                        <?php 
+
+                                            if ( get_post_type() == 'sponsored_posts') {
+                                                echo '<p><a href="' . get_field('sponsored_content_page_link') .'">Sponsored Content</a></span> by ' . '<a href="'.$company_website.'">'. $company_name.'</a></p>';
+                                            }
+
+                                        ?>
+                                        <!-- End Sponsored Content Blurb -->
+
                                         </div>
+
                                          <?php
                                            discussion_post_info_date(array(
                                                 'date' => $display_date,
@@ -156,13 +171,16 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
                                         <div class="mkd-pt-info-section clearfix">
                                             <div>
                                                 <?php
-                                                discussion_post_info_share(array(
-                                                    'share' => $display_share
-                                                ));
+                                                // discussion_post_info_share(array(
+                                                //     'share' => $display_share
+                                                // ));
                                                
-                                                discussion_post_info_comments(array(
-                                                    'comments' => $display_comments
-                                                ));
+                                                // discussion_post_info_comments(array(
+                                                //     'comments' => $display_comments
+                                                // ));
+                                                discussion_post_info_count(array(
+                                                    'count' => $display_count
+                                                ), 'list');
                                                 ?>
                                             </div>
                                             <div class="mkd-pt-info-section-background"></div>

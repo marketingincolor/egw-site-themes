@@ -13,7 +13,7 @@ if ($show_related) {
     $related_posts_params = array('related_postss' => discussion_get_related_post_type($post_id, $related_posts_options), 'related_posts_image_size' => $related_posts_image_size, 'related_posts_title_size' => $related_posts_title_size);
 }
 ?>
-<div id="mkd-widget-tab-4" class="mkd-ptw-holder mkd-tabs" aria-labelledby="ui-id-5" role="tabpanel" aria-hidden="false">
+<div id="mkd-widget-tab-4" class="mkd-ptw-holder widget mkd-tabs" aria-labelledby="ui-id-5" role="tabpanel" aria-hidden="false">
     <div class="mkd-plw-tabs-content">
         <div data-max_pages="4" data-paged="1" data-display_excerpt="no" data-display_date="yes" data-title_length="30" data-title_tag="h6" data-display_image="yes" data-custom_thumb_image_height="84" data-custom_thumb_image_width="117" data-category_id="4" data-number_of_posts="5" data-base="mkd_post_layout_seven">
             <div class="mkd-bnl-outer">

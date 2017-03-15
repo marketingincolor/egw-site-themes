@@ -8,24 +8,7 @@
          */
         ?>
         <?php do_action('discussion_header_meta'); ?>
-
         <?php wp_head(); ?>
-        <?php if (ENVIRONMENT_MODE == 1) { ?>
-            <script type="text/javascript">
-                var _ss = _ss || [];
-                _ss.push(['_setDomain', 'https://koi-3QMYANU21K.marketingautomation.services/net']);
-                _ss.push(['_setAccount', 'KOI-3R4GIH0NK8']);
-                _ss.push(['_trackPageView']);
-                (function () {
-                    var ss = document.createElement('script');
-                    ss.type = 'text/javascript';
-                    ss.async = true;
-                    ss.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'koi-3QMYANU21K.marketingautomation.services/client/ss.js?ver=1.1.1';
-                    var scr = document.getElementsByTagName('script')[0];
-                    scr.parentNode.insertBefore(ss, scr);
-                })();
-            </script>
-        <?php } ?>
     </head>
     <body <?php
     if (is_single()) {

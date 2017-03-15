@@ -1980,3 +1980,15 @@ input[type="checkbox"]:disabled + label span {
     z-index: 2;
     padding-right: 9px;
 }
+
+.sponsored-posts-orange-tooltip {
+    background-color: #f99d3e;
+    bottom: 0px;
+    position:absolute;
+    width: 100%;
+}
+
+.tooltip-heading,
+.tooltip-paragraph { color: white; text-align:center; }
+.tooltip-paragraph { padding: 2em; width: 75%; display: block; margin: 0 auto; }
+.tooltip-heading { font-size: 2em; padding: 1em 0;}
