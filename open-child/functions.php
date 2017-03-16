@@ -1,4 +1,7 @@
 <?php
+add_theme_support( 'post-thumbnails' );
+
+add_image_size( 'mic_subcat', 350 );
 
 // Branch Names
 define("THE_VILLAGES_NAME", "The Villages");
@@ -1903,6 +1906,7 @@ class DiscussionCategoryLayoutTabs extends DiscussionWidget {
      * @param array $args args from widget area
      * @param array $instance widget's options
      */
+
     public function widget($args, $instance) {
 
         extract($args);
@@ -2018,11 +2022,11 @@ class DiscussionCategoryLayoutTabs extends DiscussionWidget {
                 $attr = array(
                     'class' => '',
                     'alt' => $category->name,
-                    //                        'height' =>198,
-                    //                        'width' => 302,
+                                   //         'height' =>198,
+                                 //           'width' => 302,
                     'title' => $category->name,
                 );
-                z_taxonomy_image($category->term_id, 'full', $attr);
+                z_taxonomy_image($category->term_id,'mic_subcat',$attr);
 
                 //echo '<img src="'.z_taxonomy_image_url($category->term_id).'" alt="'.$category->name.'" width="'.$instance['thumb_image_width'].'" height="'.$instance['thumb_image_height'].'" />';
                 // echo discussion_generate_thumbnail(z_taxonomy_image_url($category->term_id),null,$thumb_image_width,$thumb_image_height);

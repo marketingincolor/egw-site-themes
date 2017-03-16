@@ -98,17 +98,17 @@
 
                                 <!-- SPONSORED CONTENT BLOCK -->
                                 <div class="post-top">
-                                    <img id="sponsored-img-top" src="<?php echo $attachment[0]; ?>" width="50" height="50" style="vertical-align: middle;"/>
-                                    <p style="display:inline-block;">Sponsored Content By <a href="<?php echo $company_website; ?>"><?php echo $company_name ?></a></p>
+                                    <a href="<?php echo $company_website;?>"><img id="sponsored-img-top" src="<?php echo $attachment[0]; ?>" width="50" height="50" style="vertical-align: middle;"/></a>
+                                    <p style="display:inline-block;"><a href="<?php echo get_field('sponsored_content_page_link'); ?>">Sponsored Content</a></span> by <a href="<?php echo $company_website; ?>"><?php echo $company_name ?></a></p>
                                 </div>
                                 <!-- /SPONSORED CONTENT BLOCK -->
 
                                     <div class="mdk-sng-pst">
                                     <?php the_content(); ?>
-                                    <?php echo do_shortcode('[egw-learn-more]' ); ?>
+                                    <?php //echo do_shortcode('[egw-learn-more]' ); ?>
                                     <?php do_action('last_updated'); ?>
-                                    <span class="egw-sponsored-bottom text-center"><hr class="product-separator" /><img id="sponsored-img-bottom" src="<?php echo $attachment[0]; ?>" width="100" height="100"/><br/>Content for this post is provided by <?php echo $company_name; ?></span>
-                                    <span class="text-center block">Find out more about our <a href="#">Sponsor Content</a></span>
+                                    <span class="egw-sponsored-bottom text-center"><hr class="product-separator" /><a href="<?php echo $company_website; ?>"><img id="sponsored-img-bottom" src="<?php echo $attachment[0]; ?>" width="100" height="100"/></a><br/>Content for this post is sponsored by <a href="<?php echo $company_website; ?>"><?php echo $company_name; ?></a></span>
+                                    <span class="text-center block">Find out more about our <a href="<?php echo get_field('sponsored_content_page_link'); ?>">Sponsor Content</a></span>
                                     </div>
                                 </div>
                             </div>

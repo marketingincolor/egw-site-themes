@@ -10,6 +10,8 @@
 list($post_per_section, $post_type) = scroll_loadpost_settings();
 $main_cat_id="";
 $main_cat_det="";
+$company_name = get_the_author_meta( 'egwsp_company_name', $post_author_id );
+$company_website = get_the_author_meta( 'egwsp_company_website', $post_author_id );
 $num_columns = get_num_columns();
 global $wp;
 $current_url = add_query_arg( $wp->query_string, '', home_url( $wp->request ) );
@@ -136,7 +138,19 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
                                             <<?php echo esc_html($title_tag) ?> class="mkd-pt-six-title">
                                             <a itemprop="url" class="mkd-pt-link" href="<?php echo $post_link; ?>" target="_self"><?php echo discussion_get_title_substring(get_the_title(), $title_length) ?></a>
                                             </<?php echo esc_html($title_tag) ?>>
+
+                                        <!-- Sponsored Content Blurb -->
+                                        <?php 
+
+                                            if ( get_post_type() == 'sponsored_posts') {
+                                                echo '<p><a href="' . get_field('sponsored_content_page_link') .'">Sponsored Content</a></span> by ' . '<a href="'.$company_website.'">'. $company_name.'</a></p>';
+                                            }
+
+                                        ?>
+                                        <!-- End Sponsored Content Blurb -->
+
                                         </div>
+
                                          <?php
                                            discussion_post_info_date(array(
                                                 'date' => $display_date,
@@ -157,13 +171,16 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
                                         <div class="mkd-pt-info-section clearfix">
                                             <div>
                                                 <?php
-                                                discussion_post_info_share(array(
-                                                    'share' => $display_share
-                                                ));
+                                                // discussion_post_info_share(array(
+                                                //     'share' => $display_share
+                                                // ));
                                                
-                                                discussion_post_info_comments(array(
-                                                    'comments' => $display_comments
-                                                ));
+                                                // discussion_post_info_comments(array(
+                                                //     'comments' => $display_comments
+                                                // ));
+                                                discussion_post_info_count(array(
+                                                    'count' => $display_count
+                                                ), 'list');
                                                 ?>
                                             </div>
                                             <div class="mkd-pt-info-section-background"></div>
