@@ -28,7 +28,7 @@
                             discussion_post_info(array(
                                 'date'     => $display_date,
                                 'count'    => $display_count,
-                                'comments' => $display_comments,
+                                'category_singlepost' => $display_category_singlepost,
                             ))
                             ?>
                             <div class="mkd-post-fsp-savestories">
@@ -117,7 +117,7 @@
 
                 //discussion_get_module_template_part('templates/single/parts/tags', 'blog');
                 ?>
-                                <?php if (function_exists('the_tags')) { ?>
+                <?php if (function_exists('the_tags')) { ?>
                     <div class="mkd-single-tags-holder">
                         <span class="mkd-single-tags-title"><strong>Tags: </strong></span>
                         <div class="mkd-tags">
@@ -125,6 +125,7 @@
                         </div>
                     </div>
                 <?php } ?>
+                <?php egw_pre_footer(); ?>
                 <?php get_template_part('sidebar/template-ads-mobile'); ?>
                 <div class="fsp-recommended-stories-cont">
                     <?php echo do_shortcode('[AuthorRecommendedPosts]'); ?>
@@ -134,7 +135,6 @@
                   comments_template('', true);
                 ?>
             </div>
-            <?php egw_pre_footer(); ?>
         </div>
         <div class="mkd-column2">
             <div class="mkd-column-inner">

@@ -38,7 +38,8 @@
                             <?php
                             discussion_post_info(array(
                                 'date' => $display_date,
-                                'category_singlepost' => $display_category_singlepost
+                                'category_singlepost' => $display_category_singlepost,
+                                'count' => $display_count,
                             ))
                             ?>
                             <div class="mkd-post-fsp-savestories">
@@ -152,6 +153,7 @@
                         </div>
                     </div>
                 <?php } ?>
+            <?php egw_pre_footer(); ?>    
                 <?php get_template_part('sidebar/template-ads-mobile'); ?>
                 <div class="fsp-recommended-stories-cont">
                     <?php echo do_shortcode('[AuthorRecommendedPosts]'); ?>
@@ -164,7 +166,6 @@
                 ?>
                 </div>
             </div>
-            <?php egw_pre_footer(); ?>
         </div>
         <div class="mkd-column2">
             <div class="mkd-column-inner">
