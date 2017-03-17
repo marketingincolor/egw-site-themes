@@ -26,22 +26,22 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
     <div class="vc_column-inner ">
         <div class="wpb_wrapper">
             <div class="vc_empty_space" style="height: 40px"><span class="vc_empty_space_inner"></span></div>
-	            <div class="fsp-ads-homepage">
-	                <script type="text/javascript">
-	                    function getzonenum() {
-	                        var zonenum = '5';
-	                        var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-	                        if ( w > 480 ) {
-	                            zonenum = '4';
-	                        } else {
-	                            zonenum = '5';
-	                        }
-	                        document.write('<ins data-revive-zoneid="'+zonenum+'" id="adzoneid" data-revive-id="0be604ef9a1ab68c1665959c06390bf9"></ins>'); // creates INS tag for Revive based on window width
-	                    };
-	                    getzonenum();
-	                </script>
-	                <script async src="//myevergreenwellness.net/www/delivery/asyncjs.php"></script>
-	            </div>
+                <div class="fsp-ads-homepage">
+                    <script type="text/javascript">
+                        function getzonenum() {
+                            var zonenum = '5';
+                            var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+                            if ( w > 480 ) {
+                                zonenum = '4';
+                            } else {
+                                zonenum = '5';
+                            }
+                            document.write('<ins data-revive-zoneid="'+zonenum+'" id="adzoneid" data-revive-id="0be604ef9a1ab68c1665959c06390bf9"></ins>'); // creates INS tag for Revive based on window width
+                        };
+                        getzonenum();
+                    </script>
+                    <script async src="//myevergreenwellness.net/www/delivery/asyncjs.php"></script>
+                </div>
             <div class="mkd-bnl-holder mkd-pl-five-holder  mkd-post-columns-<?php echo $num_columns; ?>"  data-base="mkd_post_layout_five"  data-number_of_posts="2" data-column_number="2" data-category_id="7"         data-thumb_image_size="custom_size" data-thumb_image_width="302" data-thumb_image_height="198" data-title_tag="h6" data-title_length="27" data-display_date="no"  data-display_category="no" data-display_comments="no" data-display_share="no" data-display_count="no" data-display_excerpt="yes" data-excerpt_length="7" data-display_read_more="no"     data-paged="1" data-max_pages="8">
                 <div class="mkd-bnl-outer">
                     <div class="mkd-bnl-inner">
@@ -198,18 +198,22 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
 
                     </div>
                 </div>
-
-                <input type="hidden" id="processing" value="0">
-                <input type="hidden" id="currentloop" value="1">
-                <input type="hidden" id="total_post" value="<?php echo $wp_query->found_posts; ?>">
                 <input type="hidden" id="current_post" value="<?php
                 if ($wp_query->found_posts < $post_per_section): echo $wp_query->found_posts;
                 else: echo $post_per_section;
                 endif;
                 ?>">
+                <input type="hidden" id="processing" value="0">
+                <input type="hidden" id="currentloop" value="1">
+                <input type="hidden" id="total_post" value="<?php echo $wp_query->found_posts; ?>">
                 <input type="hidden" id="main_cat_id" value="<?php echo $main_cat_id;  ?>"/>
                 <input type="hidden" id="slug_page" value="<?php echo $slug_page;  ?>"/>
+
+
                 <?php wp_reset_query();  // Restore global post data stomped by the_post().?>
+                <div style="height:auto; padding: 1em; width:100%; border:1px solid red;margin: 100px 0px;">
+                <h1>TESTING</h1><br/><h2><?php if(is_home()) { echo 48; } else { echo "no"; } ?></h2>
+                </div>
             </div>
            <?php
             /**
