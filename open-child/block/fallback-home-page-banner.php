@@ -27,7 +27,7 @@
                                 $display_category = 'no';
                                 $display_date = 'yes';
                                 $date_format = 'd. F Y';
-                                $display_comments = 'yes';
+                                $display_comments = 'no';
                                 $display_count = 'yes';
                                 $display_share = 'yes';
                                 $slider_height = '';
