@@ -524,7 +524,7 @@ footer .mkd-footer-top-holder {
 .fsp-ads-homepage{ text-align:center; }
 .fsp-ads-homepage .ad-clicks { display:block; margin-bottom:40px; }
 .fsp-ads-homepage .ad-clicks img { margin:0; }
-.fsp-ads-homepage a { margin: 10px auto 20px; }
+.fsp-ads-homepage a { margin: 0px auto 20px; }
 
 .fsp-inner-container{
     position: relative;
