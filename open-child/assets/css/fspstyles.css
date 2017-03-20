@@ -521,12 +521,9 @@ footer .mkd-footer-top-holder {
 }
 /*video menu styles ends here*/
 
-.fsp-ads-homepage{
-    text-align:center; 
-}
-.fsp-ads-homepage img{   
-    margin: 10px auto 20px;
-}
+.fsp-ads-homepage{ text-align:center; }
+.fsp-ads-homepage img{ margin: 10px auto 20px; }
+.fsp-ads-homepage .ad-clicks { display:block; margin-bottom:40px; }
 
 .fsp-inner-container{
     position: relative;
