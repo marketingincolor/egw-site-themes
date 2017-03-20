@@ -15,7 +15,7 @@
                 iframe: {
                     patterns: {
                         youtube: {
-                            src: '//www.youtube.com/embed/%id%?autoplay=1?rel=0'
+                            src: '//www.youtube.com/embed/%id%?autoplay=1&rel=0'
                         }
                     }
                 }
