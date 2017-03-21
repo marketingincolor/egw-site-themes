@@ -302,11 +302,12 @@ if ($_COOKIE['ew-cta-cnt'] >= 4) {
 </script>
 <?php 
     $place = basename(get_permalink());
-    if ( $place != 'login') {    
-        do_shortcode('[ssnfinclude placement="pop"]'); 
+    //if ( ($place != 'login') || ($place != 'register') || ($place != 'welcome-survey') ) {
+    $array = array('login', 'register', 'welcome-survey');
+    if (!in_array($place, $array, TRUE)) {
+        do_shortcode('[ssnfinclude placement="pop"]');
+        do_shortcode('[cfdb-save-form-post]');
     }
 ?>
-<?php do_shortcode('[cfdb-save-form-post]'); ?>
-<?php
-discussion_get_footer();
-?>
+<?php //do_shortcode('[cfdb-save-form-post]'); ?>
+<?php discussion_get_footer(); ?>
