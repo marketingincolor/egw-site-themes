@@ -526,6 +526,19 @@ footer .mkd-footer-top-holder {
 .fsp-ads-homepage .ad-clicks img { margin:0; }
 .fsp-ads-homepage a { margin: 0px auto 20px; display:block; }
 
+@media (max-width: 767px) {
+    .fsp-ads-homepage .ad-clicks img, .popup-youtube img { height:auto; }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .fsp-ads-homepage .ad-clicks img, .popup-youtube img { height:auto; }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .fsp-ads-homepage .ad-clicks img, .popup-youtube img { height:88px; }
+}
+@media (min-width: 1200px) {
+    .fsp-ads-homepage .ad-clicks img, .popup-youtube img { height:88px; }
+}
+
 .fsp-inner-container{
     position: relative;
     background: #fff;
