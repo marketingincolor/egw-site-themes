@@ -1,5 +1,5 @@
 <?php //if (current_user_can(ACCESS_VILLAGE_CONTENT)): ?>
-<?php if (isset($_COOKIE['sswp-contact'])): ?>
+<?php if ( isset($_COOKIE['sswp-contact']) || current_user_can(ACCESS_VILLAGE_CONTENT) ): ?>
 <div class="widget mkd-rpc-holder slideshowlink">
 <?php else: ?>
 <div class="widget mkd-rpc-holder">
