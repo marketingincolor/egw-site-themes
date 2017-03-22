@@ -69,54 +69,6 @@
                         <p><span>Disclaimer:</span> This content is for entertainment purposes only and it is not meant to be relied on as medical advice, diagnosis, or treatment. Consult your physician before starting any exercise or dietary program or taking any other action respecting your health. In case of a medical emergency, call 911.</p>
                     </div>
                 </div>
-                <?php
-                if ($post_format === false) {
-                    $post_format = 'standard';
-                }
-
-                $params = array();
-
-                $display_category = 'no';
-                if (discussion_options()->getOptionValue('blog_single_category') !== '') {
-                    $display_category = discussion_options()->getOptionValue('blog_single_category');
-                }
-
-                $display_date = 'yes';
-                if (discussion_options()->getOptionValue('blog_single_date') !== '') {
-                    $display_date = discussion_options()->getOptionValue('blog_single_date');
-                }
-
-                $display_author = 'no';
-                if (discussion_options()->getOptionValue('blog_single_author') !== '') {
-                    $display_author = discussion_options()->getOptionValue('blog_single_author');
-                }
-
-                $display_comments = 'yes';
-                if (discussion_options()->getOptionValue('blog_single_comment') !== '') {
-                    $display_comments = discussion_options()->getOptionValue('blog_single_comment');
-                }
-
-                $display_like = 'no';
-                if (discussion_options()->getOptionValue('blog_single_like') !== '') {
-                    $display_like = discussion_options()->getOptionValue('blog_single_like');
-                }
-
-                $display_count = 'no';
-                if (discussion_options()->getOptionValue('blog_single_count') !== '') {
-                    $display_count = discussion_options()->getOptionValue('blog_single_count');
-                }
-
-                $params['display_category'] = $display_category;
-                $params['display_date']     = $display_date;
-                $params['display_author']   = $display_author;
-                $params['display_comments'] = $display_comments;
-                $params['display_like']     = $display_like;
-                $params['display_count']    = $display_count;
-
-                discussion_get_module_template_part('templates/single/post-formats/' . $post_format, 'blog', '', $params);
-
-                //discussion_get_module_template_part('templates/single/parts/tags', 'blog');
-                ?>
                 <?php if (function_exists('the_tags')) { ?>
                     <div class="mkd-single-tags-holder">
                         <span class="mkd-single-tags-title"><strong>Tags: </strong></span>
