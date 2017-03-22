@@ -1,7 +1,7 @@
 <div class="fsp-welcome-branch">
 <?php if (!is_user_logged_in()): //https://www.youtube.com/watch?v=QwiBBx4C9uw ?>
     <div class="fsp-branch-video">
-        <a class="popup-youtube" href="https://youtube.com/watch?v=QwiBBx4C9uw"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/discover-evergreen-wellness-sidebar.jpg"></a>
+        <a class="popup-youtube" href="https://youtube.com/watch?v=QwiBBx4C9uw"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/discover-evergreen-wellness-sidebar.jpg" alt="Discover Evergreen Wellness Video"></a>
     </div>
     <script>
         jQuery(document).ready(function ($) {
