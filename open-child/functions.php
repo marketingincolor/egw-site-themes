@@ -2365,3 +2365,10 @@ function egw_footer_script_add( $atts ) {
 }
 //add_action( 'wp_footer', 'egw_footer_script_add' );
 add_shortcode( 'ssnfinclude', 'egw_footer_script_add' );
+
+function mic_set_post_amount(){
+    wp_reset_query();
+    if(is_front_page()){
+        return 18;
+    }
+}
