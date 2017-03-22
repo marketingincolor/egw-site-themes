@@ -61,7 +61,8 @@
                             <?php
                             discussion_post_info(array(
                                 'date' => $display_date,
-                                'category_singlepost' => $display_category_singlepost
+                                'category_singlepost' => $display_category_singlepost,
+                                'count' => $display_count,
                             ))
                             ?>
                             <div class="mkd-post-fsp-savestories">
