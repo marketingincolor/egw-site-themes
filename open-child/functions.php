@@ -44,7 +44,7 @@ if (!function_exists('discussion_scripts')) {
         }
 
         //include google map api script
-        wp_enqueue_script('google_map_api', '//maps.googleapis.com/maps/api/js', array(), false, true);
+        #wp_enqueue_script('google_map_api', '//maps.googleapis.com/maps/api/js', array(), false, true);
 
         wp_enqueue_script('discussion_modules', MIKADO_ASSETS_ROOT . '/js/modules.min.js', array('jquery'), false, true);
         wp_enqueue_script('fsp-custom-popupjs', get_stylesheet_directory_uri() . '/assets/js/jquery.magnific-popup.js', array('jquery'), false, true);
