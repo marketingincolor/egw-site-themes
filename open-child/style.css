@@ -10,6 +10,11 @@
  Text Domain:  open-child
 */
 
+/*Changed bg color on pagination buttons from black*/
+.mkd-pagination ul li a {
+    background-color: #3a7d3b !important;
+}
+
 /*Adjusted card size for sponsors*/
 .title_length_three { min-height:78px; }
 .title_length_three h4 { min-height: 0px !important; }
