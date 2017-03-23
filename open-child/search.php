@@ -113,7 +113,7 @@ if(discussion_options()->getOptionValue('enable_search_page_sidebar') === "no"){
 							</div>
 						</div>
 						<div class="mkd-column2">
-							<?php get_sidebar(); ?>
+							<?php get_template_part('sidebar/template-sidebar-search'); ?>
 						</div>
 					</div>
 					<?php } ?>
