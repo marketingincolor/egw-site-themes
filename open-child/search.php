@@ -81,9 +81,9 @@ if(discussion_options()->getOptionValue('enable_search_page_sidebar') === "no"){
 																			<?php discussion_post_info_share(array(
 																				'share' => 'yes'
 																			));
-																			discussion_post_info_comments(array(
-																				'comments' => 'yes'
-																			));
+																			// discussion_post_info_comments(array(
+																			// 	'comments' => 'yes'
+																			// ));
 																			?>
 																			<div class="mkd-post-info-count"><span class="mkd-post-count-number"><?php echo discussion_get_post_count_views($post->ID); ?></span> <span class="mkd-post-count-text"><?php esc_html_e('Views','discussionwp'); ?></span></div>
 																		</div>
