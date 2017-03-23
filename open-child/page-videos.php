@@ -16,17 +16,9 @@ $post_type=array('videos');
 <div class="mkd-content">
     <div class="mkd-content-inner">         
         <div class="mkd-full-width">
-
             <?php
             get_template_part('template-page-featured-content');
             ?>
-            <?php
-            /*
-              videos section
-             */
-            ?>
-
-            <?php if (current_user_can(ACCESS_SIDEBAR_CONTENT)): ?>
 
             <div class="vc_empty_space" style="height: 0px"><span class="vc_empty_space_inner"></span></div>
             <div class="mkd-container">
@@ -55,8 +47,6 @@ $post_type=array('videos');
                     </div>
                 </div>
             </div>
-            <!-- User Not Signed In -->
-            <?php else: ?>
 
             <div style="" class="vc_row wpb_row vc_row-fluid mkd-section mkd-content-aligment-left mkd-grid-section">
                 <div class="mkd-container-inner clearfix">
@@ -70,8 +60,6 @@ $post_type=array('videos');
                     </div>
                 </div><!-- #content -->
             </div>
-
-            <?php endif; ?>
         </div>
     </div>
 </div>
