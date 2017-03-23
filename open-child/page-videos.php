@@ -17,8 +17,7 @@ $post_type=array('videos');
     <div class="mkd-content-inner">         
         <div class="mkd-full-width">
             <?php
-            get_template_part('template-page-featured-content');
-            ?>
+            get_template_part('template-page-featured-content');?>
 
             <div class="vc_empty_space" style="height: 0px"><span class="vc_empty_space_inner"></span></div>
             <div class="mkd-container">
@@ -48,18 +47,6 @@ $post_type=array('videos');
                 </div>
             </div>
 
-            <div style="" class="vc_row wpb_row vc_row-fluid mkd-section mkd-content-aligment-left mkd-grid-section">
-                <div class="mkd-container-inner clearfix">
-                    <div class="mkd-section-inner-margin clearfix">
-                        <?php
-                        $my_query = null;
-                        $my_query = discussion_custom_category_query('videos', $category, $post_per_section, $tag_not_in);
-                        global $wp_query;
-                       get_template_part('block/category-blog-list');   
-                        ?>
-                    </div>
-                </div><!-- #content -->
-            </div>
         </div>
     </div>
 </div>
