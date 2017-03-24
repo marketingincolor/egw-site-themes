@@ -2,7 +2,7 @@
 /**
  * Modifier - Doe
  * Date - 03/23/2017
- * Purpose - Added Search Page Ads
+ * Purpose - Added Revive to Tag Pages
  */
 ?>
 
