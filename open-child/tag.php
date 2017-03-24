@@ -1,5 +1,11 @@
 <?php
 $blog_archive_pages_classes = discussion_blog_archive_pages_classes(discussion_get_author_blog_list());
+$blog_page_range = discussion_get_blog_page_range();
+$max_number_of_pages = discussion_get_max_number_of_pages();
+
+if ( get_query_var('paged') ) { $paged = get_query_var('paged'); }
+elseif ( get_query_var('page') ) { $paged = get_query_var('page'); }
+else { $paged = 1; }
 ?>
 <?php get_header(); ?>
 <?php discussion_get_title(); ?>
