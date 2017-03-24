@@ -93,7 +93,7 @@ $blog_archive_pages_classes = discussion_blog_archive_pages_classes(discussion_g
 							</div>
 						</div>
 						<div class="mkd-column2">
-							<?php get_sidebar(); ?>
+							<?php get_template_part('sidebar/template-sidebar-tag'); ?>
 						</div>
 					</div>
 				<?php do_action('discussion_before_container_close'); ?>
