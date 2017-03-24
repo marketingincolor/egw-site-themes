@@ -32,6 +32,7 @@ if (!empty($user->first_name) && !empty($user->last_name)) {
                     // Retirived the profile image from wp_cimy_uef_data table [Cimy User Extra Fields plugin]
                     $fetchresult = get_user_meta($getUserID);
                     $custom_avatar_id = $fetchresult['custom_avatar'];
+                    $custom_avatar_id = implode(' ', $custom_avatar_id);
                     $image_alt = get_post_meta( $custom_avatar_id, '_wp_attachment_image_alt', true);
                     if (!empty($fetchresult['wpcf-user-profile-avatar'][0])):
                             $fetchresultRel = $fetchresult['wpcf-user-profile-avatar'][0];
