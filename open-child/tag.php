@@ -64,9 +64,8 @@ $blog_archive_pages_classes = discussion_blog_archive_pages_classes(discussion_g
 																			// discussion_post_info_comments(array(
 																			// 	'comments' => 'yes'
 																			// ));
-																			discussion_post_info_count(array(
-																				'count' => 'yes'
-																			)); ?>
+																			?>
+																			<div class="mkd-post-info-count"><span class="mkd-post-count-number"><?php echo discussion_get_post_count_views($post->ID); ?></span> <span class="mkd-post-count-text"><?php esc_html_e('Views','discussionwp'); ?></span></div>
 																		</div>
 																	</div>
 																</div>
