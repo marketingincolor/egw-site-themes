@@ -2372,3 +2372,13 @@ function mic_set_post_amount(){
         return 36;
     }
 }
+
+/**
+ * Author - adoe
+ * Date - 03/24/2017
+ * Description - Sets Yoast Metabox lower for production ID
+ */
+add_filter( 'wpseo_metabox_prio', 'egw_filter_yoast' );
+function egw_filter_yoast() {
+    return 'low';
+}
