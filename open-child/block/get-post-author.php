@@ -31,12 +31,14 @@ if (!empty($user->first_name) && !empty($user->last_name)) {
 //                        $attachment = wp_get_attachment_image_src($custom_avatar_meta_data[0], 'thumbnail');
                     // Retirived the profile image from wp_cimy_uef_data table [Cimy User Extra Fields plugin]
                     $fetchresult = get_user_meta($getUserID);
+                    $custom_avatar_id = $fetchresult['custom_avatar'];
+                    $image_alt = get_post_meta( $custom_avatar_id, '_wp_attachment_image_alt', true);
                     if (!empty($fetchresult['wpcf-user-profile-avatar'][0])):
                             $fetchresultRel = $fetchresult['wpcf-user-profile-avatar'][0];
                         ?>
-                        <img src="<?php echo $fetchresultRel; ?>" width="100" height="100" class="avatar avatar-176 photo"/>
+                        <img src="<?php echo $fetchresultRel; ?>" width="100" height="100" class="avatar avatar-176 photo" alt="<?php echo $image_alt; ?>"/>
                     <?php else : ?>                                                    
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/aavathar.jpg" width="100" height="100" class="avatar avatar-176 photo"/>
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/aavathar.jpg" width="100" height="100" class="avatar avatar-176 photo" alt="Evergreen Wellness Avatar"/>
                     <?php endif; ?>
                 </div>
                 <div class="article-cr-rgt">
