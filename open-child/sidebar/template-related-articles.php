@@ -6,7 +6,6 @@
                 <div class="mkd-bnl-inner">
                     <?php
                     $post_id = get_the_ID();
-
                     $tags = get_the_tags();
 
 		    $tag_ids = array();
@@ -20,13 +19,19 @@
                     $related_posts = custom_related_posts($post_id, $post_type, $tag_ids);
  
                     while (have_posts()) : the_post();
+
                         ?>   
                         <div class="mkd-pt-seven-item mkd-post-item mkd-active-post-page">
                             <div class="mkd-pt-seven-item-inner clearfix">
                                 <div class="mkd-pt-seven-image-holder" style="width: 117px">
                                     <?php if (has_post_thumbnail()) : ?>
+                                        <?php 
+                                        $image_id = get_post_thumbnail_id(get_the_ID());
+                                        $image_alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true); 
+                                    ?>
+
                                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                                            <img src="<?php the_post_thumbnail_url(); ?>"/>
+                                            <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo $image_alt; ?>"/>
                                         </a>
                                     <?php endif; ?>
                                 </div>
