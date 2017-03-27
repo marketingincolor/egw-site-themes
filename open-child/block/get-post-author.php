@@ -34,9 +34,9 @@ if (!empty($user->first_name) && !empty($user->last_name)) {
                     if (!empty($fetchresult['wpcf-user-profile-avatar'][0])):
                             $fetchresultRel = $fetchresult['wpcf-user-profile-avatar'][0];
                         ?>
-                        <img src="<?php echo $fetchresultRel; ?>" width="100" height="100" class="avatar avatar-176 photo"/>
+                        <img src="<?php echo $fetchresultRel; ?>" width="100" height="100" class="avatar avatar-176 photo" alt="Coach Image"/>
                     <?php else : ?>                                                    
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/aavathar.jpg" width="100" height="100" class="avatar avatar-176 photo"/>
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/aavathar.jpg" width="100" height="100" class="avatar avatar-176 photo" alt="Evergreen Wellness Avatar"/>
                     <?php endif; ?>
                 </div>
                 <div class="article-cr-rgt">

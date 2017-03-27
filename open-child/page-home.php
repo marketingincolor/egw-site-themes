@@ -33,7 +33,7 @@ list($post_per_section, $post_type) = scroll_loadpost_settings();
                         <div class="mkd-two-columns-75-25 mkd-content-has-sidebar clearfix">
                             <div class="mkd-column1 mkd-content-left-from-sidebar">
                                 <div class="mkd-column-inner">
-                                <?php $my_query = discussion_custom_categorylist_query($post_type, $cat_id_ar, $post_per_section, $tag_not_in);
+                                <?php $my_query = discussion_custom_categorylist_home_query($post_type, $cat_id_ar, $post_per_section, $tag_not_in);
                                 if (empty($subcat_id_ar)) {
                                     global $wp_query;
                                     get_template_part('block/category-blog-list');   
