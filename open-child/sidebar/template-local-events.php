@@ -55,7 +55,7 @@ if (!empty($events_result)) {
                             $year = get_the_date("Y", $postid);
                             $month = get_the_date("m", $postid);
                             $imageid = get_post_meta($postid, 'event_banner_image', true);
-                            $feature_image = wp_get_attachment_url(get_post_thumbnail_id($postid, $attr));
+                            //$feature_image = wp_get_attachment_url(get_post_thumbnail_id($postid, $attr));
                             $thumbnail_id = get_post_thumbnail_id($postid);
                             $image_alt = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true);
                             ?>
@@ -63,9 +63,7 @@ if (!empty($events_result)) {
                                 <div class="mkd-pt-seven-item-inner clearfix">
                                     <div class="mkd-pt-seven-image-holder" style="width: 117px">
                                         <a target="_self" href="<?php echo get_permalink($postid) ?>" title="<?php the_title_attribute(); ?>" class="mkd-pt-seven-link mkd-image-link" itemprop="url">
-                                            <img width="117px" alt="<?php echo $image_alt; ?>" src="<?php
-                                            echo $feature_image;
-                                            ?> " />
+                                            <img width="117px" alt="<?php echo $image_alt; ?>" src="<?php $imageid = get_post_meta($postid, 'event_banner_image', true); if ($imageid) { $feature_image = wp_get_attachment_url($imageid); } else { $feature_image = wp_get_attachment_url(get_post_thumbnail_id($postid));} echo $feature_image; ?>" />
                                         </a>
                                     </div>
                                     <div class="mkd-pt-seven-content-holder">
