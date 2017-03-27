@@ -514,6 +514,40 @@ if (!function_exists('discussion_custom_categorylist_query')) {
 }
 
 /**
+ * Author - Doe
+ * Date - 03-27-2017
+ * Purpose - For implementing hide on home page capability
+ */
+if (!function_exists('discussion_custom_categorylist_home_query')) {
+
+    function discussion_custom_categorylist_home_query($post_type, $category, $post_per_section, $tag_not_in ) {
+        $args = array(
+            'cat' => $category,
+            'post_status' => 'posts',
+            'order' => 'DESC',
+            'post_type' => $post_type,
+            'posts_per_page' => $post_per_section,
+            'paged' => 1,
+            'tag__not_in' => $tag_not_in,
+            'meta_query'=> array(
+                    'relation' => 'OR',
+                    array(
+                        'key' => 'hide_on_homepage',
+                        'value' => 0
+                    ),
+                    array(
+                        'key' => 'hide_on_homepage',
+                        'compare' => 'NOT EXISTS'
+                    ),
+            ),
+        );
+        return $my_query = query_posts($args);
+    }
+
+}
+
+
+/**
  * Author - Akilan
  * Date - 20-06-2016
  * Purpose - Custom function for changing image post reating extension
