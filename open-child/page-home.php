@@ -36,7 +36,7 @@ list($post_per_section, $post_type) = scroll_loadpost_settings();
                                 <?php $my_query = discussion_custom_categorylist_home_query($post_type, $cat_id_ar, $post_per_section, $tag_not_in);
                                 if (empty($subcat_id_ar)) {
                                     global $wp_query;
-                                    get_template_part('block/category-blog-list-home');   
+                                    get_template_part('block/category-blog-list');   
                                 }
                                 ?>
                                 </div>
