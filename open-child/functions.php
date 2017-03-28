@@ -523,7 +523,7 @@ if (!function_exists('discussion_custom_categorylist_home_query')) {
     function discussion_custom_categorylist_home_query($post_type, $category, $post_per_section, $tag_not_in ) {
         $args = array(
             'cat' => $category,
-            'post_status' => 'posts',
+            'post_status' => 'publish',
             'order' => 'DESC',
             'post_type' => $post_type,
             'posts_per_page' => $post_per_section,
