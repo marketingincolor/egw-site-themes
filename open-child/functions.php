@@ -1025,7 +1025,8 @@ function custom_comment($comment, $args, $depth) {
         $custom_avatar_meta_data = get_user_meta($user, 'custom_avatar');
         if (isset($custom_avatar_meta_data) && !empty($custom_avatar_meta_data[0])):
             $attachment = wp_get_attachment_image_src($custom_avatar_meta_data[0]);
-            echo '<img src="' . $attachment[0] . '" width="85px" height="85px"/>';
+            $image_alt = get_post_meta( $custom_avatar_meta_data[0], '_wp_attachment_image_alt', true);
+            echo '<img src="' . $attachment[0] . '" width="85px" height="85px" alt="'.$image_alt.'"/>';
         else :
             echo '<img src="' . get_stylesheet_directory_uri() . "/assets/img/aavathar.jpg" . '" width="85px" height="85px" />';
         endif;
@@ -2408,7 +2409,7 @@ function mic_set_post_amount(){
 }
 
 /**
- * Author - adoe
+ * Modifier - adoe
  * Date - 03/24/2017
  * Description - Sets Yoast Metabox lower for production ID
  */
