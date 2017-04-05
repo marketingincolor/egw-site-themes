@@ -249,8 +249,8 @@ $viewed = (!isset($_COOKIE['ew-cta-viewed'])) ? setcookie('ew-cta-viewed', 'no',
 if ( is_singular( array( 'post', 'videos' ) ) ) {
     setcookie('ew-cta-cnt', isset($_COOKIE['ew-cta-cnt']) ? ++$_COOKIE['ew-cta-cnt'] : 1, time() * 20, '/');
 }
-if ($_COOKIE['ew-cta-cnt'] >= 4) {
-    setcookie('ew-cta-cnt', '4', time() * 20, '/');
+if ($_COOKIE['ew-cta-cnt'] >= 3) {
+    setcookie('ew-cta-cnt', '3', time() * 20, '/');
 }
 ?>
 <script>

@@ -18,7 +18,14 @@
 							</div>
 						</div>
 						<div class="mkd-column2">
-							<?php get_sidebar(); ?>
+							<?php
+							if(is_page('live-events')) {
+								get_template_part('sidebar/template-sidebar-live-events');
+							}
+							else {
+								get_sidebar();
+							}
+							?>
 						</div>
 					</div>
 				<?php elseif($sidebar == 'sidebar-33-left' || $sidebar == 'sidebar-25-left'): ?>
