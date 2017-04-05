@@ -3,7 +3,7 @@
  * Author - MIC
  * Date - 13-06-2016
  * Purpose - For hybrid sponsor post landing pages
- * Template Name: PSA Landing Page
+ * Template Name: Advertiser Landing Page
  *
 */
 ?>
