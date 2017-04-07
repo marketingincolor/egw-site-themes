@@ -74,6 +74,7 @@
         </div>
         <div class="mkd-column2">
                 <aside class="mkd-sidebar" style="transform: translateY(0px);">
+                    <?php get_template_part('sidebar/template-sidebar-contact-us'); ?>
                     <?php get_sidebar(); ?>
                 </aside>
         </div>
