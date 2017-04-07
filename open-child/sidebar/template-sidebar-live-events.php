@@ -1,11 +1,5 @@
 <?php
 ?>
-<!--/*
-  *
-  * Evergreen Network Asynchronous JS Tag
-  * - Generated with Revive Adserver v4.0.0
-  *
-  */-->
 <div class="widget mkd-rpc-holder hidden-sm hidden-md hidden-lg" style="margin-top:41px;">
     <div class="widget widget_categories">
         <div class="mkd-rpc-content">
