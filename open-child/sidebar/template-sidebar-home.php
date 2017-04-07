@@ -1,4 +1,5 @@
 <?php get_template_part( 'sidebar/template-welcome-to-villages', 'page' ); ?>
+<?php get_template_part( 'sidebar/template-featured-personalities', 'page' ); ?>
 <?php get_template_part( 'sidebar/template-newsletter-form', 'page' ); ?>
 
 <?php if (!is_user_logged_in()): ?>
