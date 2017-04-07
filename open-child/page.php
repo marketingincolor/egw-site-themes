@@ -1,8 +1,15 @@
 <?php $sidebar = discussion_sidebar_layout(); ?>
 <?php get_header(); ?>
+<?php if (is_page('live-events')) {
+	$container_class = "live-events-container";
+}
+else {
+	$container_class = "";
+}
+?>
 	<?php discussion_get_title(); ?>
 	<?php get_template_part('slider'); ?>
-	<div class="mkd-container">
+	<div class="mkd-container <?php echo $container_class; ?>">
 		<?php do_action('discussion_after_container_open'); ?>
 		<div class="mkd-container-inner clearfix">
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
