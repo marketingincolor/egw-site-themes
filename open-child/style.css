@@ -35,9 +35,18 @@
     font-size: 1rem;
     font-family: roboto;
     margin: 0 auto;
-    display: block; 
+    display: block;
+    margin-top:3rem; 
 }
 
+.news-label-text {
+    padding: 10px 0;
+    font-size: 14pt !important;
+    line-height: 29px !important;
+    overflow: hidden;
+    color: #6b6b6b;
+
+}
 
 
 .live-events-container {
