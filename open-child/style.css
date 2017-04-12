@@ -10,6 +10,24 @@
  Text Domain:  open-child
 */
 
+/*white-block-template*/
+.white-block-container{
+    background: #fff;
+    padding:70px 60px;
+}
+.white-block-container h2{
+    text-align: center;
+    padding-bottom: 10px;
+}
+.white-block-container-content{
+    padding-bottom: 15px;
+}
+.white-block-container-container p{
+    padding: 0px 0 20px;
+}
+
+
+
 .live-events-container {
     margin-top: 30px;
 }
