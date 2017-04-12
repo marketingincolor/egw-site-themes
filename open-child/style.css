@@ -26,6 +26,18 @@
     padding: 0px 0 20px;
 }
 
+.page-template-template-white-block #your_email { border: 1px solid #6b6b6b ; }
+.page-template-template-white-block #your_zip { border: 1px solid #6b6b6b ; }
+.page-template-template-white-block #news-side-submit {
+    background-color: #f79c49;
+    width: 25%;
+    color: white;
+    font-size: 1rem;
+    font-family: roboto;
+    margin: 0 auto;
+    display: block; 
+}
+
 
 
 .live-events-container {
