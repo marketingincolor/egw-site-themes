@@ -39,8 +39,8 @@ get_header();?>
                         <script type="text/javascript">
                         var __ss_noform = __ss_noform || [];
                         __ss_noform.push(['baseURI', 'https://app-3QMYANU21K.marketingautomation.services/webforms/receivePostback/MzawMDG2NDQxAwA/']);
-                        __ss_noform.push(['endpoint', 'ba3745d9-b382-4197-b0f2-ed587005b1b7']);
-                        __ss_noform.push(['submitType', 'manual']);
+                        __ss_noform.push(['form', 'newsletter-landing-page', 'ba3745d9-b382-4197-b0f2-ed587005b1b7']);
+                        __ss_noform.push(['submit', null, 'manual']);
                         </script>
                         <script type="text/javascript" src="https://koi-3QMYANU21K.marketingautomation.services/client/noform.js?ver=1.24"></script>
                     </div>
