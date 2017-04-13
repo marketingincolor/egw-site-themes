@@ -29,7 +29,7 @@ get_header();?>
                                     <input type="hidden" name="form_title" value="eNewsletter Sign Up"/>
                                     <div class="form-control-wrap your-email"><input type="email" id="your-email" name="your-email" placeholder=" EMAIL ADDRESS" value="" size="40" /></div>
                                     <div class="form-control-wrap your-zip"><input type="text" id="your-zip" name="your-zip" value="" placeholder=" ZIP CODE" size="40" /></div>
-                                    <div class="form-control-wrap your-terms"><input type="checkbox" checked value="" id="news-terms" class="form-control terms" />I accept your<br/><a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div>
+                                    <div class="form-control-wrap your-terms"><input type="checkbox" style="display:inline-block;" checked value="" id="news-terms" class="form-control terms" />I accept your<br/><a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div>
                                     <div class="form-control-wrap side-submit"><input type="submit" id="enewsletter-submit" value="Sign Me Up!" class="form-control submit" /></div>
                                     <div class="form-control-wrap pop-alert"></div>
                                 </form>
@@ -37,7 +37,7 @@ get_header();?>
                         </div>
                     </div>
                     <script type="text/javascript">
-                    jQuery(document).ready(function() {
+                    jQuery(document).ready(function($) {
                         $('#enewsletter-submit').click(function() {
                             var email = $("input#your-email").val();
                             var zip = $("input#your-zip").val();
