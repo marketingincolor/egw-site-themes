@@ -14,14 +14,14 @@ get_header();?>
                     <h2><?php the_title(); ?></h2>
                     <?php endif; ?>
                     <div class="white-block">
-                        <div class="half-column" id="message">
                             <h1 class="" style="text-align: center; color: #f79c49; font-size: 2.66667em; padding: 4rem 0rem;">Being healthy just got a lot more fun!</h1>
+                            <div class="wpb_column vc_column_container vc_col-sm-6" id="message">
                             <div class="mdk-sng-pst">
                             <h1 style="text-transform: none; font-size: 1.733em;">Sign Up for Our Free eNewsletter</h1>
                             <div class="mdk-sng-pst"><p>The Evergreen Wellness® eNewsletter delivers a regular dose of inspiration right to your inbox. From engaging articles and videos filled with helpful tips to invitations to exciting events, we’ll make living a healthy lifestyle easier and more fun than you ever dreamed possible.</p></div>
                             </div>
                         </div>
-                        <div class="half-column" id="">
+                        <div class="wpb_column vc_column_container vc_col-sm-6" id="">
                             <h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3>
                             <div class="news-field-cta-form">
                                 <form action="" id="newsletter-landing-page" method="post" class="not-wpcf7-form" enctype="multipart/form-data">
