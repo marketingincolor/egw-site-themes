@@ -28,7 +28,17 @@ get_header();?>
                         The Evergreen Wellness® eNewsletter delivers a regular dose of inspiration right to your inbox. From engaging articles and videos filled with helpful tips to invitations to exciting events, we’ll make living a healthy lifestyle easier and more fun than you ever dreamed possible.
                         </div>
                         <?php
-                        do_shortcode( '[/vc_column_text][/vc_column][vc_column width="1/2"][vc_column_text][contact-form-7 id="2082" title="Newsletter CTA" html_id="newsletter-landing-page"][/vc_column_text][/vc_column][/vc_row][vc_row][vc_column][vc_column_text]');
+                        do_shortcode( '[/vc_column_text]');
+                        do_shortcode( '[/vc_column]');
+                        do_shortcode( '[vc_column width="1/2"]');
+                        do_shortcode( '[vc_column_text]');
+                        do_shortcode( '[contact-form-7 id="2082" title="Newsletter CTA" html_id="newsletter-landing-page"]');
+                        do_shortcode( '[/vc_column_text]');
+                        do_shortcode( '[/vc_column]');
+                        do_shortcode( '[/vc_row]');
+                        do_shortcode( '[vc_row]');
+                        do_shortcode( '[vc_column]');
+                        do_shortcode( '[vc_column_text]');
                         ?>
                         <script type="text/javascript">
                         var __ss_noform = __ss_noform || [];
