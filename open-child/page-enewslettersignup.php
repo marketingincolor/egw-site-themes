@@ -30,36 +30,18 @@ get_header();?>
                                     <div class="form-control-wrap your-email"><input type="email" id="your-email" name="your-email" placeholder=" EMAIL ADDRESS" value="" size="40" /></div>
                                     <div class="form-control-wrap your-zip"><input type="text" id="your-zip" name="your-zip" value="" placeholder=" ZIP CODE" size="40" /></div>
                                     <div class="form-control-wrap your-terms"><input type="checkbox" checked value="" id="news-side-terms" class="form-control terms" />I accept your<br/><a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div>
-                                    <div class="form-control-wrap side-submit"><input type="submit" id="enewsletter-submit" value="Sign Me Up!" class="form-control submit" /></div>
+                                    <div class="form-control-wrap side-submit"><input type="submit" id="news-side-submit" value="Sign Me Up!" class="form-control submit" /></div>
                                     <?php //do_shortcode('[ssnfinclude placement="side"]'); ?>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <script type="text/javascript">
-                    jQuery(document).ready(function() {
-                        $('#enewsletter-submit').click(function() {
-                            var email = $("input#pop-your-email").val();
-                            var zip = $("input#pop-your-zip").val();
-                            var terms = $("input#news-pop-terms").prop("checked");
-                            if ( (email == "") || (zip == "") || (terms == false) ) {
-                                $('.pop-alert').html( '<span style="color:#f00;">All fields are required</span>' );
-                                return false;
-                            }
-                            $.ajax({
-                                type: "POST",
-                                url: "",
-                                data: { form_title : 'eNewsletter Sign Up', your_email : email, your_zip : zip },
-                                complete: function() {
-                                    __ss_noform.push(['form','newsletter-landing-page', '<?php echo $ssform; ?>']);
-                                    __ss_noform.push(['submit', null, 'ba3745d9-b382-4197-b0f2-ed587005b1b7']);
-                                $('#form-container-pop').html( message );
-                                }
-                            });
-                            return false;
-                        });
-                    });
-                    </script>
+                        <script type="text/javascript">
+                        var __ss_noform = __ss_noform || [];
+                        __ss_noform.push(['baseURI', 'https://app-3QMYANU21K.marketingautomation.services/webforms/receivePostback/MzawMDG2NDQxAwA/']);
+                        __ss_noform.push(['form', 'newsletter-landing-page', 'ba3745d9-b382-4197-b0f2-ed587005b1b7']);
+                        __ss_noform.push(['submitType', 'manual']);
+                        </script>
                         <script type="text/javascript" src="https://koi-3QMYANU21K.marketingautomation.services/client/noform.js?ver=1.24"></script>
                     </div>
                 </div>
