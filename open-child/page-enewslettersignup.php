@@ -50,8 +50,8 @@ get_header();?>
                                 url: "",
                                 data: { form_title : 'eNewsletter Sign Up', your_email : email, your_zip : zip },
                                 complete: function() {
-                                    __ss_noform.push(['form','newsletter-landing-page', '<?php echo $ssform; ?>']);
-                                    __ss_noform.push(['submit', null, 'ba3745d9-b382-4197-b0f2-ed587005b1b7']);
+                                    __ss_noform.push(['form','newsletter-landing-page', 'ba3745d9-b382-4197-b0f2-ed587005b1b7']);
+                                    __ss_noform.push(['submit', 'ba3745d9-b382-4197-b0f2-ed587005b1b7']);
                                 $('#message').html( message );
                                 }
                             });
