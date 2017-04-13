@@ -29,8 +29,9 @@ get_header();?>
                                     <input type="hidden" name="form_title" value="eNewsletter Sign Up"/>
                                     <div class="form-control-wrap your-email"><input type="email" id="your-email" name="your-email" placeholder=" EMAIL ADDRESS" value="" size="40" /></div>
                                     <div class="form-control-wrap your-zip"><input type="text" id="your-zip" name="your-zip" value="" placeholder=" ZIP CODE" size="40" /></div>
-                                    <div class="form-control-wrap your-terms"><input type="checkbox" checked value="" id="news-side-terms" class="form-control terms" />I accept your<br/><a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div>
+                                    <div class="form-control-wrap your-terms"><input type="checkbox" checked value="" id="news-terms" class="form-control terms" />I accept your<br/><a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div>
                                     <div class="form-control-wrap side-submit"><input type="submit" id="enewsletter-submit" value="Sign Me Up!" class="form-control submit" /></div>
+                                    <div class="form-control-wrap pop-alert"></div>
                                 </form>
                             </div>
                         </div>
@@ -40,7 +41,7 @@ get_header();?>
                         $('#enewsletter-submit').click(function() {
                             var email = $("input#your-email").val();
                             var zip = $("input#your-zip").val();
-                            var terms = $("input#news-pop-terms").prop("checked");
+                            var terms = $("input#news-terms").prop("checked");
                             if ( (email == "") || (zip == "") || (terms == false) ) {
                                 $('.pop-alert').html( '<span style="color:#f00;">All fields are required</span>' );
                                 return false;
@@ -51,7 +52,7 @@ get_header();?>
                                 data: { form_title : 'eNewsletter Sign Up', your_email : email, your_zip : zip },
                                 complete: function() {
                                     __ss_noform.push(['form','newsletter-landing-page', 'ba3745d9-b382-4197-b0f2-ed587005b1b7']);
-                                    __ss_noform.push(['submit', 'ba3745d9-b382-4197-b0f2-ed587005b1b7']);
+                                    __ss_noform.push(['submit', null, 'ba3745d9-b382-4197-b0f2-ed587005b1b7']);
                                 $('#message').html( message );
                                 }
                             });
