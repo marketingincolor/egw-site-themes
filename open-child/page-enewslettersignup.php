@@ -46,7 +46,9 @@ get_header();?>
                         __ss_noform.push(['form', 'newsletter-landing-page', 'ba3745d9-b382-4197-b0f2-ed587005b1b7']);
                         __ss_noform.push(['submitType', 'manual']);
                         </script>
-                        <script type="text/javascript" src="https://koi-3QMYANU21K.marketingautomation.services/client/noform.js?ver=1.24"></script>[/vc_column_text][/vc_column][/vc_row]
+                        <script type="text/javascript" src="https://koi-3QMYANU21K.marketingautomation.services/client/noform.js?ver=1.24"></script>
+                        <?php 
+                        do_shortcode( '[/vc_column_text][/vc_column][/vc_row]');
                         ?>
                     </div>
                 </div>
