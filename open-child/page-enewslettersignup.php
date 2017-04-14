@@ -86,7 +86,7 @@ jQuery(document).ready(function($) {
                 __ss_noform.push(['form','newsletter-landing-page', '<?php echo $ssform; ?>']);
                 __ss_noform.push(['submit', null, '<?php echo $ssform; ?>']);
             // $('#message').html( message );
-            window.location.href = "https://www.myevergreenwellness.com/intheloop";
+            window.location.href = "https://myevergreenwellness.com/intheloop";
 
 
             }
