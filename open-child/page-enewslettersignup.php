@@ -49,7 +49,7 @@ get_header();?>
                         <div class="vc_row wpb_row vc_row-fluid mkd-section mkd-content-aligment-left">
                             <div class="wpb_column vc_column_container vc_col-sm-6" id="">
                                 <div class="news-field-cta-form">
-                                    <form action="" id="newsletter-landing-page" method="post" class="not-wpcf7-form" enctype="multipart/form-data">
+                                    <form action="https://www.myevergreenwellness.com/intheloop" id="newsletter-landing-page" method="post" class="not-wpcf7-form" enctype="multipart/form-data">
                                         <div class="form-control-wrap side-alert"> </div>
                                         <input type="hidden" name="form_title" value="eNewsletter Sign Up"/>
                                         <div class="form-control-wrap your-email"><label class="label-text">Your Email*</label><input type="email" id="your-email" name="your-email" placeholder="" value="" size="40" /></div>
