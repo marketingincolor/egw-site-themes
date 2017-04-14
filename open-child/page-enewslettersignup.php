@@ -85,7 +85,10 @@ jQuery(document).ready(function($) {
             complete: function() {
                 __ss_noform.push(['form','newsletter-landing-page', '<?php echo $ssform; ?>']);
                 __ss_noform.push(['submit', null, '<?php echo $ssform; ?>']);
-            $('#message').html( message );
+            // $('#message').html( message );
+            window.location.href = "https://www.myevergreenwellness.com/intheloop";
+
+
             }
         });
         return false;
