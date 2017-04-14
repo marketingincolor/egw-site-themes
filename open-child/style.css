@@ -202,6 +202,7 @@ For setting main blog style adjustment
 @media screen and (max-width: 39.9375em) {
 	.egw-show-for-small-only { display:inline-block; }
 	.egw-hide-for-small-only { display:none; }
+
 }
 
 /* Medium and up */
@@ -222,6 +223,9 @@ For setting main blog style adjustment
 	.egw-show-for-medium-up { }
 	.egw-show-for-large-up { display: inline-block; }
 	.egw-hide-for-large-up { display:none; }
+    .enewsletter-header { font-size: 1.733em; }
+    .enewsletter-header2 {font-size: 2.66667em;}
+
 }
 
 /* Large only */
