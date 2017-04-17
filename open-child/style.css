@@ -10,6 +10,29 @@
  Text Domain:  open-child
 */
 
+/*Senior Games eNewsletter*/
+#form-container-side .your-terms-event {
+    width: 25%;
+    float: left;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: bold;
+    text-align: left;
+    padding-top: 3px;
+    display: inline-block;
+}
+#form-container-side .news-field-cta-form #news-side-submit-event {
+    background-color: #f79c49;
+    width:25%;
+    color: #fff;
+    border: none !important;
+    font-size: 18px;
+    padding: 5px 20px;
+    cursor: pointer;
+    float: right;
+    display: inline-block;
+}
+
 /*white-block-template*/
 .white-block-container{
     background: #fff;
