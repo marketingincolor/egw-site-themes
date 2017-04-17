@@ -11,7 +11,7 @@ get_header();?>
             <div class="mkd-container-inner clearfix">
                 <div class="white-block-container">
                     <?php the_post_thumbnail(); ?>
-                    <?php if ( get_the_title() != null || get_the_title() != "" && !is_page('games') ) : ?>
+                    <?php if ( !is_page('games') ) : ?>
                     <h2 class="the-title"><?php the_title(); ?></h2>
                     <?php endif; ?>
                     <div class="white-block">
