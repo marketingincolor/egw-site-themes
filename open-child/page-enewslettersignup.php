@@ -55,7 +55,7 @@ get_header();?>
                                         <div class="form-control-wrap your-email"><label class="label-text">Your Email*</label><input type="email" id="your-email" name="your-email" placeholder="" value="" size="40" /></div>
                                         <p style="margin-bottom: 35px;">Please add <strong>support@myevergreenwellness.com</strong> to your address book to ensure your email doesn't go into your spam folder.</p>
                                         <div class="form-control-wrap your-zip"><label class="label-text">Your Zip Code*</label><input type="text" id="your-zip" name="your-zip" value="" placeholder="" size="40" /></div>
-                                        <div class="form-control-wrap your-terms" style="display:none;"><input type="checkbox" style="display:inline-block; display:hidden;" checked value="" id="news-terms" class="form-control terms" />I accept your<br/><a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div>
+                                        <div class="form-control-wrap your-terms" style=""><input type="checkbox" style="display:inline-block; display:hidden;" checked value="" id="news-terms" class="form-control terms" />I accept your <a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div>
                                         <div class="form-control-wrap side-submit" style="margin-top:40px;"><input type="submit" id="enewsletter-submit" value="Submit" class="form-control submit" /></div>
                                         <div class="form-control-wrap pop-alert"></div>
                                     </form>
