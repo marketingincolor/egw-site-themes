@@ -7,7 +7,7 @@
         $display_date = 'yes';
         $date_format = 'd. F Y';
         $display_category = 'yes';
-        $display_category_singlepost = 'yes';
+        $display_category_singlepost = 'no';
         $save_stories = 'yes';
         $display_comments = 'yes';
         $display_share = 'yes';
