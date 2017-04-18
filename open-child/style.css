@@ -82,8 +82,9 @@
 }
 
 /*Adjusted card size for sponsors*/
-.title_length_three { min-height:78px; }
-.title_length_three h4 { min-height: 0px !important; }
+/* commented out in hotfix/donedone8283 to stop issues with home page panel height*/
+/*.title_length_three { min-height:78px; }
+.title_length_three h4 { min-height: 0px !important; }*/
 /*end adjustments*/
 
 
