@@ -10,7 +10,7 @@
  Text Domain:  open-child
 */
 #news-side-submit-event  { background-color:#f79c49; color:#fff; border:none !important; font-size:18px; padding:5px 20px; cursor:pointer; }
-.event-enewsletter-form { padding: 0rem 0rem 2rem 0rem; }
+.event-enewsletter-form { padding: 0rem 0rem 2rem 0rem; margin-top:2rem;}
 /*Senior Games eNewsletter*/
 #form-container-side .your-terms-event {
     font-size: 12px;
