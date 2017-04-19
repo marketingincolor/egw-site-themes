@@ -9,11 +9,10 @@
  Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
  Text Domain:  open-child
 */
-
+#news-side-submit-event  { background-color:#f79c49; color:#fff; border:none !important; font-size:18px; padding:5px 20px; cursor:pointer; }
+.event-enewsletter-form { padding: 0rem 0rem 2rem 0rem; margin-top:2rem;}
 /*Senior Games eNewsletter*/
 #form-container-side .your-terms-event {
-    width: 25%;
-    float: left;
     font-size: 12px;
     line-height: 14px;
     font-weight: bold;
@@ -181,11 +180,13 @@ For setting main blog style adjustment
 .news-field-cta-form a { color:#f79c49; }
 .news-field-cta-form input { border:1px solid #666 !important; box-sizing:border-box; }
 #form-container-side .news-field-cta-form input { font-size:1em; line-height:2em; width:100%; }
+#form-container-side .news-field-cta-form-event input { font-size:1em; line-height:2em; }
 #form-container-side .news-field-cta-form input[type="submit"] { background-color:#f79c49; color:#fff; border:none !important; font-size:18px; padding:5px 20px; width:75%; cursor:pointer; }
 #form-container-side { text-align:center; }
 #form-container-side .news-field-cta-form input[type="checkbox"] { display:block; width:auto; float:left !important; margin:5px 10px; }
 .form-control-wrap { margin:5px 0px; }
 #form-container-side .your-zip { width:40%; float:left; }
+#form-container-side .your-zip-event {  }
 #form-container-side .your-terms { width:60%; float:left; font-size:12px; line-height:14px; font-weight:bold; text-align:left; padding-top:3px; }
 #form-container-foot { text-align:center; width:80%;}
 #form-container-foot .news-field-cta-form input { font-size:1em; line-height:2em; width:100%; }
