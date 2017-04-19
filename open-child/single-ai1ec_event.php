@@ -147,7 +147,6 @@
     </div>
     <?php $ssform = ( ENVIRONMENT_MODE == 0 ) ? 'ba3745d9-b382-4197-b0f2-ed587005b1b7' : '8c3dc976-1925-4b51-a875-ae8bf4d1e9b0'; ?>
     <!-- If certain event page add enewsletter form -->
-    <?php if( is_page('prostate-cancer-maybe-not-as-bad-as-you-think') ) { ?>
     <script type="text/javascript">
     jQuery(document).ready(function($) {
         var message = '</p><h3>Welcome!</h3><h4>Please check your email for more information. We hope you enjoy Evergreen Wellness<sup>&reg;</sup>.</h4><h5>If you don\'t see an email from us, please check your spam folder.</h5><p>';
@@ -173,6 +172,5 @@
         });
     });
 </script>
-    <?php } ?>
 
 <?php get_footer(); ?>
