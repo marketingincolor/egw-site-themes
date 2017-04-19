@@ -78,12 +78,12 @@
                                                         <input name="form_title" type="hidden" value="Newsletter CTA">
                                                         <div class="form-control-wrap your-email">
                                                             <div class="vc_row">
-                                                                <input class="vc_col-xs-8 vc_col-xs-offset-2" id="your-email" name="your-email" size="40" type="email" value="" placeholder=" EMAIL ADDRESS">
+                                                                <input class="vc_col-xs-8 vc_col-xs-offset-2" id="your-email" name="your_email" size="40" type="email" value="" placeholder=" EMAIL ADDRESS">
                                                             </div>
                                                         </div>
                                                         <div class="vc_row">
                                                             <div class="form-control-wrap your-zip-event">
-                                                                    <input class="vc_col-xs-8 vc_col-xs-offset-2 vc_col-md-4 vc_col-md-offset-2" id="your-zip" name="your-zip" size="40" type="text" value="" placeholder=" ZIP CODE">
+                                                                    <input class="vc_col-xs-8 vc_col-xs-offset-2 vc_col-md-4 vc_col-md-offset-2" id="your-zip" name="your_zip" size="40" type="text" value="" placeholder=" ZIP CODE">
                                                             </div>
                                                             <div class="vc_col-xs-8 vc_col-xs-offset-2 vc_col-md-4 vc_col-md-offset-0">
                                                                 <div class="form-control-wrap your-terms-event">
@@ -185,8 +185,11 @@
         var message = '</p><h3>Welcome!</h3><h4>Please check your email for more information. We hope you enjoy Evergreen Wellness<sup>&reg;</sup>.</h4><h5>If you don\'t see an email from us, please check your spam folder.</h5><p>';
         $('#news-side-submit-event').click(function() {
             var email = $("input#your-email").val();
+            console.log(email);
             var zip = $("input#your-zip").val();
+            console.log(zip);
             var terms = $("input#news-side-terms-event").prop("checked");
+            console.log(terms);
             if ( (email == "") || (zip == "") || (terms == false) ) {
                 $('.side-alert').html( '<span style="color:#f00;">All fields are required</span>' );
                 return false;
