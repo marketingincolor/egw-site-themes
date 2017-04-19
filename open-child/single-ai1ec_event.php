@@ -68,22 +68,27 @@
                                         <?php } ?>
                                         <h1 itemprop="name" class="entry-title mkd-post-title event-title"><?php the_title(); ?></h1>
                                         <?php the_content(); ?>
-                                                                <!-- eNewsletter FORM -->
-                        <div id="form-container-side" class="news-field-row">
-                        <h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3>
-                        <div class="news-field-cta-form"><form id="bottom-events" class="not-wpcf7-form" action="" enctype="multipart/form-data" method="post">
-                        <div class="form-control-wrap side-alert">&nbsp;</div>
-                        <input name="form_title" type="hidden" value="Newsletter CTA">
-                        <div class="form-control-wrap your-email"><input id="your-email" name="your_email" size="40" type="email" value="" placeholder=" EMAIL ADDRESS"></div>
-                        <div class="form-control-wrap your-zip"><input id="your-zip" name="your_zip" size="40" type="text" value="" placeholder=" ZIP CODE"></div>
-                        <div class="form-control-wrap your-terms-event"><input id="news-side-terms-event" class="form-control terms" checked="checked" type="checkbox" value="">I accept your
-                        <a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div>
-                        <div class="form-control-wrap side-submit"><input id="news-side-submit-event" class="form-control submit" type="submit" value="Sign Me Up!"></div>
-                        <!--?php //do_shortcode('[ssnfinclude placement="side"]'); ?-->
 
-                        </form></div>
-                        </div>
-                        <!-- /FORM -->
+                                        <!-- eNewsletter FORM -->
+                                        <div id="form-container-side" class="news-field-row">
+                                        <h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3>
+                                            <div class="news-field-cta-form">
+                                                <form id="bottom-events" class="not-wpcf7-form" action="" enctype="multipart/form-data" method="post">
+                                                    <div class="form-control-wrap side-alert">&nbsp;</div>
+                                                    <input name="form_title" type="hidden" value="Newsletter CTA">
+                                                    <div class="form-control-wrap your-email">
+                                                    <input id="your-email" name="your_email_event" size="40" type="email" value="" placeholder=" EMAIL ADDRESS"></div>
+                                                    <div class="form-control-wrap your-zip">
+                                                    <input id="your-zip" name="your_zip_event" size="40" type="text" value="" placeholder=" ZIP CODE"></div>
+                                                    <div class="form-control-wrap your-terms-event">
+                                                    <input id="news-side-terms-event" class="form-control terms" checked="checked" type="checkbox" value="">I accept your
+                                                    <a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div>
+                                                    <div class="form-control-wrap side-submit">
+                                                    <input id="news-side-submit-event" class="form-control submit" type="submit" value="Sign Me Up!"></div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <!-- /eNewsletter FORM -->
 
                                     </div>
                                 </div>
@@ -179,7 +184,7 @@
             $.ajax({
                 type: "POST",
                 url: "",
-                data: { form_title : 'Newsletter CTA', your_email : email, your_zip : zip },
+                data: { form_title : 'Newsletter CTA', your_email_event : email, your_zip_event : zip },
                 complete: function() {
                     __ss_noform.push(['form','bottom-events', '<?php echo $ssform; ?>']);
                     __ss_noform.push(['submit', null, '<?php echo $ssform; ?>']);
