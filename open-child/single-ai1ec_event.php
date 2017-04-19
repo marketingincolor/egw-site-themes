@@ -67,8 +67,10 @@
                                             </div>
                                         <?php } ?>
                                         <h1 itemprop="name" class="entry-title mkd-post-title event-title"><?php the_title(); ?></h1>
+                                        <div class="mdk-sng-pst">
                                         <?php the_content(); ?>
-
+                                        </div>
+                                        <?php if( !is_user_logged_in() ): ?>
                                         <!-- eNewsletter FORM -->
                                         <div id="form-container-side" class="news-field-row event-enewsletter-form">
                                         <h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3>
@@ -99,6 +101,7 @@
                                             </div>
                                         </div>
                                         <!-- /eNewsletter FORM -->
+                                        <?php endif; ?>
                                         <!-- eNewsletter FORM -->
 <!--                                         <div id="form-container-side" class="news-field-row">
                                         <h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3>
