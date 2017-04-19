@@ -77,9 +77,9 @@
                                                     <div class="form-control-wrap side-alert">&nbsp;</div>
                                                     <input name="form_title" type="hidden" value="Newsletter CTA">
                                                     <div class="form-control-wrap your-email">
-                                                    <input id="your-email" name="your_email_event" size="40" type="email" value="" placeholder=" EMAIL ADDRESS"></div>
+                                                    <input id="your-email" name="your-email" size="40" type="email" value="" placeholder=" EMAIL ADDRESS"></div>
                                                     <div class="form-control-wrap your-zip">
-                                                    <input id="your-zip" name="your_zip_event" size="40" type="text" value="" placeholder=" ZIP CODE"></div>
+                                                    <input id="your-zip" name="your-zip" size="40" type="text" value="" placeholder=" ZIP CODE"></div>
                                                     <div class="form-control-wrap your-terms-event">
                                                     <input id="news-side-terms-event" class="form-control terms" checked="checked" type="checkbox" value="">I accept your
                                                     <a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div>
@@ -184,7 +184,7 @@
             $.ajax({
                 type: "POST",
                 url: "",
-                data: { form_title : 'Newsletter CTA', your_email_event : email, your_zip_event : zip },
+                data: { form_title : 'Newsletter CTA', your_email : email, your_zip : zip },
                 complete: function() {
                     __ss_noform.push(['form','bottom-events', '<?php echo $ssform; ?>']);
                     __ss_noform.push(['submit', null, '<?php echo $ssform; ?>']);
