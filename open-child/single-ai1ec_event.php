@@ -67,9 +67,9 @@
                                             </div>
                                         <?php } ?>
                                         <h1 itemprop="name" class="entry-title mkd-post-title event-title"><?php the_title(); ?></h1>
-                                        <div class="mdk-sng-pst">
+                                        <!-- <div class="mdk-sng-pst"> -->
                                         <?php the_content(); ?>
-                                        </div>
+                                        <!-- </div> -->
                                         <?php if( !is_user_logged_in() ): ?>
                                         <!-- eNewsletter FORM -->
                                         <div id="form-container-side" class="news-field-row event-enewsletter-form">
