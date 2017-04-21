@@ -89,9 +89,9 @@
                                                         </div>
                                                         <div class="vc_col-xs-8 vc_col-xs-offset-2 vc_col-md-4 vc_col-md-offset-0">
                                                             <div class="form-control-wrap your-terms-event">
-                                                                <input id="news-side-terms-event" class="form-control terms" type="checkbox" value="" style="display:initial;">I accept your
+                                                                <input id="news-side-terms-event" class="form-control terms" type="checkbox"  checked="checked" value="" style="display:initial;">I accept your
                                                                 <a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a><br />
-                                                                <input id="news-side-subscribe-box-event" class="form-control subscribe-box" type="checkbox" value="" style="display:initial;">Subscribe to eNewsletter
+                                                                <input id="news-side-subscribe-box-event" class="form-control subscribe-box" checked="checked" type="checkbox" value="" style="display:initial;">Subscribe to eNewsletter
                                                             </div>
                                                         </div>
                                                         <div class="vc_col-xs-12">
@@ -227,28 +227,26 @@
                     var terms = $('#news-side-terms-event');
                     var eNews = $('#news-side-subscribe-box-event');
 
-                    console.log( "enews: " + (!eNews.is(':checked')));
-                    console.log("Terms: " + (terms.is(':checked')));
-
 
                     //Just Events
                     if ( /*(!eNews.is(':checked')) && */(terms.is(':checked')) ) {
                         __ss_noform.push(['form','bottom-events', '19c6d2f8-a74e-49ff-b90e-2dea5a190a73']);
                         __ss_noform.push(['submit', null, '19c6d2f8-a74e-49ff-b90e-2dea5a190a73']);
                         //$('#form-container-side').html( message );
-                    }
+                    // }
 
-                    //eNews & Events
-                    else if ( /*(terms.is(':checked')) && */(eNews.is(':checked')) ) {
-                        // __ss_noform.push(['form','bottom-events', '19c6d2f8-a74e-49ff-b90e-2dea5a190a73']);
-                        // __ss_noform.push(['submit', null, '19c6d2f8-a74e-49ff-b90e-2dea5a190a73']);
-                        __ss_noform.push(['form','bottom-events', '<?php echo $ssform; ?>']);
-                        __ss_noform.push(['submit', null, '<?php echo $ssform; ?>']);
-                       //$('#form-container-side').html( message );
+                        //eNews & Events
+                        if ( /*(terms.is(':checked')) && */(eNews.is(':checked')) ) {
+                            // __ss_noform.push(['form','bottom-events', '19c6d2f8-a74e-49ff-b90e-2dea5a190a73']);
+                            // __ss_noform.push(['submit', null, '19c6d2f8-a74e-49ff-b90e-2dea5a190a73']);
+                            __ss_noform.push(['form','bottom-events', '<?php echo $ssform; ?>']);
+                            __ss_noform.push(['submit', null, '<?php echo $ssform; ?>']);
+                           //$('#form-container-side').html( message );
+                        }
                     }
-                    else {
-                        console.log('end');
-                    }
+                    // else {
+                    //     console.log('end');
+                    // }
                     $('#form-container-side').html( message );
 
                     // __ss_noform.push(['form','bottom-events', '<?php echo $ssform; ?>']);
