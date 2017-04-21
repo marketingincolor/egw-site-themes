@@ -89,9 +89,9 @@
                                                         </div>
                                                         <div class="vc_col-xs-8 vc_col-xs-offset-2 vc_col-md-4 vc_col-md-offset-0">
                                                             <div class="form-control-wrap your-terms-event">
-                                                                <input id="news-side-terms-event" class="form-control terms" checked="checked" type="checkbox" value="" style="display:initial;">I accept your
+                                                                <input id="news-side-terms-event" class="form-control terms" type="checkbox" value="" style="display:initial;">I accept your
                                                                 <a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a><br />
-                                                                <input id="news-side-subscribe-box-event" class="form-control subscribe-box" checked="checked" type="checkbox" value="" style="display:initial;">Subscribe to eNewsletter
+                                                                <input id="news-side-subscribe-box-event" class="form-control subscribe-box" type="checkbox" value="" style="display:initial;">Subscribe to eNewsletter
                                                             </div>
                                                         </div>
                                                         <div class="vc_col-xs-12">
