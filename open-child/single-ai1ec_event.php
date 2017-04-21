@@ -73,7 +73,7 @@
                                         <?php if( !is_user_logged_in() ): ?>
                                         <!-- eNewsletter FORM -->
                                         <div id="form-container-side" class="news-field-row event-enewsletter-form">
-                                        <h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3>
+                                        <h3 class="news-field-cta-title">Remind Me of This Event and Upcoming Events!</h3>
                                             <div class="news-field-cta-form-event">
                                                 <form id="bottom-events" class="not-wpcf7-form" action="" enctype="multipart/form-data" method="post">
                                                     <div class="form-control-wrap side-alert">&nbsp;</div>
@@ -90,7 +90,8 @@
                                                         <div class="vc_col-xs-8 vc_col-xs-offset-2 vc_col-md-4 vc_col-md-offset-0">
                                                             <div class="form-control-wrap your-terms-event">
                                                                 <input id="news-side-terms-event" class="form-control terms" checked="checked" type="checkbox" value="" style="display:initial;">I accept your
-                                                                <a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a>
+                                                                <a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a><br />
+                                                                <input id="news-side-subscribe-box-event" class="form-control subscribe-box" checked="checked" type="checkbox" value="" style="display:initial;">Subscribe to eNewsletter
                                                             </div>
                                                         </div>
                                                         <div class="vc_col-xs-12">
