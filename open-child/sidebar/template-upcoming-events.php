@@ -26,7 +26,7 @@
                     if (!empty($events_result)) {
                         $event_count = '0';
                         foreach ($events_result as $event) {
-                            if ($event_count < '2') {
+                            if ($event_count < '5') {
                                 $event_count ++;
                                 $event_long_date = $event->get('start');
                                 $event_date = $ai1ec_registry->get('view.event.time')->get_long_date($event_long_date);
