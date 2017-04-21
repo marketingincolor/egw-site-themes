@@ -223,9 +223,33 @@
                 url: "",
                 data: { form_title : 'Newsletter CTA', your_email : email, your_zip : zip },
                 complete: function() {
-                    __ss_noform.push(['form','bottom-events', '<?php echo $ssform; ?>']);
-                    __ss_noform.push(['submit', null, '<?php echo $ssform; ?>']);
-                    $('#form-container-side').html( message );
+                    var terms = $('#news-side-terms-event');
+                    var eNews = $('#news-side-subscribe-box-event');
+
+
+                    //Just Events
+                    if ( eNews.is(':checked') && !terms.is(':checked') ) {
+                        __ss_noform.push(['form','bottom-events', '<?php echo $ssform; ?>']);
+                        __ss_noform.push(['submit', null, '<?php echo $ssform; ?>']);
+                        $('#form-container-side').html( message );
+                    }
+
+                    //eNews & Events
+                    else if ( terms.is(':checked') && eNews.is(':checked') ) {
+                        __ss_noform.push(['form','bottom-events', '19c6d2f8-a74e-49ff-b90e-2dea5a190a73']);
+                        __ss_noform.push(['submit', null, '19c6d2f8-a74e-49ff-b90e-2dea5a190a73']);
+                        __ss_noform.push(['form','bottom-events', '<?php echo $ssform; ?>']);
+                        __ss_noform.push(['submit', null, '<?php echo $ssform; ?>']);
+                        $('#form-container-side').html( message );
+                    }
+                    else {
+                        console.log('end');
+                    }
+
+
+                    // __ss_noform.push(['form','bottom-events', '<?php echo $ssform; ?>']);
+                    // __ss_noform.push(['submit', null, '<?php echo $ssform; ?>']);
+                    // $('#form-container-side').html( message );
                 }
             });
             return false;
