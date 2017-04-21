@@ -228,7 +228,7 @@
 
 
                     //Just Events
-                    if ( eNews.is(':checked') && !terms.is(':checked') ) {
+                    if ( eNews.is(':checked') && !(terms.is(':checked')) ) {
                         __ss_noform.push(['form','bottom-events', '<?php echo $ssform; ?>']);
                         __ss_noform.push(['submit', null, '<?php echo $ssform; ?>']);
                         $('#form-container-side').html( message );
