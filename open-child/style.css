@@ -9,6 +9,7 @@
  Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
  Text Domain:  open-child
 */
+
 #news-side-submit-event  { background-color:#f79c49; color:#fff; border:none !important; font-size:18px; padding:5px 20px; cursor:pointer; }
 .event-enewsletter-form { padding: 0rem 0rem 2rem 0rem; margin-top:2rem;}
 /*Senior Games eNewsletter*/
@@ -169,6 +170,7 @@ For setting main blog style adjustment
 .foot-cta { text-align:center; margin-bottom:2em; }
 .news-field-row { border:1.5em solid #8b54a2; background-color:#fff; font-family:"Roboto"; }
 #form-container-side { border:18px solid #8b54a2; background-color:#fff;}
+#form-container-side-events { border:18px solid #3a7d3b; background-color:#fff;}
 #form-container-pop { border:2em solid #8b54a2; background-color:#fff;}
 .news-field-row h3 { text-align:center; text-transform:none; padding:10px; font-size:24px; font-weight:600; }
 .news-field-row h4 { text-align:center; text-transform:none; padding:10px; font-size:16px; }
