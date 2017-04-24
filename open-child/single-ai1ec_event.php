@@ -72,8 +72,8 @@
                                         <!-- </div> -->
                                         <?php if( !is_user_logged_in() ): ?>
                                         <!-- eNewsletter FORM -->
-                                        <div id="form-container-side" class="news-field-row event-enewsletter-form">
-                                        <h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3>
+<!--                                         <div id="form-container-side" class="news-field-row event-enewsletter-form" style="border:18px solid #3a7d3b !important;">
+                                        <h3 class="news-field-cta-title">Remind Me of This Event and Upcoming Events!</h3>
                                             <div class="news-field-cta-form-event">
                                                 <form id="bottom-events" class="not-wpcf7-form" action="" enctype="multipart/form-data" method="post">
                                                     <div class="form-control-wrap side-alert">&nbsp;</div>
@@ -89,8 +89,9 @@
                                                         </div>
                                                         <div class="vc_col-xs-8 vc_col-xs-offset-2 vc_col-md-4 vc_col-md-offset-0">
                                                             <div class="form-control-wrap your-terms-event">
-                                                                <input id="news-side-terms-event" class="form-control terms" checked="checked" type="checkbox" value="" style="display:initial;">I accept your
-                                                                <a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a>
+                                                                <input id="news-side-terms-event" class="form-control terms" type="checkbox"  checked="checked" value="" style="display:initial;">I accept your
+                                                                <a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a><br />
+                                                                <input id="news-side-subscribe-box-event" class="form-control subscribe-box" checked="checked" type="checkbox" value="" style="display:initial;">Subscribe to eNewsletter
                                                             </div>
                                                         </div>
                                                         <div class="vc_col-xs-12">
@@ -99,7 +100,7 @@
                                                     </div>
                                                 </form>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <!-- /eNewsletter FORM -->
                                         <?php endif; ?>
                                         <!-- eNewsletter FORM -->
@@ -122,6 +123,18 @@
                                             </div>
                                         </div> -->
                                         <!-- /eNewsletter FORM -->
+
+                                        <!-- NEW eNewsletter Form from SS -->
+                                        <script type="text/javascript">
+                                            var ss_form = {'account': 'MzawMDG2NDQxAwA', 'formID': 'M0g2TDE3TbXUNU4zM9Y1MbU007U0M0nWTTQzNUxMNTRPNDRIBgA'};
+                                            ss_form.width = '100%';
+                                            ss_form.height = '1000';
+                                            ss_form.domain = 'app-3QMYANU21K.marketingautomation.services';
+                                            // ss_form.hidden = {'Company': 'Anon'}; // Modify this for sending hidden variables, or overriding values
+                                        </script>
+                                        <script type="text/javascript" src="https://koi-3QMYANU21K.marketingautomation.services/client/form.js?ver=1.1.1"></script>
+                                        <!-- /NEW eNewsletter Form from SS-->
+
 
                                     </div>
                                 </div>
@@ -201,9 +214,9 @@
         </div>
     </div>
 
-    <?php $ssform = ( ENVIRONMENT_MODE == 0 ) ? 'ba3745d9-b382-4197-b0f2-ed587005b1b7' : '8c3dc976-1925-4b51-a875-ae8bf4d1e9b0'; ?>
+    <?php #$ssform = ( ENVIRONMENT_MODE == 0 ) ? 'ba3745d9-b382-4197-b0f2-ed587005b1b7' : '8c3dc976-1925-4b51-a875-ae8bf4d1e9b0'; ?>
     <!-- If certain event page add enewsletter form -->
-    <script type="text/javascript">
+<!--     <script type="text/javascript">
     jQuery(document).ready(function($) {
         var message = '</p><h3>Welcome!</h3><h4>Please check your email for more information. We hope you enjoy Evergreen Wellness<sup>&reg;</sup>.</h4><h5>If you don\'t see an email from us, please check your spam folder.</h5><p>';
         $('#news-side-submit-event').click(function() {
@@ -222,14 +235,37 @@
                 url: "",
                 data: { form_title : 'Newsletter CTA', your_email : email, your_zip : zip },
                 complete: function() {
-                    __ss_noform.push(['form','bottom-events', '<?php echo $ssform; ?>']);
-                    __ss_noform.push(['submit', null, '<?php echo $ssform; ?>']);
+
+                    var terms = $('#news-side-terms-event');
+                    var eNews = $('#news-side-subscribe-box-event');
+
+
+                    //Just Events
+                    if ( (eNews.is(':not(:checked)')) && (terms.is(':checked')) ) {
+                        __ss_noform.push(['form','bottom-events', '19c6d2f8-a74e-49ff-b90e-2dea5a190a73']);
+                        __ss_noform.push(['submit', null, '19c6d2f8-a74e-49ff-b90e-2dea5a190a73']);
+
+                    }
+
+                    //eNews & Events
+                    else if ( (terms.is(':checked')) && (eNews.is(':checked')) ) {
+                        __ss_noform.push(['form','bottom-events', '19c6d2f8-a74e-49ff-b90e-2dea5a190a73']);
+                        __ss_noform.push(['submit', null, '19c6d2f8-a74e-49ff-b90e-2dea5a190a73']);
+                        __ss_noform.push(['form','bottom-events', '<?php #echo $ssform; ?>']);
+                        __ss_noform.push(['submit', null, '<?php #echo $ssform; ?>']);
+                    }
+
+                    else {
+                        console.log('end');
+                    }
+
                     $('#form-container-side').html( message );
+
                 }
             });
             return false;
         });
     });
-</script>
+</script> -->
 
 <?php get_footer(); ?>
