@@ -72,7 +72,7 @@
                                         <!-- </div> -->
                                         <?php if( !is_user_logged_in() ): ?>
                                         <!-- eNewsletter FORM -->
-                                        <div id="form-container-side" class="news-field-row event-enewsletter-form">
+                                        <div id="form-container-side-events" class="news-field-row event-enewsletter-form">
                                         <h3 class="news-field-cta-title">Remind Me of This Event and Upcoming Events!</h3>
                                             <div class="news-field-cta-form-event">
                                                 <form id="bottom-events" class="not-wpcf7-form" action="" enctype="multipart/form-data" method="post">
