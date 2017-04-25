@@ -126,12 +126,11 @@
 
                                         <!-- NEW eNewsletter Form from SS -->
                                         <script type="text/javascript">
-                                            ss_form.hidden = {'_usePlaceholders': true};
                                             var ss_form = {'account': 'MzawMDG2NDQxAwA', 'formID': 'M0g2TDE3TbXUNU4zM9Y1MbU007U0M0nWTTQzNUxMNTRPNDRIBgA'};
                                             ss_form.width = '100%';
                                             ss_form.height = '1000';
                                             ss_form.domain = 'app-3QMYANU21K.marketingautomation.services';
-                                            // ss_form.hidden = {'Company': 'Anon'}; // Modify this for sending hidden variables, or overriding values
+                                            ss_form.hidden = {'_usePlaceholders': true};
                                         </script>
                                         <script type="text/javascript" src="https://koi-3QMYANU21K.marketingautomation.services/client/form.js?ver=1.1.1"></script>
                                         <!-- /NEW eNewsletter Form from SS-->
