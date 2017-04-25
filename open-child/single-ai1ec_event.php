@@ -126,6 +126,7 @@
 
                                         <!-- NEW eNewsletter Form from SS -->
                                         <script type="text/javascript">
+                                            ss_form.hidden = {'_usePlaceholders': true};
                                             var ss_form = {'account': 'MzawMDG2NDQxAwA', 'formID': 'M0g2TDE3TbXUNU4zM9Y1MbU007U0M0nWTTQzNUxMNTRPNDRIBgA'};
                                             ss_form.width = '100%';
                                             ss_form.height = '1000';
