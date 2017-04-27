@@ -41,11 +41,11 @@ list($post_per_section, $post_type) = scroll_loadpost_settings();
                                 ?>
                                 </div>
                             </div>
-                            <div class="mkd-column2">
+                            <div class="mkd-column2">  
                                 <div class="mkd-column-inner">
                                     <div class="vc_empty_space" style="height: 40px"><span class="vc_empty_space_inner"></span></div>
                                     <aside class="mkd-sidebar" style="transform: translateY(0px);">
-                                        <div class="widget widget_apsc_widget">   
+                                        <div class="widget widget_apsc_widget">
                                             <?php get_template_part('sidebar/template-sidebar-home'); ?>
                                         </div>    
                                     </aside>
