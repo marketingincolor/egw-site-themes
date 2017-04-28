@@ -270,3 +270,7 @@ For setting main blog style adjustment
 #psa-contact {
     margin-top:1em;
 }
+
+/*Shop Link*/
+.shoplink { border:0 !important; }
+.shoplink .textwidget { height:100%; }
