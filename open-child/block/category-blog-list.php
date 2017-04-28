@@ -58,7 +58,7 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
                                         $title_cls = article_title_class($wp_query);
                                     endif;
                                 }else {
-                                    if ($i % 3 == 1):
+                                    if ($i % 2 == 1):
                                         /* for set out class article title based on fixed heights */
                                         $title_cls = article_title_class($wp_query);
                                     endif;
