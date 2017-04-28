@@ -1236,8 +1236,8 @@ function adjust_flagging_link($link) {
 function article_title_class() {
     global $wp_query;
     $next_post = $wp_query->posts[$wp_query->current_post + 1];
-    $next_next_post = $wp_query->posts[$wp_query->current_post + 2];
-    $data = array(get_the_title(), $next_post->post_title, $next_next_post->post_title);
+    //$next_next_post = $wp_query->posts[$wp_query->current_post + 2];
+    $data = array(get_the_title(), $next_post->post_title);
     return get_title_class($data);
 }
 
@@ -1249,8 +1249,8 @@ function article_title_class() {
 function next_post_scrollarticle($blog_title_ar, $i) {
     $current = isset($blog_title_ar[$i]) ? $blog_title_ar[$i] : "";
     $next_title = isset($blog_title_ar[$i + 1]) ? $blog_title_ar[$i + 1] : "";
-    $next_next_title = isset($blog_title_ar[$i + 2]) ? $blog_title_ar[$i + 2] : "";
-    $data = array($current, $next_title, $next_next_title);
+    //$next_next_title = isset($blog_title_ar[$i + 2]) ? $blog_title_ar[$i + 2] : "";
+    $data = array($current, $next_title);
     return get_title_class($data);
 }
 
