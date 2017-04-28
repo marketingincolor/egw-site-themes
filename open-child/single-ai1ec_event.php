@@ -125,7 +125,7 @@
                                         <!-- /eNewsletter FORM -->
 
                                         <!-- NEW eNewsletter Form from SS -->
-                                        <?php if ( !isset($_COOKIE['sswp-contact']) ) : ?>
+                                        <?php //if ( !isset($_COOKIE['sswp-contact']) ) : ?>
                                         <script type="text/javascript">
                                             var ss_form = {'account': 'MzawMDG2NDQxAwA', 'formID': 'M0g2TDE3TbXUNU4zM9Y1MbU007U0M0nWTTQzNUxMNTRPNDRIBgA'};
                                             ss_form.width = '100%';
@@ -135,7 +135,7 @@
                                         </script>
                                         <script type="text/javascript" src="https://koi-3QMYANU21K.marketingautomation.services/client/form.js?ver=1.1.1"></script>
                                         <!-- /NEW eNewsletter Form from SS-->
-                                        <?php endif; ?>
+                                        <?php //endif; ?>
                                         
                                     </div>
                                 </div>
