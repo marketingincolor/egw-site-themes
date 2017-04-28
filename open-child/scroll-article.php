@@ -69,7 +69,7 @@ $tag_not_in = egw_tag_not_in($member_location);
                             $title_cls = next_post_scrollarticle($blog_title_ar, $i);
                         endif;
                     }else {
-                        if ($i % 3 == 1):
+                        if ($i % 2 == 1):
                             /* for set out class article title based on fixed heights */
                             $title_cls = next_post_scrollarticle($blog_title_ar, $i);
                         endif;
