@@ -272,5 +272,5 @@ For setting main blog style adjustment
 }
 
 /*Shop Link*/
-.shoplink { border:0 !important; }
+.shoplink { border:0 !important; float:left; }
 .shoplink .textwidget { height:100%; }
