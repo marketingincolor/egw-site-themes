@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> xmlns:fb="http://ogp.me/ns/fb#">
     <head>
+    <meta property="fb:app_id" content="1834480030135553" />
         <?php
         /**
          * @see discussion_header_meta() - hooked with 10
