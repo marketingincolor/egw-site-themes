@@ -144,6 +144,8 @@
                        comments_template('', true);
                    }
                 ?>
+                <!-- Insert point for facebook comments display-->
+                <div class="fb-comments" data-href="<?php the_permalink();?>" data-numposts="10" data-width="100%" data-colorscheme="light"></div>
                 </div>
             </div>
         </div>

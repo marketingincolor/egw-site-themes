@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?>  xmlns:fb="http://ogp.me/ns/fb#">
     <head>
         <?php
         /**
