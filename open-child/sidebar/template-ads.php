@@ -5,7 +5,7 @@
  * Purpose - Added hidden xs class for hiding in mobile view
  */
 ?>
-
+<?php if(SHOW_ADS): ?>
 <div class="widget mkd-rpc-holder hidden-xs">
     <div class="widget widget_categories">
         <div class="mkd-rpc-content">
@@ -17,3 +17,4 @@
         </div>
     </div>
 </div>
+<?php endif; ?>
