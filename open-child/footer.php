@@ -139,15 +139,16 @@ list($post_per_section,$post_type)=scroll_loadpost_settings();
     });
 
 </script>
+<?php if(get_option('egw_fb_comments_api_key')) : ?>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1834480030135553&version=v2.3";
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=<?php echo get_option('egw_fb_comments_api_key'); ?>&version=v2.3";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-
+<?php endif; ?>
 <input type="hidden" id="accountvalid" value="test"/>
 <input type="hidden" name="user_primary_site" id="user_primary_site" value="<?php echo (is_user_logged_in() ? '0' : '1');//echo other_user_profile_redirection(); ?>">
 <input type="hidden" name="is_user_login" id="is_user_login" value="<?php echo is_user_logged_in(); ?>" >

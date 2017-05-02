@@ -87,7 +87,7 @@
                   comments_template('', true);
                 ?>
                 <!-- Insert point for facebook comments display-->
-                <?php if( get_option('egw_fb_comments_single_videos')): ?>
+                <?php if( get_option('egw_fb_comments_single_videos') && get_option('egw_fb_comments_api_key' ) ): ?>
                 <div class="fb-comments" data-href="<?php the_permalink();?>" data-numposts="10" data-width="100%" data-colorscheme="light"></div>
                 <?php endif; ?>
             </div>
