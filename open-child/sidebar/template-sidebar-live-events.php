@@ -5,6 +5,7 @@
  * Purpose - Adds Revive Ads to Live Events Page
  */
 ?>
+<?php if(SHOW_ADS): ?>
 <div class="mkd-column-inner">
 	<div class="widget mkd-rpc-holder hidden-xs">
 	    <div class="widget widget_categories">
@@ -15,3 +16,4 @@
 		</div>
 	</div>
 </div>
+<?php endif; ?>

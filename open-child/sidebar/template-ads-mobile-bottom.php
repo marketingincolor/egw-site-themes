@@ -4,7 +4,7 @@
  * Date - 10-10-2016
  * Purpose - For displaying registration ads
 */
-
+<?php if(SHOW_ADS): ?>
 if( !is_user_logged_in()) { ?>
 <div class="widget mkd-rpc-holder hidden-sm hidden-md hidden-lg" style="margin-top:41px;">
     <div class="widget widget_categories">
@@ -18,3 +18,4 @@ if( !is_user_logged_in()) { ?>
     </div>
 </div>
 <?php } ?>
+<?php endif; ?>
