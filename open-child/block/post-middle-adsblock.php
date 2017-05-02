@@ -31,8 +31,8 @@ if ($total_post >= $post_per_section) {
             //    drawAdsPlace(array('id' => 3), true);
             ?>
         </div>-->
-
         <div class="fsp-ads-homepage" id="mob_adv_row_<?php echo $i; ?>" <?php if ($i != 1) { ?> style="display:none;clear:both" <?php } else { ?> style="clear:both" <?php } ?>>
+        <?php if(SHOW_ADS): ?>
             <script type="text/javascript">
                 function getzonenum() {
                     var zonenum = '1';
@@ -47,8 +47,8 @@ if ($total_post >= $post_per_section) {
                 getzonenum();
     		</script>
             <script async src="//myevergreenwellness.net/www/delivery/asyncjs.php"></script>
+        <?php endif; ?>
         </div>
-
         <?php
     }
 }

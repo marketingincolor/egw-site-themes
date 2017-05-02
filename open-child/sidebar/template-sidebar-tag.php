@@ -5,7 +5,7 @@
  * Purpose - Added Revive to Tag Pages
  */
 ?>
-
+<?php if (SHOW_ADS): ?>
 <div class="widget mkd-rpc-holder hidden-xs">
     <div class="widget widget_categories">
         <div class="mkd-rpc-content">
@@ -14,4 +14,4 @@
         </div>
     </div>
 </div>
-
+<?php endif; ?>
