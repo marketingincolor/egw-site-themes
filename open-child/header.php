@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>  xmlns:fb="http://ogp.me/ns/fb#">
     <head>
-    <?php if('egw_fb_comments_api_key'): ?>
+    <?php if( get_option('egw_fb_comments_api_key') ): ?>
     <meta property="fb:app_id" content="<?php echo get_option('egw_fb_comments_api_key'); ?>" />
     <?php endif; ?>
         <?php
