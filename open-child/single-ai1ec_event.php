@@ -197,15 +197,17 @@
                         <div class="fsp-recommended-stories-cont">
                             <?php echo do_shortcode('[AuthorRecommendedPosts]'); ?>
                         </div>
-                        <?php
-                        if (discussion_show_comments()) {
+
+                        <!-- Show Facebook Comments or WP Comments -->
+                        <?php 
+                        if( get_option('egw_fb_comments_single_posts') && get_option('egw_fb_comments_api_key' ) ): ?>
+                        <div class="fb-comments" data-href="<?php the_permalink();?>" data-numposts="10" data-width="100%" data-colorscheme="light"></div>
+                        <?php else: 
+                            get_template_part('block/comments-guidelines');
                             comments_template('', true);
-                        }
-                        ?>
-                <!-- Insert point for facebook comments display-->
-                <?php if( get_option('egw_fb_comments_single_events') && get_option('egw_fb_comments_api_key' ) ): ?>
-                <div class="fb-comments" data-href="<?php the_permalink();?>" data-numposts="10" data-width="100%" data-colorscheme="light"></div>
-                <?php endif; ?>
+                        endif; ?>
+                        <!-- /Show Facebook Comments or WP Comments -->
+
                     </div>
                 </div>
             </div>
