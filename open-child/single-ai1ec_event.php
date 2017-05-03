@@ -197,11 +197,27 @@
                         <div class="fsp-recommended-stories-cont">
                             <?php echo do_shortcode('[AuthorRecommendedPosts]'); ?>
                         </div>
-                        <?php
-                        if (discussion_show_comments()) {
-                            comments_template('', true);
-                        }
-                        ?>
+
+                        <!-- Check for comments open AND Show Facebook Comments or WP Comments -->
+                        <?php 
+                        if ( ! comments_open() ) { ?>
+                            <!-- If comments are closed display nothing. -->
+                            <p></p>
+                        <?php }
+                        else {
+                            if( get_option('egw_fb_comments_single_events') && get_option('egw_fb_comments_api_key' ) ):
+                                get_template_part('block/comments-guidelines'); ?>
+                                <div class="mkd-section-title-holder clearfix"><span class="mkd-st-title">Comments</span></div>
+                                <div style="background-color:white;">
+                                    <div class="fb-comments" data-href="<?php the_permalink();?>" data-numposts="10" data-width="100%" data-colorscheme="light"></div>
+                                </div>
+                            <?php else:
+                                get_template_part('block/comments-guidelines');
+                                comments_template('', true);
+                            endif; 
+                        } ?>
+                        <!-- /Check for comments open AND Show Facebook Comments or WP Comments -->
+
                     </div>
                 </div>
             </div>
