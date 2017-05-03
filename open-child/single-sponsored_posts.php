@@ -146,9 +146,12 @@
                     <p></p>
                 <?php }
                 else {
-                    if( get_option('egw_fb_comments_single_posts') && get_option('egw_fb_comments_api_key' ) ):
+                    if( get_option('egw_fb_comments_single_sponsored_posts') && get_option('egw_fb_comments_api_key' ) ):
                         get_template_part('block/comments-guidelines'); ?>
-                        <div class="fb-comments" data-href="<?php the_permalink();?>" data-numposts="10" data-width="100%" data-colorscheme="light"></div>
+                        <div class="mkd-section-title-holder clearfix"><span class="mkd-st-title">Comments</span></div>
+                        <div style="background-color:white;">
+                            <div class="fb-comments" data-href="<?php the_permalink();?>" data-numposts="10" data-width="100%" data-colorscheme="light"></div>
+                        </div>
                     <?php else:
                         get_template_part('block/comments-guidelines');
                         comments_template('', true);
