@@ -86,7 +86,6 @@ $merged_new_ar = array();
 </div>
 <!-- For post pagintation maintain -->
 <?php //include(locate_template('block/ajax-pagination.php')); ?>
-<?php get_footer(); ?>
 <script>
     function load_saved_articles(event) {
         var displayed_article_count = parseInt(jQuery('#displayed_article_count').text());
@@ -223,3 +222,4 @@ $merged_new_ar = array();
         }
     });
 </script>
+<?php get_footer(); ?>
