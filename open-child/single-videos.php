@@ -80,12 +80,29 @@
                 <?php egw_pre_footer(); ?>
                 <?php get_template_part('sidebar/template-ads-mobile'); ?>
                 <div class="fsp-recommended-stories-cont">
-                    <?php echo do_shortcode('[AuthorRecommendedPosts]'); ?>
+                <?php echo do_shortcode('[AuthorRecommendedPosts]'); ?>
                 </div>
-                <?php
-                  get_template_part('block/comments-guidelines');
-                  comments_template('', true);
-                ?>
+
+                <!-- Check for comments open AND Show Facebook Comments or WP Comments -->
+                <?php 
+                if ( ! comments_open() ) { ?>
+                    <!-- If comments are closed display nothing. -->
+                    <p></p>
+                <?php }
+                else {
+                    if( get_option('egw_fb_comments_single_videos') && get_option('egw_fb_comments_api_key' ) ):
+                        get_template_part('block/comments-guidelines'); ?>
+                        <div class="mkd-section-title-holder clearfix"><span class="mkd-st-title">Comments</span></div>
+                        <div style="background-color:white;">
+                            <div class="fb-comments" data-href="<?php the_permalink();?>" data-numposts="10" data-width="100%" data-colorscheme="light"></div>
+                        </div>
+                    <?php else:
+                        get_template_part('block/comments-guidelines');
+                        comments_template('', true);
+                    endif; 
+                } ?>
+                <!-- /Check for comments open AND Show Facebook Comments or WP Comments -->
+                
             </div>
         </div>
         <div class="mkd-column2">

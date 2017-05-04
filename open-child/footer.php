@@ -3,7 +3,7 @@ $member_location = get_egw_member_location();
 $tag_not_in = egw_tag_not_in($member_location);
 list($post_per_section,$post_type)=scroll_loadpost_settings();
 ?>
-<script>
+<!-- <script>
     jQuery('li.welcome-my-pop a').magnificPopup({
         callbacks: {
             ajaxContentAdded: function () {
@@ -21,7 +21,7 @@ list($post_per_section,$post_type)=scroll_loadpost_settings();
         },
         closeOnBgClick: false
     });
-</script>
+</script> -->
 
 <script>
     // Email form validation
@@ -63,18 +63,18 @@ list($post_per_section,$post_type)=scroll_loadpost_settings();
         var regExp = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9\-\.])+\.([A-Za-z]{2,4})$/;
         return regExp.test(email);
     }
-    jQuery('.f-newsletter').magnificPopup({
-        type: 'ajax',
-        ajax: {
-            settings: null, // Ajax settings object that will extend default one - http://api.jquery.com/jQuery.ajax/#jQuery-ajax-settings
-            // For example:
-            // settings: {cache:false, async:false}
+    // jQuery('.f-newsletter').magnificPopup({
+    //     type: 'ajax',
+    //     ajax: {
+    //         settings: null, // Ajax settings object that will extend default one - http://api.jquery.com/jQuery.ajax/#jQuery-ajax-settings
+    //         // For example:
+    //         // settings: {cache:false, async:false}
 
-            cursor: 'mfp-ajax-cur', // CSS class that will be added to body during the loading (adds "progress" cursor)
-            tError: '<a href="%url%">The content</a> could not be loaded.' //  Error message, can contain %curr% and %total% tags if gallery is enabled
-        },
-        closeOnBgClick: false
-    });
+    //         cursor: 'mfp-ajax-cur', // CSS class that will be added to body during the loading (adds "progress" cursor)
+    //         tError: '<a href="%url%">The content</a> could not be loaded.' //  Error message, can contain %curr% and %total% tags if gallery is enabled
+    //     },
+    //     closeOnBgClick: false
+    // });
 
 
     jQuery(document).on('click', '#myevergreen', function () {
@@ -138,26 +138,6 @@ list($post_per_section,$post_type)=scroll_loadpost_settings();
         }
     });
 
-</script>
-
-<input type="hidden" id="accountvalid" value="test"/>
-<input type="hidden" name="user_primary_site" id="user_primary_site" value="<?php echo (is_user_logged_in() ? '0' : '1');//echo other_user_profile_redirection(); ?>">
-<input type="hidden" name="is_user_login" id="is_user_login" value="<?php echo is_user_logged_in(); ?>" >
-<input type="hidden" name="member_location" id="member_location" value="<?php echo $member_location; ?>" >
-<input type="hidden" name="tag_not_in" id="tag_not_in" value="<?php var_dump($tag_not_in); ?>" >
-
-<div class="white-popup-block user-session-block mfp-hide" id="site_user_validation_popup">
-    <div class="find-a-branch-container">        
-        <div class="fs-custom-select-container fs-custom-session-container">
-            <div class="egw-homesite egw-homesite-session-popup" id="site_user_validation_popup_message">                
-            </div>
-            <div class="fs-custom-select">                
-            </div>
-        </div>        
-    </div>
-</div>
-
-<script>
     jQuery(document).ready(function () {
         jQuery('#openEnquiryForm').click(function () {
             //console.log(jQuery('#savedArticles').serialize());
@@ -209,29 +189,6 @@ list($post_per_section,$post_type)=scroll_loadpost_settings();
 
         //cancel button 
     });
-</script>
-
-<script type="text/javascript">
-jQuery(document).ready(function($){
-    $('#upload-btn').click(function(e) {
-        e.preventDefault();
-        var image = wp.media({ 
-            title: 'Upload Image',
-            // mutiple: true if you want to upload multiple files at once
-            multiple: false
-        }).open()
-        .on('select', function(e){
-            // This will return the selected image from the Media Uploader, the result is an object
-            var uploaded_image = image.state().get('selection').first();
-            // We convert uploaded_image to a JSON object to make accessing it easier
-            // Output to the console uploaded_image
-            console.log(uploaded_image);
-            var image_url = uploaded_image.toJSON().url;
-            // Let's assign the url value to the input field
-            $('#image_url').val(image_url);
-        });
-    });
-});
 </script>
 
 <?php
@@ -309,5 +266,30 @@ if ($_COOKIE['ew-cta-cnt'] >= 3) {
         do_shortcode('[cfdb-save-form-post]');
     }
 ?>
+<?php if(get_option('egw_fb_comments_api_key')) : ?>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=<?php echo get_option('egw_fb_comments_api_key'); ?>&version=v2.3";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<?php endif; ?>
+<input type="hidden" id="accountvalid" value="test"/>
+<input type="hidden" name="user_primary_site" id="user_primary_site" value="<?php echo (is_user_logged_in() ? '0' : '1');//echo); ?>">
+<input type="hidden" name="is_user_login" id="is_user_login" value="<?php echo is_user_logged_in(); ?>" >
+<input type="hidden" name="member_location" id="member_location" value="<?php echo $member_location; ?>" >
+<input type="hidden" name="tag_not_in" id="tag_not_in" value="<?php var_dump($tag_not_in); ?>" >
+<div class="white-popup-block user-session-block mfp-hide" id="site_user_validation_popup">
+    <div class="find-a-branch-container">
+        <div class="fs-custom-select-container fs-custom-session-container">
+            <div class="egw-homesite egw-homesite-session-popup" id="site_user_                                                                                                                                                                                               validation_popup_message">
+            </div>
+            <div class="fs-custom-select">
+            </div>
+        </div>
+    </div>
+</div>
 <?php //do_shortcode('[cfdb-save-form-post]'); ?>
 <?php discussion_get_footer(); ?>

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?>  xmlns:fb="http://ogp.me/ns/fb#">
     <head>
+    <?php if( get_option('egw_fb_comments_api_key') ): ?>
+    <meta property="fb:app_id" content="<?php echo get_option('egw_fb_comments_api_key'); ?>" />
+    <?php endif; ?>
         <?php
         /**
          * @see discussion_header_meta() - hooked with 10
