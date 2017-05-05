@@ -146,7 +146,7 @@ get_header();
                                             <input type="hidden" name="checkuser_id" value="<?php echo $user_ID ?>" />
                                             <input type="hidden" name="dashboard_url" value="<?php echo get_option("dashboard_url"); ?>" />
                                             <input type="hidden" name="user_id" id="user_id" value="<?php echo $user_id; ?>" />
-                                            <ul>
+                                            <ul class="hide-bullets">
                                                 <?php
                                                 if (isset($_GET['updated'])):
                                                     $d_url = $_GET['d'];
@@ -286,7 +286,7 @@ get_header();
                                 <input type="hidden" name="submit" id="submitvalue" value="update">
                                 <input type="hidden" name="userid" value="<?php echo $userid; ?>">
                             </div>
-                            <ul>
+                            <ul class="hide-bullets">
                                 <?php
                                 foreach ($fetchresult as $results) {
                                     ?>

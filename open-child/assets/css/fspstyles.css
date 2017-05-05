@@ -105,9 +105,6 @@ h6 { font-family: Roboto;font-style: normal;}
         display: none !important;
     }
 }
-li{
-    list-style: none;
-}
 .mkd-header-type3 .mkd-page-header .mkd-menu-area { 
     background-color: #b3cc36;
 }

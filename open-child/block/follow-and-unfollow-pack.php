@@ -79,7 +79,7 @@
                     <form action="" name="unfollowsubcat" id="unfollowsubcat">
                         <div id='followedSubcat' class="follow-innercont vc_col-md-12">
 
-                            <ul>
+                            <ul class="hide-bullets">
                                 <?php
                                 foreach ($fetchresult as $results) {
                                     if ($results->categoryid > 0) {
