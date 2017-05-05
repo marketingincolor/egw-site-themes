@@ -224,7 +224,7 @@ get_header();
                                         );
                                         $saved_posts = query_posts($args);                                        
                                         ?>      
-                                        <ul id="saved-artiles-list">                        
+                                        <ul id="saved-artiles-list" class="hide-bullets">                        
                                             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                                                     <?php if (($sidebar == 'default') || ($sidebar == '')) : ?>
                                                         <li>
