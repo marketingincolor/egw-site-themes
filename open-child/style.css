@@ -274,3 +274,7 @@ For setting main blog style adjustment
 /*Shop Link*/
 .shoplink { border:0 !important; float:left; }
 .shoplink .textwidget { height:100%; }
+
+/*Fixes List Issue From Hiding all ul/ol bullet styles*/
+/*Use in areas where bullets/numbers should be hidden*/
+.hide-bullets { list-style:none; }
