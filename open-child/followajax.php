@@ -28,7 +28,7 @@ if ($_POST['submit'] == 'insert') {
     $followedCatappend = '<div id="followedSubcat" class="follow-innercont vc_col-md-12"><ul>';
     foreach ($fetchresult as $results) {
         if ($results->categoryid > 0) {
-            $followedCatappend .= ' <li class="vc_col-md-2 vc_col-sm-6 vc_col-xs-12">
+            $followedCatappend .= ' <li class="vc_col-md-2 vc_col-sm-6 vc_col-xs-12 hide-bullets">
 
                 <div class="followedcheck">
                     <input type="checkbox" class="followedsubcates" name="followedcategories[]" value="' . $results->categoryid . '" id="' . get_the_category_by_ID($results->categoryid) . '">
@@ -74,7 +74,7 @@ if ($_POST['submit'] == 'delete') {
     //Followed section append
     $fetchresult = $wpdb->get_results("SELECT *from wp_follow_category where userid=" . $userid . " and flag=1 ORDER BY date DESC");
     $rowresult = $wpdb->num_rows;
-    $followedCatappend = '<div id="followedSubcat" class="follow-innercont vc_col-md-12"><ul>';
+    $followedCatappend = '<div id="followedSubcat" class="follow-innercont vc_col-md-12"><ul class="hide-bullets">';
     foreach ($fetchresult as $results) {
         if ($results->categoryid > 0) {
             $followedCatappend .= ' <li class="vc_col-md-2 vc_col-sm-6 vc_col-xs-12">
@@ -91,7 +91,7 @@ if ($_POST['submit'] == 'delete') {
 
     if ($rowresult == 0) {
 
-        $followedCatappend = '<li class="vc_col-md-8">No Record found.</li>';
+        $followedCatappend = '<li class="vc_col-md-8 hide-bullets">No Record found.</li>';
     }
     $followedCatappend .='</ul></div>';
     $followedCatappend .= '<div class="btn_flw-cont"><input type="hidden" name="submit" id="submitvalue" value="delete">';

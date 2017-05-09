@@ -33,7 +33,7 @@
                                         $loopCount = 0;
                                         ?>
                                         <input type="hidden" name="articlefetched" value="<?php echo $selectedArticles ?>">
-                                        <ul id="saved-artiles-list">                        
+                                        <ul id="saved-artiles-list" class="hide-bullets">                        
                                             <?php
                                             if (have_posts()) : while (have_posts()) : the_post();
                                                     $loopCount++;
