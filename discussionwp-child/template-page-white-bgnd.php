@@ -72,9 +72,8 @@ $story_form = is_page('storytellers') ? 'width:67%; margin:auto;' : '';
 .smcx-embed > .smcx-iframe-container { height: 2950px !important; }
 .survey-page .survey-page-button.done-button { background-color: #f99d3e !important; }
 
-.survey-page 
+.survey-message { display:none; }
 .survey-page-button:hover { box-shadow:none !important; }
-
 
 /**
  * -----------------------------------------------------------------------------
@@ -151,8 +150,48 @@ $story_form = is_page('storytellers') ? 'width:67%; margin:auto;' : '';
  * 2.0 SMALL MEDIA QUERY
  * -----------------------------------------------------------------------------
  */
+/**
+ * -----------------------------------------------------------------------------
+ * Survey Media Queries
+ * -----------------------------------------------------------------------------
+ */
+/*iphone 5*/
+@media only screen 
+and (min-device-width : 320px)
+and (max-device-width : 568px) 
+and (orientation : landscape) {
+
+.survey-message { display: block !important; }
+.hide-survey { display:none; }
+
+
+}
+
+/*iphone 6*/
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : landscape) { 
+
+.survey-message { display: block !important; }
+.hide-survey { display:none; }
+
+}
+
+/*iphone 6+*/
+@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) 
+and (orientation : landscape) { 
+
+.survey-message { display: block !important; }
+.hide-survey { display:none; }
+}
+
 @media only screen 
 and (min-device-width : 320px) { 
+/*Normalize*/
+.page-id-3702 h1 { text-align:center; font-size: 1.5em;}
 
 /*Normalize*/
 .page-id-3702 h1 { text-align:center; font-size: 1.5em;}
@@ -172,7 +211,14 @@ and (min-device-width : 320px) {
 
 .page-template-template-page-white-bgnd .large-orange-header-survey { font-size: 1.5em; }
 .modern-browser .question-matrix-table.reflow .matrix-row-label { padding-top:1em !important; }
+.orange_buttons { width: 80%; }
 
+}
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)  {
+	.smcx-embed > .smcx-iframe-container {
+    height: 2000px;
 }
 /*
  * -----------------------------------------------------------------------------
@@ -181,15 +227,18 @@ and (min-device-width : 320px) {
  */
 @media only screen 
 and (min-device-width : 1000px) { 
+.smcx-embed > .smcx-iframe-container { height: 2950px !important; }
 .page-id-3702 h1 { font-size:2em; text-align:center; font-size:2em; }
 .join-page-mobile { display: initial !important; }
 .hide-for-large { display:none; }
 .page-template-template-page-white-bgnd .mkd-content .mkd-container .hide-for-small { display:initial !important; }
 .page-template-template-page-white-bgnd .large-orange-header-survey { font-size: 2em; }
+.page-template-template-page-white-bgnd .storytellers-alignment { width: 70%; margin: auto; }
 .page-template-template-page-white-bgnd .mkd-content .mkd-container .page-feature-image img {
     border-top-right-radius: 60px;
     border-bottom-left-radius: 60px;
 }
+.orange_buttons { width: 357px !important; }
 /*
  * Page: Refer A Friend
  * Media Query: >1000px
