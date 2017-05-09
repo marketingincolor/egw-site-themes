@@ -70,7 +70,7 @@
                                         <!-- <div class="mdk-sng-pst"> -->
                                         <?php the_content(); ?>
                                         <!-- </div> -->
-                                        <?php if( !is_user_logged_in() ): ?>
+                                        <?php #if( !is_user_logged_in() ): ?>
                                         <!-- eNewsletter FORM -->
 <!--                                         <div id="form-container-side" class="news-field-row event-enewsletter-form" style="border:18px solid #3a7d3b !important;">
                                         <h3 class="news-field-cta-title">Remind Me of This Event and Upcoming Events!</h3>
@@ -102,7 +102,7 @@
                                             </div>
                                         </div> -->
                                         <!-- /eNewsletter FORM -->
-                                        <?php endif; ?>
+                                        <?php #endif; ?>
                                         <!-- eNewsletter FORM -->
 <!--                                         <div id="form-container-side" class="news-field-row">
                                         <h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3>
@@ -125,17 +125,15 @@
                                         <!-- /eNewsletter FORM -->
 
                                         <!-- NEW eNewsletter Form from SS -->
-                                        <?php //if ( !isset($_COOKIE['sswp-contact']) ) : ?>
-                                        <script type="text/javascript">
+<!--                                         <script type="text/javascript">
                                             var ss_form = {'account': 'MzawMDG2NDQxAwA', 'formID': 'M0g2TDE3TbXUNU4zM9Y1MbU007U0M0nWTTQzNUxMNTRPNDRIBgA'};
                                             ss_form.width = '100%';
                                             ss_form.height = '1000';
                                             ss_form.domain = 'app-3QMYANU21K.marketingautomation.services';
                                             ss_form.hidden = {'_usePlaceholders': true};
-                                        </script>
-                                        <script type="text/javascript" src="https://koi-3QMYANU21K.marketingautomation.services/client/form.js?ver=1.1.1"></script>
+                                        </script> -->
+                                        <!-- <script type="text/javascript" src="https://koi-3QMYANU21K.marketingautomation.services/client/form.js?ver=1.1.1"></script> -->
                                         <!-- /NEW eNewsletter Form from SS-->
-                                        <?php //endif; ?>
                                         
                                     </div>
                                 </div>
