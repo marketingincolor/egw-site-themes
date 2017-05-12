@@ -2,6 +2,7 @@
 
     <div class="mkd-container-inner"> 
         <?php
+        global $post;
         $title_tag = 'h3';
         $title_length = '20';
         $display_date = 'yes';
@@ -69,71 +70,52 @@
                                         <h1 itemprop="name" class="entry-title mkd-post-title event-title"><?php the_title(); ?></h1>
                                         <!-- <div class="mdk-sng-pst"> -->
                                         <?php the_content(); ?>
-                                        <!-- </div> -->
-                                        <?php #if( !is_user_logged_in() ): ?>
-                                        <!-- eNewsletter FORM -->
-<!--                                         <div id="form-container-side" class="news-field-row event-enewsletter-form" style="border:18px solid #3a7d3b !important;">
-                                        <h3 class="news-field-cta-title">Remind Me of This Event and Upcoming Events!</h3>
-                                            <div class="news-field-cta-form-event">
-                                                <form id="bottom-events" class="not-wpcf7-form" action="" enctype="multipart/form-data" method="post">
-                                                    <div class="form-control-wrap side-alert">&nbsp;</div>
-                                                    <input name="form_title" type="hidden" value="Newsletter CTA">
-                                                    <div class="form-control-wrap your-email">
-                                                        <div class="vc_row">
-                                                            <input class="vc_col-xs-8 vc_col-xs-offset-2" id="your-email" name="your-email" size="40" type="email" value="" placeholder=" EMAIL ADDRESS">
-                                                        </div>
-                                                    </div>
-                                                    <div class="vc_row">
-                                                        <div class="form-control-wrap your-zip-event">
-                                                                <input class="vc_col-xs-8 vc_col-xs-offset-2 vc_col-md-4 vc_col-md-offset-2" id="your-zip" name="your-zip" size="40" type="text" value="" placeholder=" ZIP CODE">
-                                                        </div>
-                                                        <div class="vc_col-xs-8 vc_col-xs-offset-2 vc_col-md-4 vc_col-md-offset-0">
-                                                            <div class="form-control-wrap your-terms-event">
-                                                                <input id="news-side-terms-event" class="form-control terms" type="checkbox"  checked="checked" value="" style="display:initial;">I accept your
-                                                                <a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a><br />
-                                                                <input id="news-side-subscribe-box-event" class="form-control subscribe-box" checked="checked" type="checkbox" value="" style="display:initial;">Subscribe to eNewsletter
-                                                            </div>
-                                                        </div>
-                                                        <div class="vc_col-xs-12">
-                                                            <input id="news-side-submit-event" class="form-control submit" type="submit" value="Sign Me Up!" style="margin-top:1rem;">
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div> -->
-                                        <!-- /eNewsletter FORM -->
-                                        <?php #endif; ?>
-                                        <!-- eNewsletter FORM -->
-<!--                                         <div id="form-container-side" class="news-field-row">
-                                        <h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3>
-                                            <div class="news-field-cta-form">
-                                                <form id="bottom-events" class="not-wpcf7-form" action="" enctype="multipart/form-data" method="post">
-                                                    <div class="form-control-wrap side-alert">&nbsp;</div>
-                                                    <input name="form_title" type="hidden" value="Newsletter CTA">
-                                                    <div class="form-control-wrap your-email">
-                                                    <input id="your-email" name="your-email" size="40" type="email" value="" placeholder=" EMAIL ADDRESS"></div>
-                                                    <div class="form-control-wrap your-zip">
-                                                    <input id="your-zip" name="your-zip" size="40" type="text" value="" placeholder=" ZIP CODE"></div>
-                                                    <div class="form-control-wrap your-terms-event">
-                                                    <input id="news-side-terms-event" class="form-control terms" checked="checked" type="checkbox" value="">I accept your
-                                                    <a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div>
-                                                    <div class="form-control-wrap side-submit">
-                                                    <input id="news-side-submit-event" class="form-control submit" type="submit" value="Sign Me Up!"></div>
-                                                </form>
-                                            </div>
-                                        </div> -->
-                                        <!-- /eNewsletter FORM -->
+                                        <?php
+                                        
+                                        $post_times = array(
+                                            'pre_start'    => get_post_meta( $post->ID, 'egw_pre_event_start_time_meta_key', true ),
+                                            'pre_end'      => get_post_meta( $post->ID, 'egw_pre_event_end_time_meta_key', true ),
+                                            'pre_content'  => get_post_meta( $post->ID, 'egw_pre_event_textarea_meta_key', true ),
+                                            'during_start' => get_post_meta( $post->ID, 'egw_during_event_start_time_meta_key', true ),
+                                            'during_end'   => get_post_meta( $post->ID, 'egw_during_event_end_time_meta_key', true ),
+                                            'during_content' => get_post_meta( $post->ID, 'egw_during_event_textarea_meta_key', true ),
+                                            'post_start'   => get_post_meta( $post->ID, 'egw_post_event_start_time_meta_key', true ),
+                                            'post_end'     => get_post_meta( $post->ID, 'egw_post_event_end_time_meta_key', true ),
+                                            'post_content' => get_post_meta( $post->ID, 'egw_post_event_textarea_meta_key', true )
+                                        );
 
-                                        <!-- NEW eNewsletter Form from SS -->
-<!--                                         <script type="text/javascript">
-                                            var ss_form = {'account': 'MzawMDG2NDQxAwA', 'formID': 'M0g2TDE3TbXUNU4zM9Y1MbU007U0M0nWTTQzNUxMNTRPNDRIBgA'};
-                                            ss_form.width = '100%';
-                                            ss_form.height = '1000';
-                                            ss_form.domain = 'app-3QMYANU21K.marketingautomation.services';
-                                            ss_form.hidden = {'_usePlaceholders': true};
-                                        </script> -->
-                                        <!-- <script type="text/javascript" src="https://koi-3QMYANU21K.marketingautomation.services/client/form.js?ver=1.1.1"></script> -->
-                                        <!-- /NEW eNewsletter Form from SS-->
+                                        // echo "Pre Start:" . $post_times[pre_start] . '<br />';
+                                        // echo "Pre End:" . $post_times[pre_end] . '<br />';
+                                        // echo "Pre Content:" . $post_times[pre_content] . '<br />';
+                                        // echo "During Start:" . $post_times[during_start] . '<br />';
+                                        // echo "During End:" . $post_times[during_end] . '<br />';
+                                        // echo "During Content:" . $post_times[during_content] . '<br />';
+                                        // echo "Post Start:" . $post_times[post_start] . '<br />';
+                                        // echo "Post End:" . $post_times[post_end] . '<br />';
+                                        // echo "Post Content:" . $post_times[post_content] . '<br />';
+
+                                        $pre_event = '[time-restrict on="'.$post_times[pre_start].'" off="'.$post_times[pre_end].'"]' . $post_times[pre_content] . '[/time-restrict]';
+                                        $during_event = '[time-restrict on="'.$post_times[during_start].'" off="'.$post_times[during_end].'"]' . $post_times[during_content] . '[/time-restrict]';
+                                        $post_event = '[time-restrict on="'.$post_times[post_start].'" off="'.$post_times[post_end].'"]' . $post_times[post_content] . '[/time-restrict]';
+
+                                        // echo $pre_event . '<br />';
+                                        // echo $during_event . '<br />';
+                                        // echo $post_event . '<br />';
+                                        ?>
+                                        
+
+                                        <!-- PRE EVENT CONTENT -->
+                                        <?php echo do_shortcode( $pre_event ); ?>
+                                        <!-- /PRE EVENT CONTENT -->
+
+                                        <!-- DURING EVENT CONTENT -->
+                                        <?php echo do_shortcode( $during_event ); ?>
+                                        <!-- /PRE EVENT CONTENT -->
+
+                                        <!-- POST EVENT CONTENT -->
+                                        <?php echo do_shortcode( $post_event ); ?>
+                                        <!-- /PRE EVENT CONTENT -->
+
                                         
                                     </div>
                                 </div>
