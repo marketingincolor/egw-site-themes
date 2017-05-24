@@ -12,6 +12,16 @@
         ?>
         <?php do_action('discussion_header_meta'); ?>
         <?php wp_head(); ?>
+
+        <!-- ADSENSE -->
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-6318619639236633",
+            enable_page_level_ads: true
+          });
+        </script>
+        <!-- /ADSENSE -->
     </head>
     <body <?php
     if (is_single()) {
