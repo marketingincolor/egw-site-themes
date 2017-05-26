@@ -129,7 +129,7 @@
         <div class="mkd-column2">
             <div class="mkd-column-inner">
                 <aside class="mkd-sidebar" style="transform: translateY(0px);">
-                    <?php get_template_part('sidebar/template-sidebar-single'); ?>
+                    <?php get_sidebar(); ?>
                 </aside>
             </div>
         </div>
