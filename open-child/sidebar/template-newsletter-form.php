@@ -1,4 +1,6 @@
-<?php //if (current_user_can(ACCESS_VILLAGE_CONTENT)): ?>
+<?php //if (current_user_can(ACCESS_VILLAGE_CONTENT)):
+$url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+ ?>
 <?php if ( isset($_COOKIE['sswp-contact']) || current_user_can(ACCESS_VILLAGE_CONTENT) ): ?>
 <div class="widget mkd-rpc-holder slideshowlink">
 <?php else: ?>
@@ -10,6 +12,7 @@
             <form action="" id="side-news-form" method="post" class="not-wpcf7-form" enctype="multipart/form-data">
                 <div class="form-control-wrap side-alert"> </div>
                 <input type="hidden" name="form_title" value="Newsletter CTA"/>
+                <input id="page-url" type="hidden" name="page_url" value="<?php echo $url; ?>" />
                 <div class="form-control-wrap your-email"><input type="email" id="your-email" name="your-email" placeholder=" EMAIL ADDRESS" value="" size="40" /></div>
                 <div class="form-control-wrap your-zip"><input type="text" id="your-zip" name="your-zip" value="" placeholder=" ZIP CODE" size="40" /></div>
                 <div class="form-control-wrap your-terms"><input type="checkbox" checked value="" id="news-side-terms" class="form-control terms" />I accept your<br/><a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div>
@@ -24,6 +27,7 @@
     jQuery(document).ready(function($) {
         var message = '<h3>Welcome!</h3><h4>Please check your email for more information. We hope you enjoy Evergreen Wellness<sup>&reg;</sup>.</h4><h5>If you don\'t see an email from us, please check your spam folder.</h5>';
         $('#news-side-submit').click(function() {
+            var page_url = $("page-url").val();
             var email = $("input#your-email").val();
             var zip = $("input#your-zip").val();
             var terms = $("input#news-side-terms").prop("checked");
@@ -34,7 +38,7 @@
             $.ajax({
                 type: "POST",
                 url: "",
-                data: { form_title : 'Newsletter CTA', your_email : email, your_zip : zip },
+                data: { form_title : 'Newsletter CTA', your_email : email, your_zip : zip, page_url : page_url },
                 complete: function() {
                     __ss_noform.push(['form','side-news-form', '<?php echo $ssform; ?>']);
                     __ss_noform.push(['submit', null, '<?php echo $ssform; ?>']);
