@@ -1,4 +1,7 @@
-<?php //if (current_user_can(ACCESS_VILLAGE_CONTENT)): ?>
+<?php 
+    $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    //if (current_user_can(ACCESS_VILLAGE_CONTENT)): 
+?>
 <?php if (isset($_COOKIE['sswp-contact']) || current_user_can(ACCESS_VILLAGE_CONTENT)): ?>
 <div class="widget mkd-rpc-holder foot-cta slideshowlink">
 <?php else: ?>
@@ -10,6 +13,7 @@
             <form action="" id="foot-news-form" method="post" class="not-wpcf7-form" enctype="multipart/form-data">
                 <div class="form-control-wrap foot-alert"> </div>
                 <input type="hidden" name="form_title" value="Newsletter CTA"/>
+                <input id="page-url" type="hidden" name="page_url" value="<?php echo $url; ?>" />
                 <div class="form-control-wrap your-email"><input type="email" id="foot-your-email" name="your-email" placeholder=" EMAIL ADDRESS" value="" size="40" /></div>
                 <div class="form-control-wrap your-zip"><input type="text" id="foot-your-zip" name="your-zip" placeholder=" ZIP CODE" value="" size="40" /></div>
                 <div class="form-control-wrap foot-submit"><input type="submit" value="Sign Me Up!" id="news-foot-submit" class="form-control submit" /></div>
@@ -34,7 +38,7 @@
             $.ajax({
                 type: "POST",
                 url: "",
-                data: { form_title : 'Newsletter CTA', your_email : email, your_zip : zip },
+                data: { form_title : 'Newsletter CTA', your_email : email, your_zip : zip, page_url : page_url  },
                 complete: function() {
                     __ss_noform.push(['form','foot-news-form', '<?php echo $ssform; ?>']);
                     __ss_noform.push(['submit', null, '<?php echo $ssform; ?>']);

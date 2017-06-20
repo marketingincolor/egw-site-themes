@@ -1,4 +1,5 @@
 <?php
+$url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $member_location = get_egw_member_location();
 $tag_not_in = egw_tag_not_in($member_location);
 list($post_per_section,$post_type)=scroll_loadpost_settings();
@@ -218,7 +219,7 @@ if ($_COOKIE['ew-cta-cnt'] >= 3) {
         if (( pop == 3 ) && ( seen == "no") ) {
             $.magnificPopup.open({
                 items: {
-                    src: '<div class="white-popup-block"><div class="news-field-row clearfix" id="form-container-pop"><h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3><div class="news-field-cta-form"><form action="" id="pop-news-form" method="post" class="not-wpcf7-form"><div class="form-control-wrap pop-alert"> </div><div class="form-control-wrap your-email"><input type="email" id="pop-your-email" name="your-email"placeholder=" EMAIL ADDRESS" value="" size="40" /></div><div class="form-control-wrap your-zip"><input type="text" id="pop-your-zip" name="your-zip" placeholder=" ZIP CODE" value="" size="40" /></div><div class="form-control-wrap your-terms"><input type="checkbox" checked value="terms" id="news-pop-terms" class="form-control terms" />I accept your <br/><a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div><input type="submit" id="news-pop-submit" value="Sign Me Up!" class="form-control submit" /></form></div><span class="msg">I\'ll do it later. <a id="txt-close">I just want to browse your site for now.</a></span></div></div>',
+                    src: '<div class="white-popup-block"><div class="news-field-row clearfix" id="form-container-pop"><h3 class="news-field-cta-title">Get FREE Wellness Tips Delivered!</h3><div class="news-field-cta-form"><form action="" id="pop-news-form" method="post" class="not-wpcf7-form"><div class="form-control-wrap pop-alert"><input id="page-url" type="hidden" name="page_url" value="<?php echo $url; ?>" /></div><div class="form-control-wrap your-email"><input type="email" id="pop-your-email" name="your-email"placeholder=" EMAIL ADDRESS" value="" size="40" /></div><div class="form-control-wrap your-zip"><input type="text" id="pop-your-zip" name="your-zip" placeholder=" ZIP CODE" value="" size="40" /></div><div class="form-control-wrap your-terms"><input type="checkbox" checked value="terms" id="news-pop-terms" class="form-control terms" />I accept your <br/><a href="https://myevergreenwellness.com/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></div><input type="submit" id="news-pop-submit" value="Sign Me Up!" class="form-control submit" /></form></div><span class="msg">I\'ll do it later. <a id="txt-close">I just want to browse your site for now.</a></span></div></div>',
                     type: 'inline'
                 }
             });
@@ -246,7 +247,7 @@ if ($_COOKIE['ew-cta-cnt'] >= 3) {
             $.ajax({
                 type: "POST",
                 url: "",
-                data: { form_title : 'Newsletter CTA', your_email : email, your_zip : zip },
+                data: { form_title : 'Newsletter CTA', your_email : email, your_zip : zip, page_url : page_url },
                 complete: function() {
                     __ss_noform.push(['form','pop-news-form', '<?php echo $ssform; ?>']);
                     __ss_noform.push(['submit', null, '<?php echo $ssform; ?>']);
