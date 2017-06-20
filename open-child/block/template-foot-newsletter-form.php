@@ -28,6 +28,7 @@
     jQuery(document).ready(function($) {
         var message = '<h3>Welcome!</h3><h4>Please check your email for more information.<br />We hope you enjoy Evergreen Wellness<sup>&reg;</sup>.</h4><h5>If you don\'t see an email from us, please check your spam folder.</h5>';
         $('#news-foot-submit').click(function() {
+            var page_url = $("page-url").val();
             var email = $("input#foot-your-email").val();
             var zip = $("input#foot-your-zip").val();
             var terms = $("input#news-foot-terms").prop("checked");
