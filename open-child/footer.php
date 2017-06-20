@@ -237,6 +237,7 @@ if ($_COOKIE['ew-cta-cnt'] >= 3) {
         $('#txt-close').click( function(e) {e.preventDefault(); $.magnificPopup.close(); } );
         var message = '<h3>Welcome!</h3><h4>Please check your email for more information. We hope you enjoy Evergreen Wellness<sup>&reg;</sup>.</h4><h5>If you don\'t see an email from us, please check your spam folder.</h5>';
         $('#news-pop-submit').click(function() {
+            var page_url = $("page-url").val();
             var email = $("input#pop-your-email").val();
             var zip = $("input#pop-your-zip").val();
             var terms = $("input#news-pop-terms").prop("checked");
