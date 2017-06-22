@@ -1081,11 +1081,44 @@ function custom_comment($comment, $args, $depth) {
     echo '</div>';
 }
 
+// function SocialNetworkShareLink($net, $image) {
+
+//     switch ($net) {
+//         case 'facebook':
+//             $link = 'window.open(\'http://www.facebook.com/sharer/sharer.php?s=100&amp;p[title]=' . urlencode(discussion_addslashes(get_the_title())) . '&amp;p[summary]=' . urlencode(discussion_addslashes(get_the_excerpt())) . '&amp;u=' . urlencode(get_permalink()) . '?utm_source=facebook%26utm_medium=sharedpost%26utm_campaign=socialshare' . '/' . rand() . '&amp;p[images][0]=' . $image[0] . '&v=' . rand() . '\', \'sharer\', \'toolbar=0,status=0,width=620,height=280\');';
+//             break;
+//         case 'twitter':
+//             $count_char = (isset($_SERVER['https'])) ? 23 : 22;
+//             $twitter_via = (discussion_options()->getOptionValue('twitter_via') !== '') ? ' via ' . discussion_options()->getOptionValue('twitter_via') . ' ' : '';
+//             $link = 'window.open(\'https://twitter.com/intent/tweet?text=' . urlencode(discussion_addslashes(get_the_title())) . '&url=' . urlencode(discussion_the_excerpt_max_charlength($count_char) . $twitter_via) . get_permalink() . '?utm_source=twitter%26utm_medium=sharedpost%26utm_campaign=socialshare' . '\', \'popupwindow\', \'scrollbars=yes,width=800,height=400\');popUp.focus();return false;';
+//             break;
+//         case 'google_plus':
+//             $link = 'popUp=window.open(\'https://plus.google.com/share?url=' . urlencode(get_permalink()) . '?utm_source=gplus%26utm_medium=sharedpost%26utm_campaign=socialshare' . '\', \'popupwindow\', \'scrollbars=yes,width=800,height=400\');popUp.focus();return false;';
+//             break;
+//         case 'linkedin':
+//             $link = 'popUp=window.open(\'http://linkedin.com/shareArticle?mini=true&amp;url=' . urlencode(get_permalink()) . '?utm_source%3Dlinkedin%26utm_medium%3Dsharedpost%26utm_campaign%3Dsocialshare' . '&amp;title=' . urlencode(get_the_title()) . '\', \'popupwindow\', \'scrollbars=yes,width=800,height=400\');popUp.focus();return false;';
+//             break;
+//         case 'tumblr':
+//             $link = 'popUp=window.open(\'http://www.tumblr.com/share/link?url=' . urlencode(get_permalink()) . '&amp;name=' . urlencode(get_the_title()) . '&amp;description=' . urlencode(get_the_excerpt()) . '\', \'popupwindow\', \'scrollbars=yes,width=800,height=400\');popUp.focus();return false;';
+//             break;
+//         case 'pinterest':
+//             $link = 'popUp=window.open(\'http://pinterest.com/pin/create/button/?url=' . urlencode(get_permalink()) . '?utm_source=pintrest%26utm_medium=sharedpost%26utm_campaign=socialshare' . '&amp;description=' . discussion_addslashes(get_the_title()) . '&amp;media=' . urlencode($image[0]) . '\', \'popupwindow\', \'scrollbars=yes,width=800,height=400\');popUp.focus();return false;';
+//             break;
+//         case 'vk':
+//             $link = 'popUp=window.open(\'http://vkontakte.ru/share.php?url=' . urlencode(get_permalink()) . '&amp;title=' . urlencode(get_the_title()) . '&amp;description=' . urlencode(get_the_excerpt()) . '&amp;image=' . urlencode($image[0]) . '\', \'popupwindow\', \'scrollbars=yes,width=800,height=400\');popUp.focus();return false;';
+//             break;
+//         default:
+//             $link = '';
+//     }
+
+//     return $link;
+// }
+
 function SocialNetworkShareLink($net, $image) {
 
     switch ($net) {
         case 'facebook':
-            $link = 'window.open(\'http://www.facebook.com/sharer/sharer.php?s=100&amp;p[title]=' . urlencode(discussion_addslashes(get_the_title())) . '&amp;p[summary]=' . urlencode(discussion_addslashes(get_the_excerpt())) . '&amp;u=' . urlencode(get_permalink()) . '?utm_source=facebook%26utm_medium=sharedpost%26utm_campaign=socialshare' . '/' . rand() . '&amp;p[images][0]=' . $image[0] . '&v=' . rand() . '\', \'sharer\', \'toolbar=0,status=0,width=620,height=280\');';
+            $link = 'window.open(\'http://www.facebook.com/sharer/sharer.php?s=100&amp;p[title]=' . urlencode(discussion_addslashes(get_the_title())) . '&amp;p[summary]=' . urlencode(discussion_addslashes(get_the_excerpt())) . '&amp;u=' . urlencode(get_permalink()) . '?utm_source=facebook%26utm_medium=sharedpost%26utm_campaign=socialshare' . '&amp;p[images][0]=' . $image[0] . '\', \'sharer\', \'toolbar=0,status=0,width=620,height=280\');';
             break;
         case 'twitter':
             $count_char = (isset($_SERVER['https'])) ? 23 : 22;
