@@ -2406,7 +2406,7 @@ function namespace_add_custom_types( $query ) {
         return $query;
     }
 }
-add_filter( 'pre_get_posts', 'namespace_add_custom_types' );
+//add_filter( 'pre_get_posts', 'namespace_add_custom_types' );
 
 /**
  * Author - eddt
