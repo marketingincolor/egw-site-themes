@@ -2450,3 +2450,27 @@ add_filter( 'wpseo_metabox_prio', 'egw_filter_yoast' );
 function egw_filter_yoast() {
     return 'low';
 }
+
+/**
+ * Modifier - adoe
+ * Date - 06/26/2017
+ * Description - Removes articles from video carousel in nav.
+ */
+function egw_video_carousel_query( $query ) {
+    $query = array(
+        'post_type' => 'videos',
+        'meta_query'=> array(
+                'relation' => 'OR',
+                array(
+                    'key' => 'hide_from_carousel',
+                    'value' => 0
+                ),
+                array(
+                    'key' => 'hide_from_carousel',
+                    'compare' => 'NOT EXISTS'
+                ),
+        ),
+    );
+    return $query;
+}
+add_filter('wpc_query', 'egw_video_carousel_query', 10, 2);
