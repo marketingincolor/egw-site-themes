@@ -16,7 +16,7 @@ Purpose - For reset password functionality
 <div class="login-container">
     <h3 class="fspr_header">Forgot Password</h3>
     <div class="status"></div>
-    <form id="fspr_login_form"  class="fspr_form"action="" method="post">
+    <form id="fspr_login_form" class="fspr_form" action="" method="post">
         <fieldset>
             <ul>
                 <li>
