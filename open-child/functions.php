@@ -2437,7 +2437,7 @@ add_shortcode( 'ssnfinclude', 'egw_footer_script_add' );
 function mic_set_post_amount(){
     wp_reset_query();
     if(is_front_page()){
-        return 36;
+        return 18;
     }
 }
 
