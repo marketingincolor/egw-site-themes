@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>  xmlns:fb="http://ogp.me/ns/fb#">
     <head>
-    <?php if( get_option('egw_fb_comments_api_key') ): ?>
-    <meta property="fb:app_id" content="<?php echo get_option('egw_fb_comments_api_key'); ?>" />
-    <?php endif; ?>
+        <?php if( get_option('egw_fb_comments_api_key') ): ?>
+            <meta property="fb:app_id" content="<?php echo get_option('egw_fb_comments_api_key'); ?>" />
+        <?php endif; ?>
         <?php
         /**
          * @see discussion_header_meta() - hooked with 10
@@ -13,7 +13,8 @@
         <?php do_action('discussion_header_meta'); ?>
         <?php wp_head(); ?>
 
-        <!-- ADSENSE -->
+        <!-- ADSENSE DFP -->
+        <?php if (ENVIRONMENT_MODE == 0) : ?>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <script>
           (adsbygoogle = window.adsbygoogle || []).push({
@@ -21,7 +22,9 @@
             enable_page_level_ads: true
           });
         </script>
-        <!-- /ADSENSE -->
+        <?php endif; ?>
+        <!-- /ADSENSE DFP -->
+
     </head>
     <body <?php
     if (is_single()) {
@@ -30,7 +33,9 @@
         body_class();
     }
     ?> itemscope itemtype="http://schema.org/WebPage">
-        <?php if (ENVIRONMENT_MODE == 1) { ?><!-- Google Tag Manager -->
+
+        <!-- GOOGLE TAG MANAGER -->
+        <?php if (ENVIRONMENT_MODE == 1) { ?>
         <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-556TBH"
                           height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <script>(function (w, d, s, l, i) {
@@ -44,7 +49,9 @@
                         '//www.googletagmanager.com/gtm.js?id=' + i + dl;
                 f.parentNode.insertBefore(j, f);
             })(window, document, 'script', 'dataLayer', 'GTM-556TBH');</script>
-        <?php } ?><!-- End Google Tag Manager -->
+        <?php } ?>
+        <!-- END GOOGLE TAG MANAGER -->
+
         <?php discussion_get_side_area(); ?>
         <div class="mkd-wrapper">
             <div class="mkd-wrapper-inner">
