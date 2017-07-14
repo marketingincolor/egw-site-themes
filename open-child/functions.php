@@ -114,12 +114,7 @@ if (!function_exists('get_videoid_from_url')) {
             $urlParts = explode("/", parse_url($url, PHP_URL_PATH));
             $arg['video_url'] = 'http://player.vimeo.com/video/';
             $url = $arg['video_url'] . $arg['video_id'] = (int) $urlParts[count($urlParts) - 1];
-        } elseif (preg_match('%https*://.*(?:wistia\.com|wi\.st)/(?:medias|embed)/(.*?)\?%', $url, $matched)) {
-            $videoId = $matched[1];
-            $arg['video_url'] = 'http://fast.wistia.net/embed/iframe/';
-            $arg['video_id'] = $videoId . '?videoFoam=true';
-            $url = $arg['video_url'] . $arg['video_id'];
-        }
+        } 
         return array($videoId, $url);
     }
 
