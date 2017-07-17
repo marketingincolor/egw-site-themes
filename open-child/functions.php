@@ -47,10 +47,6 @@ if (!function_exists('discussion_scripts')) {
         if (is_page('login')) {
             wp_enqueue_script('jquery validation', MIKADO_ASSETS_ROOT . '/js/jquery.validate.js');
         }
-
-        if (is_page('my-stories')) {
-            wp_enqueue_script('my-stories', get_stylesheet_directory_uri() .'/assets/js/send-stories.js', array('jquery'), false, true );
-        }
     }
 
     add_action('wp_enqueue_scripts', 'egw_discussion_scripts');
@@ -2448,3 +2444,46 @@ function egw_video_carousel_query( $query ) {
     return $query;
 }
 add_filter('wpc_query', 'egw_video_carousel_query', 10, 2);
+
+
+/**
+ * Purpose: For Announcement Bar.
+ * Moved from header to functions 07/17/2017
+ * Modifier: Doe
+ */
+function wpsefsp_loop() {
+    global $wp_query;
+    $loop = 'notfound';
+
+    if ($wp_query->is_page) {
+        $loop = is_front_page() ? 'front' : 'page';
+    } elseif ($wp_query->is_home) {
+        $loop = 'home';
+    } elseif ($wp_query->is_single) {
+        $loop = ( $wp_query->is_attachment ) ? 'attachment' : 'single';
+    } elseif ($wp_query->is_category) {
+        $loop = 'category';
+    } elseif ($wp_query->is_tag) {
+        $loop = 'tag';
+    } elseif ($wp_query->is_tax) {
+        $loop = 'tax';
+    } elseif ($wp_query->is_archive) {
+        if ($wp_query->is_day) {
+            $loop = 'day';
+        } elseif ($wp_query->is_month) {
+            $loop = 'month';
+        } elseif ($wp_query->is_year) {
+            $loop = 'year';
+        } elseif ($wp_query->is_author) {
+            $loop = 'author';
+        } else {
+            $loop = 'archive';
+        }
+    } elseif ($wp_query->is_search) {
+        $loop = 'search';
+    } elseif ($wp_query->is_404) {
+        $loop = 'notfound';
+    }
+
+    return $loop;
+}

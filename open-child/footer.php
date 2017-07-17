@@ -5,14 +5,23 @@ $tag_not_in = egw_tag_not_in($member_location);
 list($post_per_section,$post_type)=scroll_loadpost_settings();
 ?>
 
-<!-- My Stories Script -->
+<!-- Send Stories -->
 <?php get_template_part('forms/send-stories' ); ?>
-<!-- /My Stories Script -->
+<!-- /Send Stories  -->
 
-<!-- Popup Newsletter -->
+<!-- Newsletter Popup -->
 <?php get_template_part('forms/popup-newsletter'); ?>
-<!-- /Popup Newsletter -->
+<!-- /Newsletter Popup -->
 
+<?php 
+    $place = basename(get_permalink());
+    //if ( ($place != 'login') || ($place != 'register') || ($place != 'welcome-survey') ) {
+    $array = array('login', 'register', 'welcome-survey');
+    if (!in_array($place, $array, TRUE)) {
+        do_shortcode('[ssnfinclude placement="pop"]');
+        do_shortcode('[cfdb-save-form-post]');
+    }
+?>
 <?php if(get_option('egw_fb_comments_api_key')) : ?>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
