@@ -49,7 +49,7 @@ if (!function_exists('discussion_scripts')) {
         }
 
         if (is_page('my-stories')) {
-            wp_enqueue_script('my-stories', get_stylesheet_directory_uri() . '/assets/js/send-stories.js' );
+            wp_enqueue_script('my-stories', get_stylesheet_directory_uri() .'/assets/js/send-stories.js', array('jquery'), false, true );
         }
     }
 
