@@ -3,6 +3,7 @@
 - Removed unnecessary functions
 - Removed financial from list of categories
 - Removed duplicate scripts/styles from header
+- Removed all instances of "Wistia"
 - Created forms folder
 - Moved popup form into forms folder
 - Templated Popup Newsletter
