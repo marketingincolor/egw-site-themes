@@ -5,8 +5,12 @@ $tag_not_in = egw_tag_not_in($member_location);
 list($post_per_section,$post_type)=scroll_loadpost_settings();
 ?>
 
+<!-- My Stories Script -->
+<?php get_template_part('forms/send-stories' ); ?>
+<!-- /My Stories Script -->
+
 <!-- Popup Newsletter -->
-<?php get_template_part('forms/popup-newsletter.php'); ?>
+<?php get_template_part('forms/popup-newsletter'); ?>
 <!-- /Popup Newsletter -->
 
 <?php if(get_option('egw_fb_comments_api_key')) : ?>
