@@ -9,8 +9,7 @@ if ($video_url != "") {
     list($videoId, $val) = get_videoid_from_url($video_url);
 }
 ?>
-<div class="mkd-post-image-area wistia_embed wistia_async_<?= $videoId; ?> videoFoam=true">
-
+<div class="mkd-post-image-area videoFoam=true">
     <?php
     discussion_post_info_category(array('category' => 'no'));
     $video_file = get_field('video_file');
@@ -38,6 +37,4 @@ if ($video_url != "") {
 </div>
 
 <?php if (strpos($val, 'youtube') > 0) { ?> <!--youtube video--> <?php } else { ?>
-<!--added script for loading videos wistia url-->
-<script src="//fast.wistia.com/assets/external/E-v1.js" async></script>    
 <?php } ?>
