@@ -1,6 +1,7 @@
 <?php
-add_theme_support( 'post-thumbnails' );
 
+//Image Information
+add_theme_support( 'post-thumbnails' );
 add_image_size( 'mic_subcat', 350 );
 
 // Branch Names
@@ -29,43 +30,18 @@ if (!function_exists('discussion_scripts')) {
     /**
      * Function that includes all necessary scripts
      */
-    function discussion_scripts() {
+    function egw_discussion_scripts() {
         global $wp_scripts;
 
-        //init theme core scripts
-        wp_enqueue_script('jquery-ui-core');
-        wp_enqueue_script('jquery-ui-tabs');
-        wp_enqueue_script('wp-mediaelement');
 
-        wp_enqueue_script('discussion_third_party', MIKADO_ASSETS_ROOT . '/js/third-party.min.js', array('jquery'), false, true);
-
-        if (discussion_is_smoth_scroll_enabled()) {
-            wp_enqueue_script("discussion_smooth_page_scroll", MIKADO_ASSETS_ROOT . "/js/smoothPageScroll.js", array(), false, true);
-        }
-
-        //include google map api script
-        wp_enqueue_script('google_map_api', '//maps.googleapis.com/maps/api/js', array(), false, true);
-
-        wp_enqueue_script('discussion_modules', MIKADO_ASSETS_ROOT . '/js/modules.min.js', array('jquery'), false, true);
         wp_enqueue_script('fsp-custom-popupjs', get_stylesheet_directory_uri() . '/assets/js/jquery.magnific-popup.js', array('jquery'), false, true);
         wp_enqueue_script('common script', get_stylesheet_directory_uri() . '/assets/js/common.js', array('jquery'), false, true);
         wp_enqueue_script('tooltip-animations', get_stylesheet_directory_uri() . '/assets/js/tooltip-animations.js', array('jquery'), false, true );
 
-        //include comment reply script
-        $wp_scripts->add_data('comment-reply', 'group', 1);
-        if (is_singular()) {
-            wp_enqueue_script("comment-reply");
-        }
-
-        //include Visual Composer script
-        if (class_exists('WPBakeryVisualComposerAbstract')) {
-            wp_enqueue_script('wpb_composer_front_js');
-        }
-
         //Remove article from the user profile page
-        /*if (is_page('user-profile')) {
+        if (is_page('user-profile')) {
             wp_enqueue_script('custom-remove-save-article', MIKADO_ASSETS_ROOT . '/js/fsp-remove-save-article.js');
-        }*/
+        }
 
         //Remove article from the user profile page
         if (is_page('login')) {
@@ -73,7 +49,7 @@ if (!function_exists('discussion_scripts')) {
         }
     }
 
-    add_action('wp_enqueue_scripts', 'discussion_scripts');
+    add_action('wp_enqueue_scripts', 'egw_discussion_scripts');
 }
 
 /**
@@ -114,12 +90,7 @@ if (!function_exists('get_videoid_from_url')) {
             $urlParts = explode("/", parse_url($url, PHP_URL_PATH));
             $arg['video_url'] = 'http://player.vimeo.com/video/';
             $url = $arg['video_url'] . $arg['video_id'] = (int) $urlParts[count($urlParts) - 1];
-        } elseif (preg_match('%https*://.*(?:wistia\.com|wi\.st)/(?:medias|embed)/(.*?)\?%', $url, $matched)) {
-            $videoId = $matched[1];
-            $arg['video_url'] = 'http://fast.wistia.net/embed/iframe/';
-            $arg['video_id'] = $videoId . '?videoFoam=true';
-            $url = $arg['video_url'] . $arg['video_id'];
-        }
+        } 
         return array($videoId, $url);
     }
 
@@ -1183,7 +1154,7 @@ function fbfixheads() {
  * Purpose - For getting main category name
  */
 function main_category_name() {
-    return array('activity', 'medical', 'financial', 'relationships', 'nutrition', 'mind-spirit', 'news'/* , 'popup-studio' */);
+    return array('activity', 'medical','relationships', 'nutrition', 'mind-spirit', 'news');
 }
 
 /**
@@ -1387,7 +1358,7 @@ add_action('wp_ajax_nopriv_custom_scroll_saved_articles_load', 'custom_scroll_sa
 /**
  * Created By   - Doe
  * Created Date - 01-18-2017
- * Purpose      - For implementing append saved articles while click 'load more' button on my profile page
+ * Purpose      - For appending saved articles while clicking 'load more' button on my profile page
  */
 function load_more_profile() {
     get_template_part('block/user-profile-articles');
@@ -2181,7 +2152,6 @@ function add_sponsored_post_bar() {
         echo '<div class="sponsored-post-bar">Sponsored Content <i class="fa fa-info-circle icon-2x" aria-hidden="true"></i></span><span class="tooltip-text" style="display:none; padding:1em; text-align:center;">' . get_field('sponsored_content_message') . '</div>';
     }
 }
-
 add_action('sponsored-post', 'add_sponsored_post_bar');
 
 /**
@@ -2474,3 +2444,46 @@ function egw_video_carousel_query( $query ) {
     return $query;
 }
 add_filter('wpc_query', 'egw_video_carousel_query', 10, 2);
+
+
+/**
+ * Purpose: For Announcement Bar.
+ * Moved from header to functions 07/17/2017
+ * Modifier: Doe
+ */
+function wpsefsp_loop() {
+    global $wp_query;
+    $loop = 'notfound';
+
+    if ($wp_query->is_page) {
+        $loop = is_front_page() ? 'front' : 'page';
+    } elseif ($wp_query->is_home) {
+        $loop = 'home';
+    } elseif ($wp_query->is_single) {
+        $loop = ( $wp_query->is_attachment ) ? 'attachment' : 'single';
+    } elseif ($wp_query->is_category) {
+        $loop = 'category';
+    } elseif ($wp_query->is_tag) {
+        $loop = 'tag';
+    } elseif ($wp_query->is_tax) {
+        $loop = 'tax';
+    } elseif ($wp_query->is_archive) {
+        if ($wp_query->is_day) {
+            $loop = 'day';
+        } elseif ($wp_query->is_month) {
+            $loop = 'month';
+        } elseif ($wp_query->is_year) {
+            $loop = 'year';
+        } elseif ($wp_query->is_author) {
+            $loop = 'author';
+        } else {
+            $loop = 'archive';
+        }
+    } elseif ($wp_query->is_search) {
+        $loop = 'search';
+    } elseif ($wp_query->is_404) {
+        $loop = 'notfound';
+    }
+
+    return $loop;
+}
