@@ -2487,3 +2487,23 @@ function wpsefsp_loop() {
 
     return $loop;
 }
+
+/**
+ * Author: Doe
+ * Purpose: Recipe DL Button
+ */
+
+function egw_recipe_button($atts, $content = null) {
+   extract(shortcode_atts(array(
+      'pdf_link' => "",
+      'title'    => "",
+      'id'       => "orange-recipe-btn",
+      'class'    => ""
+   ), $atts));
+
+if ( $title == null || $title == "" ) : 
+    $title = "Download Recipe";
+endif;
+return '<div id="'. $id . '" class="'. $class . '" /><a href="'.$pdf_link.'" title="Recipe Download Button" style="color:#fff;">' . $title . '</a></div>';
+}
+add_shortcode('egw_recipe_button', 'egw_recipe_button');
