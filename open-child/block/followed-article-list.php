@@ -53,13 +53,38 @@ list($post_per_section, $post_type) = scroll_loadpost_settings();
                              * Show remaining article belongs to following subcategories
                              */
                             $j = 0;
-
+                           // if ($i < $post_per_section && $total_followed_posts >= $post_per_section) {
+                           //     $remaining = $post_per_section - $i;
+                           //     $posts = follow_categorypost_detail($post_type, $subcat_id_ar, $display_postid_ar);
+                           //     if (!empty($posts)) {
+                           //         foreach ($posts as $post): setup_postdata($post);
+                           //             if ($j == $remaining)
+                           //                 break;
+                           //             array_push($display_postid_ar, get_the_ID());
+                           //             $display_post_title_ar[] = get_the_title();
+                           //             $j++;
+                           //         endforeach;
+                           //         wp_reset_postdata();
+                           //     }
+                           // }
                             $k = 0;
                             /**
                              * displaying remaining unfollow article if we have less followed articles
                              */
                             $remaining=0;
-
+                            //if (($i + $j) < $post_per_section) {
+                            //    $remaining = $post_per_section - ($i + $j);
+                            //    unfollow_categorypost_detail($post_type, $cat_id_ar, $display_postid_ar, $remaining);
+                            //    global $wp_query;
+                            //    $found_posts = $wp_query->found_posts;
+                            //    if (have_posts()):
+                            //        while (have_posts()) :the_post();
+                            //            array_push($display_postid_ar, get_the_ID());
+                            //            $display_post_title_ar[] = get_the_title();
+                            //        endwhile;
+                            //    endif;
+                            //    wp_reset_postdata();
+                            //}
                             
                             $_SESSION["display_postid_ar"] = $display_postid_ar;
                             $_SESSION["displayed_sub_cat_ar"] = $displayed_sub_cat_ar;

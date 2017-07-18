@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>  xmlns:fb="http://ogp.me/ns/fb#">
     <head>
-        <?php if( get_option('egw_fb_comments_api_key') ): ?>
-            <meta property="fb:app_id" content="<?php echo get_option('egw_fb_comments_api_key'); ?>" />
-        <?php endif; ?>
+    <?php if( get_option('egw_fb_comments_api_key') ): ?>
+    <meta property="fb:app_id" content="<?php echo get_option('egw_fb_comments_api_key'); ?>" />
+    <?php endif; ?>
         <?php
         /**
          * @see discussion_header_meta() - hooked with 10
@@ -13,8 +13,7 @@
         <?php do_action('discussion_header_meta'); ?>
         <?php wp_head(); ?>
 
-        <!-- ADSENSE DFP -->
-        <?php if (ENVIRONMENT_MODE == 0) : ?>
+        <!-- ADSENSE -->
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <script>
           (adsbygoogle = window.adsbygoogle || []).push({
@@ -22,9 +21,7 @@
             enable_page_level_ads: true
           });
         </script>
-        <?php endif; ?>
-        <!-- /ADSENSE DFP -->
-
+        <!-- /ADSENSE -->
     </head>
     <body <?php
     if (is_single()) {
@@ -33,9 +30,7 @@
         body_class();
     }
     ?> itemscope itemtype="http://schema.org/WebPage">
-
-        <!-- GOOGLE TAG MANAGER -->
-        <?php if (ENVIRONMENT_MODE == 1) { ?>
+        <?php if (ENVIRONMENT_MODE == 1) { ?><!-- Google Tag Manager -->
         <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-556TBH"
                           height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <script>(function (w, d, s, l, i) {
@@ -49,9 +44,7 @@
                         '//www.googletagmanager.com/gtm.js?id=' + i + dl;
                 f.parentNode.insertBefore(j, f);
             })(window, document, 'script', 'dataLayer', 'GTM-556TBH');</script>
-        <?php } ?>
-        <!-- END GOOGLE TAG MANAGER -->
-
+        <?php } ?><!-- End Google Tag Manager -->
         <?php discussion_get_side_area(); ?>
         <div class="mkd-wrapper">
             <div class="mkd-wrapper-inner">
@@ -74,6 +67,46 @@
 
                 <div class="mkd-content" <?php discussion_content_elem_style_attr(); ?>>
                     <div class="mkd-content-inner">
+                        <!-- Announcement Notifications -->
+                        <?php
+
+                        function wpsefsp_loop() {
+                            global $wp_query;
+                            $loop = 'notfound';
+
+                            if ($wp_query->is_page) {
+                                $loop = is_front_page() ? 'front' : 'page';
+                            } elseif ($wp_query->is_home) {
+                                $loop = 'home';
+                            } elseif ($wp_query->is_single) {
+                                $loop = ( $wp_query->is_attachment ) ? 'attachment' : 'single';
+                            } elseif ($wp_query->is_category) {
+                                $loop = 'category';
+                            } elseif ($wp_query->is_tag) {
+                                $loop = 'tag';
+                            } elseif ($wp_query->is_tax) {
+                                $loop = 'tax';
+                            } elseif ($wp_query->is_archive) {
+                                if ($wp_query->is_day) {
+                                    $loop = 'day';
+                                } elseif ($wp_query->is_month) {
+                                    $loop = 'month';
+                                } elseif ($wp_query->is_year) {
+                                    $loop = 'year';
+                                } elseif ($wp_query->is_author) {
+                                    $loop = 'author';
+                                } else {
+                                    $loop = 'archive';
+                                }
+                            } elseif ($wp_query->is_search) {
+                                $loop = 'search';
+                            } elseif ($wp_query->is_404) {
+                                $loop = 'notfound';
+                            }
+
+                            return $loop;
+                        }
+                        ?>
                         <div class="announcementcontainer">
                             <?php
                             //Find out current page is what? e.g. page, category or post etc..

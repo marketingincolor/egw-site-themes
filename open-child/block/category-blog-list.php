@@ -44,7 +44,7 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
                     <script async src="//myevergreenwellness.net/www/delivery/asyncjs.php"></script>
                 <?php endif; ?>
                 </div>
-            <div class="mkd-bnl-holder mkd-pl-five-holder  mkd-post-columns-<?php echo $num_columns; ?>" data-base="mkd_post_layout_five"  data-number_of_posts="2" data-column_number="2" data-category_id="7" data-thumb_image_size="custom_size" data-thumb_image_width="302" data-thumb_image_height="198" data-title_tag="h6" data-title_length="27" data-display_date="no"  data-display_category="no" data-display_comments="no" data-display_share="no" data-display_count="no" data-display_excerpt="yes" data-excerpt_length="7" data-display_read_more="no"     data-paged="1" data-max_pages="8">
+            <div class="mkd-bnl-holder mkd-pl-five-holder  mkd-post-columns-<?php echo $num_columns; ?>"  data-base="mkd_post_layout_five"  data-number_of_posts="2" data-column_number="2" data-category_id="7"         data-thumb_image_size="custom_size" data-thumb_image_width="302" data-thumb_image_height="198" data-title_tag="h6" data-title_length="27" data-display_date="no"  data-display_category="no" data-display_comments="no" data-display_share="no" data-display_count="no" data-display_excerpt="yes" data-excerpt_length="7" data-display_read_more="no"     data-paged="1" data-max_pages="8">
                 <div class="mkd-bnl-outer">
                     <div class="mkd-bnl-inner">
                         <?php
@@ -137,8 +137,7 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
                                     <div class="mkd-pt-six-content-holder">
                                         <div class="mkd-pt-six-title-holder <?php echo $title_cls; ?>">
                                             <<?php echo esc_html($title_tag) ?> class="mkd-pt-six-title">
-                                            <a itemprop="url" class="mkd-pt-link" href="<?php echo $post_link; ?>" target="_self">
-                                            <?php echo discussion_get_title_substring(get_the_title(), $title_length) ?></a>
+                                            <a itemprop="url" class="mkd-pt-link" href="<?php echo $post_link; ?>" target="_self"><?php echo discussion_get_title_substring(get_the_title(), $title_length) ?></a>
                                             </<?php echo esc_html($title_tag) ?>>
 
                                         <!-- Sponsored Content Blurb -->
