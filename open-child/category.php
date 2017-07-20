@@ -42,8 +42,8 @@ list($post_per_section,$post_type)=scroll_loadpost_settings();
                                     ?>               
                                 
                                 </div>
-                            </div><!-- #content -->
-                                <div class="mkd-column2">
+                            </div>
+                            <div class="mkd-column2">
                                 <div class="mkd-column-inner">
                                     <aside class="mkd-sidebar" style="transform: translateY(0px);">
                                         <div class="widget widget_apsc_widget">  
