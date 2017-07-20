@@ -207,7 +207,7 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
                 ?>">
                 <input type="hidden" id="processing" value="0">
                 <input type="hidden" id="currentloop" value="1">
-                <?php if($current_url!=get_home_url()) { ?>
+                <?php if($current_url != get_home_url()) { ?>
                 <input type="hidden" id="total_post" value="<?php echo $wp_query->found_posts; ?>">
                 <?php } else { ?>
                 <input type="hidden" id="total_post" value="<?php echo mic_set_post_amount(); ?>">

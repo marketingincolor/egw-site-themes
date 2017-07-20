@@ -2507,3 +2507,19 @@ endif;
 return '<div id="'. $id . '" class="'. $class . '" /><a href="'.$pdf_link.'" title="Recipe Download Button" style="color:#fff;">' . $title . '</a></div>';
 }
 add_shortcode('egw_recipe_button', 'egw_recipe_button');
+
+/**
+ * Author: Doe
+ * Purpose: Add custom post types to tags.php pages
+ */
+
+function egw_add_custom_posts_to_taxonomy( $query ) {
+    if( is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
+
+    // Get post types
+    $post_types = array( 'post', 'videos', 'sponsored_posts' );
+    $query->set( 'post_type', $post_types );
+    return $query;
+    }
+}
+add_filter( 'pre_get_posts', 'egw_add_custom_posts_to_taxonomy' );
