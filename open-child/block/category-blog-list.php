@@ -7,9 +7,12 @@
  */
 ?>
 <?php
+global $post;
+$post_id = $post->ID;
 list($post_per_section, $post_type) = scroll_loadpost_settings();
 $main_cat_id="";
 $main_cat_det="";
+$post_author_id = get_post_field( 'post_author', $post_id );
 $company_name = get_the_author_meta( 'egwsp_company_name', $post_author_id );
 $company_website = get_the_author_meta( 'egwsp_company_website', $post_author_id );
 $num_columns = get_num_columns();
@@ -51,6 +54,7 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
                         $i = 1;
                         $total_post = 0;
                         $title_cls = "";
+                        $post_no = null;
                         if (have_posts()) {
                             while (have_posts()) :the_post();
                                 if (strstr($_SERVER['HTTP_USER_AGENT'], 'iPad')) {
@@ -123,10 +127,12 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
                                                     echo discussion_generate_thumbnail(get_post_thumbnail_id(get_the_ID()), null, $thumb_image_width, $thumb_image_height);
                                                 }
 
-                                                if ($display_post_type_icon == 'yes') {
-                                                    discussion_post_info_type(array(
-                                                        'icon' => 'yes',
-                                                    ));
+                                                if ( isset($display_post_type_icon)) {
+                                                    if ($display_post_type_icon == 'yes') {
+                                                        discussion_post_info_type(array(
+                                                            'icon' => 'yes',
+                                                        ));
+                                                    }
                                                 }
                                                 ?>
                                              <?php do_action('sponsored-post'); ?> 

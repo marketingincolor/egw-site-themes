@@ -309,8 +309,10 @@ if (!function_exists('discussion_custom_getData')) {
             $data .= 'data-image-height=' . esc_attr($params['slider_height']) . ' ';
         }
 
-        if ($atts['number_of_posts'] !== '') {
-            $data .= 'data-posts-no=' . esc_attr($atts['number_of_posts']) . ' ';
+        if( isset($atts['number_of_posts'])) {
+            if ($atts['number_of_posts'] !== '') {
+                $data .= 'data-posts-no=' . esc_attr($atts['number_of_posts']) . ' ';
+            }
         }
 
         return $data;
@@ -1377,6 +1379,7 @@ add_action('wp_ajax_nopriv_load_more_profile', 'load_more_profile');
  * Purpose      - Getting username using user email address
  */
 function login_with_email_address($username) {
+    $user_username = null;
     $user = get_user_by('email', $username);
     $userDetails = $user->data;
     // print_r($userDetails->user_login);
