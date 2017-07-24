@@ -23,8 +23,10 @@ list($post_per_section, $post_type) = scroll_loadpost_settings();
         <div class="mkd-full-width">
             <div class="mkd-full-width-inner">
                 <?php
-                if ($_REQUEST['redirect'] == "success") {
-                    get_template_part('block/register-success');
+                if ( isset($_REQUEST['redirect'])) {
+                    if ($_REQUEST['redirect'] == "success") {
+                        get_template_part('block/register-success');
+                    }
                 }
                 get_template_part('block/home-page-banner'); ?>
 
