@@ -18,18 +18,18 @@
                 <div class="mkd-related-post">
                     <div class="mkd-related-post-inner">
                         <div class="mkd-related-top-content">
+                        <a target="_self" href="<?php echo get_permalink($recommended_id); ?>" class="mkd-related-link" itemprop="url">
                             <div class="mkd-related-image">
                                 <?php if ($recommended_post_thumbnail_id) { ?>
-                                    <a target="_self" href="<?php echo get_permalink($recommended_id); ?>" class="mkd-related-link mkd-image-link" itemprop="url">
-                                        <img height="444" width="800" sizes="(max-width: 800px) 100vw, 800px" srcset="<?php echo $recommended_post_thumbnail_src[0]; ?> 300w, <?php echo $recommended_post_large_src[0]; ?> 768w, <?php echo $recommended_post_thumbnail_src[0]; ?> 1024w, <?php echo $recommended_post_thumbnail_src[0]; ?> 1300w" alt="a" class="attachment-discussion_landscape size-discussion_landscape wp-post-image" src="<?php echo $recommended_post_thumbnail_src[0]; ?>">
-                                    </a>
+                                    <img height="444" width="800" sizes="(max-width: 800px) 100vw, 800px" srcset="<?php echo $recommended_post_thumbnail_src[0]; ?> 300w, <?php echo $recommended_post_large_src[0]; ?> 768w, <?php echo $recommended_post_thumbnail_src[0]; ?> 1024w, <?php echo $recommended_post_thumbnail_src[0]; ?> 1300w" alt="a" class="attachment-discussion_landscape size-discussion_landscape wp-post-image" src="<?php echo $recommended_post_thumbnail_src[0]; ?>">
                                 <?php } ?>
                             </div>
                             <div class="mkd-related-content">
                                 <h4 class="mkd-related-title">
-                                    <a target="_self" href="<?php echo get_permalink($recommended_id); ?>" class="mkd-related-link" itemprop="url"><?php echo get_the_title($recommended_id); ?></a>
+                                    <?php echo get_the_title($recommended_id); ?>
                                 </h4>
                             </div>
+                        </a>
                         </div>
                     </div>
                 </div> 

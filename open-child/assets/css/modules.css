@@ -11641,8 +11641,8 @@ html[xmlns] .mkd-blog-holder article .mkd-pg-slider {
 }
 
 .mkd-related-posts-holder .mkd-related-content {
-  height: 100%;
   width: 100%;
+  height: 100%;
   display: inline-block;
   vertical-align: middle;
   padding: 6.5% 9% 7.5%;
