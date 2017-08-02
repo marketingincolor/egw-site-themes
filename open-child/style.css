@@ -15,7 +15,7 @@
     padding: 10px 40px;
     border: none;
     text-align: center;
-    width: 150px;
+    width: auto;
     color: #fff;
     font-weight: bold;
     cursor: pointer;
@@ -289,3 +289,20 @@ For setting main blog style adjustment
 /*Fixes List Issue From Hiding all ul/ol bullet styles*/
 /*Use in areas where bullets/numbers should be hidden*/
 .hide-bullets { list-style:none; }
+
+/* Small only */
+@media screen and (max-width: 39.9375em){}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	#orange-recipe-btn { width: 200px; }
+} 
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {}
+
+/* Large and up */
+@media screen and (min-width: 64em) {}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {}
