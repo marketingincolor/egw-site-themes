@@ -10,6 +10,19 @@
  Text Domain:  open-child
 */
 
+/*Fixes img cta alignment*/
+
+.float-left {
+    float:left;
+}
+
+.align-cta-headline {
+    bottom: 50%;
+    position: relative;
+    transform: translateY(-050%);
+    left: 20px;
+}
+
 #orange-recipe-btn { 
     background: #f69c4a;
     padding: 10px 40px;
