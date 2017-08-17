@@ -8,7 +8,7 @@
 <!-- 	<a href="https://myevergreenwellness.com/nutrition/dani-spies-recipes/healthy-eating-expert-dani-spies/" target="_blank"><img src="<?php #echo get_stylesheet_directory_uri(); ?>/assets/img/dani-spies-evergreen-wellness.jpg" alt="Healthy Eating Expert Dani Spies"></a> -->
 
 	<?php if(SHOW_ADS): ?>
-	<div class="widget mkd-rpc-holder hidden-sm hidden-md hidden-lg">
+	<div class="widget mkd-rpc-holder hidden-sm hidden-md">
 	    <div class="widget widget_categories">
 	        <div class="mkd-rpc-content">
 	            <!-- Insert Ads here -->
