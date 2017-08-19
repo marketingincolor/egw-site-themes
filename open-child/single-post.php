@@ -72,11 +72,16 @@
                                     </div>
                                 <?php } ?>
                                 <?php discussion_get_module_template_part('templates/single/parts/title', 'blog'); ?>
-                                    <div class="mdk-sng-pst">
-                                    <?php the_content(); ?>
-                                    <?php echo do_shortcode('[egw-learn-more]' ); ?>
-                                    <?php do_action('last_updated'); ?>
+                                <?php if( in_category('jaime-brenkus')): ?>
+                                    <div id="jb-logo">
+                                        <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/jaime-brenkus-byline.png'; ?>" alt="Jaime Brenkus Post Branding">
                                     </div>
+                                <?php endif; ?>
+                                <div class="mdk-sng-pst">
+                                <?php the_content(); ?>
+                                <?php echo do_shortcode('[egw-learn-more]' ); ?>
+                                <?php do_action('last_updated'); ?>
+                                </div>
                                 </div>
                             </div>
                         </div>
