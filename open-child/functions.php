@@ -2526,3 +2526,13 @@ function egw_add_custom_posts_to_taxonomy( $query ) {
     }
 }
 add_filter( 'pre_get_posts', 'egw_add_custom_posts_to_taxonomy' );
+
+//Page Slug Body Class
+function add_slug_body_class( $classes ) {
+    global $post;
+        if ( isset( $post ) ) {
+        $classes[] = $post->post_type . '-' . $post->post_name;
+    }
+    return $classes;
+}
+add_filter( 'body_class', 'add_slug_body_class' );
