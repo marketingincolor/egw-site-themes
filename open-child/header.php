@@ -28,6 +28,8 @@
         <!-- PINTEREST -->
         <meta name="p:domain_verify" content="4f03e837a6f1a3a03dac63b1c78dbc93"/>
         <!-- /PINTEREST -->
+        
+        <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet"> -->
 
     </head>
     <body <?php

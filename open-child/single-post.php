@@ -1,3 +1,9 @@
+<?php 
+
+if( is_single( 'Agent Orange' ) ):
+    get_template_part( 'page-agent-orange' );
+else:
+?>
 <?php get_header(); ?>
 
 <div class="mkd-container-inner">
@@ -143,4 +149,6 @@
         </div>
     </div> <!-- mkd-two-columns-75-25  mkd-content-has-sidebar clearfix -->
 </div> <!-- mkd-container-inner -->
-<?php get_footer(); ?>
+<?php get_footer(); 
+endif;
+?>
