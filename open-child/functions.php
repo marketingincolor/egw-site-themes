@@ -21,6 +21,7 @@ if (!function_exists('discussion_styles')) {
         wp_enqueue_style('discussion_modules', get_stylesheet_directory_uri() . '/assets/css/modules.css');
         wp_enqueue_style('fsp_custom_css', get_stylesheet_directory_uri() . '/assets/css/fspstyles.css');
         wp_enqueue_style('fsp_custom_popup', get_stylesheet_directory_uri() . '/assets/css/magnific-popup.css');
+        wp_enqueue_style('agent-orange', get_stylesheet_directory_uri() . '/agent-orange.css' );
     }
     add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
 }

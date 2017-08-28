@@ -12,6 +12,32 @@
 
 /*Fixes img cta alignment*/
 
+@font-face {
+  font-family: 'boston-traffic';
+  src: url('<?php echo get_stylesheet_directory_uri() . '/assets/fonts/Boston-Traffic/boston_traffic.ttf'; ?>'); 
+}
+@font-face {
+    font-family: 'menlo';
+    src: url('<?php echo get_stylesheet_directory_uri() . '/assets/fonts/Menlo-Regular.ttf'; ?>');
+}
+@font-face {
+    font-family: 'zilla-slab';
+    src: url('<?php echo get_stylesheet_directory_uri() . '/assets/fonts/zilla-slab/ZillaSlab-Regular.ttf';?>');
+}
+@font-face {
+    font-family: 'zilla-slab';
+    src: url('<?php echo get_stylesheet_directory_uri() . '/assets/fonts/zilla-slab/ZillaSlab-Light.ttf;'?>');
+    font-style: normal;
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'zilla-slab';
+    src: url("'<?php echo get_stylesheet_directory_uri() . '/assets/fonts/zilla-slab/ZillaSlab-Ligth.otf;'?>'") format("opentype");
+    font-style: normal;
+    font-weight: 100;
+}
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
 .float-left {
     float:left;
 }
@@ -315,7 +341,85 @@ For setting main blog style adjustment
 @media screen and (min-width: 40em) and (max-width: 63.9375em) {}
 
 /* Large and up */
-@media screen and (min-width: 64em) {}
+@media screen and (min-width: 64em) {
+    .post-agent-orange #title h1 { 
+        font-size: 4rem;
+    }
+    .post-agent-orange #tagline p {
+        font-size: 2.5rem;
+    }
+    .post-agent-orange #top-caption {     
+        font-size: 1.5rem;
+    }
+    .post-agent-orange #author-byline p {
+        font-size: 1.5rem;
+    } 
+}
 
 /* Large only */
-@media screen and (min-width: 64em) and (max-width: 74.9375em) {}
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {
+}
+
+.post-agent-orange .parent {
+/*    position: relative;*/
+}
+.post-agent-orange .child {
+/*    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);*/
+}
+.post-agent-orange .mobile-img { padding-top: 6px;  }
+.post-agent-orange .caption { padding: 1rem 0rem; }
+.post-agent-orange .uppercase { text-transform: uppercase; }
+.post-agent-orange .callout { border-top: 4px solid #ff7b00; border-bottom: 4px solid #ff7b00; padding: 1rem 1.5rem; font-weight: bold; margin: 2rem 0rem; }
+.post-agent-orange .float-left { float: left; }
+.post-agent-orange .float-right { float: right; }
+.post-agent-orange .caption-wrapper { margin: 2rem 0rem;}
+.post-agent-orange .caption { 
+    font-weight: bold;    
+    position: absolute;
+    height: auto;
+    top: 50%;
+    transform: translateY(-50%); 
+    font-style: italic;
+}
+.text-center { text-align: center; }
+.post-agent-orange .uppercase { text-transform: uppercase; }
+.post-agent-orange .social-icon-wd-container ul li a { height: auto !important; }
+.post-agent-orange .mdk-sng-pst p { font-family: 'Source Sans Pro', 'sans-serif'; }
+.post-agent-orange .mkd-content { background-color: #fff; }
+.post-agent-orange #title-block { 
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    left: 50%;
+    z-index: 1;
+    color: #fff;
+    font-style: italic;
+}
+.post-agent-orange #author-byline p { font-family: 'Source Sans Pro', sans-serif; padding-top: 1.5rem; }
+.post-agent-orange #top-caption {     
+    font-family: 'zilla-slab', serif;
+    line-height: 1.5rem;
+    font-weight: 100; 
+}
+
+.post-agent-orange #tagline p {
+    color: #fff;
+    font-family: 'menlo', 'sans-serif';
+    text-transform: uppercase;
+
+}
+.post-agent-orange #title h1 { 
+    color: #fff; 
+    font-family: 'boston-traffic', 'serif';
+    text-transform: uppercase;
+    border-bottom: 2px solid orange;
+}
+.relative { position: relative; }
+.post-agent-orange .ao_content_wrapper { background-color: #fff; }
+#agent-orange-person img { 
+    border: 4px solid #ff941d; 
+}
+#ao_person_group { position: relative; top: -50px; }

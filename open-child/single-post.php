@@ -1,10 +1,5 @@
 <?php 
-
-if( is_single( 'Agent Orange' ) ):
-    get_template_part( 'page-agent-orange' );
-else:
-?>
-<?php get_header(); ?>
+get_header(); ?>
 
 <div class="mkd-container-inner">
     <?php
