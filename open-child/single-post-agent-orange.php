@@ -109,7 +109,7 @@ get_header();
                                         Some studies have linked birth defects and other medical issues to children, and even grandchildren, of Vietnam veterans at a higher rate than the general population. Westfall says it is no coincidence that his 43-year-old daughter and two grandchildren struggle with learning disabilities.</p>
 
                                         <div class="callout text-center">
-                                            Veterans now face a different war: VA delays, roadblocks, tangled bureaucracy and endless paperwork.
+                                            <p>Veterans now face a different war: VA delays, roadblocks, tangled bureaucracy and endless paperwork.</p>
                                         </div>
 
                                         <p>
@@ -450,8 +450,7 @@ get_header();
 
                                         <div class="callout text-center">
                                         <p>
-                                        “Vietnam was the largest living laboratory of people exposed to a very potent poison. The problem is the VA doesn’t want this on its plate. The powers that be would prefer it all just go away.”
-                                        –Betty Mekdeci, founder of the Orlando-based Birth Defect Research for Children
+                                        “Vietnam was the largest living laboratory of people exposed to a very potent poison. The problem is the VA doesn’t want this on its plate. The powers that be would prefer it all just go away.” <br /> –Betty Mekdeci, founder of the Orlando-based Birth Defect Research for Children
                                         </p>
                                         </div>
                                         <p>Betty Mekdeci is doing her part to make sure the unanswered questions are addressed and challenged.
@@ -632,6 +631,7 @@ get_header();
                     <?php #echo do_shortcode('[AuthorRecommendedPosts]'); ?>
                 </div>
                 
+                <?php get_template_part('sidebar/template-sidebar-agent-orange'); ?>
                 <!-- Check for comments open AND Show Facebook Comments or WP Comments -->
                 <?php 
                 if ( ! comments_open() ) { ?>
@@ -650,7 +650,6 @@ get_header();
                         comments_template('', true);
                     endif; 
                 } ?>
-                <?php get_template_part('sidebar/template-sidebar-agent-orange'); ?>
                 <!-- /Check for comments open AND Show Facebook Comments or WP Comments -->
 
                 </div>
