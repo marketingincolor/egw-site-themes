@@ -227,7 +227,7 @@ get_header();
                                                         <img style="display: inline-block; max-height: 300px; width: auto;" class="size-full wp-image-3262" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/Wagner.png';?>" alt=""  class="size-full wp-image-3258" alt="" width="900" height="500">
                                                     </div>
                                                     <div style="display: table-cell; width: 75%; text-align:left; height: 150px;">
-                                                        <p class="" style=" display: inline-block; width: auto; padding: 1rem; font-weight: bold; font-style: italic;">Despite his many health problems, Wagner is not bitter. He knows the intention of using Agent Orange was to help save American lives.</p>
+                                                        <p class="" style=" display: inline-block; width: auto; padding: 1rem; font-weight: bold; font-style: italic; height: 150px;">Despite his many health problems, Wagner is not bitter. He knows the intention of using Agent Orange was to help save American lives.</p>
                                                     </div>
                                                 </div>
                                             </div>
