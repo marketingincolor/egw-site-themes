@@ -580,8 +580,6 @@ get_header();
 
                                         Bob Westfall sees an irony in all the renewed interest in the war.
 
-                                        CAPTION:
-
                                         <div class="vc_row caption-wrapper vc_hidden-xs vc_hidden-sm vc_hidden-md">
                                             <div class="vc_col-sm-12 vc_col-md-12">
                                                 <div style="display: table; height: 300px;">

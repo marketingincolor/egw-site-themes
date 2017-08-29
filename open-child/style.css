@@ -329,36 +329,6 @@ For setting main blog style adjustment
 /*Use in areas where bullets/numbers should be hidden*/
 .hide-bullets { list-style:none; }
 
-/* Small only */
-@media screen and (max-width: 39.9375em){}
-
-/* Medium and up */
-@media screen and (min-width: 40em) {
-	#orange-recipe-btn { width: 200px; }
-} 
-
-/* Medium only */
-@media screen and (min-width: 40em) and (max-width: 63.9375em) {}
-
-/* Large and up */
-@media screen and (min-width: 64em) {
-    .post-agent-orange #title h1 { 
-        font-size: 4rem;
-    }
-    .post-agent-orange #tagline p {
-        font-size: 2.5rem;
-    }
-    .post-agent-orange #top-caption {     
-        font-size: 1.5rem;
-    }
-    .post-agent-orange #author-byline p {
-        font-size: 1.5rem;
-    } 
-}
-
-/* Large only */
-@media screen and (min-width: 64em) and (max-width: 74.9375em) {
-}
 
 .post-agent-orange .parent {
 /*    position: relative;*/
@@ -423,3 +393,36 @@ For setting main blog style adjustment
     border: 4px solid #ff941d; 
 }
 #ao_person_group { position: relative; top: -50px; }
+
+/* Small only */
+@media screen and (max-width: 39.9375em){}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	#orange-recipe-btn { width: 200px; }
+} 
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+    .post-agent-orange #title h1 { 
+        font-size: 4rem;
+    }
+    .post-agent-orange #tagline p {
+        font-size: 2.5rem;
+    }
+    .post-agent-orange #top-caption {     
+        font-size: 1.5rem;
+        margin-top: -50px;
+        padding: 2rem;
+    }
+    .post-agent-orange #author-byline p {
+        font-size: 1.5rem;
+    } 
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {
+}
