@@ -581,6 +581,29 @@ get_header();
                                         Bob Westfall sees an irony in all the renewed interest in the war.
 
                                         CAPTION:
+
+                                        <div class="vc_row caption-wrapper vc_hidden-xs vc_hidden-sm vc_hidden-md">
+                                            <div class="vc_col-sm-12 vc_col-md-12">
+                                                <div style="display: table; height: 300px;">
+                                                    <div style="display: table-cell; width: 25%; height: 250px;">
+                                                        <img style="display: inline-block; max-height: 300px; width: auto;" class="size-full wp-image-3262" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/Westfall2.png';?>" alt="" width="450" height="500" class="size-full wp-image-3256" alt=""  class="size-full wp-image-3258" alt="" width="900" height="500">
+                                                    </div>
+                                                    <div style="display: table-cell; width: 75%; text-align:left;">
+                                                        <p class="" style=" display: inline-block; width: auto; height: 150px; padding: 2rem; font-weight: bold; font-style: italic;">Westfall still remembers bathing in bomb craters filled with rank water, an oily substance floating on top.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="vc_row vc_hidden-lg">
+                                            <div class="vc_col-sm-12">
+                                                    <img style="display: inline-block;" class="mobile-img size-full wp-image-3262" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/Westfall2.png';?>" alt="" width="900" height="500">
+                                            </div>
+                                            <div class="vc_col-sm-12">
+                                                <p class="" style=" display: inline-block; width: auto;  padding: 1rem; font-weight: bold; font-style: italic;">Westfall still remembers bathing in bomb craters filled with rank water, an oily substance floating on top.</p>
+                                            </div>
+                                        </div>
+
                                         Westfall still remembers bathing in bomb craters filled with rank water, an oily substance floating on top.
 
                                         “When we got home, nobody wanted to talk about it with you,” he says. “That included the guys who served over there. It wasn’t a popular subject.”
