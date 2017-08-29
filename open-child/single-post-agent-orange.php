@@ -423,11 +423,11 @@ get_header();
                                         <div class="vc_row caption-wrapper vc_hidden-xs vc_hidden-sm vc_hidden-md">
                                             <div class="vc_col-sm-12 vc_col-md-12">
                                                 <div style="display: table;">
-                                                    <div style="display: table-cell; width: 50%; text-align:center;">
-                                                        <p class="" style=" display: inline-block; width: auto; height: 150px; padding: 2rem; font-weight: bold; font-style: italic;">“Operation Ranch Hand” was the codename for the U.S. military program that sprayed more than 19 million gallons of herbicides to defoliate nearly 4.5 million acres of Vietnam’s upland forests and farmlands.</p>
+                                                    <div style="display: table-cell; width: 40%; text-align:center;">
+                                                        <p class="" style=" display: inline-block; width: auto; height: 175px; padding: 2rem; font-weight: bold; font-style: italic;">“Operation Ranch Hand” was the codename for the U.S. military program that sprayed more than 19 million gallons of herbicides to defoliate nearly 4.5 million acres of Vietnam’s upland forests and farmlands.</p>
                                                     </div>
-                                                    <div style="display: table-cell; width: 50%;">
-                                                        <img style="display: inline-block; max-height: 300px; width: auto;" class="size-full wp-image-3262" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/Spraying.png';?>" alt="" width="900" height="500" class="size-full wp-image-3264" alt=""  class="size-full wp-image-3258" alt="" width="900" height="500">
+                                                    <div style="display: table-cell; width: 60%;">
+                                                        <img style="display: inline-block; max-height: 350px; float:right; width: auto;" class="size-full wp-image-3262" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/Spraying.png';?>" alt="" width="900" height="500" class="size-full wp-image-3264" alt=""  class="size-full wp-image-3258" alt="" width="900" height="500">
                                                     </div>
                                                 </div>
                                             </div>
@@ -571,8 +571,27 @@ get_header();
 
                                         Not just in America, but in Vietnam as well. Dioxin, now regarded as one of the most toxic chemicals ever produced, remains in the country’s ecosystem, in the soil and in the rivers, which provide fish and drinking water.
 
-                                        CAPTION:
-                                        Agent Orange will be one of many facets examined in “The Vietnam War,” a Ken Burns documentary series premiering on Sept. 17 on local PBS stations.
+                                        <div class="vc_row caption-wrapper vc_hidden-xs vc_hidden-sm vc_hidden-md">
+                                            <div class="vc_col-sm-12 vc_col-md-12">
+                                                <div style="display: table; height: 300px;">
+                                                    <div style="display: table-cell; width: 40%; text-align:left;">
+                                                        <p class="" style=" display: inline-block; width: auto; height: 150px; padding: 2rem; font-weight: bold; font-style: italic;">Agent Orange will be one of many facets examined in “The Vietnam War,” a Ken Burns documentary series premiering on Sept. 17 on local PBS stations.</p>
+                                                    </div>
+                                                    <div style="display: table-cell; width: 60%; height: 250px;">
+                                                        <img style="display: inline-block; max-height: 350px; float:right; width: auto;" class="size-full wp-image-3262" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/VietnamesePair.png';?>" alt="" width="450" height="500" class="size-full wp-image-3256" alt=""  class="size-full wp-image-3258" alt="" width="900" height="500">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="vc_row vc_hidden-lg">
+                                            <div class="vc_col-sm-12">
+                                                    <img style="display: inline-block;" class="mobile-img size-full wp-image-3262" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/VietnamesePair.png';?>" alt="" width="900" height="500">
+                                            </div>
+                                            <div class="vc_col-sm-12">
+                                                <p class="" style=" display: inline-block; width: auto;  padding: 1rem; font-weight: bold; font-style: italic;">Agent Orange will be one of many facets examined in “The Vietnam War,” a Ken Burns documentary series premiering on Sept. 17 on local PBS stations.</p>
+                                            </div>
+                                        </div>
 
                                         According to the Red Cross of Vietnam, up to 1 million Vietnamese are disabled or have severe health problems due to Agent Orange, 100,000 of which are children. Millions more have been exposed, causing at least some 400,000 deaths.
 
