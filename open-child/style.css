@@ -395,11 +395,15 @@ For setting main blog style adjustment
 #ao_person_group { position: relative; top: -50px; }
 
 /* Small only */
-@media screen and (max-width: 39.9375em){}
+@media screen and (max-width: 39.9375em){
+    .text-center {text-align: center;}
+
+}
 
 /* Medium and up */
 @media screen and (min-width: 40em) {
 	#orange-recipe-btn { width: 200px; }
+    .medium-text-left { text-align: left !important; }
 } 
 
 /* Medium only */
