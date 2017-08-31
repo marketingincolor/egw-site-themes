@@ -14,7 +14,7 @@ get_header();
                 <p>a toxic legacy</p>
             </div>
             <div id="author-byline" class="text-center">
-                <p>By: Michelle Bearden</p>
+                <p>By Michelle Bearden</p>
             </div>
         </div>
         <div id="ao_person_group" class="vc_col-xs-offset-3 vc_col-xs-6 vc_hidden-xs vc_hidden-sm vc_hidden-md">
