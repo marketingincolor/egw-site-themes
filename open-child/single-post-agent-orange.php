@@ -157,7 +157,7 @@ get_header();
                                         “There’s a whole lot of us who’ve been affected by this,” he says. “And we’re getting older. I think the idea is to keep knocking you down until you give up and eventually die. Don’t give up.”</p>
                                         <br />
                                         <br />
-                                        <strong><span class="uppercase"><p>From 1962 until 1971, the U.S. military sprayed more than 19 million gallons</span></strong> of herbicides from cargo planes, trucks, helicopters and by hand to defoliate nearly 4.5 million acres of upland forests and farmlands in southern and central Vietnam in a program codenamed Operation Ranch Hand.<br/><br/>
+                                        <strong><p><span class="uppercase">From 1962 until 1971, the U.S. military sprayed more than 19 million gallons</span></strong> of herbicides from cargo planes, trucks, helicopters and by hand to defoliate nearly 4.5 million acres of upland forests and farmlands in southern and central Vietnam in a program codenamed Operation Ranch Hand.<br/><br/>
 
                                         Its purpose: Destroy the foliage that provided cover for North Vietnamese and Viet Cong troops and wipe out crops that were feeding them. The most used herbicide was Agent Orange, which contained the dangerous chemical dioxin, a highly toxic pollutant linked to numerous cancers, birth defects, diabetes and other disabilities.<br/><br/>
                                         With concentrations up to 20 times higher than normal agricultural use, it did the job.<br/><br/>
@@ -565,7 +565,7 @@ get_header();
 
                                         “If I knew then what I knew now,” she says, “I probably wouldn’t have had children. I don’t want my child to go through what I’ve gone through.”</p>
                                         <br>
-                                        <strong><span class="uppercase"><p>More than 40 years have passed since the fall of Saigon.</span></strong> Yet the emotional and physical scars of the survivors of this complicated and divisive war still resonate.<br />
+                                        <strong><p><span class="uppercase">More than 40 years have passed since the fall of Saigon.</span></strong> Yet the emotional and physical scars of the survivors of this complicated and divisive war still resonate.<br />
 
                                         <p>Not just in America, but in Vietnam as well. Dioxin, now regarded as one of the most toxic chemicals ever produced, remains in the country’s ecosystem, in the soil and in the rivers, which provide fish and drinking water.</p>
 
