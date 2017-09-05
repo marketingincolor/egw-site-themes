@@ -8,7 +8,7 @@ get_header();
         </div>
         <div id="title-block">
             <div id="title" style="">
-                <h1>Agent Orange</h1>
+                <h1><span>A</span>gent Orange</h1>
             </div>
             <div id="tagline">
                 <p>a toxic legacy</p>
@@ -60,7 +60,7 @@ get_header();
                             
                                     <div id="top-caption" class="row">
                                         <div class="vc_col-sm-8 vc_col-sm-offset-2 text-center">
-                                            Forty-two years after the fall of Saigon, veterans from The Villages® and countless others are still battling the aftermath of Agent Orange.
+                                            Forty-two years after the fall of Saigon, veterans from The Villages<sup>&reg;</sup> and countless others are still battling the aftermath of Agent Orange.
                                         </div>
                                     </div>
                                     <div class="mdk-sng-pst"><p>
@@ -102,7 +102,7 @@ get_header();
                                         <p>
                                         “We saw what it did to the land,” he says of the powerful herbicide used in Vietnam by the United States military. “No one was thinking of the damage it was doing to the humans.”<br/><br/>
 
-                                        A resident of The Villages in Central Florida, Westfall has fought lymphoma, a blood cancer that traveled through his neck, groin and spleen. He ingested so much chemotherapy that it calcified his adrenal gland and thickened the walls of his bladder. He has dealt with depression, alcoholism and post-traumatic stress disorder. Because the U.S. Department of Veterans Affairs considers lymphoma one of 18 presumptive health conditions connected to Agent Orange exposure, Westfall earns a monthly disability check.<br/><br/>
+                                        A resident of <a href="https://www.thevillages.com/" target="_blank">The Villages</a> in Central Florida, Westfall has fought lymphoma, a blood cancer that traveled through his neck, groin and spleen. He ingested so much chemotherapy that it calcified his adrenal gland and thickened the walls of his bladder. He has dealt with depression, alcoholism and post-traumatic stress disorder. Because the U.S. Department of Veterans Affairs considers lymphoma one of <a href="https://www.publichealth.va.gov/exposures/agentorange/conditions/" target="_blank">18 presumptive health conditions connected to Agent Orange</a> exposure, Westfall earns a monthly disability check.<br/><br/>
 
                                         But that’s not the end of it.<br/><br/>
 
@@ -154,10 +154,10 @@ get_header();
                                         </div>
 
                                         <p>
-                                        “There’s a whole lot of us who’ve been affected by this,” he says. “And we’re getting older. I think the idea is to keep knocking you down until you give up and eventually die. Don’t give up.”
+                                        “There’s a whole lot of us who’ve been affected by this,” he says. “And we’re getting older. I think the idea is to keep knocking you down until you give up and eventually die. Don’t give up.”</p>
                                         <br />
                                         <br />
-                                        <strong><span class="uppercase">From 1962 until 1971, the U.S. military sprayed more than 19 million gallons</span></strong> of herbicides from cargo planes, trucks, helicopters and by hand to defoliate nearly 4.5 million acres of upland forests and farmlands in southern and central Vietnam in a program codenamed Operation Ranch Hand.<br/><br/>
+                                        <strong><span class="uppercase"><p>From 1962 until 1971, the U.S. military sprayed more than 19 million gallons</span></strong> of herbicides from cargo planes, trucks, helicopters and by hand to defoliate nearly 4.5 million acres of upland forests and farmlands in southern and central Vietnam in a program codenamed Operation Ranch Hand.<br/><br/>
 
                                         Its purpose: Destroy the foliage that provided cover for North Vietnamese and Viet Cong troops and wipe out crops that were feeding them. The most used herbicide was Agent Orange, which contained the dangerous chemical dioxin, a highly toxic pollutant linked to numerous cancers, birth defects, diabetes and other disabilities.<br/><br/>
                                         With concentrations up to 20 times higher than normal agricultural use, it did the job.<br/><br/>
@@ -199,7 +199,7 @@ get_header();
                                         <p>
                                         Military personnel were told not to worry, that the chemical was harmless. At the time, Wagner says, they had no reason to doubt it.<br/><br/>
 
-                                        Wagner, 71, is president of The Villages chapter of the Vietnam Veterans of America, the largest group in the state and ninth largest in the country. Like many of his fellow members, he has his own Agent Orange story.<br/><br/>
+                                        Wagner, 71, is president of <a href="http://www.vva1036.org/" target="_blank">The Villages chapter of the Vietnam Veterans of America</a>, the largest group in the state and ninth largest in the country. Like many of his fellow members, he has his own Agent Orange story.<br/><br/>
 
                                         Besides PTSD, he now suffers from neuropathy and diabetes – both among presumptive health conditions resulting from exposure. He also was diagnosed with bladder cancer and hypertension, neither of which is on the list. Nonetheless, he has submitted claims that were denied. He’s appealing in hopes the VA will eventually add them.<br/><br/>
 
@@ -258,7 +258,7 @@ get_header();
                                         <p>
                                         The controversy simmered. The VA began offering free examinations to veterans and started issuing notifications as new revelations about the herbicide’s impact came to light. It established an Agent Orange Registry to keep track of each vet’s health history.<br/><br/>
 
-                                        Only after years of research and study was it scientifically accepted that herbicides such as Agent Orange could stay in the system and manifest later in life. Finally, in 1991, Congress passed the Agent Orange Act that required the National Academy of Sciences to periodically review all medical and scientific research on the health effects related to Agent Orange and other chemicals used during the Vietnam War. It also gave the VA power to declare certain health conditions as “presumptive” to dioxin exposure.<br/><br/>
+                                        Only after years of research and study was it scientifically accepted that herbicides such as Agent Orange could stay in the system and manifest later in life. Finally, in 1991, Congress passed the Agent Orange Act that required the National Academy of Sciences to <a href="http://www.nationalacademies.org/hmd/Activities/Veterans/AgentOrangeEleventhUpdate.aspx" target="_blank">periodically review all medical and scientific research</a> on the health effects related to Agent Orange and other chemicals used during the Vietnam War. It also gave the VA power to declare certain health conditions as “presumptive” to dioxin exposure.<br/><br/>
 
                                         “That certainly changed the game,” says Fred Harrop, a retired Veterans Service Officer who worked for both state and county agencies.</p>
 
@@ -409,7 +409,7 @@ get_header();
                                         <p>
                                         <strong><span class="uppercase">The Agent Orange controversy has been passed to</span></strong> second- and even third-generation descendants of those who served in the war. The jury is still out: To what extent is the collateral damage in children and grandchildren of Vietnam vets?<br/><br/>
 
-                                        In December, The Virginian-Pilot teamed with ProPublica, a nonprofit newsroom that produces investigative journalism in the public interest, on the in-depth project “The Children of Agent Orange.” The story revealed that even though the VA had collected reams of data in its Agent Orange Registry and physically examined more than 668,000 Vietnam vets over the years, it hadn’t studied it enough for the clues that supported the long-held suspicions of their subjects: That their exposure to dioxin harmed the children they birthed or fathered after the war.</p>
+                                        In December, The Virginian-Pilot teamed with ProPublica, a nonprofit newsroom that produces investigative journalism in the public interest, on the in-depth project <a href="https://www.propublica.org/article/the-children-of-agent-orange" target="_blank">“The Children of Agent Orange.”</a> The story revealed that even though the VA had collected reams of data in its Agent Orange Registry and physically examined more than 668,000 Vietnam vets over the years, it hadn’t studied it enough for the clues that supported the long-held suspicions of their subjects: That their exposure to dioxin harmed the children they birthed or fathered after the war.</p>
 
 <!--                                         <div class="vc_row relative caption-wrapper">
                                             <div class="vc_col-sm-4">
@@ -454,7 +454,7 @@ get_header();
                                         </div>
                                         <p>Betty Mekdeci is doing her part to make sure the unanswered questions are addressed and challenged.<br/><br/>
 
-                                        She’s the founder of the Orlando-based Birth Defect Research for Children, which provides birth defect information to parents and investigates the cause of birth defects that could have been prevented.<br/><br/>
+                                        She’s the founder of the Orlando-based <a href="http://www.birthdefects.org/" target="_blank">Birth Defect Research for Children</a>, which provides birth defect information to parents and investigates the cause of birth defects that could have been prevented.<br/><br/>
 
                                         The nonprofit is rooted in her own personal journey. When her son was born with multiple birth defects in 1975, she and her husband Mike contacted the FDA about medications prescribed for Betty during her pregnancy. With the help of whistleblowers at FDA, they focused on Bendectin, a medication approved to treat nausea and vomiting during pregnancy. Seven years of research and relentless efforts led to Bendectin’s removal from the worldwide market in 1982.<br/><br/>
 
@@ -500,7 +500,7 @@ get_header();
 
                                         Mekdeci has presented data she’s collected over the years to the National Academy of Sciences, congressional committees, the VA and in national media forums. Current scientific evidence, she says, argues that not only is dioxin a potent carcinogen, but it also triggers reproductive, developmental and immunological defects.<br/><br/>
 
-                                        In June, the foundation released its latest report, comparing the differences in structural and functional birth defects in children of Vietnam vets compared to children of non-veterans in the registry. The results were startling: The children of the veterans fared worse in most categories, including learning disabilities, immune response disorders, endocrine defects, cancer, benign tumors, and liver, bile duct and spleen defects.<br/><br/>
+                                        In June, the foundation released its <a href="http://www.birthdefects.org/wp-content/uploads/2017/07/2017-Vietnam-Veterans-004.pdf" target="_blank">latest report</a>, comparing the differences in structural and functional birth defects in children of Vietnam vets compared to children of non-veterans in the registry. The results were startling: The children of the veterans fared worse in most categories, including learning disabilities, immune response disorders, endocrine defects, cancer, benign tumors, and liver, bile duct and spleen defects.<br/><br/>
 
                                         “We made a contract with our veterans. If they get hurt, we take care of them,” Mekdeci says. “And if their children have been harmed because of their service to our country, we owe them, too.”<br/><br/>
 
@@ -551,7 +551,7 @@ get_header();
 
                                         She knows it’s an uphill battle. Since 2001, according to The Children of Agent Orange project, the VA has received claims from more than 8,100 offspring citing spina bifida and other birth defects. Of those, only 1,325 claimants have received benefits.<br/><br/>
 
-                                        Six years ago, Mack co-founded Children of Vietnam Veterans Health Alliance, giving voice to some 4,300 members who share their stories and exchange information. Conditions that dominate the conversation lately, she says, are “off the charts” female reproductive issues, autoimmune diseases and aggressive brain cancer.
+                                        Six years ago, Mack co-founded <a href="http://www.covvha.net/" target="_blank">Children of Vietnam Veterans Health Alliance</a>, giving voice to some 4,300 members who share their stories and exchange information. Conditions that dominate the conversation lately, she says, are “off the charts” female reproductive issues, autoimmune diseases and aggressive brain cancer.
                                         </p>
                                         <div class="callout text-center">
                                         <p>“If I knew then what I know now, I probably wouldn’t have had children. I don’t want my child to go through what I’ve gone through.” <br /><br /> –Tanya Mack</p>
@@ -563,10 +563,9 @@ get_header();
 
                                         Mack, a mother of three, curses Agent Orange for yet another reason. Her 11-year-old daughter suffers from a connective tissue disorder, leaving her ligaments loose and unable to hold her joints in place. Mack can’t help but wonder about its origin.<br/><br/>
 
-                                        “If I knew then what I knew now,” she says, “I probably wouldn’t have had children. I don’t want my child to go through what I’ve gone through.”
-                                        <br />
-                                        <br />
-                                        <strong><span class="uppercase">More than 40 years have passed since the fall of Saigon.</span></strong> Yet the emotional and physical scars of the survivors of this complicated and divisive war still resonate.<br />
+                                        “If I knew then what I knew now,” she says, “I probably wouldn’t have had children. I don’t want my child to go through what I’ve gone through.”</p>
+                                        <br>
+                                        <strong><span class="uppercase"><p>More than 40 years have passed since the fall of Saigon.</span></strong> Yet the emotional and physical scars of the survivors of this complicated and divisive war still resonate.<br />
 
                                         <p>Not just in America, but in Vietnam as well. Dioxin, now regarded as one of the most toxic chemicals ever produced, remains in the country’s ecosystem, in the soil and in the rivers, which provide fish and drinking water.</p>
 
@@ -574,7 +573,7 @@ get_header();
                                             <div class="vc_col-sm-12 vc_col-md-12">
                                                 <div style="display: table; height: 300px;">
                                                     <div style="display: table-cell; width: 40%; text-align:left;">
-                                                        <p class="" style=" display: inline-block; width: auto; height: 150px; padding: 2rem; font-weight: bold; font-style: italic;">Agent Orange will be one of many facets examined in “The Vietnam War,” a Ken Burns documentary series premiering on Sept. 17 on local PBS stations.</p>
+                                                        <p class="" style=" display: inline-block; width: auto; height: 150px; padding: 2rem; font-weight: bold; font-style: italic;">Agent Orange will be one of many facets examined in <a href="http://www.pbs.org/kenburns/the-vietnam-war/home/" target="_blank">“The Vietnam War,”</a> a Ken Burns documentary series premiering on Sept. 17 on local PBS stations.</p>
                                                     </div>
                                                     <div style="display: table-cell; width: 60%; height: 250px;">
                                                         <img style="display: inline-block; max-height: 350px; float:right; width: auto;" class="size-full wp-image-3262" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/VietnamesePair.png';?>" alt="" width="450" height="500" class="size-full wp-image-3256" alt=""  class="size-full wp-image-3258" alt="" width="900" height="500">
@@ -594,7 +593,7 @@ get_header();
 
                                         <p>According to the Red Cross of Vietnam, up to 1 million Vietnamese are disabled or have severe health problems due to Agent Orange, 100,000 of which are children. Millions more have been exposed, causing at least some 400,000 deaths.<br/><br/>
 
-                                        The herbicide’s terrible legacy will be one of many facets examined in “The Vietnam War,” a 10-part, 18-hour documentary by award-winning filmmakers Ken Burns and Lynn Novick. The film series premieres Sept. 17 on local PBS stations, and will feature testimony from nearly 80 American and Vietnamese witnesses, from those who fought in the war to those who opposed it.<br/><br/>
+                                        The herbicide’s terrible legacy will be one of many facets examined in <a href="http://www.pbs.org/kenburns/the-vietnam-war/home/" target="_blank">“The Vietnam War,”</a> a 10-part, 18-hour documentary by award-winning filmmakers Ken Burns and Lynn Novick. The film series premieres Sept. 17 on local PBS stations, and will feature testimony from nearly 80 American and Vietnamese witnesses, from those who fought in the war to those who opposed it.<br/><br/>
 
                                         Bob Westfall sees an irony in all the renewed interest in the war.</p>
 

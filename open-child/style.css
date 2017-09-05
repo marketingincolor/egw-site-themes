@@ -366,7 +366,6 @@ For setting main blog style adjustment
     left: 50%;
     z-index: 1;
     color: #fff;
-    font-style: italic;
 }
 .post-agent-orange #author-byline p { font-family: 'Source Sans Pro', sans-serif; padding-top: 1.5rem; }
 .post-agent-orange #top-caption {     
@@ -393,6 +392,8 @@ For setting main blog style adjustment
     border: 4px solid #ff941d; 
 }
 #ao_person_group { position: relative; top: -50px; }
+/*.post-agent-orange #title-block #title h1 span { letter-spacing: -.25rem; }*/
+.post-agent-orange #title h1 { font-size: 4rem; letter-spacing: .25rem; }
 
 /* Small only */
 @media screen and (max-width: 39.9375em){
@@ -404,6 +405,8 @@ For setting main blog style adjustment
 @media screen and (min-width: 40em) {
 	#orange-recipe-btn { width: 200px; }
     .medium-text-left { text-align: left !important; }
+    .post-agent-orange #title-block #title h1 span { letter-spacing: -.25rem; }
+
 } 
 
 /* Medium only */
@@ -415,7 +418,8 @@ For setting main blog style adjustment
         font-size: 4rem;
     }
     .post-agent-orange #tagline p {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
+        letter-spacing: .15rem;
     }
     .post-agent-orange #top-caption {     
         font-size: 1.5rem;
@@ -425,6 +429,7 @@ For setting main blog style adjustment
     .post-agent-orange #author-byline p {
         font-size: 1.5rem;
     } 
+    /*.post-agent-orange #title-block #title h1 span { letter-spacing: -.45rem; }*/
 }
 
 /* Large only */
