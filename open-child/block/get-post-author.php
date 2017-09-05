@@ -1,4 +1,6 @@
 <?php
+// TODO: Condense Styles
+
 $author_email = get_the_author_meta('user_email');
 $user = get_user_by('email', $author_email);
 $getUserID = $user->ID;
@@ -22,38 +24,27 @@ if (!empty($user->first_name) && !empty($user->last_name)) {
 ?>
 <?php if ($role == "coach") { ?>
     <div class="article-created">
-        <div class="vc_col-md-4 vc_col-sm-6 vc_col-xs-12">
-            <div class="vc_row">
-                <div class="article-cr-lft">
-                    <?php
-//                    $custom_avatar_meta_data = get_user_meta($getUserID, 'custom_avatar');
-//                    if (isset($custom_avatar_meta_data) && !empty($custom_avatar_meta_data[0])):
-//                        $attachment = wp_get_attachment_image_src($custom_avatar_meta_data[0], 'thumbnail');
-                    // Retirived the profile image from wp_cimy_uef_data table [Cimy User Extra Fields plugin]
-                    $fetchresult = get_user_meta($getUserID);
-                    if (!empty($fetchresult['wpcf-user-profile-avatar'][0])):
-                            $fetchresultRel = $fetchresult['wpcf-user-profile-avatar'][0];
-                        ?>
-                        <img src="<?php echo $fetchresultRel; ?>" width="100" height="100" class="avatar avatar-176 photo" alt="Coach Image"/>
-                    <?php else : ?>                                                    
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/aavathar.jpg" width="100" height="100" class="avatar avatar-176 photo" alt="Evergreen Wellness Avatar"/>
-                    <?php endif; ?>
-                </div>
-                <div class="article-cr-rgt">
-                    <p><?php the_field('written_by_condition'); ?></p>
-                    <p><span><?php echo $displayNameis; ?></span></p>
-                    <p><?php echo $user->signature; ?></p>
-            <!--            <a href="<?php //echo site_url();         ?>/public/<?php //echo get_the_author_meta('user_nicename');         ?>"><?php //echo $displayNameis;         ?></a>-->
-                </div>
+
+
+        <div class="row">
+            <div class="vc_col-sm-12">
+                <?php
+
+                $fetchresult = get_user_meta($getUserID);
+                if (!empty($fetchresult['wpcf-user-profile-avatar'][0])):
+                        $fetchresultRel = $fetchresult['wpcf-user-profile-avatar'][0];
+                    ?>
+                    <img src="<?php echo $fetchresultRel; ?>" width="150" height="150" class="avatar avatar-176 photo" alt="Coach Image" style="    margin-right: 2rem; margin-bottom: 0rem; float: left; border-radius: 50%;"/>
+                <?php else : ?>                                                    
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/aavathar.jpg" width="150" height="150" class="avatar avatar-176 photo" alt="Evergreen Wellness Avatar" style="float: left; margin-right: 2rem; margin-bottom: 0rem;"/>
+                <?php endif; ?>
+                <p><?php the_field('written_by_condition'); ?></p>
+                <h4 style="font-size: 1.5rem; color: #595959; padding: 0rem 0rem 1.5rem 0rem;"><?php echo $displayNameis; ?></h4>
+                <p><?php echo $user->description; ?></p>
+            <p><?php echo $user->signature; ?></p>
             </div>
         </div>
-        <div class="vc_col-md-8 vc_col-sm-6 vc_col-xs-12">
-            <div class="vc_row">
-                <div class="article-cr-cont">
-                    <p><?php echo $user->description; ?></p>
-                </div>
-            </div>
-        </div>
+
     </div>
 
 <?php }
