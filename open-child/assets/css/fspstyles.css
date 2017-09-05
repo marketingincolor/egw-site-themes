@@ -1229,8 +1229,15 @@ aside.mkd-sidebar .mkd-section-title-holder .mkd-st-title, .wpb_widgetised_colum
     position: static;
 }
 .mdk-sng-pst ul li{
-    list-style-type: disc;
-    list-style: inherit;
+    /* list-style-type: disc; */
+    /* list-style: inherit; */
+    list-style-position: outside;
+    /* padding: 10px 0; */
+    font-size: 14pt !important;
+    line-height: 29px !important;
+    overflow: none;
+    /* margin-left: 15px; */
+    /* padding: 2px; */
 }
 @media only screen and (max-width: 599px) {
     .single-article-fsp-info{
