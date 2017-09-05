@@ -145,5 +145,4 @@ get_header(); ?>
     </div> <!-- mkd-two-columns-75-25  mkd-content-has-sidebar clearfix -->
 </div> <!-- mkd-container-inner -->
 <?php get_footer(); 
-endif;
 ?>
