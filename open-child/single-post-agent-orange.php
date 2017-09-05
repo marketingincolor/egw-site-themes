@@ -79,10 +79,10 @@ get_header();
                                         <div class="vc_row caption-wrapper vc_hidden-xs vc_hidden-sm vc_hidden-md">
                                             <div class="vc_col-sm-12 vc_col-md-12">
                                                 <div style="display: table; height: 300px;">
-                                                    <div style="display: table-cell; width: 50%; text-align:center;">
-                                                        <p class="" style=" display: inline-block; width: auto; height: 150px; padding: 2rem; font-weight: bold; font-style: italic;">Purple Heart honoree Bob Westfall was 19 when he was sent to A Shau Valley's brutal battlegrounds. He made it out alive, but later suffered from lymphoma and PTSD.</p>
+                                                    <div style="display: table-cell; width: 25%; text-align:center;">
+                                                        <p class="" style=" display: inline-block; width: auto; height: 260px; padding: 2rem; font-weight: bold; font-style: italic;">Purple Heart honoree Bob Westfall was 19 when he was sent to A Shau Valley's brutal battlegrounds. He made it out alive, but later suffered from lymphoma and PTSD.</p>
                                                     </div>
-                                                    <div style="display: table-cell; width: 50%; height: 300px;">
+                                                    <div style="display: table-cell; width: 75%; height: 300px;">
                                                         <img style="display: inline-block;" class="size-full wp-image-3262" src="http://localhost/evergreenwellness/wp-content/uploads/2017/08/2-column_66Westfall.png" alt="" width="900" height="500">
                                                     </div>
                                                 </div>
@@ -177,11 +177,11 @@ get_header();
                                         <div class="vc_row caption-wrapper vc_hidden-xs vc_hidden-sm vc_hidden-md">
                                             <div class="vc_col-sm-12 vc_col-md-12">
                                                 <div style="display: table;">
-                                                    <div style="display: table-cell; width: 50%;" class="text-center medium-text-left">
-                                                        <p class="" style=" display: inline-block; width: auto; height: 150px; padding: 2rem; font-weight: bold; font-style: italic;">Drafted during the Tet Offensive, Pete Wagner is still haunted by his infantry days. Today, he can’t see dried blood without flashing back to the blood-caked clothing of dead enemy soldiers.</p>
+                                                    <div style="display: table-cell; width: 25%;" class="text-center medium-text-left">
+                                                        <p class="" style=" display: inline-block; width: auto; height: 250px; padding: 2rem; font-weight: bold; font-style: italic;">Drafted during the Tet Offensive, Pete Wagner is still haunted by his infantry days. Today, he can’t see dried blood without flashing back to the blood-caked clothing of dead enemy soldiers.</p>
                                                     </div>
-                                                    <div style="display: table-cell; width: 50%;">
-                                                        <img style="display: inline-block; max-height: 300px; width: auto;" class="size-full wp-image-3262" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/Wagner2.png';?>" alt=""  class="size-full wp-image-3258" alt="" width="900" height="500">
+                                                    <div style="display: table-cell; width: 75%;">
+                                                        <img style="display: inline-block; width: auto;" class="size-full wp-image-3262" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/Wagner2.png';?>" alt=""  class="size-full wp-image-3258" alt="" width="900" height="500">
                                                     </div>
                                                 </div>
                                             </div>
@@ -369,11 +369,11 @@ get_header();
                                         <div class="vc_row caption-wrapper vc_hidden-xs vc_hidden-sm vc_hidden-md">
                                             <div class="vc_col-sm-12 vc_col-md-12">
                                                 <div style="display: table;">
-                                                    <div style="display: table-cell; width: 50%;" class="text-center medium-text-left">
-                                                        <p class="" style=" display: inline-block; width: auto; height: 150px; padding: 2rem; font-weight: bold; font-style: italic;">When Rick Houseman was drafted, he did his duty. He didn't know the aftereffects would hit him 46 years later: ischemic heart disease and a triple bypass.</p>
+                                                    <div style="display: table-cell; width: 25%;" class="text-center medium-text-left">
+                                                        <p class="" style=" display: inline-block; width: auto; height: 250px; padding: 2rem; font-weight: bold; font-style: italic;">When Rick Houseman was drafted, he did his duty. He didn't know the aftereffects would hit him 46 years later: ischemic heart disease and a triple bypass.</p>
                                                     </div>
-                                                    <div style="display: table-cell; width: 50%;">
-                                                        <img style="display: inline-block; max-height: 300px; width: auto;" class="size-full wp-image-3262" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/Houseman.png'; ?>" alt=""  class="size-full wp-image-3258" alt="" width="900" height="500">
+                                                    <div style="display: table-cell; width: 75%;">
+                                                        <img style="display: inline-block; width: auto;" class="size-full wp-image-3262" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/Houseman.png'; ?>" alt=""  class="size-full wp-image-3258" alt="" width="900" height="500">
                                                     </div>
                                                 </div>
                                             </div>
@@ -422,11 +422,11 @@ get_header();
                                         <div class="vc_row caption-wrapper vc_hidden-xs vc_hidden-sm vc_hidden-md">
                                             <div class="vc_col-sm-12 vc_col-md-12">
                                                 <div style="display: table;">
-                                                    <div style="display: table-cell; width: 40%;" class="text-center medium-text-left">
-                                                        <p class="" style=" display: inline-block; width: auto; height: 175px; padding: 2rem; font-weight: bold; font-style: italic;">“Operation Ranch Hand” was the codename for the U.S. military program that sprayed more than 19 million gallons of herbicides to defoliate nearly 4.5 million acres of Vietnam’s upland forests and farmlands.</p>
+                                                    <div style="display: table-cell; width: 25%;" class="text-center medium-text-left">
+                                                        <p class="" style=" display: inline-block; width: auto; height: 300px; padding: 2rem; font-weight: bold; font-style: italic;">“Operation Ranch Hand” was the codename for the U.S. military program that sprayed more than 19 million gallons of herbicides to defoliate nearly 4.5 million acres of Vietnam’s upland forests and farmlands.</p>
                                                     </div>
-                                                    <div style="display: table-cell; width: 60%;">
-                                                        <img style="display: inline-block; max-height: 350px; float:right; width: auto;" class="size-full wp-image-3262" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/Spraying.png';?>" alt="" width="900" height="500" class="size-full wp-image-3264" alt=""  class="size-full wp-image-3258" alt="" width="900" height="500">
+                                                    <div style="display: table-cell; width: 75%;">
+                                                        <img style="display: inline-block; float:right; width: auto;" class="size-full wp-image-3262" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/Spraying.png';?>" alt="" width="900" height="500" class="size-full wp-image-3264" alt=""  class="size-full wp-image-3258" alt="" width="900" height="500">
                                                     </div>
                                                 </div>
                                             </div>
@@ -572,11 +572,11 @@ get_header();
                                         <div class="vc_row caption-wrapper vc_hidden-xs vc_hidden-sm vc_hidden-md">
                                             <div class="vc_col-sm-12 vc_col-md-12">
                                                 <div style="display: table; height: 300px;">
-                                                    <div style="display: table-cell; width: 40%; text-align:left;">
-                                                        <p class="" style=" display: inline-block; width: auto; height: 150px; padding: 2rem; font-weight: bold; font-style: italic;">Agent Orange will be one of many facets examined in <a href="http://www.pbs.org/kenburns/the-vietnam-war/home/" target="_blank">“The Vietnam War,”</a> a Ken Burns documentary series premiering on Sept. 17 on local PBS stations.</p>
+                                                    <div style="display: table-cell; width: 25%; text-align:left;">
+                                                        <p class="" style=" display: inline-block; width: auto; height: 250px; padding: 2rem; font-weight: bold; font-style: italic;">Agent Orange will be one of many facets examined in <a href="http://www.pbs.org/kenburns/the-vietnam-war/home/" target="_blank">“The Vietnam War,”</a> a Ken Burns documentary series premiering on Sept. 17 on local PBS stations.</p>
                                                     </div>
-                                                    <div style="display: table-cell; width: 60%; height: 250px;">
-                                                        <img style="display: inline-block; max-height: 350px; float:right; width: auto;" class="size-full wp-image-3262" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/VietnamesePair.png';?>" alt="" width="450" height="500" class="size-full wp-image-3256" alt=""  class="size-full wp-image-3258" alt="" width="900" height="500">
+                                                    <div style="display: table-cell; width: 75%; height: 250px;">
+                                                        <img style="display: inline-block; float:right; width: auto;" class="size-full wp-image-3262" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/VietnamesePair.png';?>" alt="" width="450" height="500" class="size-full wp-image-3256" alt=""  class="size-full wp-image-3258" alt="" width="900" height="500">
                                                     </div>
                                                 </div>
                                             </div>
