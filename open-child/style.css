@@ -216,6 +216,10 @@ For setting main blog style adjustment
 }
 .agree-box { width: auto !important; }
 
+
+/*Author Block on bottom of posts*/
+.article-created p { line-height: 25px; }
+
 /*Newsletter CTA*/
 .foot-cta { text-align:center; margin-bottom:2em; }
 .news-field-row { border:1.5em solid #8b54a2; background-color:#fff; font-family:"Roboto"; }
