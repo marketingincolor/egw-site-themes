@@ -138,7 +138,7 @@ get_header();
                                                         <img style="display: inline-block; max-height: 300px; width: auto;" class="size-full wp-image-3262" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/Westfall.png'; ?>" alt=""  class="size-full wp-image-3258" alt="" width="900" height="500">
                                                     </div>
                                                     <div style="display: table-cell; width: 75%;">
-                                                        <p class="text-center medium-text-left" style=" display: inline-block; width: auto; height: 150px; padding: 2rem; font-weight: bold; font-style: italic;">Haunted by the memories, Westfall paints peaceful natural landscapes to try and erase the horrors of the war. His paintings now cover the walls of his home, instilling a sense of quiet, stillness, and loneliness. Decades of counseling have helped him cope with his anger and depression</p>
+                                                        <p class="text-center medium-text-left" style=" display: inline-block; width: auto; height: 150px; padding: 2rem; font-weight: bold; font-style: italic;">Haunted by the memories, Westfall paints peaceful natural landscapes to try and erase the horrors of the war. His paintings now cover the walls of his home, instilling a sense of quiet, stillness, and loneliness. Decades of counseling have helped him cope with his anger and depression.</p>
                                                     </div>
                                                 </div>
                                             </div>
