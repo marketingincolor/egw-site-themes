@@ -626,20 +626,23 @@ get_header();
                                         He had multiple health issues, but still outlived his first wife. She died of sternum cancer after 35 years of marriage. He remembers what she used to tell him in his darkest moments:<br/><br/>
 
                                         “You’re a survivor, Bob. Others would have crumbled, but not you. You are a survivor.”<br/><br/>
-
-                                        This feature is presented by Evergreen Wellness® – a resource committed to helping people 55-and-older live happier, healthier lives – including the courageous servicemen profiled in this story.</p>
-                                    </p></div>
+                                        </p>
+                                        <div class="disclaimer">
+                                            <p><em>This feature is presented by Evergreen Wellness® – a resource committed to helping people 55-and-older live happier, healthier lives – including the courageous servicemen profiled in this story.</em></p>
+                                        </div>
+                                    </div>
 
                                     <!-- DISCLAIMER -->
                                     <?php
-                                    $tm_disclaim = get_field('trademark_disclaimer'); //set via Custom Fields Plugin
-                                    if ($tm_disclaim) {
-                                        include(locate_template('block/show-trademark-disclaimer.php'));
-                                    } ?>
+                                    // $tm_disclaim = get_field('trademark_disclaimer'); //set via Custom Fields Plugin
+                                    // if ($tm_disclaim) {
+                                    //     include(locate_template('block/show-trademark-disclaimer.php'));
+                                    // } 
+                                    ?>
 
-                                    <div class="disclamier">
+<!--                                     <div class="disclamier">
                                         <p><span>Disclaimer:</span> This content is for entertainment purposes only and it is not meant to be relied on as medical advice, diagnosis, or treatment. Consult your physician before starting any exercise or dietary program or taking any other action respecting your health. In case of a medical emergency, call 911. </p>
-                                    </div>
+                                    </div> -->
                                     <!-- END DISCLAIMER -->
                                     
                                     <!-- TAGS -->
