@@ -38,8 +38,15 @@ if (!empty($user->first_name) && !empty($user->last_name)) {
                 <?php else : ?>                                                    
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/img/aavathar.jpg" width="150" height="150" class="avatar avatar-176 photo" alt="Evergreen Wellness Avatar" style="float: left; margin-right: 2rem; margin-bottom: 0rem;"/>
                 <?php endif; ?>
-                <p><?php the_field('written_by_condition'); ?></p>
-                <h4 style="font-size: 1.5rem; color: #595959; padding: 0rem 0rem 1.5rem 0rem;"><?php echo $displayNameis; ?></h4>
+                <?php the_field('written_by_condition'); ?>
+                <h4 style="font-size: 1.5rem; color: #595959; padding: 0rem 0rem 1.5rem 0rem;">
+                <?php 
+                    if(get_field('written_by_condition')) {
+                        the_field('written_by_condition');
+                    }
+                    echo ' ' . $displayNameis; 
+                ?>
+                </h4>
                 <p><?php echo $user->description; ?></p>
             <p><?php echo $user->signature; ?></p>
             </div>
