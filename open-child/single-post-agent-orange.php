@@ -630,6 +630,12 @@ get_header();
                                         <div class="disclaimer">
                                             <p><em>This feature is presented by Evergreen Wellness® – a resource committed to helping people 55-and-older live happier, healthier lives – including the courageous servicemen profiled in this story.</em></p>
                                         </div>
+                                        <div class="photo-credits">
+                                            <p><em>
+                                                <strong>Photo Credits: </strong>
+                                                Wikipedia Commons image, <a href="https://commons.wikimedia.org/wiki/File:%27Ranch_Hand%27_run.jpg" target="_blank">Ranch Hand Run</a> (four planes); Association for Diplomatic Studies and Training, <a href="http://adst.org/2016/08/agent-orange-vietnam-war/#.Wa7XqJOGNTZ">Girls Walk Through Mangrove Forest Devastated by Agent Orange.</a>
+                                            </em></p>
+                                        </div>
                                     </div>
 
                                     <!-- DISCLAIMER -->
