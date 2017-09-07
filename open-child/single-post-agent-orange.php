@@ -83,7 +83,7 @@ get_header();
                                                         <p class="" style=" display: inline-block; width: auto; height: 260px; padding: 2rem; font-weight: bold; font-style: italic;">Purple Heart honoree Bob Westfall was 19 when he was sent to A Shau Valley's brutal battlegrounds. He made it out alive, but later suffered from lymphoma and PTSD.</p>
                                                     </div>
                                                     <div style="display: table-cell; width: 75%; height: 300px;">
-                                                        <img style="display: inline-block;" class="size-full wp-image-3262" src="http://localhost/evergreenwellness/wp-content/uploads/2017/08/2-column_66Westfall.png" alt="" width="900" height="500">
+                                                        <img style="display: inline-block;" class="size-full wp-image-3262" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/2-column-Westfall.png';?>" alt="Westfall" width="900" height="500">
                                                     </div>
                                                 </div>
                                             </div>
@@ -91,7 +91,7 @@ get_header();
 
                                         <div class="vc_row vc_hidden-lg">
                                             <div class="vc_col-sm-12">
-                                                    <img style="display: inline-block;" class="mobile-img size-full wp-image-3262" src="http://localhost/evergreenwellness/wp-content/uploads/2017/08/2-column_66Westfall.png" alt="" width="900" height="500">
+                                                    <img style="display: inline-block;" class="mobile-img size-full wp-image-3262" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/2-column-Westfall.png';?>" alt="Westfall" width="900" height="500">
                                             </div>
                                             <div class="vc_col-sm-12">
                                                 <p class="" style=" display: inline-block; width: auto; padding: 1rem; font-weight: bold; font-style: italic;">Purple Heart honoree Bob Westfall was 19 when he was sent to A Shau Valley's brutal battlegrounds. He made it out alive, but later suffered from lymphoma and PTSD.</p>
