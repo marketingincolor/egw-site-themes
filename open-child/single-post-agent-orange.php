@@ -638,6 +638,9 @@ get_header();
                                         </div>
                                     </div>
 
+                                    <p><?php do_action('last_updated'); ?></p>
+                                    <br />
+
                                     <!-- DISCLAIMER -->
                                     <?php
                                     // $tm_disclaim = get_field('trademark_disclaimer'); //set via Custom Fields Plugin
