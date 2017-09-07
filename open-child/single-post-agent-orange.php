@@ -4,7 +4,7 @@ get_header();
 <div class="ao_content_wrapper">
     <div class="vc-row relative" style="background-color: #ffffff;">
         <div class="vc_col-12">
-            <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/agent-orange-header.jpg'; ?> " />
+            <img style="width: 100%;" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/agent-orange-header.jpg'; ?> " />
         </div>
         <div id="title-block">
             <div id="title" style="">
@@ -628,7 +628,7 @@ get_header();
                                         “You’re a survivor, Bob. Others would have crumbled, but not you. You are a survivor.”<br/><br/>
                                         </p>
                                         <div class="disclaimer">
-                                            <p><em>This feature is presented by Evergreen Wellness® – a resource committed to helping people 55-and-older live happier, healthier lives – including the courageous servicemen profiled in this story.</em></p>
+                                            <p><em>This feature is presented by <a href="<?php echo site_url(); ?>">Evergreen Wellness®</a> – a resource committed to helping people 55-and-older live happier, healthier lives – including the courageous servicemen profiled in this story.</em></p>
                                         </div>
                                         <div class="photo-credits">
                                             <p><em>
