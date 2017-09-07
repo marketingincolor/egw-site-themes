@@ -219,6 +219,7 @@ For setting main blog style adjustment
 
 /*Author Block on bottom of posts*/
 .article-created p { line-height: 25px; }
+.author-block-name { font-size: 1.5rem; color: #595959; padding: 0rem 0rem 1.1rem 0rem; }
 
 /*Newsletter CTA*/
 .foot-cta { text-align:center; margin-bottom:2em; }
