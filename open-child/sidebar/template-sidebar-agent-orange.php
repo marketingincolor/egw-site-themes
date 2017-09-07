@@ -9,7 +9,7 @@
                         <aside class="mkd-sidebar" style="transform: translateY(0px);">
                         <?php
 						do_action('discussion_before_blog_article_closed_tag');
-						get_template_part( 'sidebar/template-ads', 'page' );
+						#get_template_part( 'sidebar/template-ads', 'page' );
 						get_template_part( 'sidebar/template-social-share', 'page' );
       
     					?>
