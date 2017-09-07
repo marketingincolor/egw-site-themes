@@ -23,10 +23,49 @@ if (!empty($user->first_name) && !empty($user->last_name)) {
 <?php
 ?>
 <?php if ($role == "coach") { ?>
-    <div class="article-created">
 
+    <!-- AUTHORS FOR MOBILE -->
+    <div class="article-created vc_hidden-md vc_hidden-lg">
+        <div class="row vc_hidden-md vc_hidden-lg">
+            <div class="vc_col-sm-12">
+                <?php
 
+                $fetchresult = get_user_meta($getUserID);
+                if (!empty($fetchresult['wpcf-user-profile-avatar'][0])):
+                        $fetchresultRel = $fetchresult['wpcf-user-profile-avatar'][0];
+                    ?>
+                    <img src="<?php echo $fetchresultRel; ?>" width="150" height="150" class="avatar avatar-176 photo" alt="Coach Image" style="text-align:center; margin: 0 auto; display: block; border-radius: 50%; padding: 1rem 0rem;"/>
+                <?php else : ?>                                                    
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/aavathar.jpg" width="150" height="150" class="avatar avatar-176 photo" alt="Evergreen Wellness Avatar" style="float: left; margin-right: 2rem; margin-bottom: 0rem;"/>
+                <?php endif; ?>
+            </div>
+        </div>
         <div class="row">
+            <div class="vc_col-sm-12">
+                <h4 class="author-block-name">
+                <?php 
+                    if(get_field('written_by_condition')) {
+                        the_field('written_by_condition');
+                    }
+                    echo ' ' . $displayNameis; 
+                ?>
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="vc_col-sm-12">
+                <p><?php echo $user->description; ?></p>
+                <p><?php echo $user->signature; ?></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- /AUTHORS FOR MOBILE -->
+
+
+    <!-- AUTHORS FOR TABLET UP -->
+    <div class="article-created vc_hidden-sm vc_hidden-xs">
+        <div class="row vc_hidden-sm">
             <div class="vc_col-sm-12">
                 <?php
 
@@ -50,8 +89,8 @@ if (!empty($user->first_name) && !empty($user->last_name)) {
             <p><?php echo $user->signature; ?></p>
             </div>
         </div>
-
     </div>
+    <!-- /AUTHORS FOR TABLET UP -->
 
 <?php }
 ?>

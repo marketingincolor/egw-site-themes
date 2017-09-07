@@ -402,7 +402,11 @@ For setting main blog style adjustment
 /* Small only */
 @media screen and (max-width: 39.9375em){
     .text-center {text-align: center;}
-
+    .post-agent-orange #top-caption {     
+        font-size: 1.5rem;
+        margin-top: -50px;
+        padding: 2rem;
+    }
 
 }
 
@@ -412,6 +416,11 @@ For setting main blog style adjustment
     .medium-text-left { text-align: left !important; }
     .post-agent-orange #title-block #title h1 span { letter-spacing: -.25rem; }
     .post-agent-orange #title h1 { font-size: 1rem; }
+    .post-agent-orange #top-caption {     
+        font-size: 1.5rem;
+        margin-top: -50px;
+        padding: 2rem;
+    }
 } 
 
 /* Medium only */
