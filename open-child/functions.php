@@ -21,6 +21,7 @@ if (!function_exists('discussion_styles')) {
         wp_enqueue_style('discussion_modules', get_stylesheet_directory_uri() . '/assets/css/modules.css');
         wp_enqueue_style('fsp_custom_css', get_stylesheet_directory_uri() . '/assets/css/fspstyles.css');
         wp_enqueue_style('fsp_custom_popup', get_stylesheet_directory_uri() . '/assets/css/magnific-popup.css');
+        wp_enqueue_style('agent-orange', get_stylesheet_directory_uri() . '/agent-orange.css' );
     }
     add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
 }
@@ -2526,3 +2527,13 @@ function egw_add_custom_posts_to_taxonomy( $query ) {
     }
 }
 add_filter( 'pre_get_posts', 'egw_add_custom_posts_to_taxonomy' );
+
+//Page Slug Body Class
+function add_slug_body_class( $classes ) {
+    global $post;
+        if ( isset( $post ) ) {
+        $classes[] = $post->post_type . '-' . $post->post_name;
+    }
+    return $classes;
+}
+add_filter( 'body_class', 'add_slug_body_class' );

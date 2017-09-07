@@ -1,4 +1,5 @@
-<?php get_header(); ?>
+<?php 
+get_header(); ?>
 
 <div class="mkd-container-inner">
     <?php
@@ -143,4 +144,5 @@
         </div>
     </div> <!-- mkd-two-columns-75-25  mkd-content-has-sidebar clearfix -->
 </div> <!-- mkd-container-inner -->
-<?php get_footer(); ?>
+<?php get_footer(); 
+?>
