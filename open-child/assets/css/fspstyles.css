@@ -1518,7 +1518,7 @@ table.ai1ec-month-view {
     font-size: 13pt;
     color: #ff6600;
     font-weight: 500;
-    text-decoration: underline;
+    /*text-decoration: underline;*/
 }
 .article-created a:hover{
     text-decoration: none;
