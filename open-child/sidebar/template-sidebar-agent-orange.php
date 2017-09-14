@@ -21,8 +21,9 @@
                 <div class="mkd-column2">
                     <div class="mkd-column-inner">
                         <aside class="mkd-sidebar" style="transform: translateY(0px);">
-                        
-    					<?php	get_template_part( 'sidebar/template-related-stories', 'page' ); ?>
+    					    <div class="fsp-recommended-stories-cont">
+                                <?php echo do_shortcode('[AuthorRecommendedPosts]'); ?>
+                            </div>
                         </aside>
                     </div>
                 </div> <!-- mkd-container-inner -->
