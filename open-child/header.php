@@ -29,7 +29,6 @@
         <meta name="p:domain_verify" content="4f03e837a6f1a3a03dac63b1c78dbc93"/>
         <!-- /PINTEREST -->
         
-        <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     </head>
     <body <?php
@@ -106,35 +105,35 @@
                             while (have_posts()) : the_post();
                                 $value = get_field("display_pages");
                                 $announceLink = get_field("announcements_link");
-                                foreach ($value as $key => $valuerel) {
-                                    if ($getInstantoutput == "front") {
-                                        if ($valuerel == "home") {
-                                            if ($announceLink != "") {
-                                                echo "<div class='annonuce_set'><div class='mkd-grid'><a href=" . $announceLink . "><div class='annonuce_description'>" . get_the_content() . "</div></div></div></a>";
-                                            } else {
-                                                echo "<div class='annonuce_set'><div class='mkd-grid'><div class='annonuce_description'>" . get_the_content() . "</div></div></div>";
-                                            }
-                                        }
-                                    }
-                                    if ($getInstantoutput == "page") {
-                                        if ($valuerel == $getSlug) {
-                                            if ($announceLink != "") {
-                                                echo "<div class='annonuce_set'><div class='mkd-grid'><a href=" . $announceLink . "><div class='annonuce_description'>" . get_the_content() . "</div></div></div></a>";
-                                            } else {
-                                                echo "<div class='annonuce_set'><div class='mkd-grid'><div class='annonuce_description'>" . get_the_content() . "</div></div></div>";
-                                            }
-                                        }
-                                    }
-                                    if ($getInstantoutput == "category") {
-                                        if ($valuerel == $current_category) {
-                                            if ($announceLink != "") {
-                                                echo "<div class='annonuce_set'><div class='mkd-grid'><a href=" . $announceLink . "><div class='annonuce_description'>" . get_the_content() . "</div></div></div></a>";
-                                            } else {
-                                                echo "<div class='annonuce_set'><div class='mkd-grid'><div class='annonuce_description'>" . get_the_content() . "</div></div></div>";
-                                            }
-                                        }
-                                    }
-                                }
+                                // foreach ($value as $key => $valuerel) {
+                                //     if ($getInstantoutput == "front") {
+                                //         if ($valuerel == "home") {
+                                //             if ($announceLink != "") {
+                                //                 echo "<div class='annonuce_set'><div class='mkd-grid'><a href=" . $announceLink . "><div class='annonuce_description'>" . get_the_content() . "</div></div></div></a>";
+                                //             } else {
+                                //                 echo "<div class='annonuce_set'><div class='mkd-grid'><div class='annonuce_description'>" . get_the_content() . "</div></div></div>";
+                                //             }
+                                //         }
+                                //     }
+                                //     if ($getInstantoutput == "page") {
+                                //         if ($valuerel == $getSlug) {
+                                //             if ($announceLink != "") {
+                                //                 echo "<div class='annonuce_set'><div class='mkd-grid'><a href=" . $announceLink . "><div class='annonuce_description'>" . get_the_content() . "</div></div></div></a>";
+                                //             } else {
+                                //                 echo "<div class='annonuce_set'><div class='mkd-grid'><div class='annonuce_description'>" . get_the_content() . "</div></div></div>";
+                                //             }
+                                //         }
+                                //     }
+                                //     if ($getInstantoutput == "category") {
+                                //         if ($valuerel == $current_category) {
+                                //             if ($announceLink != "") {
+                                //                 echo "<div class='annonuce_set'><div class='mkd-grid'><a href=" . $announceLink . "><div class='annonuce_description'>" . get_the_content() . "</div></div></div></a>";
+                                //             } else {
+                                //                 echo "<div class='annonuce_set'><div class='mkd-grid'><div class='annonuce_description'>" . get_the_content() . "</div></div></div>";
+                                //             }
+                                //         }
+                                //     }
+                                // }
                             endwhile;
                             ?>
                             <?php wp_reset_postdata(); ?>
