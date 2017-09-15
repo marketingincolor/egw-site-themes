@@ -22,7 +22,7 @@
                     <div class="mkd-column-inner">
                         <aside class="mkd-sidebar" style="transform: translateY(0px);">
                             <div class="fsp-recommended-stories-cont">
-                                <?php echo do_shortcode('[AuthorRecommendedPosts]'); ?>
+                                <?php #echo do_shortcode('[AuthorRecommendedPosts]'); ?>
                             </div>
     					<?php	#get_template_part( 'sidebar/template-related-stories', 'page' ); ?>
                         </aside>
