@@ -675,9 +675,7 @@ get_header();
                 
                 <?php egw_pre_footer(); ?>    
                 <?php get_template_part('sidebar/template-ads-mobile'); ?>
-                <div class="fsp-recommended-stories-cont">
-                    <?php #echo do_shortcode('[AuthorRecommendedPosts]'); ?>
-                </div>
+
                 
                 <?php get_template_part('sidebar/template-sidebar-agent-orange'); ?>
                 <!-- Check for comments open AND Show Facebook Comments or WP Comments -->
