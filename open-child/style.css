@@ -343,7 +343,9 @@ For setting main blog style adjustment
     top: 50%;
     transform: translateY(-50%);*/
 }
-.post-agent-orange .mobile-img { padding-top: 6px;  }
+
+body > div.ao_wrapper > div > div > div.mkd-content > div.mkd-content-inner > div.ao_content_wrapper > div.mkd-container-inner > div.mkd-container-inner > div > div > div:nth-child(2) > div > div > aside > div > div > div > div { width: 100%; }
+.post-agent-orange .mobile-img { padding-top: 6px; }
 .post-agent-orange .caption { padding: 1rem 0rem; }
 .post-agent-orange .uppercase { text-transform: uppercase; }
 .post-agent-orange .callout { border-top: 4px solid #ff7b00; border-bottom: 4px solid #ff7b00; padding: 1rem 1.5rem; font-weight: bold; margin: 2rem 0rem; }
