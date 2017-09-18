@@ -573,7 +573,7 @@ get_header();
                                             <div class="vc_col-sm-12 vc_col-md-12">
                                                 <div style="display: table; height: 300px;">
                                                     <div style="display: table-cell; width: 25%; text-align:left;">
-                                                        <p class="" style=" display: inline-block; width: auto; height: 250px; padding: 2rem; font-weight: bold; font-style: italic;">Agent Orange will be one of many facets examined in <a href="http://www.pbs.org/kenburns/the-vietnam-war/home/" target="_blank">“The Vietnam War,”</a> a Ken Burns documentary series premiering on Sept. 17 on local PBS stations.</p>
+                                                        <p class="" style=" display: inline-block; width: auto; height: 250px; padding: 2rem; font-weight: bold; font-style: italic;">Agent Orange will be one of many facets examined in <a href="http://www.pbs.org/kenburns/the-vietnam-war/home/" target="_blank">“The Vietnam War,”</a> a Ken Burns documentary series that premiered Sept. 17 on local PBS stations.</p>
                                                     </div>
                                                     <div style="display: table-cell; width: 75%; height: 250px;">
                                                         <img style="display: inline-block; float:right; width: auto;" class="size-full wp-image-3262" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/VietnamesePair.png';?>" alt="" width="450" height="500" class="size-full wp-image-3256" alt=""  class="size-full wp-image-3258" alt="" width="900" height="500">
@@ -587,7 +587,7 @@ get_header();
                                                     <img style="display: inline-block;" class="mobile-img size-full wp-image-3262" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/VietnamesePair.png';?>" alt="" width="900" height="500">
                                             </div>
                                             <div class="vc_col-sm-12">
-                                                <p class="" style=" display: inline-block; width: auto;  padding: 1rem; font-weight: bold; font-style: italic;">Agent Orange will be one of many facets examined in “The Vietnam War,” a Ken Burns documentary series premiering on Sept. 17 on local PBS stations.</p>
+                                                <p class="" style=" display: inline-block; width: auto;  padding: 1rem; font-weight: bold; font-style: italic;">Agent Orange will be one of many facets examined in “The Vietnam War,” a Ken Burns documentary series that premiered Sept. 17 on local PBS stations.</p>
                                             </div>
                                         </div>
 
