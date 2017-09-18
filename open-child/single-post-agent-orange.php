@@ -593,7 +593,7 @@ get_header();
 
                                         <p>According to the Red Cross of Vietnam, up to 1 million Vietnamese are disabled or have severe health problems due to Agent Orange, 100,000 of which are children. Millions more have been exposed, causing at least some 400,000 deaths.<br/><br/>
 
-                                        The herbicide’s terrible legacy will be one of many facets examined in <a href="http://www.pbs.org/kenburns/the-vietnam-war/home/" target="_blank">“The Vietnam War,”</a> a 10-part, 18-hour documentary by award-winning filmmakers Ken Burns and Lynn Novick. The film series premieres Sept. 17 on local PBS stations, and will feature testimony from nearly 80 American and Vietnamese witnesses, from those who fought in the war to those who opposed it.<br/><br/>
+                                        The herbicide’s terrible legacy will be one of many facets examined in <a href="http://www.pbs.org/kenburns/the-vietnam-war/home/" target="_blank">“The Vietnam War,”</a> a 10-part, 18-hour documentary by award-winning filmmakers Ken Burns and Lynn Novick. The film series premiered Sept. 17 on local PBS stations, and featured testimonies from nearly 80 American and Vietnamese witnesses, from those who fought in the war to those who opposed it.<br/><br/>
 
                                         Bob Westfall sees an irony in all the renewed interest in the war.</p>
 
