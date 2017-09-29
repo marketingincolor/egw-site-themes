@@ -818,6 +818,9 @@ blockquote cite {
   /* adjusts for spacing */
 }
 
+.mkd-page-header .mkd-grid .mkd-vertical-align-containers {height: 50px;}
+.mkd-vertical-align-containers .mkd-position-left {min-width:65%}
+
 /* ==========================================================================
    #Row styles - start
    ========================================================================== */
