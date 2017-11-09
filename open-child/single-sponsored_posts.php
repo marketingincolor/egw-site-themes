@@ -62,7 +62,7 @@
                             discussion_post_info(array(
                                 'date' => $display_date,
                                 'category_singlepost' => $display_category_singlepost,
-                                'count' => $display_count,
+                                // 'count' => $display_count,
                             ))
                             ?>
                             <div class="mkd-post-fsp-savestories">
@@ -124,7 +124,7 @@
                 } ?>
 
                 <div class="disclamier">
-                    <p><span>Disclaimer:</span> This content is for entertainment purposes only and it is not meant to be relied on as medical advice, diagnosis, or treatment. Consult your physician before starting any exercise or dietary program or taking any other action respecting your health. In case of a medical emergency, call 911. </p>
+                    <p><span>Disclaimer:</span> This content is for informational purposes only and it is not meant to be relied on as medical advice, diagnosis, or treatment. Consult your physician before starting any exercise or dietary program or taking any other action respecting your health. In case of a medical emergency, call 911. </p>
                 </div>
                 <?php if (function_exists('the_tags')) { ?>
                     <div class="mkd-single-tags-holder">

@@ -63,9 +63,9 @@
                                                                 discussion_post_info_comments(array(
                                                                     'comments' => $display_comments
                                                                 ));
-                                                                discussion_post_info_count(array(
-                                                                    'count' => $display_count
-                                                                        ), 'list');
+                                                                // discussion_post_info_count(array(
+                                                                //     'count' => $display_count
+                                                                //         ), 'list');
                                                                 ?>
                                                             </div>
                                                         </div>

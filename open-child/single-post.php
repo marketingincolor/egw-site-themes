@@ -40,7 +40,7 @@ get_header(); ?>
                             discussion_post_info(array(
                                 'date' => $display_date,
                                 'category_singlepost' => $display_category_singlepost,
-                                'count' => $display_count,
+                                // 'count' => $display_count,
                             ))
                             ?>
                             <div class="mkd-post-fsp-savestories">
@@ -96,7 +96,7 @@ get_header(); ?>
                 } ?>
 
                 <div class="disclamier">
-                    <p><span>Disclaimer:</span> This content is for entertainment purposes only and it is not meant to be relied on as medical advice, diagnosis, or treatment. Consult your physician before starting any exercise or dietary program or taking any other action respecting your health. In case of a medical emergency, call 911. </p>
+                    <p><span>Disclaimer:</span> This content is for informational purposes only and it is not meant to be relied on as medical advice, diagnosis, or treatment. Consult your physician before starting any exercise or dietary program or taking any other action respecting your health. In case of a medical emergency, call 911. </p>
                 </div>
                 <?php if (function_exists('the_tags')) { ?>
                     <div class="mkd-single-tags-holder">
@@ -144,5 +144,20 @@ get_header(); ?>
         </div>
     </div> <!-- mkd-two-columns-75-25  mkd-content-has-sidebar clearfix -->
 </div> <!-- mkd-container-inner -->
+
+<!-- FOR RECIPE TRACKING -->
+<?php #var_dump(get_field('post_type')[0]); ?>
+
+<?php if(get_field('post_type')[0] == 'recipe'): ?>
+    <script>
+        dataLayer.push({  'event': 'post_Type', 'post_type' : 'Recipe Card' });
+    </script>
+<?php else : ?>
+    <script>
+        dataLayer.push({  'event': 'post_Type', 'post_type' : 'Post' });
+    </script>
+<?php endif; ?>
+<!-- /FOR RECIPE TRACKING -->
+
 <?php get_footer(); 
 ?>

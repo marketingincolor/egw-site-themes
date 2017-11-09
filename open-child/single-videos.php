@@ -5,10 +5,14 @@
     $title_length     = '20';
     $display_date     = 'yes';
     $date_format      = 'd. F Y';
-    $display_category = 'no';
+    $display_category = 'yes';
     $display_share    = 'no';
-    $display_count    = 'yes';
+    $display_count    = 'no';
     $display_comments = 'yes';
+    $display_category_singlepost = 'yes';
+
+
+
     ?>
 
     <div class="mkd-two-columns-75-25 mkd-content-has-sidebar clearfix">
@@ -24,11 +28,13 @@
                     <!-- Post Info -->
                     <article>
                         <div class="mkd-post-info">
+
                             <?php
                             discussion_post_info(array(
                                 'date'     => $display_date,
-                                'count'    => $display_count,
                                 'category_singlepost' => $display_category_singlepost,
+
+
                             ))
                             ?>
                             <div class="mkd-post-fsp-savestories">
@@ -71,7 +77,7 @@
                     } ?>
 
                     <div class="disclamier">
-                        <p><span>Disclaimer:</span> This content is for entertainment purposes only and it is not meant to be relied on as medical advice, diagnosis, or treatment. Consult your physician before starting any exercise or dietary program or taking any other action respecting your health. In case of a medical emergency, call 911.</p>
+                        <p><span>Disclaimer:</span> This content is for informational purposes only and it is not meant to be relied on as medical advice, diagnosis, or treatment. Consult your physician before starting any exercise or dietary program or taking any other action respecting your health. In case of a medical emergency, call 911.</p>
                     </div>
                 </div>
                 <?php if (function_exists('the_tags')) { ?>
@@ -119,4 +125,17 @@
         </div>
     </div> <!-- mkd-two-columns-75-25  mkd-content-has-sidebar clearfix -->
 </div> <!-- mkd-container-inner -->
+
+<!-- FOR RECIPE TRACKING -->
+<?php if(get_field('post_type')[0] == 'recipe'): ?>
+    <script>
+        dataLayer.push({  'event': 'post_Type', 'post_type' : 'Recipe Card' });
+    </script>
+<?php else : ?>
+    <script>
+        dataLayer.push({  'event': 'post_Type', 'post_type' : 'Video' });
+    </script>
+<?php endif; ?>
+<!-- /FOR RECIPE TRACKING -->
+
 <?php get_footer(); ?>

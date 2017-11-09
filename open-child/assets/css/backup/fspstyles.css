@@ -8,15 +8,6 @@ and open the template in the editor.
     Author     : FSSD
 */
 
-.mkd-content ol {    
-    padding: 10px 0;
-    font-size: 14pt !important;
-    line-height: 29px !important;
-    overflow: hidden; 
-}
-
-.mkd-top-bar .widget.widget_nav_menu ul li:after { content: none; }
-
 /*dynamic css starts here*/
 ::selection { background: #f99d3e;}
 
@@ -135,7 +126,6 @@ h6 { font-family: Roboto;font-style: normal;}
 /*header css starts here*/
 .mkd-logo-wrapper{
     float:left;
-    position: absolute;
 }
 .mkd-sticky-holder .mkd-logo-wrapper{
     float:none !important;

@@ -75,7 +75,7 @@
                     $title_length = '';
                     $display_date = 'yes';
                     $date_format = 'd. F Y';
-                    $display_category = 'yes';
+                    $display_category = 'no';
                     $display_comments = 'yes';
                     $display_share = 'yes';
                     $display_count = 'yes';

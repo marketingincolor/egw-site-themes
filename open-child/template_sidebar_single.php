@@ -67,7 +67,7 @@ if ($show_related) {
             <div class="mkd-bnl-outer">
                 <div class="mkd-bnl-inner">
                     <?php if ($related_posts_params['related_postss'] && $related_posts_params['related_postss']->have_posts()) : ?>
-                        <?php echo discussion_execute_shortcode('mkd_section_title', array('title' => esc_html__('Related Stories', 'discussionwp'))); ?>
+                        <?php echo discussion_execute_shortcode('mkd_section_title', array('title' => esc_html__('Other Topics You Might Like', 'discussionwp'))); ?>
                         <?php while ($related_posts_params['related_postss']->have_posts()) : $related_posts_params['related_postss']->the_post(); ?>
                             <div class="mkd-pt-seven-item mkd-post-item mkd-active-post-page">
                                 <div class="mkd-pt-seven-item-inner clearfix">

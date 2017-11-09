@@ -31,7 +31,7 @@ $tag_not_in = egw_tag_not_in($member_location);
                 $title_length = '';
                 $display_date = 'yes';
                 $date_format = 'd. F Y';
-                $display_category = 'yes';
+                $display_category = 'no';
                 $display_comments = 'yes';
                 $display_share = 'yes';
                 $display_count = 'yes';
@@ -152,9 +152,9 @@ $tag_not_in = egw_tag_not_in($member_location);
                                     // discussion_post_info_comments(array(
                                     //                 'comments' => $display_comments
                                     // ));
-                                    discussion_post_info_count(array(
-                                        'count' => $display_count
-                                    ), 'list');
+                                    // discussion_post_info_count(array(
+                                    //     'count' => $display_count
+                                    // ), 'list');
                                 ?>
                                 </div>
                                 <div class="mkd-pt-info-section-background"></div>

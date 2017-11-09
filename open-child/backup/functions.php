@@ -1416,7 +1416,7 @@ function add_login_logout_to_menu($items, $args) {
     return $items.= '<li id="log-in-out-link" class="menu-item menu-item-type-custom menu-item-object-custom  mkd-menu-narrow">' . $link . '</li>';
 }
 
-// add_filter('wp_nav_menu_items', 'add_login_logout_to_menu', 50, 2);
+add_filter('wp_nav_menu_items', 'add_login_logout_to_menu', 50, 2);
 
 /**
  * Author - Vinoth Raja
@@ -2176,7 +2176,7 @@ function egw_category_shortcode($atts) {
         if ($yoast_catName && $yoast_catLink) {
 
             $build_shortcode = '<div class="egw-learn-more"><p>';
-            $build_shortcode .= '<a href=' . $yoast_catLink . '>Learn More About ' . $yoast_catName . ' >></a>';
+            $build_shortcode .= '<a href=' . $yoast_catLink . '>Learn more about ' . $yoast_catName . ' >></a>';
             $build_shortcode .= "</p></div>";
             return $build_shortcode;
         } elseif ($yoast_cat == null || $yoast_cat == '') {
@@ -2185,7 +2185,7 @@ function egw_category_shortcode($atts) {
             $category_id = get_cat_ID($first_category_name);
             $category_link = get_category_link($category_id);
             $build_shortcode = '<div class="egw-learn-more"><p>';
-            $build_shortcode .= '<a href=' . $category_link . '>Learn More About ' . $first_category_name . ' >></a>';
+            $build_shortcode .= '<a href=' . $category_link . '>Learn more about ' . $first_category_name . ' >></a>';
             $build_shortcode .= "</p></div>";
             return $build_shortcode;
         }
@@ -2196,7 +2196,7 @@ function egw_category_shortcode($atts) {
         $category_id = get_cat_ID($cat);
         $category_link = get_category_link($category_id);
         $build_shortcode = '<div class="egw-learn-more"><p>';
-        $build_shortcode .= '<a href="' . $category_link . '">Learn More About ' . $cat . '>></a>';
+        $build_shortcode .= '<a href="' . $category_link . '">Learn more about ' . $cat . '>></a>';
         $build_shortcode .= '</p></div>';
         return $build_shortcode;
     } else {

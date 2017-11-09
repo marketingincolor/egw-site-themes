@@ -8,6 +8,7 @@ $blog_archive_pages_classes = discussion_blog_archive_pages_classes(discussion_g
 	<div class="<?php echo esc_attr($blog_archive_pages_classes['inner']); ?>">
 		<?php discussion_get_blog(discussion_get_author_blog_list()); ?>
 	</div>
-<?php do_action('discussion_before_container_close'); ?>
+<?php #do_action('discussion_before_container_close'); ?>
+
 </div>
 <?php get_footer(); ?>

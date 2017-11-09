@@ -84,7 +84,7 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
                                 $title_length = '';
                                 $display_date = 'yes';
                                 $date_format = 'd. F Y';
-                                $display_category = 'yes';
+                                $display_category = 'no';
                                 $display_comments = 'yes';
                                 $display_share = 'yes';
                                 $display_count = 'yes';
@@ -186,9 +186,9 @@ if(!isset($slug_page)) $slug_page=basename(get_permalink());
                                                 // discussion_post_info_comments(array(
                                                 //     'comments' => $display_comments
                                                 // ));
-                                                discussion_post_info_count(array(
-                                                    'count' => $display_count
-                                                ), 'list');
+                                                // discussion_post_info_count(array(
+                                                //     'count' => $display_count
+                                                // ), 'list');
                                                 ?>
                                             </div>
                                             <div class="mkd-pt-info-section-background"></div>

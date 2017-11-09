@@ -7,9 +7,19 @@ and open the template in the editor.
     Created on : Jun 29, 2016, 3:38:22 PM
     Author     : FSSD
 */
+
+.mkd-page-header .mkd-grid .mkd-vertical-align-containers { height: 100% !important; }
+
+.mkd-logo-wrapper {
+    float: left;
+    position: absolute;
+    top: 48%;
+    transform: translateY(-50%);
+}
+
 /*sidebar welcome css starts here*/
 .fsp-welcome-branch{
-    padding-bottom: 40px;
+    /*padding-bottom: 40px;*/
 }
 .fsp-branch-title {
     padding-bottom: 20px;

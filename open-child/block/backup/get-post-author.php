@@ -82,14 +82,7 @@ if (!empty($user->first_name) && !empty($user->last_name)) {
                     if(get_field('written_by_condition')) {
                         the_field('written_by_condition');
                     }
-
-                    if($displayNameis == 'Jaime Brenkus'):
-                        echo '<a href="https://myevergreenwellness.com/category/activity/jaime-brenkus/" title="Jaime Brenkus">' . $displayNameis . '</a>';
-                    elseif($displayNameis == 'Dani Spies'):
-                        echo '<a href="https://myevergreenwellness.com/category/nutrition/dani-spies-recipes/">' . $displayNameis . '</a>';
-                    else:
-                        echo $displayNameis;
-                    endif;
+                    echo ' ' . $displayNameis; 
                 ?>
                 </h4>
                 <p><?php echo $user->description; ?></p>
